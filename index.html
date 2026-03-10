@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sidebar Test</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- ================= SIDEBAR ================= -->
+<aside id="sidebar">
+    <button id="button-toggle-sidebar"></button>
+
+    <nav>
+        <!-- Top Buttons -->
+        <div>
+            <ul>
+                <li><button id="button-enter-editor">EDITOR</button></li>
+                <li><button id="button-enter-images">IMAGES</button></li>
+                <li><button id="button-enter-practice">PRACTICE</button></li>
+            </ul>
+        </div>
+
+        <!-- Middle Sidebar: Chapters -->
+        <div>
+            <ul></ul>
+            <button id="button-add-chapter">+ add chapter</button>
+        </div>
+
+        <!-- Bottom Sidebar: Settings & Start -->
+        <div>
+            <ul>
+                <li>
+                    <span>QUESTIONS</span>
+                    <input type="text" placeholder="100" id="input-questions">
+                </li>
+                <li>
+                    <span>TIME</span>
+                    <input type="text" placeholder="30 min" id="input-time">
+                </li>
+                <li>
+                    <span>IMAGES</span>
+                    <label class="toggle-switch">
+                        <input type="checkbox">
+                        <span class="toggle-slider"></span>
+                    </label>
+                </li>
+                <li>
+                    <span>SHUFFLE</span>
+                    <label class="toggle-switch">
+                        <input type="checkbox">
+                        <span class="toggle-slider"></span>
+                    </label>
+                </li>
+            </ul>
+            <button id="button-start-test">START</button>
+        </div>
+    </nav>
+</aside>
+
+<!-- ================= MAIN CONTENT ================= -->
+<main>
+    <!-- Editor View -->
+    <section id="view-editor" class="active">  
+    <h1>EDITOR</h1>
+
+    <div class="editor-panel">
+
+        <div class="select-wrapper">
+            <select id="editor-chapter-select"></select>
+        </div>
+
+        <button id="button-add-question" class="add-button">+ add question</button>
+        <button id="button-add-image">+ add image</button>
+
+        <button id="button-toggle-collapse">collapse all</button>
+
+        <!-- NEW: items will appear here -->
+        <div id="editor-items"></div>
+
+    </div>
+</section>
+
+    <!-- Images View -->
+    <section id="view-images" style="display:none;">  
+        <h1>IMAGES</h1>
+        <div>
+            <p>This is the Images view.</p>
+        </div>
+    </section>
+
+    <!-- Practice View -->
+    <section id="view-practice" style="display:none;">  
+        <h1>PRACTICE</h1>
+        <div>
+            <p>This is the Practice view.</p>
+        </div>
+    </section>
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
