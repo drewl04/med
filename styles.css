@@ -674,6 +674,7 @@ li.dragging { opacity: 0.5; }
 
     width: auto;        /* shrink to content */
     height: 60vh;
+    max-width: 80%;
 
     /*background-color: red;*/
     border-radius: 1rem;
