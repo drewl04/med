@@ -720,3 +720,24 @@ btnShowMoreImageExplanation.addEventListener("click", () => {
         toggleText.textContent = imagesExplanationVisible ? "Show Less" : "Show More";
     }
 });
+
+
+document.addEventListener('keydown', (e) => {
+    // If the user is typing in an input/textarea, ignore
+    const activeTag = document.activeElement.tagName.toLowerCase();
+    if (activeTag === 'input' || activeTag === 'textarea') return;
+
+    switch (e.key) {
+        case 'ArrowRight': // next image
+            if (currentView === viewImages) {
+                showRandomImage();
+            }
+            break;
+        case ' ': // spacebar
+            e.preventDefault(); // prevent default scrolling / button click
+            if (currentView === viewImages) {
+                showRandomImage();
+            }
+            break;
+    }
+});
