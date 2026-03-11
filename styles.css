@@ -701,6 +701,11 @@ li.dragging { opacity: 0.5; }
 
 }
 
+.images-panel .images-inner{
+    padding: 0.5rem;
+}
+
+
 
 
 
@@ -765,7 +770,7 @@ li.dragging { opacity: 0.5; }
 #explanation-panel
 {
     background-color: rgb(30,34,79);
-    width: 50%;               /* span full width of parent */
+    width: 80%;               /* span full width of parent */
     /*max-width: 500px;          /* same as editor panel max-width */
     margin: 1rem auto;         /* center horizontally with some spacing */
     padding: 1rem;             /* optional: give some inner padding */
