@@ -680,7 +680,7 @@ li.dragging { opacity: 0.5; }
     border-radius: 1rem;
     padding: 1.5rem;
     box-sizing: border-box;
-    margin: 0 auto;    /* center horizontally */
+    margin: 0 auto;   
     margin-top: 6rem; /* <-- adds space from top */
 }
 
