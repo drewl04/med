@@ -45,10 +45,57 @@ function debouncedSave(){
 
 }
 
+// ========================== IMAGES VIEW ==========================
+const imagesDisplay = document.getElementById('images-current'); // <img> inside viewImages
+const btnImagesNext = document.getElementById('images-next');    // Next button
+
+let currentImage = null; // track current image to avoid repeats
+
 // ========================== UTILITIES ==========================
 function isMobile() {
     return 'ontouchstart' in window || navigator.maxTouchPoints > 0;
 }
+
+function getCheckedChaptersImages() {
+    // Collect images only from chapters whose buttons are active (checked)
+    const checkedChapters = chapters.filter(ch => {
+        const li = chapterList.querySelector(`li[data-id="${ch.id}"]`);
+        if (!li) return false;
+        const btn = li.querySelector('.chapter-button');
+        return btn.classList.contains('active');
+    });
+
+    let images = [];
+    checkedChapters.forEach(ch => {
+        ch.questions.forEach(q => {
+            if (q.imagePath) images.push(q.imagePath);
+        });
+    });
+
+    return images;
+}
+
+function showRandomImage() {
+    const images = getCheckedChaptersImages();
+    if (!images.length) {
+        imagesDisplay.style.display = 'none'; // no images available
+        return;
+    }
+
+    
+
+    // pick a random image different from current
+    let nextImage;
+    do {
+        nextImage = images[Math.floor(Math.random() * images.length)];
+    } while (nextImage === currentImage && images.length > 1);
+
+    currentImage = nextImage;
+    imagesDisplay.src = currentImage;
+    imagesDisplay.style.display = 'block'; 
+}
+
+btnImagesNext.addEventListener('click', showRandomImage);
 
 [inputQuestions, inputTime].forEach(input => {
     input.addEventListener('input', () => {
@@ -62,6 +109,11 @@ function isMobile() {
 function showView(view) {
     [viewEditor, viewImages, viewPractice].forEach(v => v.style.display = 'none');
     view.style.display = 'block';
+
+    if (view === viewImages) {
+    currentImage = null; // reset
+    showRandomImage();    // show a random image immediately
+}
 
     [btnEditor, btnImages, btnPractice].forEach(btn => btn.classList.remove('active'));
     if (view === viewEditor) btnEditor.classList.add('active');
@@ -506,11 +558,22 @@ function createQuestionComponent(q, index){
         deleteBtn.className = "delete-question";
         deleteBtn.textContent = "🗑";
 
-        deleteBtn.onclick = () => {
-            editorChapter.questions.splice(index,1);
-            renderQuestions();
-            debouncedSave();
-        };
+        deleteBtn.onclick = async () => {
+
+    const path = q.imagePath;
+
+    if(path){
+        await fetch('/api/delete-image', {
+            method: 'DELETE',
+            headers: {'Content-Type':'application/json'},
+            body: JSON.stringify({ path })
+        });
+    }
+
+    editorChapter.questions.splice(index,1);
+    renderQuestions();
+    debouncedSave();
+};
 
         header.append(arrow, number, imageInput, deleteBtn);
 
@@ -732,31 +795,41 @@ btnToggleCollapse.addEventListener("click", ()=>{
 });
 
 btnAddImage.addEventListener('click', async () => {
+
     if (!editorChapter) return;
 
-    // Create a hidden file input dynamically
     const fileInput = document.createElement('input');
     fileInput.type = 'file';
     fileInput.accept = 'image/*';
-    
-    fileInput.onchange = () => {
+
+    fileInput.onchange = async () => {
+
         const file = fileInput.files[0];
         if (!file) return;
 
-        // Create a URL for preview
-        const imageUrl = URL.createObjectURL(file);
+        const formData = new FormData();
+        formData.append("image", file);
+        
+
+        const res = await fetch('/api/upload-image?chapterId=' + editorChapter.id, {
+    method: 'POST',
+    body: formData
+});
+
+        const data = await res.json();
 
         const imageItem = {
-            image: "",          // title starts empty
-            imagePath: imageUrl, // display immediately
+            image: "",
+            imagePath: data.path, // permanent path
             explanation: "",
             collapsed: false
         };
 
         editorChapter.questions.push(imageItem);
+
         renderQuestions();
         debouncedSave();
     };
 
-    fileInput.click(); // open file picker
+    fileInput.click();
 });

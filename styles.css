@@ -624,3 +624,65 @@ li.dragging { opacity: 0.5; }
 {
     margin-bottom: 1rem;
 }
+
+/* ================= IMAGES VIEW ================= */
+#view-images {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* vertical centering */
+    align-items: center;     /* horizontal centering */
+    min-height: 100vh;
+    width: 100%;
+    box-sizing: border-box;
+    text-align: center;      /* ensures heading is centered */
+
+}
+
+
+#view-images h1 {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+/* Panel containing the image and button */
+.images-panel {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+
+    width: auto;        /* shrink to content */
+    max-width: 900px;
+    height: 70vh;
+
+    background-color: rgb(30,34,79);
+    border-radius: 1rem;
+    padding: 1.5rem;
+    box-sizing: border-box;
+    margin: 0 auto;    /* center horizontally */
+    margin-top: 6rem; /* <-- adds space from top */
+}
+
+/* Image styling */
+.images-panel img {
+    max-width: 100%;
+    max-height: calc(70vh - 60px); /* leave space for button */
+    object-fit: contain;
+    border-radius: 0.5rem;
+    margin-bottom: auto; /* pushes image upward */
+}
+
+/* NEXT button styling */
+#images-next {
+    margin-top: 1rem;
+    width: 6rem;
+    height: 2rem;
+    border-radius: 1rem;
+    background-color: rgb(37,188,0);
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#images-next:hover {
+    background-color: rgb(28,142,0);
+}
