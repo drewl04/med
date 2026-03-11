@@ -722,6 +722,8 @@ li.dragging { opacity: 0.5; }
     box-sizing: border-box;    /* include padding in width */
     border-radius: 0.5rem;     /* optional: match styling */
     margin-top: 0rem;
+    text-align: left;
+    margin-bottom: 0rem;
 }
 .toggle-explanation-btn {
     padding: 0.5rem 1rem;
