@@ -4,6 +4,12 @@
     "name": "chapter 7",
     "questions": [
       {
+        "image": "",
+        "imagePath": "/images/chapter-10-img-1.PNG",
+        "explanation": "",
+        "collapsed": true
+      },
+      {
         "question": "",
         "answers": [
           {
@@ -27,12 +33,6 @@
             "correct": false
           }
         ],
-        "explanation": "",
-        "collapsed": true
-      },
-      {
-        "image": "",
-        "imagePath": "/images/chapter-10-img-1.PNG",
         "explanation": "",
         "collapsed": true
       }

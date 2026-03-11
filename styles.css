@@ -315,6 +315,7 @@ nav {
     display: flex;
     flex-direction: column;
     gap: 2rem;
+    border: 0.2rem solid rgb(47,53,124);
 }
 
 .editor-item div {
