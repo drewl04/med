@@ -28,7 +28,7 @@
           }
         ],
         "explanation": "",
-        "collapsed": false
+        "collapsed": true
       },
       {
         "question": "",
@@ -55,13 +55,13 @@
           }
         ],
         "explanation": "",
-        "collapsed": false
+        "collapsed": true
       },
       {
         "image": "",
         "imagePath": "/images/chapter-1-img-3.PNG",
         "explanation": "fsvs",
-        "collapsed": false
+        "collapsed": true
       }
     ]
   },
