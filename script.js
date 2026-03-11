@@ -658,7 +658,7 @@ editorItems.addEventListener("dragover",e=>{
 });
 
 // ========================== INIT ==========================
-showView(viewEditor);
+showView(viewPractice);
 loadChaptersFromServer();
 
 btnAddQuestion.addEventListener('click',()=>{

@@ -78,7 +78,9 @@ aside.expanded {
     #sidebar.expanded {
         width: 10rem;
     }
+
 }
+
 
 
 
@@ -770,20 +772,7 @@ li.dragging { opacity: 0.5; }
 
 
 
-/*#images-toggle-explanation span {
-  display: block;       
-  flex: 1;              
-  height: 0.3rem;         
-  background: rgb(47,53,124);;    
-}
 
-#images-toggle-explanation span:first-child {
-  margin-right: 1rem;   
-}
-
-#images-toggle-explanation span:last-child {
-  margin-left: 1rem;   
-}*/
 
 #images-toggle-explanation .line {
   display: block;       /* critical! spans need to be block for height to work */
@@ -798,4 +787,11 @@ li.dragging { opacity: 0.5; }
 
 #images-toggle-explanation .line:last-child {
   margin-left: 1rem;
+}
+
+@media (max-width: 1000px) {
+#explanation-panel
+{
+    margin-top: 1.5rem;
+}
 }
