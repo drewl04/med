@@ -707,14 +707,16 @@ btnAddImage.addEventListener('click',async()=>{
 
 
 
-let isImageExplanationHidden = false;
+let imagesExplanationVisible = false; // tracks whether the explanation is visible
 
 btnShowMoreImageExplanation.addEventListener("click", () => {
-    isImageExplanationHidden = !isImageExplanationHidden;
+    imagesExplanationVisible = !imagesExplanationVisible;
 
-    if (isImageExplanationHidden) {
-        imagesCaption.style.display = "none";
-    } else {
-        imagesCaption.style.display = "block";
+    imagesCaption.style.display = imagesExplanationVisible ? "block" : "none";
+
+    // Optionally, update button text dynamically
+    const toggleText = btnShowMoreImageExplanation.querySelector('.toggle-text');
+    if (toggleText) {
+        toggleText.textContent = imagesExplanationVisible ? "Show Less" : "Show More";
     }
 });
