@@ -714,12 +714,57 @@ li.dragging { opacity: 0.5; }
 
 
 #images-explanation {
-    background-color: red;
+    background-color: rgb(30,34,79);;
     width: 100%;               /* span full width of parent */
     max-width: 900px;          /* same as editor panel max-width */
     margin: 1rem auto;         /* center horizontally with some spacing */
     padding: 1rem;             /* optional: give some inner padding */
     box-sizing: border-box;    /* include padding in width */
     border-radius: 0.5rem;     /* optional: match styling */
-    margin-top: 3rem;
+    margin-top: 0rem;
+}
+.toggle-explanation-btn {
+    padding: 0.5rem 1rem;
+    background-color: #0076ff;
+    color: white;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    margin-bottom: 0.5rem;
+}
+
+.images-caption {
+    margin-top: 0.5rem;
+    font-style: italic;
+    color: #333;
+    display: none; /* hidden by default */
+}
+
+#explanation-panel
+{
+    background-color: rgb(30,34,79);;
+    width: 100%;               /* span full width of parent */
+    max-width: 900px;          /* same as editor panel max-width */
+    margin: 1rem auto;         /* center horizontally with some spacing */
+    padding: 1rem;             /* optional: give some inner padding */
+    box-sizing: border-box;    /* include padding in width */
+    border-radius: 1rem;     /* optional: match styling */
+    margin-top: 2.5rem;
+}
+
+
+#images-toggle-explanation
+{
+    padding: 0;
+    border: 0;
+}
+
+
+#images-toggle-explanation {
+  display: flex;
+  align-items: center;
+  border: none;
+  background: none;
+  font-weight: bold;
+  cursor: pointer;
 }

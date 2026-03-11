@@ -26,6 +26,8 @@ const btnAddImage = document.getElementById('button-add-image');
 const btnToggleCollapse = document.getElementById("button-toggle-collapse");
 const editorItems = document.getElementById('editor-items');
 
+
+
 let chapters = []; // { id, name, questions }
 let chapterCount = 0;
 let chapterIdCounter = 1;
@@ -72,10 +74,19 @@ function getCheckedChaptersImages() {
     return images;
 }
 
+
+
+
+
+
+
+
+
 function showRandomImage() {
     const images = getCheckedChaptersImages();
     if (!images.length) {
         imagesDisplay.style.display = 'none';
+        imagesCaption.style.display = 'none';
         return;
     }
 
@@ -88,8 +99,17 @@ function showRandomImage() {
     imagesDisplay.src = currentImage;
     imagesDisplay.style.display = 'block';
 
+    // Update explanation text
     imagesCaption.textContent = imageExplanationsMap[currentImage] || '';
+    imagesCaption.style.display = imagesExplanationVisible ? 'block' : 'none';
 }
+
+
+
+
+
+
+
 
 btnImagesNext.addEventListener('click', showRandomImage);
 
