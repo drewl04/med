@@ -1,142 +1,14 @@
 [
   {
-    "id": 10,
-    "name": "chapter 7",
+    "id": 1,
+    "name": "chapter 1",
     "questions": [
       {
         "image": "",
-        "imagePath": "/images/chapter-10-img-1.PNG",
-        "explanation": "",
-        "collapsed": true
-      },
-      {
-        "question": "",
-        "answers": [
-          {
-            "text": "",
-            "correct": false
-          },
-          {
-            "text": "",
-            "correct": false
-          },
-          {
-            "text": "",
-            "correct": false
-          },
-          {
-            "text": "",
-            "correct": false
-          },
-          {
-            "text": "",
-            "correct": false
-          }
-        ],
-        "explanation": "",
-        "collapsed": true
-      },
-      {
-        "image": "",
-        "imagePath": "/images/chapter-10-img-2.PNG",
-        "explanation": "",
-        "collapsed": true
-      }
-    ]
-  },
-  {
-    "id": 12,
-    "name": "chapter 9",
-    "questions": []
-  },
-  {
-    "id": 13,
-    "name": "chapter 10",
-    "questions": []
-  },
-  {
-    "id": 11,
-    "name": "chapter 8",
-    "questions": [
-      {
-        "image": "",
-        "imagePath": "/images/chapter-11-img-1.PNG",
-        "explanation": "",
-        "collapsed": true
-      }
-    ]
-  },
-  {
-    "id": 17,
-    "name": "chapter 8",
-    "questions": []
-  },
-  {
-    "id": 14,
-    "name": "chapter 5",
-    "questions": []
-  },
-  {
-    "id": 15,
-    "name": "chapter 6",
-    "questions": [
-      {
-        "question": "",
-        "answers": [
-          {
-            "text": "",
-            "correct": false
-          },
-          {
-            "text": "",
-            "correct": false
-          },
-          {
-            "text": "",
-            "correct": false
-          },
-          {
-            "text": "",
-            "correct": false
-          },
-          {
-            "text": "",
-            "correct": false
-          }
-        ],
-        "explanation": "",
+        "imagePath": "/images/chapter-1-img-1.PNG",
+        "explanation": "daada",
         "collapsed": false
       }
     ]
-  },
-  {
-    "id": 16,
-    "name": "chapter 7",
-    "questions": []
-  },
-  {
-    "id": 18,
-    "name": "chapter 9",
-    "questions": []
-  },
-  {
-    "id": 19,
-    "name": "chapter 10",
-    "questions": []
-  },
-  {
-    "id": 20,
-    "name": "chapter 11",
-    "questions": []
-  },
-  {
-    "id": 21,
-    "name": "chapter 12",
-    "questions": []
-  },
-  {
-    "id": 22,
-    "name": "chapter 13",
-    "questions": []
   }
 ]

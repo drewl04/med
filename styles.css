@@ -711,3 +711,24 @@ li.dragging { opacity: 0.5; }
     margin-top: 1rem; /* smaller gap on small screens */
   }
 }
+
+.images-explanation {
+    display: flex;               /* use flexbox */
+    justify-content: center;     /* center horizontally */
+    align-items: center;         /* center vertically if needed */
+    flex-direction: column;      /* text stacked vertically */
+    
+    margin-top: 1rem;
+    max-width: 900px;
+    width: 90%;
+    padding: 1rem;
+    background-color: rgb(30,34,79);
+    border: 0.2rem solid rgb(47,53,124);
+    border-radius: 1rem;
+    color: white;
+    font-size: 1rem;
+    line-height: 1.5rem;
+    min-height: 3rem;
+    text-align: center;
+    box-sizing: border-box;
+}
