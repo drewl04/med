@@ -680,7 +680,7 @@ li.dragging { opacity: 0.5; }
     padding: 1.5rem;
     box-sizing: border-box;
     margin: 0 auto;    /* center horizontally */
-    margin-top: 7rem; /* <-- adds space from top */
+    margin-top: 6rem; /* <-- adds space from top */
 }
 
 
@@ -822,13 +822,6 @@ li.dragging { opacity: 0.5; }
 
 #images-toggle-explanation .line:last-child {
   margin-left: 1rem;
-}
-
-@media (max-width: 1000px) {
-#explanation-panel
-{
-    margin-top: 1.5rem;
-}
 }
 
 
