@@ -648,10 +648,10 @@ li.dragging { opacity: 0.5; }
 .images-panel {
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
+    justify-content: space-between; /* distribute space between image and button */
     align-items: center;
 
-    width: auto;        /* shrink to content */
+    width: auto;
     max-width: 900px;
     height: 70vh;
 
@@ -659,17 +659,16 @@ li.dragging { opacity: 0.5; }
     border-radius: 1rem;
     padding: 1.5rem;
     box-sizing: border-box;
-    margin: 0 auto;    /* center horizontally */
-    margin-top: 0.1rem; /* <-- adds space from top */
+    margin: 0 auto;
+    margin-top: 6rem; /* keeps space from top */
 }
 
-/* Image styling */
 .images-panel img {
     max-width: 100%;
     max-height: calc(70vh - 60px); /* leave space for button */
     object-fit: contain;
     border-radius: 0.5rem;
-    margin-bottom: auto; /* pushes image upward */
+    margin: 0; /* remove auto margin to center via flex */
 }
 
 /* NEXT button styling */
@@ -685,4 +684,10 @@ li.dragging { opacity: 0.5; }
 
 #images-next:hover {
     background-color: rgb(28,142,0);
+}
+
+@media (max-width: 1000px) {
+  .images-panel {
+    margin-top: 1rem; /* smaller gap on small screens */
+  }
 }

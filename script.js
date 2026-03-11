@@ -82,7 +82,7 @@ function showRandomImage() {
         return;
     }
 
-    
+
 
     // pick a random image different from current
     let nextImage;
@@ -195,12 +195,27 @@ function createChapterItem(chapter) {
     spanText.textContent = chapter.name;
     chapterBtn.appendChild(spanText);
 
-    chapterBtn.addEventListener('click', () => {
+    // make all chapters active by default
+chapterBtn.classList.add('active');
+check.style.visibility = 'visible';
+chapterBtn.style.background = 'rgb(0,118,255)';
+
+if (isMobile()) {
+    chapterBtn.addEventListener('touchstart', e => {
+        e.preventDefault(); // stops 300ms click delay
         const active = chapterBtn.classList.toggle('active');
         check.style.visibility = active ? 'visible' : 'hidden';
-        chapterBtn.style.background =
-            active ? 'rgb(0,118,255)' : 'transparent';
-    });
+        chapterBtn.style.background = active ? 'rgb(0,118,255)' : 'transparent';
+    }, { passive: false });
+}
+
+    chapterBtn.addEventListener('click', () => {
+    if (!isMobile()) {
+        const active = chapterBtn.classList.toggle('active');
+        check.style.visibility = active ? 'visible' : 'hidden';
+        chapterBtn.style.background = active ? 'rgb(0,118,255)' : 'transparent';
+    }
+});
 
     // rename
     spanText.addEventListener('dblclick', e => {
