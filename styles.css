@@ -780,9 +780,9 @@ width: 100%;
 }
 
 #images-toggle-explanation span:first-child {
-  margin-right: 2rem;   /* space before text */
+  margin-right: 1rem;   /* space before text */
 }
 
 #images-toggle-explanation span:last-child {
-  margin-left: 2rem;    /* space after text */
+  margin-left: 1rem;    /* space after text */
 }
