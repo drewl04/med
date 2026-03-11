@@ -673,10 +673,9 @@ li.dragging { opacity: 0.5; }
     align-items: center;
 
     width: auto;        /* shrink to content */
-    max-width: 900px;
-    height: 70vh;
+    height: 60vh;
 
-    background-color: rgb(30,34,79);
+    /*background-color: red;*/
     border-radius: 1rem;
     padding: 1.5rem;
     box-sizing: border-box;
@@ -684,13 +683,36 @@ li.dragging { opacity: 0.5; }
     margin-top: 3rem; /* <-- adds space from top */
 }
 
+
+
+.images-panel .images-inner{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    width: auto;       
+    height: auto;
+
+    background-color: rgb(30,34,79);
+    border-radius: 1rem;
+    padding: 1rem;
+    box-sizing: border-box;
+    margin-top: 5rem;
+
+}
+
+
+
+
+
 /* Image styling */
 .images-panel img {
     max-width: 100%;
-    max-height: calc(70vh - 60px); /* leave space for button */
+    max-height: 50vh;
+    /*max-height: calc(60vh - 30vh); /* leave space for button */
     object-fit: contain;
     border-radius: 0.5rem;
-    margin-bottom: auto; /* pushes image upward */
+    margin-bottom: 0; /* pushes image upward */
 }
 
 /* NEXT button styling */
@@ -702,6 +724,7 @@ li.dragging { opacity: 0.5; }
     background-color: rgb(37,188,0);
     font-weight: bold;
     cursor: pointer;
+    flex-shrink: 0; 
 }
 
 #images-next:hover {
@@ -741,9 +764,9 @@ li.dragging { opacity: 0.5; }
 
 #explanation-panel
 {
-    background-color: rgb(30,34,79);;
-    width: 100%;               /* span full width of parent */
-    max-width: 900px;          /* same as editor panel max-width */
+    background-color: rgb(30,34,79);
+    width: 50%;               /* span full width of parent */
+    /*max-width: 500px;          /* same as editor panel max-width */
     margin: 1rem auto;         /* center horizontally with some spacing */
     padding: 1rem;             /* optional: give some inner padding */
     box-sizing: border-box;    /* include padding in width */
@@ -795,3 +818,7 @@ li.dragging { opacity: 0.5; }
     margin-top: 1.5rem;
 }
 }
+
+
+
+

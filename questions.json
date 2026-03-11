@@ -1,5 +1,110 @@
 [
   {
+    "id": 3,
+    "name": "chapter 3",
+    "questions": [
+      {
+        "question": "",
+        "answers": [
+          {
+            "text": "",
+            "correct": false
+          },
+          {
+            "text": "",
+            "correct": false
+          },
+          {
+            "text": "",
+            "correct": false
+          },
+          {
+            "text": "",
+            "correct": false
+          },
+          {
+            "text": "",
+            "correct": false
+          }
+        ],
+        "explanation": "",
+        "collapsed": false
+      },
+      {
+        "image": "",
+        "imagePath": "/images/chapter-3-img-1.PNG",
+        "explanation": "",
+        "collapsed": true
+      },
+      {
+        "question": "",
+        "answers": [
+          {
+            "text": "",
+            "correct": false
+          },
+          {
+            "text": "",
+            "correct": false
+          },
+          {
+            "text": "",
+            "correct": false
+          },
+          {
+            "text": "",
+            "correct": false
+          },
+          {
+            "text": "",
+            "correct": false
+          }
+        ],
+        "explanation": "",
+        "collapsed": false
+      },
+      {
+        "image": "",
+        "imagePath": "/images/chapter-3-img-3.PNG",
+        "explanation": "",
+        "collapsed": false
+      },
+      {
+        "question": "",
+        "answers": [
+          {
+            "text": "",
+            "correct": false
+          },
+          {
+            "text": "",
+            "correct": false
+          },
+          {
+            "text": "",
+            "correct": false
+          },
+          {
+            "text": "",
+            "correct": false
+          },
+          {
+            "text": "",
+            "correct": false
+          }
+        ],
+        "explanation": "",
+        "collapsed": false
+      },
+      {
+        "image": "",
+        "imagePath": "/images/chapter-3-img-4.PNG",
+        "explanation": "",
+        "collapsed": false
+      }
+    ]
+  },
+  {
     "id": 1,
     "name": "chapter 1",
     "questions": [
@@ -28,7 +133,7 @@
           }
         ],
         "explanation": "",
-        "collapsed": false
+        "collapsed": true
       },
       {
         "image": "",
@@ -72,84 +177,6 @@
       {
         "image": "",
         "imagePath": "/images/chapter-2-img-1.PNG",
-        "explanation": "",
-        "collapsed": false
-      }
-    ]
-  },
-  {
-    "id": 3,
-    "name": "chapter 3",
-    "questions": [
-      {
-        "question": "",
-        "answers": [
-          {
-            "text": "",
-            "correct": false
-          },
-          {
-            "text": "",
-            "correct": false
-          },
-          {
-            "text": "",
-            "correct": false
-          },
-          {
-            "text": "",
-            "correct": false
-          },
-          {
-            "text": "",
-            "correct": false
-          }
-        ],
-        "explanation": "",
-        "collapsed": false
-      },
-      {
-        "image": "",
-        "imagePath": "/images/chapter-3-img-1.PNG",
-        "explanation": "",
-        "collapsed": false
-      }
-    ]
-  },
-  {
-    "id": 4,
-    "name": "chapter 4",
-    "questions": [
-      {
-        "question": "",
-        "answers": [
-          {
-            "text": "",
-            "correct": false
-          },
-          {
-            "text": "",
-            "correct": false
-          },
-          {
-            "text": "",
-            "correct": false
-          },
-          {
-            "text": "",
-            "correct": false
-          },
-          {
-            "text": "",
-            "correct": false
-          }
-        ],
-        "explanation": "",
-        "collapsed": false
-      },
-      {
-        "image": "",
-        "imagePath": "/images/chapter-4-img-1.PNG",
         "explanation": "",
         "collapsed": false
       }

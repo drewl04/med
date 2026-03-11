@@ -47,6 +47,8 @@ function debouncedSave(){
     }, 400);
 }
 
+
+
 // ========================== IMAGES VIEW ==========================
 const imagesDisplay = document.getElementById('images-current');
 const btnImagesNext = document.getElementById('images-next');
