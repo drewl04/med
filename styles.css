@@ -712,23 +712,14 @@ li.dragging { opacity: 0.5; }
   }
 }
 
-.images-explanation {
-    display: flex;               /* use flexbox */
-    justify-content: center;     /* center horizontally */
-    align-items: center;         /* center vertically if needed */
-    flex-direction: column;      /* text stacked vertically */
-    
-    margin-top: 1rem;
-    max-width: 900px;
-    width: 90%;
-    padding: 1rem;
-    background-color: rgb(30,34,79);
-    border: 0.2rem solid rgb(47,53,124);
-    border-radius: 1rem;
-    color: white;
-    font-size: 1rem;
-    line-height: 1.5rem;
-    min-height: 3rem;
-    text-align: center;
-    box-sizing: border-box;
+
+#images-explanation {
+    background-color: red;
+    width: 100%;               /* span full width of parent */
+    max-width: 900px;          /* same as editor panel max-width */
+    margin: 1rem auto;         /* center horizontally with some spacing */
+    padding: 1rem;             /* optional: give some inner padding */
+    box-sizing: border-box;    /* include padding in width */
+    border-radius: 0.5rem;     /* optional: match styling */
+    margin-top: 3rem;
 }
