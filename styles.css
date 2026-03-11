@@ -674,7 +674,7 @@ li.dragging { opacity: 0.5; }
 
     width: auto;        /* shrink to content */
     height: 60vh;
-    max-width: 80%;
+    max-width: 100%;
 
     /*background-color: red;*/
     border-radius: 1rem;
@@ -701,6 +701,8 @@ li.dragging { opacity: 0.5; }
     margin-top: 5rem;
 
 }
+
+
 
 @media (max-width: 1000px) {
   .images-panel .images-inner {
