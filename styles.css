@@ -701,12 +701,11 @@ li.dragging { opacity: 0.5; }
 
 }
 
-
-/*@media (min-width: 1000px) {
-.images-panel .images-inner{
-    padding: 0.5rem !important; 
-}*/
-
+@media (max-width: 1000px) {
+  .images-panel .images-inner {
+    padding: 0.2rem;
+  }
+}
 
 
 
@@ -781,6 +780,13 @@ li.dragging { opacity: 0.5; }
 }
 
 
+@media (max-width: 1000px) {
+  #explanation-panel {
+    width: 80%; 
+  }
+}
+
+
 #images-toggle-explanation
 {
     padding: 0;
@@ -824,6 +830,7 @@ li.dragging { opacity: 0.5; }
     margin-top: 1.5rem;
 }
 }
+
 
 
 
