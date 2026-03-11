@@ -28,40 +28,13 @@
           }
         ],
         "explanation": "",
-        "collapsed": true
-      },
-      {
-        "question": "",
-        "answers": [
-          {
-            "text": "",
-            "correct": false
-          },
-          {
-            "text": "",
-            "correct": false
-          },
-          {
-            "text": "",
-            "correct": false
-          },
-          {
-            "text": "",
-            "correct": false
-          },
-          {
-            "text": "",
-            "correct": false
-          }
-        ],
-        "explanation": "",
-        "collapsed": true
+        "collapsed": false
       },
       {
         "image": "",
-        "imagePath": "/images/chapter-1-img-3.PNG",
-        "explanation": "Diferite miscari de rotatie, explicate intr-o imagine",
-        "collapsed": true
+        "imagePath": "/images/chapter-1-img-1.PNG",
+        "explanation": "",
+        "collapsed": false
       }
     ]
   },
@@ -99,7 +72,7 @@
       {
         "image": "",
         "imagePath": "/images/chapter-2-img-1.PNG",
-        "explanation": "sadafca",
+        "explanation": "",
         "collapsed": false
       }
     ]
@@ -107,56 +80,79 @@
   {
     "id": 3,
     "name": "chapter 3",
-    "questions": []
+    "questions": [
+      {
+        "question": "",
+        "answers": [
+          {
+            "text": "",
+            "correct": false
+          },
+          {
+            "text": "",
+            "correct": false
+          },
+          {
+            "text": "",
+            "correct": false
+          },
+          {
+            "text": "",
+            "correct": false
+          },
+          {
+            "text": "",
+            "correct": false
+          }
+        ],
+        "explanation": "",
+        "collapsed": false
+      },
+      {
+        "image": "",
+        "imagePath": "/images/chapter-3-img-1.PNG",
+        "explanation": "",
+        "collapsed": false
+      }
+    ]
   },
   {
     "id": 4,
     "name": "chapter 4",
-    "questions": []
-  },
-  {
-    "id": 5,
-    "name": "chapter 5",
-    "questions": []
-  },
-  {
-    "id": 8,
-    "name": "chapter 8",
-    "questions": []
-  },
-  {
-    "id": 6,
-    "name": "chapter 6",
-    "questions": []
-  },
-  {
-    "id": 7,
-    "name": "chapter 7",
-    "questions": []
-  },
-  {
-    "id": 9,
-    "name": "chapter 9",
-    "questions": []
-  },
-  {
-    "id": 10,
-    "name": "chapter 10",
-    "questions": []
-  },
-  {
-    "id": 11,
-    "name": "chapter 11",
-    "questions": []
-  },
-  {
-    "id": 12,
-    "name": "chapter 12",
-    "questions": []
-  },
-  {
-    "id": 13,
-    "name": "chapter 13",
-    "questions": []
+    "questions": [
+      {
+        "question": "",
+        "answers": [
+          {
+            "text": "",
+            "correct": false
+          },
+          {
+            "text": "",
+            "correct": false
+          },
+          {
+            "text": "",
+            "correct": false
+          },
+          {
+            "text": "",
+            "correct": false
+          },
+          {
+            "text": "",
+            "correct": false
+          }
+        ],
+        "explanation": "",
+        "collapsed": false
+      },
+      {
+        "image": "",
+        "imagePath": "/images/chapter-4-img-1.PNG",
+        "explanation": "",
+        "collapsed": false
+      }
+    ]
   }
 ]

@@ -282,7 +282,32 @@ function createChapterItem(chapter) {
 }
 
 // ========================== DELETE ==========================
-function handleDeleteChapter(li, id) {
+async function handleDeleteChapter(li, id) {
+    // Find the chapter to delete
+    const chapter = chapters.find(ch => ch.id === id);
+    if (!chapter) return;
+
+    // Collect all image paths
+    const imagePaths = chapter.questions
+        .map(q => q.imagePath)
+        .filter(Boolean);
+
+    // Send request to delete all images of this chapter
+    if (imagePaths.length > 0) {
+        try {
+            await fetch('/api/delete-images', {
+                method: 'DELETE',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ paths: imagePaths })
+            });
+
+            imagePaths.forEach(p => delete imageExplanationsMap[p]);
+        } catch (err) {
+            console.error('Failed to delete images:', err);
+        }
+    }
+
+    // Remove chapter locally
     chapters = chapters.filter(ch => ch.id !== id);
     li.remove();
 

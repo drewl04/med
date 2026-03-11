@@ -96,6 +96,32 @@ app.delete('/api/delete-image', (req, res) => {
 
 });
 
+app.delete('/api/delete-images', (req, res) => {
+    const paths = req.body.paths;
+    if (!paths || !Array.isArray(paths)) {
+        return res.status(400).json({ error: "Missing or invalid paths array" });
+    }
+
+    const results = [];
+
+    paths.forEach(imagePath => {
+        const fullPath = path.join(process.cwd(), imagePath.replace(/^\/+/, ''));
+        try {
+            if (fs.existsSync(fullPath)) {
+                fs.unlinkSync(fullPath);
+                results.push({ path: imagePath, status: "deleted" });
+            } else {
+                results.push({ path: imagePath, status: "not found" });
+            }
+        } catch (err) {
+            console.error("Failed to delete image:", imagePath, err);
+            results.push({ path: imagePath, status: "error" });
+        }
+    });
+
+    res.json({ results });
+});
+
 app.listen(PORT, () => {
   console.log(`Server running at http://localhost:${PORT}`);
 });
