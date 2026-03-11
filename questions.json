@@ -35,6 +35,12 @@
         ],
         "explanation": "",
         "collapsed": true
+      },
+      {
+        "image": "",
+        "imagePath": "/images/chapter-10-img-2.PNG",
+        "explanation": "",
+        "collapsed": true
       }
     ]
   },
@@ -106,6 +112,31 @@
   {
     "id": 16,
     "name": "chapter 7",
+    "questions": []
+  },
+  {
+    "id": 18,
+    "name": "chapter 9",
+    "questions": []
+  },
+  {
+    "id": 19,
+    "name": "chapter 10",
+    "questions": []
+  },
+  {
+    "id": 20,
+    "name": "chapter 11",
+    "questions": []
+  },
+  {
+    "id": 21,
+    "name": "chapter 12",
+    "questions": []
+  },
+  {
+    "id": 22,
+    "name": "chapter 13",
     "questions": []
   }
 ]
