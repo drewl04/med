@@ -767,4 +767,22 @@ li.dragging { opacity: 0.5; }
   background: none;
   font-weight: bold;
   cursor: pointer;
+width: 100%;   
+}
+
+
+
+#images-toggle-explanation span {
+  display: block;       /* critical! spans need to be block for height to work */
+  flex: 1;              /* makes the lines expand */
+  height: 0.3rem;          /* line thickness */
+  background: rgb(47,53,124);;     /* line color */  
+}
+
+#images-toggle-explanation span:first-child {
+  margin-right: 2rem;   /* space before text */
+}
+
+#images-toggle-explanation span:last-child {
+  margin-left: 2rem;    /* space after text */
 }
