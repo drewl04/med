@@ -682,6 +682,8 @@ li.dragging { opacity: 0.5; }
     box-sizing: border-box;
     margin: 0 auto;   
     margin-top: 6rem; /* <-- adds space from top */
+    padding-left: 0rem;
+    padding-right: 0rem;
 }
 
 
