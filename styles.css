@@ -738,7 +738,7 @@ li.dragging { opacity: 0.5; }
 
 @media (max-width: 1000px) {
   .images-panel {
-    margin-top: 7rem; 
+    margin-top: 6rem; 
   }
 }
 
