@@ -26,6 +26,7 @@ const btnAddImage = document.getElementById('button-add-image');
 const btnToggleCollapse = document.getElementById("button-toggle-collapse");
 const editorItems = document.getElementById('editor-items');
 
+const btnShowMoreImageExplanation = document.getElementById('images-toggle-explanation');
 
 
 let chapters = []; // { id, name, questions }
@@ -702,4 +703,18 @@ btnAddImage.addEventListener('click',async()=>{
     };
 
     fileInput.click();
+});
+
+
+
+let isImageExplanationHidden = false;
+
+btnShowMoreImageExplanation.addEventListener("click", () => {
+    isImageExplanationHidden = !isImageExplanationHidden;
+
+    if (isImageExplanationHidden) {
+        imagesCaption.style.display = "none";
+    } else {
+        imagesCaption.style.display = "block";
+    }
 });
