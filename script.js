@@ -132,6 +132,10 @@ function showView(view) {
         showRandomImage();
     }
 
+    if(view === viewPractice){
+    startPractice();
+}
+
     [btnEditor, btnImages, btnPractice].forEach(btn => btn.classList.remove('active'));
     if (view === viewEditor) btnEditor.classList.add('active');
     else if (view === viewImages) btnImages.classList.add('active');
@@ -684,6 +688,179 @@ editorItems.addEventListener("dragover",e=>{
     else editorItems.insertBefore(dragging,afterElement);
 });
 
+
+
+
+
+
+// ========================== PRACTICE VIEW ==========================
+
+const practiceQuestion = document.getElementById("practice-question");
+const practiceAnswers = document.getElementById("practice-answers");
+const practiceSubmit = document.getElementById("practice-submit");
+
+const practiceExplanationPanel = document.getElementById("practice-explanation-panel");
+const practiceExplanation = document.getElementById("practice-explanation");
+const practiceToggleExplanation = document.getElementById("practice-toggle-explanation");
+
+let practiceQuestions = [];
+let practiceIndex = 0;
+let practiceAnswered = false;
+
+
+// collect questions from selected chapters
+function getPracticeQuestions(){
+
+    const activeChapters = chapters.filter(ch=>{
+        const li = chapterList.querySelector(`li[data-id="${ch.id}"]`);
+        if(!li) return false;
+        return li.querySelector('.chapter-button').classList.contains('active');
+    });
+
+    let list=[];
+
+    activeChapters.forEach(ch=>{
+        ch.questions.forEach(q=>{
+            if(q.answers) list.push(q); // ignore image entries
+        });
+    });
+
+    return list;
+}
+
+
+function startPractice(){
+
+    practiceQuestions = getPracticeQuestions();
+    practiceIndex = 0;
+
+    if(!practiceQuestions.length){
+        practiceQuestion.textContent="No questions available.";
+        practiceAnswers.innerHTML="";
+        return;
+    }
+
+    renderPracticeQuestion();
+}
+
+
+function renderPracticeQuestion(){
+
+    practiceAnswered=false;
+    practiceSubmit.textContent="submit";
+
+    practiceExplanationPanel.style.display="none";
+
+    const q = practiceQuestions[practiceIndex];
+
+    practiceQuestion.textContent = q.question;
+
+    practiceAnswers.innerHTML="";
+
+    q.answers.forEach((a,i)=>{
+
+        const row = document.createElement("label");
+        row.className="practice-answer";
+
+        const radio = document.createElement("input");
+        radio.type="checkbox";
+        radio.dataset.correct = a.correct;
+
+        const span = document.createElement("span");
+        span.textContent = a.text;
+
+        row.append(radio,span);
+        practiceAnswers.appendChild(row);
+
+    });
+
+}
+
+
+practiceSubmit.addEventListener("click",()=>{
+
+    if(!practiceAnswered){
+
+        const q = practiceQuestions[practiceIndex];
+
+        const inputs = [...practiceAnswers.querySelectorAll("input")];
+
+        let correct=true;
+
+        inputs.forEach(input=>{
+
+            const isCorrect = input.dataset.correct==="true";
+            const selected = input.checked;
+
+            const row = input.parentElement;
+
+            if(isCorrect){
+                row.classList.add("correct");
+            }
+
+            if(selected && !isCorrect){
+                row.classList.add("wrong");
+                correct=false;
+            }
+
+            if(!selected && isCorrect){
+                correct=false;
+            }
+
+        });
+
+        practiceAnswered=true;
+
+        practiceSubmit.textContent="next";
+
+        practiceExplanation.textContent = q.explanation || "";
+
+        if(!correct){
+            practiceExplanationPanel.style.display="block";
+            practiceExplanation.style.display="block";
+        }else{
+            practiceExplanationPanel.style.display="block";
+            practiceExplanation.style.display="none";
+        }
+
+    }else{
+
+        practiceIndex++;
+
+        if(practiceIndex>=practiceQuestions.length){
+            practiceQuestion.textContent="Finished.";
+            practiceAnswers.innerHTML="";
+            practiceSubmit.style.display="none";
+            return;
+        }
+
+        renderPracticeQuestion();
+
+    }
+
+});
+
+
+practiceToggleExplanation.addEventListener("click",()=>{
+
+    const visible = practiceExplanation.style.display==="block";
+
+    practiceExplanation.style.display = visible ? "none" : "block";
+
+    const text = practiceToggleExplanation.querySelector(".toggle-text");
+
+    if(text){
+        text.textContent = visible ? "Show More" : "Show Less";
+    }
+
+});
+
+
+
+
+
+
+
 // ========================== INIT ==========================
 showView(viewPractice);
 loadChaptersFromServer();
@@ -768,3 +945,4 @@ document.addEventListener('keydown', (e) => {
             break;
     }
 });
+

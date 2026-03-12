@@ -110,12 +110,31 @@
 </section>
 
     <!-- Practice View -->
-    <section id="view-practice" style="display:none;">  
-        <h1>PRACTICE</h1>
-        <div>
-            <p>This is the Practice view.</p>
-        </div>
-    </section>
+<section id="view-practice" style="display:none;">  
+<h1>PRACTICE</h1>
+
+<div id="practice-container">
+
+    <div id="practice-question-box">
+        <div id="practice-question"></div>
+        <div id="practice-answers"></div>
+    </div>
+
+    <button id="practice-submit">submit</button>
+
+    <div id="practice-explanation-panel" style="display:none;">
+        <button id="practice-toggle-explanation">
+            <span class="line"></span>
+            <span class="toggle-text">Show More</span>
+            <span class="line"></span>
+        </button>
+
+        <div id="practice-explanation"></div>
+    </div>
+
+</div>
+
+</section>
 </main>
 
 <script src="script.js"></script>
