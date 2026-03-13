@@ -823,9 +823,11 @@ function startPractice(){
 
 function renderPracticeQuestion(){
 
-    practiceAnswered=false;
-    practiceSubmit.textContent="Submit";
-    practiceSubmit.style.background = "rgb(0,118,255)";
+    practiceAnswered = false;
+practiceSubmit.textContent = "Submit";
+practiceSubmit.classList.remove("practice-next");
+practiceSubmit.classList.add("practice-submit");
+
 
     practiceExplanationPanel.style.display="none";
     practiceExplanation.style.display = "none";
@@ -906,7 +908,9 @@ debouncedSave();
 practiceAnswered = true;
 practiceSubmit.textContent = "NEXT";
 practiceExplanation.textContent = q.explanation || "";
-practiceSubmit.style.background = "rgb(26,130,0)";
+practiceSubmit.classList.remove("practice-submit");
+practiceSubmit.classList.add("practice-next");
+
 
         const toggleText = practiceToggleExplanation.querySelector(".toggle-text");
 

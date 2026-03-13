@@ -835,7 +835,7 @@ li.dragging { opacity: 0.5; }
 }
 
 #practice-container{
-    margin-top:4rem;
+    margin-top:8rem;
     display:flex;
     flex-direction:column;
     align-items:center;
@@ -848,6 +848,7 @@ li.dragging { opacity: 0.5; }
     border:0.2rem solid rgb(47,53,124);
     padding:1.5rem;
     width:30rem;
+    max-width: 90%;
 }
 
 #practice-question{
@@ -875,7 +876,7 @@ li.dragging { opacity: 0.5; }
 
 
 .practice-answer.correct{
-    border-color: rgb(26,130,0);
+    border-color: rgb(0,180,0);
 }
 
 .practice-answer.wrong{
@@ -889,12 +890,25 @@ li.dragging { opacity: 0.5; }
     padding: 0.6rem 1.4rem;
     font-weight: bold;
     cursor: pointer;
+    transition: background-color;
 }
 
+.practice-submit{
+    background-color: rgb(0,118,255);
+}
 
-#practice-submit:hover{
+.practice-submit:hover{
     background-color: rgb(0,100,230);
 }
+
+.practice-next{
+    background-color: rgb(26,130,0);
+}
+
+.practice-next:hover{
+    background-color: rgb(20,102,0);
+}
+
 
 #practice-explanation-panel{
     background-color: rgb(30,34,79);
