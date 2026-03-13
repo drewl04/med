@@ -835,25 +835,25 @@ li.dragging { opacity: 0.5; }
 }
 
 #practice-container{
-    margin-top:8rem;
+    margin-top:4rem;
     display:flex;
     flex-direction:column;
     align-items:center;
     /*gap:1rem;*/
 }
 
-@media (max-width: 1000px) {
+/*@media (max-width: 1000px) {
   #practice-container {
-    margin-top:7rem;
+    margin-top:5rem;
   }
-}
+}*/
 
 #practice-question-box{
     background:rgb(30,34,79);
     border-radius:1rem;
     border:0.2rem solid rgb(47,53,124);
     padding:1.5rem;
-    width:30rem;
+    width:40rem;
 }
 
 @media (max-width: 1000px) {
@@ -981,6 +981,15 @@ li.dragging { opacity: 0.5; }
     display: none;
 }
 
+
+#practice-panel{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    width: 100%;
+    min-height: 60vh;
+}
 
 
 
