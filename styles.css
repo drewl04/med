@@ -848,7 +848,12 @@ li.dragging { opacity: 0.5; }
     border:0.2rem solid rgb(47,53,124);
     padding:1.5rem;
     width:30rem;
-    max-width: 90%;
+}
+
+@media (max-width: 1000px) {
+  #practice-question-box {
+    width: 90%;
+  }
 }
 
 #practice-question{

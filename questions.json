@@ -28,14 +28,70 @@
           }
         ],
         "explanation": "",
-        "collapsed": false,
+        "collapsed": true,
         "weight": 5
       },
       {
         "image": "",
         "imagePath": "/images/chapter-1-img-2.PNG",
         "explanation": "",
-        "collapsed": false
+        "collapsed": true
+      },
+      {
+        "question": "Despre salivă sunt adevărate următoarele:",
+        "answers": [
+          {
+            "text": "prin acțiunea sa la nivelul cavității bucale, începe digestia glucidelor",
+            "correct": true
+          },
+          {
+            "text": "în urma digestiei realizate de amilază, rezultă molecule numite dizaharidoze",
+            "correct": false
+          },
+          {
+            "text": "conține o enzimă produsă de celulele mucoase ale glandelor salivare",
+            "correct": false
+          },
+          {
+            "text": "realizează cea mai mare parte din digestia glicogenului și amidonului",
+            "correct": false
+          },
+          {
+            "text": "niciun răspuns corect",
+            "correct": false
+          }
+        ],
+        "explanation": "",
+        "collapsed": true,
+        "weight": 5
+      },
+      {
+        "question": "Alegeți asocierile corecte: 1 - sebum, 2 - glande sudoripare apocrine, 3 - strat cornos, 4 - strat granulos, a - cheratină, b - proprietăți antibacteriene, c - cheratohialin, d - stimuli sexuali și emoționali:",
+        "answers": [
+          {
+            "text": "1 - d, 2 - b, 3 - c, 4 - a",
+            "correct": false
+          },
+          {
+            "text": "1 - b, 2 - d, 3 - a, 4 - c",
+            "correct": true
+          },
+          {
+            "text": "1 - d, 2 - c, 3 - a, 4 - b",
+            "correct": false
+          },
+          {
+            "text": "1 - b, 2 - a, 3 - d, 4 - c",
+            "correct": false
+          },
+          {
+            "text": " niciun răspuns corect",
+            "correct": false
+          }
+        ],
+        "explanation": "",
+        "collapsed": false,
+        "weight": 1
       }
     ]
   }
