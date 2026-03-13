@@ -223,6 +223,11 @@ function createChapterItem(chapter) {
             const active = chapterBtn.classList.toggle('active');
             check.style.visibility = active ? 'visible' : 'hidden';
             chapterBtn.style.background = active ? 'rgb(0,118,255)' : 'transparent';
+
+            if (currentView === viewPractice) {
+            startPractice();
+            }
+
         }, { passive: false });
     }
 
@@ -231,6 +236,11 @@ function createChapterItem(chapter) {
             const active = chapterBtn.classList.toggle('active');
             check.style.visibility = active ? 'visible' : 'hidden';
             chapterBtn.style.background = active ? 'rgb(0,118,255)' : 'transparent';
+
+            // refresh practice questions if practice view is open
+            if (currentView === viewPractice) {
+                startPractice();
+            }
         }
     });
 
@@ -707,6 +717,13 @@ let practiceQuestions = [];
 let practiceIndex = 0;
 let practiceAnswered = false;
 
+function shuffleArray(arr){
+    for(let i = arr.length - 1; i > 0; i--){
+        const j = Math.floor(Math.random() * (i + 1));
+        [arr[i], arr[j]] = [arr[j], arr[i]];
+    }
+}
+
 
 // collect questions from selected chapters
 function getPracticeQuestions(){
@@ -731,14 +748,20 @@ function getPracticeQuestions(){
 
 function startPractice(){
 
+    practiceSubmit.style.display = "block";
+    practiceSubmit.textContent = "submit";
+
     practiceQuestions = getPracticeQuestions();
-    practiceIndex = 0;
 
     if(!practiceQuestions.length){
-        practiceQuestion.textContent="No questions available.";
+        practiceQuestion.textContent="No questions available";
         practiceAnswers.innerHTML="";
+        practiceSubmit.style.display="none";
         return;
     }
+
+    shuffleArray(practiceQuestions);   // shuffle once
+    practiceIndex = 0;
 
     renderPracticeQuestion();
 }
@@ -827,11 +850,9 @@ practiceSubmit.addEventListener("click",()=>{
 
         practiceIndex++;
 
-        if(practiceIndex>=practiceQuestions.length){
-            practiceQuestion.textContent="Finished.";
-            practiceAnswers.innerHTML="";
-            practiceSubmit.style.display="none";
-            return;
+        if(practiceIndex >= practiceQuestions.length){
+            shuffleArray(practiceQuestions); // reshuffle when finished
+            practiceIndex = 0;
         }
 
         renderPracticeQuestion();
@@ -862,8 +883,12 @@ practiceToggleExplanation.addEventListener("click",()=>{
 
 
 // ========================== INIT ==========================
-showView(viewPractice);
-loadChaptersFromServer();
+async function init(){
+    await loadChaptersFromServer();
+    showView(viewPractice);
+}
+
+init();
 
 btnAddQuestion.addEventListener('click',()=>{
     if(!editorChapter) return;

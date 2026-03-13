@@ -4,6 +4,33 @@
     "name": "chapter 1",
     "questions": [
       {
+        "question": "altceva",
+        "answers": [
+          {
+            "text": "ca",
+            "correct": false
+          },
+          {
+            "text": "ga",
+            "correct": true
+          },
+          {
+            "text": "cac",
+            "correct": false
+          },
+          {
+            "text": "safa",
+            "correct": true
+          },
+          {
+            "text": "gas",
+            "correct": false
+          }
+        ],
+        "explanation": "afafasfa",
+        "collapsed": true
+      },
+      {
         "question": "ceva",
         "answers": [
           {
@@ -31,30 +58,30 @@
         "collapsed": false
       },
       {
-        "question": "altceva",
+        "question": "hello",
         "answers": [
           {
-            "text": "ca",
+            "text": "",
             "correct": false
           },
           {
-            "text": "ga",
-            "correct": true
-          },
-          {
-            "text": "cac",
+            "text": "",
             "correct": false
           },
           {
-            "text": "safa",
-            "correct": true
+            "text": "",
+            "correct": false
           },
           {
-            "text": "gas",
+            "text": "",
+            "correct": false
+          },
+          {
+            "text": "",
             "correct": false
           }
         ],
-        "explanation": "afafasfa",
+        "explanation": "",
         "collapsed": false
       }
     ]
