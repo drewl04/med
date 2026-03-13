@@ -864,7 +864,9 @@ li.dragging { opacity: 0.5; }
 
 #practice-question{
     margin-bottom:1rem;
-    text-align:center;
+    text-align:left;
+    font-weight:bold;
+    font-size: 1.1em;
 }
 
 
@@ -873,18 +875,36 @@ li.dragging { opacity: 0.5; }
 .practice-answer{
     display: flex;
     align-items: center;
-    padding: 0.5rem;
-    border: 2px solid transparent;   /* reserve border space */
-    border-radius: 0.5rem;
-    margin-bottom: 0.4rem;
+    padding: 0.6rem;
+    border: 2px solid transparent;
+    border-radius: 1rem;
 }
-
 
 
 .practice-answer input{
-    cursor:pointer;
+    appearance: none;
+    -webkit-appearance: none;
+    width: 1rem;
+    height: 1rem;
+    border: 2px solid white;
+    border-radius: 50%;
+    margin-right: 0.6rem;
+    cursor: pointer;
+    position: relative;
 }
 
+/* checked state */
+.practice-answer input:checked::after{
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0.8rem;
+    height: 0.8rem;
+    background: white;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+}
 
 .practice-answer.correct{
     border-color: rgb(0,180,0);
@@ -991,8 +1011,9 @@ li.dragging { opacity: 0.5; }
     min-height: 60vh;
 }
 
-
-
+.practice-answer:hover{
+    background: rgba(255,255,255,0.05);
+}
 
 
 
