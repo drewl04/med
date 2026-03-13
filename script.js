@@ -450,8 +450,9 @@ async function loadChaptersFromServer(){
 
             // register explanations for images
             chapter.questions.forEach(q=>{
-                if(q.imagePath) imageExplanationsMap[q.imagePath]=q.explanation||'';
-            });
+    if(q.imagePath) imageExplanationsMap[q.imagePath]=q.explanation||'';
+    ensureQuestionWeight(q);
+});
         });
 
         editorChapter=chapters[0]||null;
@@ -716,6 +717,16 @@ const practiceToggleExplanation = document.getElementById("practice-toggle-expla
 let practiceQuestions = [];
 let practiceIndex = 0;
 let practiceAnswered = false;
+let lastQuestion = null; 
+let recentQuestions = [];
+const RECENT_BUFFER = 5;
+
+function ensureQuestionWeight(q){
+    if (q.answers && (typeof q.weight !== 'number' || q.weight < 1)) {
+        q.weight = 1;
+    }
+}
+
 
 function shuffleArray(arr){
     for(let i = arr.length - 1; i > 0; i--){
@@ -724,6 +735,43 @@ function shuffleArray(arr){
     }
 }
 
+function getWeightedRandomQuestion(questions, excludedQuestion = null){
+
+    const candidates = questions.filter(q =>
+        q !== excludedQuestion &&
+        !recentQuestions.includes(q)
+    );
+
+    const pool = candidates.length ? candidates : questions;
+
+    let totalWeight = 0;
+
+    pool.forEach(q=>{
+        ensureQuestionWeight(q);
+        totalWeight += q.weight;
+    });
+
+    let random = Math.random() * totalWeight;
+
+    for(const q of pool){
+        random -= q.weight;
+        if(random < 0) return q;
+    }
+
+    return pool[pool.length - 1];
+}
+
+function setPracticeQuestion(question){
+
+    practiceIndex = practiceQuestions.indexOf(question);
+    lastQuestion = question;
+
+    recentQuestions.push(question);
+
+    if(recentQuestions.length > RECENT_BUFFER){
+        recentQuestions.shift();
+    }
+}
 
 // collect questions from selected chapters
 function getPracticeQuestions(){
@@ -749,30 +797,43 @@ function getPracticeQuestions(){
 function startPractice(){
 
     practiceSubmit.style.display = "block";
-    practiceSubmit.textContent = "submit";
+    practiceSubmit.textContent = "Submit";
+
 
     practiceQuestions = getPracticeQuestions();
+    lastQuestion = null;
+    recentQuestions = [];
 
     if(!practiceQuestions.length){
-        practiceQuestion.textContent="No questions available";
-        practiceAnswers.innerHTML="";
-        practiceSubmit.style.display="none";
+        practiceQuestion.textContent = "No questions available";
+        practiceAnswers.innerHTML = "";
+        practiceSubmit.style.display = "none";
+        practiceExplanationPanel.style.display = "none";
         return;
     }
 
-    shuffleArray(practiceQuestions);   // shuffle once
-    practiceIndex = 0;
+    practiceQuestions.forEach(ensureQuestionWeight);
 
+    const firstQuestion = getWeightedRandomQuestion(practiceQuestions);
+    if(!firstQuestion) return;
+
+    setPracticeQuestion(firstQuestion);
     renderPracticeQuestion();
 }
-
 
 function renderPracticeQuestion(){
 
     practiceAnswered=false;
-    practiceSubmit.textContent="submit";
+    practiceSubmit.textContent="Submit";
+    practiceSubmit.style.background = "rgb(0,118,255)";
 
     practiceExplanationPanel.style.display="none";
+    practiceExplanation.style.display = "none";
+
+const toggleText = practiceToggleExplanation.querySelector(".toggle-text");
+if (toggleText) {
+    toggleText.textContent = "Show More";
+}
 
     const q = practiceQuestions[practiceIndex];
 
@@ -832,30 +893,42 @@ practiceSubmit.addEventListener("click",()=>{
 
         });
 
-        practiceAnswered=true;
+        ensureQuestionWeight(q);
 
-        practiceSubmit.textContent="next";
+if (correct) {
+    q.weight = Math.max(1, q.weight - 1);
+} else {
+    q.weight = Math.min(5, q.weight + 1);
+}
 
-        practiceExplanation.textContent = q.explanation || "";
+debouncedSave();
 
-        if(!correct){
-            practiceExplanationPanel.style.display="block";
-            practiceExplanation.style.display="block";
-        }else{
-            practiceExplanationPanel.style.display="block";
-            practiceExplanation.style.display="none";
-        }
+practiceAnswered = true;
+practiceSubmit.textContent = "NEXT";
+practiceExplanation.textContent = q.explanation || "";
+practiceSubmit.style.background = "rgb(26,130,0)";
+
+        const toggleText = practiceToggleExplanation.querySelector(".toggle-text");
+
+if(!correct){
+    practiceExplanationPanel.style.display="block";
+    practiceExplanation.style.display="block";
+
+    if(toggleText) toggleText.textContent = "Show Less";
+}else{
+    practiceExplanationPanel.style.display="block";
+    practiceExplanation.style.display="none";
+
+    if(toggleText) toggleText.textContent = "Show More";
+}
 
     }else{
 
-        practiceIndex++;
+       const nextQuestion = getWeightedRandomQuestion(practiceQuestions, lastQuestion);
+if(!nextQuestion) return;
 
-        if(practiceIndex >= practiceQuestions.length){
-            shuffleArray(practiceQuestions); // reshuffle when finished
-            practiceIndex = 0;
-        }
-
-        renderPracticeQuestion();
+setPracticeQuestion(nextQuestion);
+renderPracticeQuestion();
 
     }
 
@@ -892,7 +965,7 @@ init();
 
 btnAddQuestion.addEventListener('click',()=>{
     if(!editorChapter) return;
-    const question={question:"",answers:[{text:"",correct:false},{text:"",correct:false},{text:"",correct:false},{text:"",correct:false},{text:"",correct:false}],explanation:"",collapsed:false};
+    const question={question:"",answers:[{text:"",correct:false},{text:"",correct:false},{text:"",correct:false},{text:"",correct:false},{text:"",correct:false}],explanation:"",collapsed:false,weight:1};
     editorChapter.questions.push(question);
     renderQuestions();
     debouncedSave();
