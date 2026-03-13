@@ -842,6 +842,12 @@ li.dragging { opacity: 0.5; }
     gap:1rem;
 }
 
+@media (max-width: 1000px) {
+  #practice-container {
+    margin-top:7rem;
+  }
+}
+
 #practice-question-box{
     background:rgb(30,34,79);
     border-radius:1rem;
