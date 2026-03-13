@@ -839,7 +839,7 @@ li.dragging { opacity: 0.5; }
     display:flex;
     flex-direction:column;
     align-items:center;
-    gap:1rem;
+    /*gap:1rem;*/
 }
 
 @media (max-width: 1000px) {
@@ -902,6 +902,7 @@ li.dragging { opacity: 0.5; }
     font-weight: bold;
     cursor: pointer;
     transition: background-color;
+    margin-top: 1rem;
 }
 
 .practice-submit{
@@ -929,7 +930,7 @@ li.dragging { opacity: 0.5; }
     padding: 1rem;
     box-sizing: border-box;
     border-radius: 1rem;
-    margin-top: 0rem;
+    margin-top: 1.5rem;
 }
 
 @media (max-width: 1000px) {
