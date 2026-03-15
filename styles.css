@@ -852,8 +852,8 @@ li.dragging { opacity: 0.5; }
     background:rgb(30,34,79);
     border-radius:1rem;
     border:0.2rem solid rgb(47,53,124);
-    padding:1.5rem;
     width:40rem;
+    overflow:hidden;
 }
 
 @media (max-width: 1000px) {
@@ -863,7 +863,8 @@ li.dragging { opacity: 0.5; }
 }
 
 #practice-question{
-    margin-bottom:1rem;
+    padding:1.5rem 1.5rem 1rem 1.5rem;
+    margin-bottom:0;
     text-align:left;
     font-weight:bold;
     font-size: 1.1em;
@@ -875,9 +876,8 @@ li.dragging { opacity: 0.5; }
 .practice-answer{
     display: flex;
     align-items: center;
-    padding: 0.6rem;
+    padding: 0.8rem;
     border: 2px solid transparent;
-    border-radius: 1rem;
 }
 
 
@@ -886,11 +886,14 @@ li.dragging { opacity: 0.5; }
     -webkit-appearance: none;
     width: 1rem;
     height: 1rem;
+    min-width: 1rem;
+    min-height: 1rem;
     border: 2px solid white;
     border-radius: 50%;
     margin-right: 0.6rem;
     cursor: pointer;
     position: relative;
+    flex-shrink: 0;
 }
 
 /* checked state */
@@ -901,8 +904,9 @@ li.dragging { opacity: 0.5; }
     left: 50%;
     width: 0.8rem;
     height: 0.8rem;
-    background: white;
+    background: rgb(0,118,255);
     border-radius: 50%;
+    z-index: 10;
     transform: translate(-50%, -50%);
 }
 
@@ -1018,5 +1022,9 @@ li.dragging { opacity: 0.5; }
 
 
 
-
-
+#practice-answers{
+    display:flex;
+    flex-direction:column;
+    width:100%;
+    padding:0 0 1.5rem 0;
+}
