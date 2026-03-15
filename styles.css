@@ -862,7 +862,7 @@ li.dragging { opacity: 0.5; }
 
 @media (max-width: 1000px) {
   #practice-question-box {
-    width: 90%;
+    width: 95%;
     max-height: 58vh;
   }
 }
@@ -889,8 +889,10 @@ li.dragging { opacity: 0.5; }
     border: 2px solid transparent;
 }
 
-.practice-answer:hover{
+@media (hover: hover) and (pointer: fine) {
+  .practice-answer:hover{
     background: rgba(255,255,255,0.05);
+  }
 }
 
 .practice-answer input{
