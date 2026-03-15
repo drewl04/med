@@ -931,10 +931,10 @@ if(!correct){
        const nextQuestion = getWeightedRandomQuestion(practiceQuestions, lastQuestion);
 if(!nextQuestion) return;
 
-setPracticeQuestion(nextQuestion);
-renderPracticeQuestion();
-
-    }
+requestAnimationFrame(() => {
+    setPracticeQuestion(nextQuestion);
+    renderPracticeQuestion();
+});
 
 });
 
