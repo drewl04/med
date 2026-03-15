@@ -935,6 +935,7 @@ requestAnimationFrame(() => {
     setPracticeQuestion(nextQuestion);
     renderPracticeQuestion();
 });
+}
 
 });
 
