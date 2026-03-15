@@ -835,43 +835,52 @@ li.dragging { opacity: 0.5; }
 }
 
 #practice-container{
-    margin-top:4rem;
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    /*gap:1rem;*/
+    margin-top: 4rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-/*@media (max-width: 1000px) {
-  #practice-container {
-    margin-top:5rem;
-  }
-}*/
+#practice-panel{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    width: 100%;
+    min-height: 60vh;
+}
 
 #practice-question-box{
-    background:rgb(30,34,79);
-    border-radius:1rem;
-    border:0.2rem solid rgb(47,53,124);
-    width:40rem;
-    overflow:hidden;
+    background: rgb(30,34,79);
+    border-radius: 1rem;
+    border: 0.2rem solid rgb(47,53,124);
+    width: 40rem;
+    max-height: 52vh;
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 
 @media (max-width: 1000px) {
   #practice-question-box {
     width: 90%;
+    max-height: 48vh;
   }
 }
 
 #practice-question{
-    padding:1.5rem 1.5rem 1rem 1.5rem;
-    margin-bottom:0;
-    text-align:left;
-    font-weight:bold;
+    padding: 1.5rem 1.5rem 1rem 1.5rem;
+    margin-bottom: 0;
+    text-align: left;
+    font-weight: bold;
     font-size: 1.1em;
 }
 
-
-
+#practice-answers{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 0 0 1.5rem 0;
+}
 
 .practice-answer{
     display: flex;
@@ -880,6 +889,9 @@ li.dragging { opacity: 0.5; }
     border: 2px solid transparent;
 }
 
+.practice-answer:hover{
+    background: rgba(255,255,255,0.05);
+}
 
 .practice-answer input{
     appearance: none;
@@ -896,7 +908,6 @@ li.dragging { opacity: 0.5; }
     flex-shrink: 0;
 }
 
-/* checked state */
 .practice-answer input:checked::after{
     content: "";
     position: absolute;
@@ -945,16 +956,14 @@ li.dragging { opacity: 0.5; }
     background-color: rgb(20,102,0);
 }
 
-
 #practice-explanation-panel{
     background-color: rgb(30,34,79);
     width: 100%;
     max-width: 500px;
-    margin: 1rem auto;
+    margin: 1.5rem auto 0 auto;
     padding: 1rem;
     box-sizing: border-box;
     border-radius: 1rem;
-    margin-top: 1.5rem;
 }
 
 @media (max-width: 1000px) {
@@ -968,7 +977,6 @@ li.dragging { opacity: 0.5; }
     border: 0;
     display: flex;
     align-items: center;
-    border: none;
     background: none;
     font-weight: bold;
     font-size: 1.1em;
@@ -995,36 +1003,10 @@ li.dragging { opacity: 0.5; }
     background-color: rgb(30,34,79);
     width: 100%;
     max-width: 900px;
-    margin: 1rem auto;
+    margin: 1rem auto 0 auto;
     padding: 1rem;
     box-sizing: border-box;
     border-radius: 0.5rem;
-    margin-top: 0rem;
     text-align: left;
-    margin-bottom: 0rem;
     display: none;
-}
-
-
-#practice-panel{
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    align-items: center;
-    width: 100%;
-    min-height: 60vh;
-}
-
-.practice-answer:hover{
-    background: rgba(255,255,255,0.05);
-}
-
-
-
-
-#practice-answers{
-    display:flex;
-    flex-direction:column;
-    width:100%;
-    padding:0 0 1.5rem 0;
 }
