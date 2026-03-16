@@ -886,7 +886,33 @@ li.dragging { opacity: 0.5; }
     display: flex;
     align-items: center;
     padding: 0.8rem;
+    position: relative;   /* needed for highlight layer */
+}
+
+/* the highlight layer */
+.practice-answer::after{
+    content: "";
+    position: absolute;
+
+    left: 0.4rem;
+    right: 0.4rem;
+    top: 0.25rem;
+    bottom: 0.25rem;
+
     border: 2px solid transparent;
+    border-radius: 1rem;
+
+    pointer-events: none; /* keeps row clickable */
+}
+
+/* correct highlight */
+.practice-answer.correct::after{
+    border-color: rgb(0,180,0);
+}
+
+/* wrong highlight */
+.practice-answer.wrong::after{
+    border-color: rgb(200,40,40);
 }
 
 @media (hover: hover) and (pointer: fine) {
@@ -923,13 +949,6 @@ li.dragging { opacity: 0.5; }
     transform: translate(-50%, -50%);
 }
 
-.practice-answer.correct{
-    border-color: rgb(0,180,0);
-}
-
-.practice-answer.wrong{
-    border-color: rgb(200,40,40);
-}
 
 #practice-submit{
     color: white;
