@@ -114,10 +114,7 @@ function showRandomImage() {
 
 
 
-btnImagesNext.addEventListener('pointerdown', (e) => {
-    e.preventDefault();
-    showRandomImage();
-});
+btnImagesNext.addEventListener('click', showRandomImage);
 
 [inputQuestions, inputTime].forEach(input => {
     input.addEventListener('input', () => {
@@ -881,8 +878,7 @@ if (toggleText) {
 }
 
 
-practiceSubmit.addEventListener("pointerdown",(e)=>{
-    e.preventDefault();
+practiceSubmit.addEventListener("click",()=>{
 
     if(!practiceAnswered){
 
