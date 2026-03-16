@@ -812,7 +812,7 @@ function getPracticeQuestions(){
 function startPractice(){
 
     practiceSubmit.style.display = "block";
-    practiceSubmit.textContent = "Submit";
+    practiceSubmit.textContent = "SUBMIT";
 
 
     practiceQuestions = getPracticeQuestions();
@@ -839,7 +839,7 @@ function startPractice(){
 function renderPracticeQuestion(){
 
     practiceAnswered = false;
-practiceSubmit.textContent = "Submit";
+practiceSubmit.textContent = "SUBMIT";
 practiceSubmit.classList.remove("practice-next");
 practiceSubmit.classList.add("practice-submit");
 
