@@ -114,7 +114,10 @@ function showRandomImage() {
 
 
 
-btnImagesNext.addEventListener('click', showRandomImage);
+btnImagesNext.addEventListener('pointerdown', (e) => {
+    e.preventDefault();
+    showRandomImage();
+});
 
 [inputQuestions, inputTime].forEach(input => {
     input.addEventListener('input', () => {
@@ -145,12 +148,24 @@ function showView(view) {
     updateSidebarDisplay();
 }
 
-btnEditor.addEventListener('click', () => showView(viewEditor));
-btnImages.addEventListener('click', () => showView(viewImages));
-btnPractice.addEventListener('click', () => showView(viewPractice));
+btnEditor.addEventListener('pointerdown', (e) => {
+    e.preventDefault();
+    showView(viewEditor);
+});
+
+btnImages.addEventListener('pointerdown', (e) => {
+    e.preventDefault();
+    showView(viewImages);
+});
+
+btnPractice.addEventListener('pointerdown', (e) => {
+    e.preventDefault();
+    showView(viewPractice);
+});
 
 // ========================== SIDEBAR DISPLAY ==========================
-toggleBtn.addEventListener('click', () => {
+toggleBtn.addEventListener('pointerdown', (e) => {
+    e.preventDefault();
     sidebar.classList.toggle('expanded');
     updateSidebarDisplay();
 });
@@ -197,9 +212,11 @@ function createChapterItem(chapter) {
     const deleteBtn = document.createElement('span');
     deleteBtn.className = 'delete-chapter';
     deleteBtn.textContent = '✖';
-    deleteBtn.addEventListener('click', () =>
-        handleDeleteChapter(li, chapter.id)
-    );
+    deleteBtn.addEventListener('pointerdown', (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    handleDeleteChapter(li, chapter.id);
+});
 
     const chapterBtn = document.createElement('button');
     chapterBtn.className = 'chapter-button';
@@ -231,18 +248,18 @@ function createChapterItem(chapter) {
         }, { passive: false });
     }
 
-    chapterBtn.addEventListener('click', () => {
-        if (!isMobile()) {
-            const active = chapterBtn.classList.toggle('active');
-            check.style.visibility = active ? 'visible' : 'hidden';
-            chapterBtn.style.background = active ? 'rgb(0,118,255)' : 'transparent';
+    chapterBtn.addEventListener('pointerdown', (e) => {
+    if (isMobile()) return;
+    e.preventDefault();
 
-            // refresh practice questions if practice view is open
-            if (currentView === viewPractice) {
-                startPractice();
-            }
-        }
-    });
+    const active = chapterBtn.classList.toggle('active');
+    check.style.visibility = active ? 'visible' : 'hidden';
+    chapterBtn.style.background = active ? 'rgb(0,118,255)' : 'transparent';
+
+    if (currentView === viewPractice) {
+        startPractice();
+    }
+});
 
     spanText.addEventListener('dblclick', e => {
         if (currentView !== viewEditor) return;
@@ -471,7 +488,8 @@ async function saveChaptersToServer(){
 }
 
 // ========================== ADD CHAPTER ==========================
-addChapterBtn.addEventListener('click',()=>{
+addChapterBtn.addEventListener('pointerdown',(e)=>{
+    e.preventDefault();
     chapterCount++;
     const chapter={id:chapterIdCounter++,name:'chapter '+chapterCount,questions:[]};
     chapters.push(chapter);
@@ -863,7 +881,8 @@ if (toggleText) {
 }
 
 
-practiceSubmit.addEventListener("click",()=>{
+practiceSubmit.addEventListener("pointerdown",(e)=>{
+    e.preventDefault();
 
     if(!practiceAnswered){
 
@@ -940,7 +959,8 @@ requestAnimationFrame(() => {
 });
 
 
-practiceToggleExplanation.addEventListener("click",()=>{
+practiceToggleExplanation.addEventListener("pointerdown",(e)=>{
+    e.preventDefault();
 
     const visible = practiceExplanation.style.display==="block";
 
@@ -968,7 +988,8 @@ async function init(){
 
 init();
 
-btnAddQuestion.addEventListener('click',()=>{
+btnAddQuestion.addEventListener('pointerdown',(e)=>{
+    e.preventDefault();
     if(!editorChapter) return;
     const question={question:"",answers:[{text:"",correct:false},{text:"",correct:false},{text:"",correct:false},{text:"",correct:false},{text:"",correct:false}],explanation:"",collapsed:false,weight:1};
     editorChapter.questions.push(question);
@@ -976,7 +997,8 @@ btnAddQuestion.addEventListener('click',()=>{
     debouncedSave();
 });
 
-btnToggleCollapse.addEventListener("click",()=>{
+btnToggleCollapse.addEventListener("pointerdown",(e)=>{
+    e.preventDefault();
     if(!editorChapter) return;
     const anyCollapsed=editorChapter.questions.some(q=>q.collapsed);
     editorChapter.questions.forEach(q=>{q.collapsed=!anyCollapsed;});
@@ -984,7 +1006,8 @@ btnToggleCollapse.addEventListener("click",()=>{
     debouncedSave();
 });
 
-btnAddImage.addEventListener('click',async()=>{
+btnAddImage.addEventListener('pointerdown',async(e)=>{
+    e.preventDefault();
     if(!editorChapter) return;
 
     const fileInput=document.createElement('input');
@@ -1013,10 +1036,10 @@ btnAddImage.addEventListener('click',async()=>{
 });
 
 
-
 let imagesExplanationVisible = false; // tracks whether the explanation is visible
 
-btnShowMoreImageExplanation.addEventListener("click", () => {
+btnShowMoreImageExplanation.addEventListener("pointerdown", (e) => {
+    e.preventDefault();
     imagesExplanationVisible = !imagesExplanationVisible;
 
     imagesCaption.style.display = imagesExplanationVisible ? "block" : "none";
