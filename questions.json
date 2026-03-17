@@ -1,97 +1,81 @@
 [
   {
     "id": 1,
-    "name": "Bazele Chimice",
+    "name": "chapter 1",
     "questions": [
       {
-        "question": "Aria responsabilă de masticație este situată în:",
+        "question": "",
         "answers": [
           {
-            "text": "lobul frontal",
-            "correct": true
-          },
-          {
-            "text": "în structura responsabilă și pentru deglutiție",
-            "correct": true
-          },
-          {
-            "text": "lobul parietal",
+            "text": "",
             "correct": false
           },
           {
-            "text": "trunchiul cerebral",
+            "text": "",
             "correct": false
           },
           {
-            "text": "niciun răspuns corect",
+            "text": "",
+            "correct": false
+          },
+          {
+            "text": "",
+            "correct": false
+          },
+          {
+            "text": "",
             "correct": false
           }
         ],
         "explanation": "",
-        "collapsed": true,
-        "weight": 5
+        "collapsed": false,
+        "weight": 3
       },
       {
         "image": "",
         "imagePath": "/images/chapter-1-img-2.PNG",
         "explanation": "",
-        "collapsed": true
-      },
+        "collapsed": false
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "name": "chapter 2",
+    "questions": [
       {
-        "question": "Despre salivă sunt adevărate următoarele:",
+        "question": "",
         "answers": [
           {
-            "text": "prin acțiunea sa la nivelul cavității bucale, începe digestia glucidelor",
-            "correct": true
-          },
-          {
-            "text": "în urma digestiei realizate de amilază, rezultă molecule numite dizaharidoze",
+            "text": "",
             "correct": false
           },
           {
-            "text": "conține o enzimă produsă de celulele mucoase ale glandelor salivare",
+            "text": "",
             "correct": false
           },
           {
-            "text": "realizează cea mai mare parte din digestia glicogenului și amidonului",
+            "text": "",
             "correct": false
           },
           {
-            "text": "niciun răspuns corect",
+            "text": "",
+            "correct": false
+          },
+          {
+            "text": "",
             "correct": false
           }
         ],
         "explanation": "",
-        "collapsed": true,
-        "weight": 5
+        "collapsed": false,
+        "weight": 2
       },
       {
-        "question": "Alegeți asocierile corecte: 1 - sebum, 2 - glande sudoripare apocrine, 3 - strat cornos, 4 - strat granulos, a - cheratină, b - proprietăți antibacteriene, c - cheratohialin, d - stimuli sexuali și emoționali:",
-        "answers": [
-          {
-            "text": "1 - d, 2 - b, 3 - c, 4 - a",
-            "correct": false
-          },
-          {
-            "text": "1 - b, 2 - d, 3 - a, 4 - c",
-            "correct": true
-          },
-          {
-            "text": "1 - d, 2 - c, 3 - a, 4 - b",
-            "correct": false
-          },
-          {
-            "text": "1 - b, 2 - a, 3 - d, 4 - c",
-            "correct": false
-          },
-          {
-            "text": " niciun răspuns corect",
-            "correct": false
-          }
-        ],
+        "image": "",
+        "imagePath": "/images/chapter-2-img-2.PNG",
         "explanation": "",
-        "collapsed": true,
-        "weight": 5
+        "collapsed": false
       }
     ]
   }
