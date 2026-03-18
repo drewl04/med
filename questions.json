@@ -1,7 +1,7 @@
 [
   {
     "id": 1,
-    "name": "chapter 1",
+    "name": "New",
     "questions": [
       {
         "question": "",
@@ -28,55 +28,20 @@
           }
         ],
         "explanation": "",
-        "collapsed": false,
-        "weight": 3
+        "collapsed": true,
+        "weight": 1
       },
       {
         "image": "",
-        "imagePath": "/images/chapter-1-img-2.PNG",
+        "imagePath": "/images/chapter-1-img-1.PNG",
         "explanation": "",
-        "collapsed": false
+        "collapsed": true
       }
     ]
   },
   {
     "id": 2,
     "name": "chapter 2",
-    "questions": [
-      {
-        "question": "",
-        "answers": [
-          {
-            "text": "",
-            "correct": false
-          },
-          {
-            "text": "",
-            "correct": false
-          },
-          {
-            "text": "",
-            "correct": false
-          },
-          {
-            "text": "",
-            "correct": false
-          },
-          {
-            "text": "",
-            "correct": false
-          }
-        ],
-        "explanation": "",
-        "collapsed": false,
-        "weight": 2
-      },
-      {
-        "image": "",
-        "imagePath": "/images/chapter-2-img-2.PNG",
-        "explanation": "",
-        "collapsed": false
-      }
-    ]
+    "questions": []
   }
 ]
