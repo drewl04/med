@@ -131,9 +131,12 @@ main {
 
 .view {
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-h1 {
+.view h1 {
     text-align: center;
 }
 
@@ -665,11 +668,6 @@ can't you center it with a property instead? */
 /* ================= IMAGES VIEW ================= */
 #view-images {
     min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
     text-align: center;
 }
 
@@ -677,7 +675,7 @@ can't you center it with a property instead? */
     width: auto;
     max-width: 100%;
     height: 60vh;
-    margin: 6rem auto 0;
+    margin: var(--space-4xl) auto 0;
     padding: 1.5rem 0;
     display: flex;
     flex-direction: column;
