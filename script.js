@@ -1342,49 +1342,49 @@
             debouncedSave();
         });
 
-        dom.addImage.addEventListener('click', () => {
-    const chapter = getEditorChapter();
-    if (!chapter) {
-        return;
-    }
-
-    dom.imageUploadInput.click();
-});
-
-dom.imageUploadInput.addEventListener('change', async () => {
-    const chapter = getEditorChapter();
-    const file = dom.imageUploadInput.files?.[0];
-
-    if (!chapter || !file) {
-        return;
-    }
-
-    const formData = new FormData();
-    formData.append('image', file);
-
-    try {
-        const response = await fetch(`/api/upload-image?chapterId=${chapter.id}`, {
-            method: 'POST',
-            body: formData
-        });
-
-        if (!response.ok) {
-            throw new Error('Failed to upload image');
+        dom.addImage.addEventListener('click', async () => {
+        const chapter = getEditorChapter();
+        if (!chapter) {
+            return;
         }
 
-        const data = await response.json();
-        const image = createImageItem(data.path);
+        const fileInput = document.createElement('input');
+        fileInput.type = 'file';
+        fileInput.accept = 'image/*';
 
-        chapter.images.push(image);
-        chapter.order.push({ type: 'image', id: image.id });
-        renderEditorItems();
-        debouncedSave();
-    } catch (error) {
-        console.error(error);
-    } finally {
-        dom.imageUploadInput.value = '';
-    }
-});
+        fileInput.addEventListener('change', async () => {
+            const file = fileInput.files?.[0];
+            if (!file) {
+                return;
+            }
+
+            const formData = new FormData();
+            formData.append('image', file);
+
+            try {
+                const response = await fetch(`/api/upload-image?chapterId=${chapter.id}`, {
+                    method: 'POST',
+                    body: formData
+                });
+
+                if (!response.ok) {
+                    throw new Error('Failed to upload image');
+                }
+
+                const data = await response.json();
+                const image = createImageItem(data.path);
+
+                chapter.images.push(image);
+                chapter.order.push({ type: 'image', id: image.id });
+                renderEditorItems();
+                debouncedSave();
+            } catch (error) {
+                console.error(error);
+            }
+        }, { once: true });
+
+        fileInput.click();
+        });
 
         dom.toggleCollapse.addEventListener('pointerdown', (event) => {
             event.preventDefault();
