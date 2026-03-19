@@ -37,7 +37,7 @@
             }
           ],
           "explanation": "AFGASgvSVBSAbv",
-          "collapsed": false,
+          "collapsed": true,
           "weight": 1
         }
       ],
@@ -59,118 +59,6 @@
         {
           "type": "image",
           "id": 8
-        }
-      ]
-    },
-    {
-      "id": 30,
-      "name": "chapter 2",
-      "questions": [
-        {
-          "id": 14,
-          "type": "question",
-          "question": "EgvSAbvBAREB",
-          "answers": [
-            {
-              "text": "BSBEDSBZFBR",
-              "correct": false
-            },
-            {
-              "text": "BZEBRDZBNZ",
-              "correct": false
-            },
-            {
-              "text": "RAbVAV",
-              "correct": false
-            },
-            {
-              "text": "AvGBB",
-              "correct": true
-            },
-            {
-              "text": "AbgEBAWB",
-              "correct": true
-            }
-          ],
-          "explanation": "AWBABAWB",
-          "collapsed": false,
-          "weight": 2
-        }
-      ],
-      "images": [
-        {
-          "id": 9,
-          "type": "image",
-          "image": "AWGBAGBAREB",
-          "imagePath": "/images/chapter-30-img-1773883178898-33c5tn.PNG",
-          "explanation": "ABRAEBAEBNANBA",
-          "collapsed": false
-        }
-      ],
-      "order": [
-        {
-          "type": "question",
-          "id": 14
-        },
-        {
-          "type": "image",
-          "id": 9
-        }
-      ]
-    },
-    {
-      "id": 31,
-      "name": "chapter 3",
-      "questions": [
-        {
-          "id": 15,
-          "type": "question",
-          "question": "AGRAGAVARVBb",
-          "answers": [
-            {
-              "text": "AGERAWGWVA",
-              "correct": false
-            },
-            {
-              "text": "AVARVARV",
-              "correct": true
-            },
-            {
-              "text": "VARVAVR",
-              "correct": false
-            },
-            {
-              "text": "AVRAVAV",
-              "correct": false
-            },
-            {
-              "text": "AVRAVAVR",
-              "correct": false
-            }
-          ],
-          "explanation": "barbbebarbr",
-          "collapsed": false,
-          "weight": 5
-        }
-      ],
-      "images": [
-        {
-          "id": 10,
-          "type": "image",
-          "image": "abababrab",
-          "imagePath": "/images/chapter-31-img-1773883196156-xpjyro.PNG",
-          "explanation": "abrababababaZVB ",
-          "collapsed": false
-        }
-      ],
-      "order": [
-        {
-          "type": "question",
-          "id": 15
-        },
-        {
-          "type": "image",
-          "id": 10
         }
       ]
     }
