@@ -95,8 +95,9 @@
     };
 
     const DEFAULTS = {
-    TEST_QUESTION_COUNT: 25,
-    TEST_DURATION_MINUTES: 30
+        TEST_QUESTION_COUNT: 25,
+        TEST_DURATION_MINUTES: 30,
+        TEST_SHOW_ANSWERS: true
     };
 
     const DRAG_TYPES = {
@@ -1879,6 +1880,7 @@
 
         dom.inputQuestions.placeholder = DEFAULTS.TEST_QUESTION_COUNT;
         dom.inputTime.placeholder = `${DEFAULTS.TEST_DURATION_MINUTES} min`;
+        dom.inputTestAnswers.checked = DEFAULTS.TEST_SHOW_ANSWERS;
 
         renderChapterList();
         populateChapterDropdown();

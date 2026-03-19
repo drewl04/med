@@ -1,85 +1,120 @@
 {
   "meta": {
     "version": 2,
-    "nextChapterId": 79,
-    "nextQuestionId": 30,
-    "nextImageId": 15
+    "nextChapterId": 81,
+    "nextQuestionId": 32,
+    "nextImageId": 17
   },
   "chapters": [
     {
-      "id": 78,
+      "id": 79,
       "name": "chapter 1",
       "questions": [
         {
-          "id": 28,
+          "id": 30,
           "type": "question",
-          "question": "adsa",
+          "question": "Despre atomi este adevărat că:",
           "answers": [
             {
-              "text": "asdaf",
+              "text": "neutronul este încărcat negativ",
               "correct": false
             },
             {
-              "text": "afsf",
-              "correct": false
-            },
-            {
-              "text": "gas",
+              "text": "nu pot fi degradați în unități mai mici fără a-și pierde proprietățile elementare",
               "correct": true
             },
             {
-              "text": "gsdg",
+              "text": "numărul atomic este suma protonilor și neutronilor din atom",
               "correct": false
             },
             {
-              "text": "gsdsg",
-              "correct": true
+              "text": "sunt înconjurați de protoni care orbitează",
+              "correct": false
+            },
+            {
+              "text": "niciun răspuns corect",
+              "correct": false
             }
           ],
-          "explanation": "sdgsgs",
-          "collapsed": false,
-          "weight": 1
-        },
-        {
-          "id": 29,
-          "type": "question",
-          "question": "gauieyhrwtolyGFB Haiug reagaega reagareg aeg OEJYrhgtuoleiyhgfrbaueilghbuayeolhgrbauoelijghfrbauizeloghbuolabhvuoaerbu5aebvuoalebvuolaebvruaebuedasbv",
-          "answers": [
-            {
-              "text": "gauieyhrwtolyGFBHaiusjkvbgniujkdsebragvzuilfrezuig vbiusaebvuilseajbruisebvuilesOEJYrhgtuoleiyh gfrbaueilghbuayeolhgrbauoelijghfrbauizeloghbuolabhvuoaerbu5aebvuoalebvuolaebvruaebuedasbv",
-              "correct": false
-            },
-            {
-              "text": "gauieyhrwtolyGF BHaiuOEJYrhae gr5aegaegeag aegea areg aergaegaerg ergaergaegtuoleiyhgfrbaueilghbuayeolhgrbauoelijghfrbauizeloghbuolabhvuoaerbu5aebvuoalebvuolaebvruaebuedasbv",
-              "correct": false
-            },
-            {
-              "text": "gauieyhrwtolyGFBHaiu OEJYrhgg earg aerg aeg aeg aer gaer gaeg rreag ae rgaerg aegr eatuoleiyhgfrbaueilghbuayeolhgrbauoelijghfrbauizeloghbuolabhvuoaerbu5aebvuoalebvuolaebvruaebuedasbv",
-              "correct": false
-            },
-            {
-              "text": "gauieyhrwto lyGFBHaiuOEg reag egagae rg are ag raregaer gaergaeJYrhgtuoleiyhgfrbaueilgh buayeolhgrbauoelijghfrbauizeloghbuolabhvuoaerbu5aebvuoalebvuolaebvruaebuedasbv",
-              "correct": true
-            },
-            {
-              "text": "gauieyh rwtolyGFBHaiuOE geargaerger gaer aeg raeg reaJYrhgtuoleiyhgfrbaueil ghbuayeolhgrbauoelijghfrbauizeloghbuolabhvuoaerbu5aebvuoalebvuolaebvruaebuedasbv",
-              "correct": true
-            }
-          ],
-          "explanation": "asfafdjkhsediuagvbylazujikghbanzeilkhbujnaziegbn",
-          "collapsed": false,
-          "weight": 1
+          "explanation": "Explicatie",
+          "collapsed": true,
+          "weight": 2
         }
       ],
-      "images": [],
+      "images": [
+        {
+          "id": 15,
+          "type": "image",
+          "image": "imagine",
+          "imagePath": "/images/chapter-79-img-1773944186385-49qz3e.PNG",
+          "explanation": "explicatie",
+          "collapsed": true
+        }
+      ],
       "order": [
         {
           "type": "question",
-          "id": 28
+          "id": 30
         },
         {
+          "type": "image",
+          "id": 15
+        }
+      ]
+    },
+    {
+      "id": 80,
+      "name": "chapter 2",
+      "questions": [
+        {
+          "id": 31,
           "type": "question",
-          "id": 29
+          "question": "În categoria lipidelor întâlnim:",
+          "answers": [
+            {
+              "text": "valină",
+              "correct": false
+            },
+            {
+              "text": "guanine",
+              "correct": false
+            },
+            {
+              "text": "fosfolipide",
+              "correct": true
+            },
+            {
+              "text": "ceruri",
+              "correct": true
+            },
+            {
+              "text": "steroizi",
+              "correct": true
+            }
+          ],
+          "explanation": "explicatie",
+          "collapsed": true,
+          "weight": 1
+        }
+      ],
+      "images": [
+        {
+          "id": 16,
+          "type": "image",
+          "image": "o alta imagine",
+          "imagePath": "/images/chapter-80-img-1773944235472-azw6ij.PNG",
+          "explanation": "cu o explicatie",
+          "collapsed": true
+        }
+      ],
+      "order": [
+        {
+          "type": "question",
+          "id": 31
+        },
+        {
+          "type": "image",
+          "id": 16
         }
       ]
     }
