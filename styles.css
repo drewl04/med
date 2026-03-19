@@ -920,6 +920,13 @@ can't you center it with a property instead? */
     background-color: var(--color-success-hover);
 }
 
+/* ================= TEST VIEW ================= */
+.test-panel {
+    margin-top: var(--space-4xl);
+    width: 100%;
+    min-height: 60vh;
+}
+
 /* ================= SCROLLBAR ================= */
 * {
     scrollbar-width: thin;

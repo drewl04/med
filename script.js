@@ -14,10 +14,12 @@
         buttonEditor: document.getElementById('button-enter-editor'),
         buttonImages: document.getElementById('button-enter-images'),
         buttonPractice: document.getElementById('button-enter-practice'),
+        buttonTest: document.getElementById('button-enter-test'),
 
         viewEditor: document.getElementById('view-editor'),
         viewImages: document.getElementById('view-images'),
         viewPractice: document.getElementById('view-practice'),
+        viewTest: document.getElementById('view-test'),
 
         inputQuestions: document.getElementById('input-questions'),
         inputTime: document.getElementById('input-time'),
@@ -27,7 +29,6 @@
         addImage: document.getElementById('button-add-image'),
         toggleCollapse: document.getElementById('button-toggle-collapse'),
         editorItems: document.getElementById('editor-items'),
-        imageUploadInput: document.getElementById('image-upload-input'),
 
         imagesCurrent: document.getElementById('images-current'),
         imagesNext: document.getElementById('images-next'),
@@ -404,7 +405,8 @@
         const views = {
             editor: dom.viewEditor,
             images: dom.viewImages,
-            practice: dom.viewPractice
+            practice: dom.viewPractice,
+            test: dom.viewTest
         };
 
         Object.entries(views).forEach(([name, element]) => {
@@ -416,6 +418,7 @@
         dom.buttonEditor.classList.toggle('active', viewName === 'editor');
         dom.buttonImages.classList.toggle('active', viewName === 'images');
         dom.buttonPractice.classList.toggle('active', viewName === 'practice');
+        dom.buttonTest.classList.toggle('active', viewName === 'test');
 
         updateSidebarDisplay();
 
@@ -444,13 +447,13 @@
 
         middleSection.style.display = 'flex';
 
-        if (state.currentView === 'editor') {
+        if (state.currentView === 'test') {
             bottomSection.style.display = 'flex';
-            dom.addChapter.style.display = 'block';
         } else {
             bottomSection.style.display = 'none';
-            dom.addChapter.style.display = 'none';
         }
+
+        dom.addChapter.style.display = state.currentView === 'editor' ? 'block' : 'none';
 
         updateChapterControls();
     }
@@ -1372,6 +1375,11 @@
         dom.buttonPractice.addEventListener('pointerdown', (event) => {
             event.preventDefault();
             showView('practice');
+        });
+
+        dom.buttonTest.addEventListener('pointerdown', (event) => {
+            event.preventDefault();
+            showView('test');
         });
 
         dom.addChapter.addEventListener('pointerdown', (event) => {
