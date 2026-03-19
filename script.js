@@ -57,10 +57,12 @@
         testScoreTotal: document.getElementById('test-score-total'),
         testQuestion: document.getElementById('test-question'),
         testAnswers: document.getElementById('test-answers'),
+        testPanel: document.getElementById('test-panel'),
         testSubmit: document.getElementById('test-submit'),
         testExplanationPanel: document.getElementById('test-explanation-panel'),
         testExplanation: document.getElementById('test-explanation'),
-        testToggleExplanation: document.getElementById('test-toggle-explanation')
+        testToggleExplanation: document.getElementById('test-toggle-explanation'),
+        testResult: document.getElementById('test-result')
     };
 
     /* =========================
@@ -467,6 +469,13 @@
 
         if (viewName === 'practice') {
             startPractice();
+        }
+
+        if (viewName === 'test') {
+            if (!state.test.isRunning) {
+                dom.testPanel.hidden = true;
+                dom.testExplanationPanel.hidden = true;
+            }
         }
     }
 
@@ -1253,7 +1262,6 @@
             dom.testQuestion.textContent = 'No questions available';
             dom.testQuestion.classList.add('is-empty');
             dom.testAnswers.innerHTML = '';
-            dom.testSubmit.hidden = true;
             dom.testExplanationPanel.hidden = true;
             updateTestSidebarMode();
             updateTestMeta();
@@ -1269,8 +1277,11 @@
         dom.sidebar.classList.remove('expanded');
         updateSidebarDisplay();
 
+        dom.testPanel.hidden = false;
         dom.testSubmit.hidden = false;
         dom.testQuestion.classList.remove('is-empty', 'is-finished');
+        dom.testResult.hidden = true;
+        dom.testResult.textContent = '';
         updateTestSidebarMode();
         updateTestMeta();
         renderTestQuestion();
@@ -1446,10 +1457,11 @@
 
         dom.testAnswers.innerHTML = '';
         dom.testExplanationPanel.hidden = true;
-        dom.testQuestion.classList.remove('is-empty');
-        dom.testQuestion.classList.add('is-finished');
-        dom.testQuestion.textContent = `Test finished. Result: ${state.test.correctCount}/${state.test.questions.length || 0}`;
-        dom.testSubmit.hidden = true;
+        dom.testPanel.hidden = true;
+
+
+        dom.testResult.textContent = `Test finished. Result: ${state.test.correctCount}/${state.test.questions.length || 0}`;
+        dom.testResult.hidden = false;
     }
 
     /* =========================
@@ -1894,6 +1906,9 @@
         dom.inputQuestions.placeholder = DEFAULTS.TEST_QUESTION_COUNT;
         dom.inputTime.placeholder = `${DEFAULTS.TEST_DURATION_MINUTES} min`;
         dom.inputTestAnswers.checked = DEFAULTS.TEST_SHOW_ANSWERS;
+
+        dom.testPanel.hidden = true;
+        dom.testResult.hidden = true;
 
         renderChapterList();
         populateChapterDropdown();

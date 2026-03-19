@@ -1,67 +1,11 @@
 {
   "meta": {
     "version": 2,
-    "nextChapterId": 81,
+    "nextChapterId": 86,
     "nextQuestionId": 32,
     "nextImageId": 17
   },
   "chapters": [
-    {
-      "id": 79,
-      "name": "chapter 1",
-      "questions": [
-        {
-          "id": 30,
-          "type": "question",
-          "question": "Despre atomi este adevărat că:",
-          "answers": [
-            {
-              "text": "neutronul este încărcat negativ",
-              "correct": false
-            },
-            {
-              "text": "nu pot fi degradați în unități mai mici fără a-și pierde proprietățile elementare",
-              "correct": true
-            },
-            {
-              "text": "numărul atomic este suma protonilor și neutronilor din atom",
-              "correct": false
-            },
-            {
-              "text": "sunt înconjurați de protoni care orbitează",
-              "correct": false
-            },
-            {
-              "text": "niciun răspuns corect",
-              "correct": false
-            }
-          ],
-          "explanation": "Explicatie",
-          "collapsed": true,
-          "weight": 2
-        }
-      ],
-      "images": [
-        {
-          "id": 15,
-          "type": "image",
-          "image": "imagine",
-          "imagePath": "/images/chapter-79-img-1773944186385-49qz3e.PNG",
-          "explanation": "explicatie",
-          "collapsed": true
-        }
-      ],
-      "order": [
-        {
-          "type": "question",
-          "id": 30
-        },
-        {
-          "type": "image",
-          "id": 15
-        }
-      ]
-    },
     {
       "id": 80,
       "name": "chapter 2",
@@ -117,6 +61,97 @@
           "id": 16
         }
       ]
+    },
+    {
+      "id": 81,
+      "name": "chapter 3",
+      "questions": [],
+      "images": [],
+      "order": []
+    },
+    {
+      "id": 79,
+      "name": "chapter 1",
+      "questions": [
+        {
+          "id": 30,
+          "type": "question",
+          "question": "Despre atomi este adevărat că:",
+          "answers": [
+            {
+              "text": "neutronul este încărcat negativ",
+              "correct": false
+            },
+            {
+              "text": "nu pot fi degradați în unități mai mici fără a-și pierde proprietățile elementare",
+              "correct": true
+            },
+            {
+              "text": "numărul atomic este suma protonilor și neutronilor din atom",
+              "correct": false
+            },
+            {
+              "text": "sunt înconjurați de protoni care orbitează",
+              "correct": false
+            },
+            {
+              "text": "niciun răspuns corect",
+              "correct": false
+            }
+          ],
+          "explanation": "Explicatie",
+          "collapsed": true,
+          "weight": 3
+        }
+      ],
+      "images": [
+        {
+          "id": 15,
+          "type": "image",
+          "image": "imagine",
+          "imagePath": "/images/chapter-79-img-1773944186385-49qz3e.PNG",
+          "explanation": "explicatie",
+          "collapsed": true
+        }
+      ],
+      "order": [
+        {
+          "type": "question",
+          "id": 30
+        },
+        {
+          "type": "image",
+          "id": 15
+        }
+      ]
+    },
+    {
+      "id": 82,
+      "name": "chapter 4",
+      "questions": [],
+      "images": [],
+      "order": []
+    },
+    {
+      "id": 83,
+      "name": "chapter 5",
+      "questions": [],
+      "images": [],
+      "order": []
+    },
+    {
+      "id": 84,
+      "name": "chapter 6",
+      "questions": [],
+      "images": [],
+      "order": []
+    },
+    {
+      "id": 85,
+      "name": "chapter 7",
+      "questions": [],
+      "images": [],
+      "order": []
     }
   ]
 }

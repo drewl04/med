@@ -938,7 +938,7 @@ can't you center it with a property instead? */
 
 /* ================= TEST VIEW ================= */
 #test-container {
-    margin-top: var(--space-4xl);
+    margin-top: var(--space-3xl);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -1112,7 +1112,7 @@ can't you center it with a property instead? */
 
 @media (max-width: 62.5rem) {
     #test-container {
-        margin-top: var(--space-3xl);
+        margin-top: var(--space-2xl);
     }
     #test-explanation-panel {
         width: 90%;
