@@ -20,6 +20,8 @@
     --color-danger-hover: rgb(255 50 80);
     --color-start: rgb(255 0 89);
     --color-start-hover: rgb(255 50 120);
+    --color-finish: rgb(255 40 40);
+    --color-finish-hover: rgb(255 75 75);
     --color-check: rgb(0 200 0);
     --color-text: rgb(255 255 255);
     --color-muted: rgb(154 160 198 / 60%);
@@ -364,6 +366,20 @@ main {
 
 #button-start-test:hover {
     background-color: var(--color-start-hover);
+}
+
+#button-start-test.is-finishing {
+    background-color: var(--color-finish);
+}
+
+#button-start-test.is-finishing:hover {
+    background-color: var(--color-finish-hover);
+}
+
+#test-sidebar-progress {
+    margin: 0.5rem 0 0;
+    font-weight: bold;
+    text-align: center;
 }
 
 #sidebar input[type="text"] {
@@ -942,6 +958,10 @@ can't you center it with a property instead? */
     border-radius: var(--radius-xl);
     padding: 0.6rem 1rem;
     font-weight: bold;
+}
+
+#test-score-correct {
+    color: var(--color-answer-correct);
 }
 
 #test-panel {

@@ -46,10 +46,14 @@
         inputTestImages: document.getElementById('input-test-images'),
         inputTestAnswers: document.getElementById('input-test-answers'),
         buttonStartTest: document.getElementById('button-start-test'),
+        testSidebarOptions: document.querySelector('.sidebar-section-bottom > ul'),
+        testSidebarProgress: document.getElementById('test-sidebar-progress'),
 
         testContainer: document.getElementById('test-container'),
         testTimer: document.getElementById('test-timer'),
         testScore: document.getElementById('test-score'),
+        testScoreCorrect: document.getElementById('test-score-correct'),
+        testScoreTotal: document.getElementById('test-score-total'),
         testQuestion: document.getElementById('test-question'),
         testAnswers: document.getElementById('test-answers'),
         testSubmit: document.getElementById('test-submit'),
@@ -91,7 +95,7 @@
     };
 
     const DEFAULTS = {
-    TEST_QUESTION_COUNT: 30,
+    TEST_QUESTION_COUNT: 25,
     TEST_DURATION_MINUTES: 30
     };
 
@@ -992,11 +996,11 @@
     }
 
     /* =========================
-   TEST QUESTION HELPERS
-   =========================
-   These helpers sit near practice because they derive question pools
-   from the same chapter/question data.
-    */
+       TEST QUESTION HELPERS
+       =========================
+       These helpers sit near practice because they derive question pools
+       from the same chapter/question data. */
+    
     function getActiveTestQuestions() {
         return getChapters()
             .filter((chapter) => isChapterActive(chapter.id))
@@ -1191,8 +1195,25 @@
     }
 
     /* =========================
-   TEST VIEW
-   ========================= */
+       TEST VIEW
+       ========================= */
+
+    function getAnsweredTestQuestionCount() {
+        return state.test.currentIndex + (state.test.answered ? 1 : 0);
+    }
+
+    function updateTestSidebarContent() {
+        const shouldShowProgress = state.currentView === 'test' && state.test.isRunning;
+
+        dom.testSidebarOptions.hidden = shouldShowProgress;
+        dom.testSidebarProgress.hidden = !shouldShowProgress;
+
+        if (shouldShowProgress) {
+            const answeredCount = getAnsweredTestQuestionCount();
+            const totalCount = state.test.questions.length || state.test.totalQuestions;
+            dom.testSidebarProgress.textContent = `${answeredCount}/${totalCount}`;
+        }
+    }
 
     function getConfiguredTestQuestionAmount() {
         const value = Number(dom.inputQuestions.value);
@@ -1274,18 +1295,24 @@
     }
 
     function updateTestMeta() {
+        const answeredCount = getAnsweredTestQuestionCount();
+
         dom.testTimer.textContent = formatTime(state.test.timeRemainingSeconds);
 
         if (state.test.startedWithAnswers && state.test.isRunning) {
             dom.testScore.hidden = false;
-            dom.testScore.textContent = `${state.test.correctCount}/${state.test.questions.length || state.test.totalQuestions}`;
+            dom.testScoreCorrect.textContent = state.test.correctCount;
+            dom.testScoreTotal.textContent = answeredCount;
         } else {
             dom.testScore.hidden = true;
         }
+
+        updateTestSidebarContent();
     }
 
     function updateTestSidebarMode() {
         dom.buttonStartTest.textContent = state.test.isRunning ? 'FINISH' : 'START';
+        dom.buttonStartTest.classList.toggle('is-finishing', state.test.isRunning);
     }
 
     function renderTestQuestion() {
