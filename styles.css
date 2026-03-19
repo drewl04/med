@@ -687,7 +687,6 @@ can't you center it with a property instead? */
 .images-inner {
     width: auto;
     height: auto;
-    margin-top: 5rem;
     padding: 1rem;
     display: flex;
     flex-direction: column;
