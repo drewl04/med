@@ -1,7 +1,7 @@
 {
   "meta": {
     "version": 2,
-    "nextChapterId": 86,
+    "nextChapterId": 93,
     "nextQuestionId": 32,
     "nextImageId": 17
   },
@@ -101,7 +101,7 @@
           ],
           "explanation": "Explicatie",
           "collapsed": true,
-          "weight": 3
+          "weight": 4
         }
       ],
       "images": [
@@ -149,6 +149,55 @@
     {
       "id": 85,
       "name": "chapter 7",
+      "questions": [],
+      "images": [],
+      "order": []
+    },
+    {
+      "id": 86,
+      "name": "chapter 8",
+      "questions": [],
+      "images": [],
+      "order": []
+    },
+    {
+      "id": 87,
+      "name": "chapter 9",
+      "questions": [],
+      "images": [],
+      "order": []
+    },
+    {
+      "id": 88,
+      "name": "chapter 10",
+      "questions": [],
+      "images": [],
+      "order": []
+    },
+    {
+      "id": 89,
+      "name": "chapter 11",
+      "questions": [],
+      "images": [],
+      "order": []
+    },
+    {
+      "id": 90,
+      "name": "chapter 12",
+      "questions": [],
+      "images": [],
+      "order": []
+    },
+    {
+      "id": 91,
+      "name": "chapter 13",
+      "questions": [],
+      "images": [],
+      "order": []
+    },
+    {
+      "id": 92,
+      "name": "chapter 14",
       "questions": [],
       "images": [],
       "order": []

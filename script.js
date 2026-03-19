@@ -471,11 +471,9 @@
             startPractice();
         }
 
-        if (viewName === 'test') {
-            if (!state.test.isRunning) {
-                dom.testPanel.hidden = true;
-                dom.testExplanationPanel.hidden = true;
-            }
+        if (viewName === 'test' && !state.test.isRunning) {
+            dom.testPanel.hidden = true;
+            dom.testExplanationPanel.hidden = true;
         }
     }
 
@@ -1259,9 +1257,6 @@
         if (!availableQuestions.length) {
             state.test.isRunning = false;
             state.test.questions = [];
-            dom.testQuestion.textContent = 'No questions available';
-            dom.testQuestion.classList.add('is-empty');
-            dom.testAnswers.innerHTML = '';
             dom.testExplanationPanel.hidden = true;
             updateTestSidebarMode();
             updateTestMeta();
@@ -1278,8 +1273,6 @@
         updateSidebarDisplay();
 
         dom.testPanel.hidden = false;
-        dom.testSubmit.hidden = false;
-        dom.testQuestion.classList.remove('is-empty', 'is-finished');
         dom.testResult.hidden = true;
         dom.testResult.textContent = '';
         updateTestSidebarMode();
