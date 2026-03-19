@@ -1,97 +1,174 @@
+/* =========================
+   DESIGN TOKENS
+   =========================
+   The goal is not to flatten the design.
+   Repeated values are stored as variables, while intentional differences remain different.
+*/
+:root {
+    --color-body: rgb(45 48 79);
+    --color-panel: rgb(30 34 79);
+    --color-panel-alt: rgb(40 44 90);
+    --color-border: rgb(47 53 124);
+    --color-primary: rgb(0 118 255);
+    --color-primary-hover: rgb(0 100 230);
+    --color-primary-strong: rgb(0 85 210);
+    --color-secondary: rgb(81 98 255);
+    --color-secondary-hover: rgb(81 98 185);
+    --color-success: rgb(26 130 0);
+    --color-success-hover: rgb(20 102 0);
+    --color-danger: rgb(255 0 50);
+    --color-danger-hover: rgb(255 50 80);
+    --color-start: rgb(255 0 89);
+    --color-start-hover: rgb(255 50 120);
+    --color-check: rgb(0 200 0);
+    --color-text: rgb(255 255 255);
+    --color-muted: rgb(154 160 198 / 60%);
+    --color-input-sidebar: rgb(70 70 70);
+    --color-toggle-bg: rgb(30 30 30);
+    --color-toggle-knob: rgb(200 200 200);
+    --color-scrollbar: rgb(90 95 160);
+    --color-scrollbar-hover: rgb(120 125 200);
+    --color-correct: rgb(0 180 0);
+    --color-answer-correct: rgb(26 255 106);
+    --color-answer-wrong: rgb(200 40 40);
+
+    --radius-none: 0;
+    --radius-xs: 0.3rem;
+    --radius-sm: 0.35rem;
+    --radius-md: 0.5rem;
+    --radius-lg: 0.6rem;
+    --radius-xl: 1rem;
+    --radius-2xl: 1.5rem;
+    --radius-pill: 2rem;
+
+    --border-thin: 0.125rem solid var(--color-text);
+    --border-medium: 0.2rem solid var(--color-border);
+    --border-heavy: 0.3rem solid var(--color-text);
+
+    --space-2xs: 0.1rem;
+    --space-xs: 0.25rem;
+    --space-sm: 0.3rem;
+    --space-md: 0.5rem;
+    --space-lg: 0.75rem;
+    --space-xl: 1rem;
+    --space-2xl: 1.5rem;
+    --space-3xl: 2.5rem;
+    --space-4xl: 4rem;
+    --space-5xl: 5rem;
+    --space-6xl: 6rem;
+
+    --sidebar-collapsed-width: 5rem;
+    --sidebar-expanded-width: 15rem;
+    --sidebar-expanded-width-mobile: 10rem;
+    --sidebar-toggle-height: 4rem;
+
+    --editor-max-width: 56.25rem;
+    --editor-items-width: 30rem;
+    --practice-width: 40rem;
+    --explanation-width: 31.25rem;
+}
+
 /* ================= RESET ================= */
 *,
 *::before,
 *::after {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
     border: 0;
-    box-sizing: border-box;
 }
 
 html {
     scrollbar-gutter: stable;
 }
 
-html, body {
+html,
+body {
     min-height: 100%;
 }
 
 body {
-    background-color: rgb(45,48,79);
+    background-color: var(--color-body);
+    color: var(--color-text);
     font-family: sans-serif;
-    color: white;
 }
 
 button,
-input {
-    font-family: inherit;
-    color: white;
+input,
+textarea,
+select {
+    font: inherit;
+    color: inherit;
+}
+
+button {
     background: none;
-    border: none;
-    outline: none;
     cursor: pointer;
+}
+
+input,
+textarea,
+select {
+    outline: none;
 }
 
 ul {
     list-style: none;
-    padding-left: 0;
-    margin: 0;
 }
 
-/* ================= LAYOUT ================= */
+[hidden] {
+    display: none !important;
+}
+
+/* ================= GLOBAL LAYOUT ================= */
 main {
+    min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: flex-start;
-    min-height: 100vh;
     padding: 0.5rem 1rem 2rem 1rem;
 }
 
-section > div ul {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-    padding-top: 5rem;
+.view {
+    width: 100%;
+}
+
+h1 {
+    text-align: center;
 }
 
 /* ================= SIDEBAR ================= */
-aside {
+#sidebar {
     position: fixed;
     top: 0;
     left: 0;
-    width: 5rem;
-    height: 4rem;
+    z-index: 1000;
     display: flex;
     flex-direction: column;
+    width: var(--sidebar-collapsed-width);
+    height: var(--sidebar-toggle-height);
     background-color: transparent;
-    z-index: 1000;
 }
 
-aside.expanded {
-    width: 15rem;
+#sidebar.expanded {
+    width: var(--sidebar-expanded-width);
     height: 100vh;
-    background-color: rgb(30,34,79);
+    background-color: var(--color-panel);
 }
 
-
-@media (max-width: 1000px) {
+@media (max-width: 62.5rem) {
     #sidebar.expanded {
-        width: 10rem;
+        width: var(--sidebar-expanded-width-mobile);
     }
-
 }
-
-
-
 
 #button-toggle-sidebar {
-    width: 100%;
-    height: 4rem;
-    border-radius: 0;
-    border-bottom-right-radius: 1.5rem;
-
-    background-color: rgb(30,34,79);
     position: relative;
+    width: 100%;
+    height: var(--sidebar-toggle-height);
+    border-radius: var(--radius-none);
+    border-bottom-right-radius: var(--radius-2xl);
+    background-color: var(--color-panel);
 }
 
 #button-toggle-sidebar::before,
@@ -100,82 +177,27 @@ aside.expanded {
     position: absolute;
     top: 50%;
     left: 50%;
-    border-right: 3px solid white;
-    border-top: 3px solid white;
+    border-top: 0.1875rem solid var(--color-text);
+    border-right: 0.1875rem solid var(--color-text);
     transform: translate(-50%, -50%) rotate(45deg);
 }
 
-#button-toggle-sidebar::before { width: 0.3rem; height: 0.3rem; }
-#button-toggle-sidebar::after { width: 0.8rem; height: 0.8rem; }
-
-#sidebar.expanded #button-toggle-sidebar::after,
-#sidebar.expanded #button-toggle-sidebar::before { 
-    transform: translate(-50%, -50%) rotate(135deg); 
+#button-toggle-sidebar::before {
+    width: 0.3rem;
+    height: 0.3rem;
 }
 
-#sidebar.expanded nav > div:nth-child(3) {
-    flex: 0 0 auto;
-    align-items: center;
-    padding: 0.5rem 0;
+#button-toggle-sidebar::after {
+    width: 0.8rem;
+    height: 0.8rem;
 }
 
-#sidebar.expanded nav > div:nth-child(3) > ul li {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0.25rem 1rem;
+#sidebar.expanded #button-toggle-sidebar::before,
+#sidebar.expanded #button-toggle-sidebar::after {
+    transform: translate(-50%, -50%) rotate(135deg);
 }
 
-#button-start-test {
-    background-color: rgb(255,0,89);
-    width: 7rem;
-    height: 2rem;
-    border-radius: 2rem;
-    margin: 1rem 0 1rem 0;
-    cursor: pointer;
-}
-
-#button-start-test:hover {
-    background-color: rgb(255,50,120);
-}
-
-/* ================= EDITOR LAYOUT ================= */
-#view-editor {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-#view-editor h1 {
-    margin-top: 0;
-    text-align: center;
-}
-
-.editor-panel {
-    margin-top: 4rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    max-width: 900px;
-}
-
-#editor-items {
-    width: 30rem;
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-}
-
-/* Mobile / smaller screens */
-@media (max-width: 1000px) {
-    #editor-items {
-        width: 90%;      /* fluid width relative to viewport */
-        max-width: 30rem; /* don't exceed desktop size */
-    }
-}
-
-/* Sidebar Nav */
-nav {
+#sidebar nav {
     display: flex;
     flex-direction: column;
 }
@@ -185,311 +207,198 @@ nav {
     min-height: 0;
 }
 
-#sidebar nav > div { display: none; }
-#sidebar.expanded nav > div { display: flex; flex-direction: column; }
+#sidebar nav > div {
+    display: none;
+}
 
-#sidebar nav > div:first-child ul {
+#sidebar.expanded nav > div {
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
+}
+
+.sidebar-section-top ul {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
     padding: 0.75rem;
 }
 
-#sidebar.expanded nav > div:nth-child(2) {
+.sidebar-section-middle {
     flex: 1 1 auto;
-    display: flex;
-    flex-direction: column;
+    min-height: 0;
     align-items: center;
     padding: 0.5rem 0;
-    min-height: 0;
+    border-top: var(--border-medium);
 }
 
-#sidebar.expanded nav > div:nth-child(2) > ul {
+.sidebar-section-middle > ul {
     width: 100%;
     flex: 1 1 auto;
     overflow-y: auto;
-    margin: 0.25rem 0 0;
-    padding: 0 0.75rem;
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
+    gap: var(--space-md);
+    margin: 0.25rem 0 0;
+    padding: 0 0.75rem;
 }
 
-#sidebar.expanded nav > div:nth-child(3) {
+.sidebar-section-bottom {
     flex: 0 0 auto;
     align-items: center;
     padding: 0.5rem 0;
+    border-top: var(--border-medium);
 }
 
-#sidebar.expanded nav > div:nth-child(2),
-#sidebar.expanded nav > div:nth-child(3) {
-    border-top: 0.2rem solid rgb(47,53,124);
+.sidebar-section-bottom > ul li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.25rem 1rem;
 }
 
-/* Buttons inside nav */
 #sidebar nav > div ul button {
     width: 100%;
     padding: 0.35rem 0.75rem;
     font-size: 1rem;
-    border: 0.3rem solid white;
-    border-radius: 2rem;
+    border: var(--border-heavy);
+    border-radius: var(--radius-pill);
 }
 
-#sidebar nav > div ul button.active {
-    background-color: rgb(0,118,255);
-    color: white;
+#sidebar nav > div ul button.active,
+.chapter-button.active {
+    background-color: var(--color-primary);
 }
 
-/* Chapter Buttons */
+.chapter-list-item {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+}
+
+.chapter-list-item.dragging {
+    opacity: 0.5;
+}
+
 .chapter-button {
     flex: 1;
-    margin-left: 0.25rem;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 0.3rem;
-    text-align: center;
-    border: 0.3rem solid white;
-    border-radius: 1rem;
+    gap: var(--space-sm);
+    margin-left: 0.25rem;
     padding: 0.5rem 0;
+    text-align: center;
+    border: var(--border-heavy);
+    border-radius: var(--radius-xl);
     background: transparent;
-    color: white;
     overflow: hidden;
 }
 
-.chapter-button span:last-child {
+.chapter-button-label {
     flex: 1;
     min-width: 0;
+    padding-left: var(--space-sm);
+    text-align: left;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    text-align: left;
-    padding-left: 0.3rem;
 }
 
 .chapter-button .checkmark {
-    color: rgb(0,200,0);
-    visibility: hidden;
-    font-weight: bold;
     width: 1.2rem;
     flex-shrink: 0;
     text-align: center;
+    color: var(--color-check);
+    font-weight: bold;
+    visibility: hidden;
 }
 
-/* Delete/Add Chapter Buttons */
+.chapter-button.active .checkmark {
+    visibility: visible;
+}
+
 .delete-chapter {
     width: 1.25rem;
     height: 1.25rem;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: rgb(255,0,50);
-    color: white;
-    font-weight: bold;
+    border-radius: var(--radius-sm);
+    background-color: var(--color-danger);
+    color: var(--color-text);
     font-size: 0.8rem;
-    border-radius: 0.35rem;
-    margin-left: 0.25rem;
+    font-weight: bold;
+    margin-left: var(--space-xs);
     cursor: pointer;
 }
 
-.delete-chapter:hover { background-color: rgb(255,50,80); }
+.delete-chapter:hover {
+    background-color: var(--color-danger-hover);
+}
 
 #button-add-chapter {
-    background-color: rgb(7,118,255);
+    width: 7.5rem;
+    height: 2.2rem;
+    margin: 0.75rem 0 1rem;
+    align-self: center;
+    flex: 0 0 auto;
+    border-radius: var(--radius-pill);
+    background-color: var(--color-primary);
+}
+
+#button-add-chapter:hover {
+    background-color: var(--color-primary-hover);
+}
+
+#button-start-test {
     width: 7rem;
     height: 2rem;
-    border-radius: 2rem;
-    flex: 0 0 auto;
-    align-self: center;
-    margin: 0.75rem 0 1rem;
+    margin: 1rem 0;
+    border-radius: var(--radius-pill);
+    background-color: var(--color-start);
 }
 
-#button-add-chapter:hover { background-color: rgb(0,100,230); }
-
-/* ================= EDITOR ITEMS ================= */
-.editor-item {
-    width: 100%;
-    min-height: 4rem;
-    position: relative;
-    background: rgb(30,34,79);
-    border-radius: 1rem;
-    padding: 1.5rem 1.5rem 1.5rem 1.5rem;
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-    border: 0.2rem solid rgb(47,53,124);
+#button-start-test:hover {
+    background-color: var(--color-start-hover);
 }
 
-.editor-item div {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-}
-
-.editor-item input,
-.editor-item textarea {
-    width: 100%;
-    border-radius: 20px;
-    border: 2px solid white;
-    padding: 6px 12px;
-    color: white;
-    background: transparent;
-}
-
-.editor-item input::placeholder {
-    color: #9aa0c6;
-    opacity: 0.6;
-}
-
-.editor-item textarea::placeholder {
-    color: #9aa0c6; /* whatever color you want */
-    opacity: 0.6;
-}
-
-.editor-item textarea {
-    resize: vertical;
-    min-height: 3rem;
-}
-
-.editor-item.dragging {
-    opacity: 0.4;
-}
-
-/* Question Header */
-.question-header {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-}
-
-.question-header input {
-    flex: 1;
-    height: 2.5rem;
-    border-radius: 0.3rem;
-    background: rgb(40,44,90);
+#sidebar input[type="text"] {
+    width: 40%;
+    padding: 0.3rem 0.5rem;
+    border-radius: var(--radius-md);
+    background-color: var(--color-input-sidebar);
     cursor: text;
 }
 
-/* Collapse Arrow */
-.collapse-arrow {
-    font-size: 0.9rem;
-    opacity: 0.7;
-    width: 14px;
-}
-
-/* Answer Rows */
-.answer-row {
-    display: flex;
-    gap: 0.5rem;
-    cursor: pointer;
-}
-
-.answer-row input {
-    flex: 1;
-    cursor: text;
-}
-
-.answer-indicator {
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    border: 2px solid white;
-    cursor: pointer;
-}
-
-.answer-indicator.correct {
-    background: #1aff6a;
-    border-color: #1aff6a;
-}
-
-.question-content {
+/* ================= EDITOR ================= */
+#view-editor {
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
-}
-
-.answers {
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-    margin-bottom: 1rem;
-}
-
-.explanation-area input
-{
-    border-radius: 0.1rem;
-
-    cursor: text;
-}
-
-/* Buttons */
-#button-add-question {
-    background: rgb(0,118,255);
-    border-radius: 1.5rem;
-    height: 2.5rem;
-    padding: 0 1.2rem;
-    font-size: 0.95rem;
-    margin-top: 2.5rem;
-}
-
-#button-add-question:hover {
-    background-color: rgb(0,100,230);
-}
-
-#button-add-image {
-    display: flex;
-    justify-content: center;
     align-items: center;
-    background-color: rgb(81,98,255);
-    border-radius: 1.5rem;
-    height: 2.5rem;
-    padding: 0.7rem 1rem;
-    font-size: 0.95rem;
-    margin-top: 1rem;
-    min-width: 6.5rem;
-    cursor: pointer;
 }
 
-#button-add-image:hover {
-    background-color: rgb(81,98,185);
+.editor-panel {
+    margin-top: var(--space-4xl);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: var(--editor-max-width);
 }
 
-#button-toggle-collapse {
-    background-color: rgb(30,34,79);
-    color: white;
-    border: none;
-    border-radius: 0.6rem;
-    padding: 0.45rem 0.9rem;
-    font-size: 0.95rem;
-    width: 6.5rem;
-    height: 2.1rem;
-    margin: 2.5rem auto 1rem auto;
-    cursor: pointer;
+#editor-items {
+    width: var(--editor-items-width);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xl);
 }
 
-#button-toggle-collapse:hover {
-    background-color: rgb(40,44,90);
+@media (max-width: 62.5rem) {
+    #editor-items {
+        width: 90%;
+        max-width: var(--editor-items-width);
+    }
 }
 
-.add-button {
-    background-color: rgb(0,118,255);
-    color: white;
-    border: none;
-    border-radius: 1rem;
-    padding: 0.45rem 0.9rem;
-    font-size: 0.95rem;
-    cursor: pointer;
-}
-
-.add-button:hover {
-    background-color: rgb(0,100,230);
-}
-
-.add-button:active {
-    background: rgb(0,85,210);
-}
-
-/* Dropdown Select */
 .select-wrapper {
     position: relative;
     display: inline-block;
@@ -504,44 +413,215 @@ nav {
     right: 0.8rem;
     width: 0.5rem;
     height: 0.5rem;
-    border-right: 2px solid white;
-    border-bottom: 2px solid white;
+    border-right: 0.125rem solid var(--color-text);
+    border-bottom: 0.125rem solid var(--color-text);
     transform: translateY(-50%) rotate(45deg);
     pointer-events: none;
 }
 
 #editor-chapter-select {
-    appearance: none;
-    -webkit-appearance: none;
-    -moz-appearance: none;
     width: 100%;
     height: 2.5rem;
-    background-color: rgb(30,34,79);
-    color: white;
-    font-size: 1rem;
     padding: 0.5rem 2rem 0.5rem 0.8rem;
-    border-radius: 2rem;
+    border-radius: var(--radius-pill);
+    background-color: var(--color-panel);
+    appearance: none;
     cursor: pointer;
 }
 
 #editor-chapter-select:hover {
-    background-color: rgb(40,44,90);
+    background-color: var(--color-panel-alt);
 }
 
 #editor-chapter-select option.active-chapter-option {
-    color: rgb(140,140,140);
+    color: rgb(140 140 140);
     font-style: italic;
 }
 
-/* Inputs */
-#sidebar input[type="text"] {
-    width: 40%;
-    padding: 0.3rem 0.5rem;
-    border-radius: 0.5rem;
-    background-color: rgb(70,70,70);
+#button-add-question {
+    margin-top: var(--space-3xl);
+    height: 2.5rem;
+    padding: 0 1.2rem;
+    border-radius: var(--radius-2xl);
+    background-color: var(--color-primary);
+    font-size: 0.95rem;
 }
 
-/* Toggle Switch */
+#button-add-question:hover,
+.add-button:hover {
+    background-color: var(--color-primary-hover);
+}
+
+.add-button:active {
+    background-color: var(--color-primary-strong);
+}
+
+#button-add-image {
+    min-width: 6.5rem;
+    height: 2.5rem;
+    margin-top: var(--space-xl);
+    padding: 0.7rem 1rem;
+    border-radius: var(--radius-2xl);
+    background-color: var(--color-secondary);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.95rem;
+}
+
+#button-add-image:hover {
+    background-color: var(--color-secondary-hover);
+}
+
+#button-toggle-collapse {
+    width: 6.5rem;
+    height: 2.1rem;
+    margin: 2.5rem auto 1rem;
+    padding: 0.45rem 0.9rem;
+    border-radius: var(--radius-lg);
+    background-color: var(--color-panel);
+    font-size: 0.95rem;
+}
+
+#button-toggle-collapse:hover {
+    background-color: var(--color-panel-alt);
+}
+
+.editor-item {
+    width: 100%;
+    min-height: 4rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    position: relative;
+    padding: 1.5rem;
+    border: var(--border-medium);
+    border-radius: var(--radius-xl);
+    background: var(--color-panel);
+}
+
+.editor-item.dragging {
+    opacity: 0.4;
+}
+
+.question-header {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    cursor: pointer;
+}
+
+.question-header input {
+    flex: 1;
+    height: 2.5rem;
+    border: var(--border-thin);
+    border-radius: var(--radius-xs);
+    background: var(--color-panel-alt);
+    padding: 0.375rem 0.75rem;
+    cursor: text;
+}
+
+.question-header .inline-edit {
+    flex: 1;
+}
+
+.question-number {
+    flex-shrink: 0;
+}
+
+.collapse-arrow {
+    width: 0.875rem;
+    flex-shrink: 0;
+    font-size: 0.9rem;
+    opacity: 0.7;
+}
+
+.delete-question {
+    color: darkgrey;
+    font-size: 2rem;
+    flex-shrink: 0;
+}
+
+.question-content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+}
+
+.answers {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+    margin-bottom: var(--space-xl);
+    gap: var(--space-lg);
+}
+
+.answer-row {
+    width: 100%;
+    display: flex;
+    gap: var(--space-md);
+    cursor: pointer;
+}
+
+
+/* here is the problem (i think), the indicator should be in the middle,
+from what i see, you are trying to forcefully center the circle by pushing it down,
+can't you center it with a property instead? */
+.answer-indicator {          
+    width: 0.825rem;
+    height: 0.825rem;
+    flex-shrink: 0;
+    margin-top: 0.85rem;
+    border: var(--border-thin);
+    border-radius: 50%;
+}
+
+.answer-indicator.correct {
+    background: var(--color-answer-correct);
+    border-color: var(--color-answer-correct);
+}
+
+.editor-item input,
+.editor-item textarea {
+    width: 100%;
+    border: var(--border-thin);
+    border-radius: 1.25rem;
+    padding: 0.375rem 0.75rem;
+    background: transparent;
+    color: var(--color-text);
+}
+
+.editor-item input::placeholder,
+.editor-item textarea::placeholder {
+    color: var(--color-muted);
+    opacity: 1;
+}
+
+.editor-item textarea.explanation-area {
+    min-height: 3rem;
+    resize: vertical;
+    border-radius: var(--radius-xs);
+    background-color: var(--color-panel-alt);
+    cursor: text;
+}
+
+.chapter-name-edit {
+    background: var(--color-panel);
+    color: var(--color-text);
+    border: var(--border-medium);
+    border-radius: var(--radius-md);
+    padding: 0.1rem 0.35rem;
+}
+
+.image-added {
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 1rem;
+    border-radius: var(--radius-md);
+}
+
+/* ================= TOGGLE SWITCH ================= */
 .toggle-switch {
     position: relative;
     display: inline-block;
@@ -550,484 +630,314 @@ nav {
 }
 
 .toggle-switch input {
-    opacity: 0;
     width: 0;
     height: 0;
+    opacity: 0;
 }
 
 .toggle-slider {
     position: absolute;
-    cursor: pointer;
     inset: 0;
-    background-color: rgb(30,30,30);
-    border-radius: 1rem;
+    border-radius: var(--radius-xl);
+    background-color: var(--color-toggle-bg);
+    cursor: pointer;
 }
 
 .toggle-slider::before {
     content: "";
     position: absolute;
-    height: 1rem;
-    width: 1rem;
     left: 0.1rem;
     bottom: 0.1rem;
-    background-color: rgb(200,200,200);
+    width: 1rem;
+    height: 1rem;
     border-radius: 50%;
+    background-color: var(--color-toggle-knob);
 }
 
 .toggle-switch input:checked + .toggle-slider {
-    background-color: rgb(0,200,0);
+    background-color: var(--color-check);
 }
 
 .toggle-switch input:checked + .toggle-slider::before {
     transform: translateX(1rem);
 }
 
-/* Scrollbar */
-* {
-    scrollbar-width: thin;
-    scrollbar-color: rgb(90,95,160) transparent;
-}
-
-*::-webkit-scrollbar { width: 8px; height: 8px; }
-*::-webkit-scrollbar-track { background: transparent; }
-*::-webkit-scrollbar-thumb {
-    background-color: rgb(90,95,160);
-    border-radius: 10px;
-}
-*::-webkit-scrollbar-thumb:hover { background-color: rgb(120,125,200); }
-
-/* Utility */
-li.dragging { opacity: 0.5; }
-
-
-
-/* Make answers span full width */
-.answers {
-    width: 100%;
-}
-
-.answer-row {
-    width: 100%;
-}
-
-.answer-row input {
-    width: 100%; /* ensures the input fills the row */
-}
-
-/* Explanation area: same as question title, less rounded */
-.editor-item textarea.explanation-area {
-    background-color: rgb(40,44,90); /* same as question title */
-    border-radius: 0.3rem;           /* less rounded */
-    border: 2px solid white;         /* match question input */
-    color: white;
-    width: 100%;
-    padding: 6px 12px;
-    cursor: text;
-    resize: vertical;
-}
-
-#input-questions
-{
-    cursor: text;
-}
-#input-time
-{
-    cursor: text;
-}
-
-.question-header .delete-question {
-    font-size: 2rem;   /* increase icon size */
-    color: darkgrey;
-}
-
-
-.image-added
-{
-    margin-bottom: 1rem;
-}
-
 /* ================= IMAGES VIEW ================= */
 #view-images {
-    display: flex;
-    flex-direction: column;
-    justify-content: center; /* vertical centering */
-    align-items: center;     /* horizontal centering */
     min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     width: 100%;
-    box-sizing: border-box;
-    text-align: center;      /* ensures heading is centered */
-
-}
-
-
-#view-images h1 {
     text-align: center;
-    margin-bottom: 1rem;
 }
 
-/* Panel containing the image and button */
 .images-panel {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    align-items: center;
-
-    width: auto;        /* shrink to content */
-    height: 60vh;
+    width: auto;
     max-width: 100%;
-
-    /*background-color: red;*/
-    border-radius: 1rem;
-    padding: 1.5rem;
-    box-sizing: border-box;
-    margin: 0 auto;   
-    margin-top: 6rem; /* <-- adds space from top */
-    padding-left: 0rem;
-    padding-right: 0rem;
-}
-
-
-
-.images-panel .images-inner{
+    height: 60vh;
+    margin: 6rem auto 0;
+    padding: 1.5rem 0;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
     align-items: center;
-    width: auto;       
-    height: auto;
-
-    background-color: rgb(30,34,79);
-    border-radius: 1rem;
-    padding: 1rem;
     box-sizing: border-box;
+}
+
+.images-inner {
+    width: auto;
+    height: auto;
     margin-top: 5rem;
-
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    border-radius: var(--radius-xl);
+    background-color: var(--color-panel);
 }
 
-
-
-@media (max-width: 1000px) {
-  .images-panel .images-inner {
-    padding: 0.4rem;
-  }
+@media (max-width: 62.5rem) {
+    .images-inner {
+        padding: 0.4rem;
+    }
 }
 
-
-
-/* Image styling */
 .images-panel img {
+    display: none;
     max-width: 100%;
     max-height: 50vh;
-    /*max-height: calc(60vh - 30vh); /* leave space for button */
     object-fit: contain;
-    border-radius: 0.5rem;
-    margin-bottom: 0; /* pushes image upward */
-
+    margin-bottom: 0;
+    border-radius: var(--radius-md);
 }
 
-/* NEXT button styling */
 #images-next {
-    margin-top: 1rem;
     width: 6rem;
     height: 2rem;
-    border-radius: 1rem;
-    background-color: rgb(26,130,0);
+    margin-top: var(--space-xl);
+    flex-shrink: 0;
+    border-radius: var(--radius-xl);
+    background-color: var(--color-success);
     font-weight: bold;
-    cursor: pointer;
-    flex-shrink: 0; 
 }
 
 #images-next:hover {
-    background-color: rgb(20,102,0);
+    background-color: var(--color-success-hover);
 }
 
-
-
-#images-explanation {
-    background-color: rgb(30,34,79);;
-    width: 100%;               /* span full width of parent */
-    max-width: 900px;          /* same as editor panel max-width */
-    margin: 1rem auto;         /* center horizontally with some spacing */
-    padding: 1rem;             /* optional: give some inner padding */
-    box-sizing: border-box;    /* include padding in width */
-    border-radius: 0.5rem;     /* optional: match styling */
-    margin-top: 0rem;
-    text-align: left;
-    margin-bottom: 0rem;
-    display: none;
-}
-.toggle-explanation-btn {
-    padding: 0.5rem 1rem;
-    background-color: #0076ff;
-    color: white;
-    border: none;
-    border-radius: 0.5rem;
-    cursor: pointer;
-    margin-bottom: 0.5rem;
+#explanation-panel,
+#practice-explanation-panel {
+    width: 100%;
+    max-width: var(--explanation-width);
+    margin: 1rem auto 0;
+    padding: 1rem;
+    border-radius: var(--radius-xl);
+    background-color: var(--color-panel);
 }
 
-
-#explanation-panel
-{
-    background-color: rgb(30,34,79);
-    width: 100%;               /* span full width of parent */
-    max-width: 500px;          /* same as editor panel max-width */
-    margin: 1rem auto;         /* center horizontally with some spacing */
-    padding: 1rem;             /* optional: give some inner padding */
-    box-sizing: border-box;    /* include padding in width */
-    border-radius: 1rem;     /* optional: match styling */
-    margin-top: 0rem;
+@media (max-width: 62.5rem) {
+    #explanation-panel,
+    #practice-explanation-panel {
+        width: 90%;
+    }
 }
 
-
-@media (max-width: 1000px) {
-  #explanation-panel {
-    width: 90%; 
-  }
-}
-
-
-#images-toggle-explanation
-{
+#images-toggle-explanation,
+#practice-toggle-explanation {
+    width: 100%;
     padding: 0;
+    display: flex;
+    align-items: center;
     border: 0;
+    background: none;
+    font-size: 1.1em;
+    font-weight: bold;
 }
 
-
-#images-toggle-explanation {
-  display: flex;
-  align-items: center;
-  border: none;
-  background: none;
-  font-weight: bold;
-  font-size: 1.1em;
-  cursor: pointer;
-    width: 100%;   
+#images-toggle-explanation .line,
+#practice-toggle-explanation .line {
+    display: block;
+    flex: 1;
+    height: 0.3rem;
+    background: var(--color-border);
 }
 
-
-
-
-
-#images-toggle-explanation .line {
-  display: block;       /* critical! spans need to be block for height to work */
-  flex: 1;              /* makes the lines expand */
-  height: 0.3rem;          /* line thickness */
-  background: rgb(47,53,124);;     /* line color */  
+#images-toggle-explanation .line:first-child,
+#practice-toggle-explanation .line:first-child {
+    margin-right: var(--space-xl);
 }
 
-#images-toggle-explanation .line:first-child {
-  margin-right: 1rem;
+#images-toggle-explanation .line:last-child,
+#practice-toggle-explanation .line:last-child {
+    margin-left: var(--space-xl);
 }
 
-#images-toggle-explanation .line:last-child {
-  margin-left: 1rem;
+#images-explanation,
+#practice-explanation {
+    display: none;
+    width: 100%;
+    max-width: 56.25rem;
+    margin: 1rem auto 0;
+    padding: 1rem;
+    border-radius: var(--radius-md);
+    background-color: var(--color-panel);
+    text-align: left;
 }
-
-
-
-
 
 /* ================= PRACTICE VIEW ================= */
-
-#view-practice h1 {
-    text-align: center;
-}
-
-#practice-container{
-    margin-top: 4rem;
+#practice-container {
+    margin-top: var(--space-4xl);
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-#practice-panel{
+#practice-panel {
+    width: 100%;
+    min-height: 60vh;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
     align-items: center;
-    width: 100%;
-    min-height: 60vh;
 }
 
-#practice-question-box{
-    background: rgb(30,34,79);
-    border-radius: 1rem;
-    border: 0.2rem solid rgb(47,53,124);
-    width: 40rem;
+#practice-question-box {
+    width: var(--practice-width);
     max-height: 58vh;
     overflow-y: auto;
     overflow-x: hidden;
+    border: var(--border-medium);
+    border-radius: var(--radius-xl);
+    background: var(--color-panel);
 }
 
-@media (max-width: 1000px) {
-  #practice-question-box {
-    width: 95%;
-    max-height: 58vh;
-  }
+@media (max-width: 62.5rem) {
+    #practice-question-box {
+        width: 95%;
+        max-height: 58vh;
+    }
 }
 
-#practice-question{
-    padding: 1.5rem 1.5rem 1rem 1.5rem;
-    margin-bottom: 0;
+#practice-question {
+    padding: 1.5rem 1.5rem 1rem;
     text-align: left;
-    font-weight: bold;
     font-size: 1.1em;
+    font-weight: bold;
 }
 
-#practice-answers{
+#practice-answers {
+    width: 100%;
     display: flex;
     flex-direction: column;
-    width: 100%;
-    padding: 0 0 1.5rem 0;
+    padding: 0 0 1.5rem;
 }
 
-.practice-answer{
+.practice-answer {
+    position: relative;
     display: flex;
     align-items: center;
     padding: 0.8rem;
-    position: relative;   /* needed for highlight layer */
 }
 
-/* the highlight layer */
-.practice-answer::after{
+.practice-answer::after {
     content: "";
     position: absolute;
-
-    left: 0.4rem;
-    right: 0.4rem;
     top: 0.25rem;
+    right: 0.4rem;
     bottom: 0.25rem;
-
-    border: 2px solid transparent;
-    border-radius: 1rem;
-
-    pointer-events: none; /* keeps row clickable */
+    left: 0.4rem;
+    border: 0.125rem solid transparent;
+    border-radius: var(--radius-xl);
+    pointer-events: none;
 }
 
-/* correct highlight */
-.practice-answer.correct::after{
-    border-color: rgb(0,180,0);
+.practice-answer.correct::after {
+    border-color: var(--color-correct);
 }
 
-/* wrong highlight */
-.practice-answer.wrong::after{
-    border-color: rgb(200,40,40);
+.practice-answer.wrong::after {
+    border-color: var(--color-answer-wrong);
 }
 
 @media (hover: hover) and (pointer: fine) {
-  .practice-answer:hover{
-    background: rgba(255,255,255,0.05);
-  }
+    .practice-answer:hover {
+        background: rgb(255 255 255 / 5%);
+    }
 }
 
-.practice-answer input{
-    appearance: none;
-    -webkit-appearance: none;
+.practice-answer input {
     width: 1rem;
     height: 1rem;
     min-width: 1rem;
     min-height: 1rem;
-    border: 2px solid white;
-    border-radius: 50%;
     margin-right: 0.6rem;
-    cursor: pointer;
-    position: relative;
     flex-shrink: 0;
+    position: relative;
+    appearance: none;
+    border: var(--border-thin);
+    border-radius: 50%;
+    cursor: pointer;
 }
 
-.practice-answer input:checked::after{
+.practice-answer input:checked::after {
     content: "";
     position: absolute;
     top: 50%;
     left: 50%;
     width: 0.8rem;
     height: 0.8rem;
-    background: rgb(0,118,255);
     border-radius: 50%;
-    z-index: 10;
+    background: var(--color-primary);
     transform: translate(-50%, -50%);
+    z-index: 10;
 }
 
-
-#practice-submit{
-    color: white;
-    border: none;
-    border-radius: 1rem;
-    padding: 0.6rem 1.4rem;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background-color;
+#practice-submit {
     margin-top: 1rem;
-}
-
-.practice-submit{
-    background-color: rgb(0,118,255);
-}
-
-.practice-submit:hover{
-    background-color: rgb(0,100,230);
-}
-
-.practice-next{
-    background-color: rgb(26,130,0);
-}
-
-.practice-next:hover{
-    background-color: rgb(20,102,0);
-}
-
-#practice-explanation-panel{
-    background-color: rgb(30,34,79);
-    width: 100%;
-    max-width: 500px;
-    margin: 1.5rem auto 0 auto;
-    padding: 1rem;
-    box-sizing: border-box;
-    border-radius: 1rem;
-}
-
-@media (max-width: 1000px) {
-  #practice-explanation-panel {
-    width: 90%;
-  }
-}
-
-#practice-toggle-explanation{
-    padding: 0;
-    border: 0;
-    display: flex;
-    align-items: center;
-    background: none;
+    padding: 0.6rem 1.4rem;
+    border-radius: var(--radius-xl);
     font-weight: bold;
-    font-size: 1.1em;
-    cursor: pointer;
-    width: 100%;
 }
 
-#practice-toggle-explanation .line {
-    display: block;
-    flex: 1;
-    height: 0.3rem;
-    background: rgb(47,53,124);
+.practice-submit {
+    background-color: var(--color-primary);
 }
 
-#practice-toggle-explanation .line:first-child {
-    margin-right: 1rem;
+.practice-submit:hover {
+    background-color: var(--color-primary-hover);
 }
 
-#practice-toggle-explanation .line:last-child {
-    margin-left: 1rem;
+.practice-next {
+    background-color: var(--color-success);
 }
 
-#practice-explanation{
-    background-color: rgb(30,34,79);
-    width: 100%;
-    max-width: 900px;
-    margin: 1rem auto 0 auto;
-    padding: 1rem;
-    box-sizing: border-box;
-    border-radius: 0.5rem;
-    text-align: left;
-    display: none;
+.practice-next:hover {
+    background-color: var(--color-success-hover);
+}
+
+/* ================= SCROLLBAR ================= */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-scrollbar) transparent;
+}
+
+*::-webkit-scrollbar {
+    width: 0.5rem;
+    height: 0.5rem;
+}
+
+*::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: var(--color-scrollbar);
+    border-radius: 0.625rem;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+    background-color: var(--color-scrollbar-hover);
 }

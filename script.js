@@ -1,1070 +1,1446 @@
-// ========================== ELEMENTS & STATE ==========================
-const sidebar = document.getElementById('sidebar');
-const toggleBtn = document.getElementById('button-toggle-sidebar');
+(() => {
+    'use strict';
 
-const middleSidebar = sidebar.querySelector('nav > div:nth-child(2)');
-const bottomSidebar = sidebar.querySelector('nav > div:nth-child(3)');
+    /* =========================
+       DOM REFERENCES
+       ========================= */
+    const dom = {
+        sidebar: document.getElementById('sidebar'),
+        toggleSidebar: document.getElementById('button-toggle-sidebar'),
 
-const addChapterBtn = document.getElementById('button-add-chapter');
-const chapterList = middleSidebar.querySelector('ul');
+        chapterList: document.getElementById('chapter-list'),
+        addChapter: document.getElementById('button-add-chapter'),
 
-const btnEditor   = document.getElementById('button-enter-editor');
-const btnImages   = document.getElementById('button-enter-images');
-const btnPractice = document.getElementById('button-enter-practice');
+        buttonEditor: document.getElementById('button-enter-editor'),
+        buttonImages: document.getElementById('button-enter-images'),
+        buttonPractice: document.getElementById('button-enter-practice'),
 
-const viewEditor   = document.getElementById('view-editor');
-const viewImages   = document.getElementById('view-images');
-const viewPractice = document.getElementById('view-practice');
+        viewEditor: document.getElementById('view-editor'),
+        viewImages: document.getElementById('view-images'),
+        viewPractice: document.getElementById('view-practice'),
 
-const inputQuestions = document.getElementById('input-questions');
-const inputTime = document.getElementById('input-time');
+        inputQuestions: document.getElementById('input-questions'),
+        inputTime: document.getElementById('input-time'),
 
-const chapterSelect = document.getElementById('editor-chapter-select');
+        chapterSelect: document.getElementById('editor-chapter-select'),
+        addQuestion: document.getElementById('button-add-question'),
+        addImage: document.getElementById('button-add-image'),
+        toggleCollapse: document.getElementById('button-toggle-collapse'),
+        editorItems: document.getElementById('editor-items'),
 
-const btnAddQuestion = document.getElementById('button-add-question');
-const btnAddImage = document.getElementById('button-add-image');
-const btnToggleCollapse = document.getElementById("button-toggle-collapse");
-const editorItems = document.getElementById('editor-items');
+        imagesCurrent: document.getElementById('images-current'),
+        imagesNext: document.getElementById('images-next'),
+        imagesExplanationPanel: document.getElementById('explanation-panel'),
+        imagesExplanation: document.getElementById('images-explanation'),
+        imagesToggleExplanation: document.getElementById('images-toggle-explanation'),
 
-const btnShowMoreImageExplanation = document.getElementById('images-toggle-explanation');
+        practiceQuestion: document.getElementById('practice-question'),
+        practiceAnswers: document.getElementById('practice-answers'),
+        practiceSubmit: document.getElementById('practice-submit'),
+        practiceExplanationPanel: document.getElementById('practice-explanation-panel'),
+        practiceExplanation: document.getElementById('practice-explanation'),
+        practiceToggleExplanation: document.getElementById('practice-toggle-explanation')
+    };
 
+    /* =========================
+       APPLICATION STATE
+       ========================= */
+    const state = {
+        database: createEmptyDatabase(),
+        currentView: 'practice',
+        editorChapterId: null,
+        saveTimer: null,
+        imagesExplanationVisible: false,
+        currentImageId: null,
+        practice: {
+            questions: [],
+            currentQuestionId: null,
+            answered: false,
+            recentQuestionIds: [],
+            recentBufferSize: 5
+        }
+    };
 
-let chapters = []; // { id, name, questions }
-let chapterCount = 0;
-let chapterIdCounter = 1;
+    const DRAG_TYPES = {
+        CHAPTER: 'chapter',
+        EDITOR_ITEM: 'editor-item'
+    };
 
-let editorChapter = null;
-let currentView = viewEditor;
-
-let saveTimeout = null;
-
-let imageExplanationsMap = {}; // key = imagePath, value = explanation
-
-function debouncedSave(){
-    clearTimeout(saveTimeout);
-    saveTimeout = setTimeout(()=>{
-        saveChaptersToServer();
-    }, 400);
-}
-
-
-
-// ========================== IMAGES VIEW ==========================
-const imagesDisplay = document.getElementById('images-current');
-const btnImagesNext = document.getElementById('images-next');
-const imagesCaption = document.getElementById('images-explanation');
-let currentImage = null;
-
-function isMobile() {
-    return 'ontouchstart' in window || navigator.maxTouchPoints > 0;
-}
-
-function getCheckedChaptersImages() {
-    const checkedChapters = chapters.filter(ch => {
-        const li = chapterList.querySelector(`li[data-id="${ch.id}"]`);
-        if (!li) return false;
-        const btn = li.querySelector('.chapter-button');
-        return btn.classList.contains('active');
-    });
-
-    let images = [];
-    checkedChapters.forEach(ch => {
-        ch.questions.forEach(q => {
-            if (q.imagePath) images.push(q.imagePath);
-        });
-    });
-
-    return images;
-}
-
-
-
-
-
-
-
-
-
-function showRandomImage() {
-    const images = getCheckedChaptersImages();
-    if (!images.length) {
-        imagesDisplay.style.display = 'none';
-        imagesCaption.style.display = 'none';
-        return;
+    /* =========================
+       DATA MODEL HELPERS
+       ========================= */
+    function createEmptyDatabase() {
+        return {
+            meta: {
+                version: 2,
+                nextChapterId: 1,
+                nextQuestionId: 1,
+                nextImageId: 1
+            },
+            chapters: []
+        };
     }
 
-    let nextImage;
-    do {
-        nextImage = images[Math.floor(Math.random() * images.length)];
-    } while (nextImage === currentImage && images.length > 1);
-
-    currentImage = nextImage;
-    imagesDisplay.src = currentImage;
-    imagesDisplay.style.display = 'block';
-
-    // Update explanation text
-    imagesCaption.textContent = imageExplanationsMap[currentImage] || '';
-    imagesCaption.style.display = imagesExplanationVisible ? 'block' : 'none';
-}
-
-
-
-
-
-
-
-
-btnImagesNext.addEventListener('click', showRandomImage);
-
-[inputQuestions, inputTime].forEach(input => {
-    input.addEventListener('input', () => {
-        input.value = input.value.replace(/[^0-9]/g, '');
-    });
-});
-
-// ========================== VIEW MANAGEMENT ==========================
-function showView(view) {
-    [viewEditor, viewImages, viewPractice].forEach(v => v.style.display = 'none');
-    view.style.display = 'block';
-
-    if (view === viewImages) {
-        currentImage = null;
-        showRandomImage();
+    function createChapter(name) {
+        return {
+            id: state.database.meta.nextChapterId++,
+            name,
+            questions: [],
+            images: [],
+            order: []
+        };
     }
 
-    if(view === viewPractice){
-    startPractice();
-}
-
-    [btnEditor, btnImages, btnPractice].forEach(btn => btn.classList.remove('active'));
-    if (view === viewEditor) btnEditor.classList.add('active');
-    else if (view === viewImages) btnImages.classList.add('active');
-    else btnPractice.classList.add('active');
-
-    currentView = view;
-    updateSidebarDisplay();
-}
-
-btnEditor.addEventListener('pointerdown', (e) => {
-    e.preventDefault();
-    showView(viewEditor);
-});
-
-btnImages.addEventListener('pointerdown', (e) => {
-    e.preventDefault();
-    showView(viewImages);
-});
-
-btnPractice.addEventListener('pointerdown', (e) => {
-    e.preventDefault();
-    showView(viewPractice);
-});
-
-// ========================== SIDEBAR DISPLAY ==========================
-toggleBtn.addEventListener('pointerdown', (e) => {
-    e.preventDefault();
-    sidebar.classList.toggle('expanded');
-    updateSidebarDisplay();
-});
-
-function updateSidebarDisplay() {
-    const expanded = sidebar.classList.contains('expanded');
-
-    if (!expanded) {
-        middleSidebar.style.display = '';
-        bottomSidebar.style.display = '';
-        addChapterBtn.style.display = '';
-        updateChapterControls();
-        return;
+    function createQuestion() {
+        return {
+            id: state.database.meta.nextQuestionId++,
+            type: 'question',
+            question: '',
+            answers: Array.from({ length: 5 }, () => ({ text: '', correct: false })),
+            explanation: '',
+            collapsed: false,
+            weight: 1
+        };
     }
 
-    if (currentView === viewEditor) {
-        middleSidebar.style.display = 'flex';
-        bottomSidebar.style.display = 'flex';
-        addChapterBtn.style.display = 'block';
-    } else {
-        middleSidebar.style.display = 'flex';
-        bottomSidebar.style.display = 'none';
-        addChapterBtn.style.display = 'none';
+    function createImageItem(imagePath) {
+        return {
+            id: state.database.meta.nextImageId++,
+            type: 'image',
+            image: '',
+            imagePath,
+            explanation: '',
+            collapsed: false
+        };
     }
 
-    updateChapterControls();
-}
+    function ensureDatabaseShape(rawData) {
+        if (!rawData) {
+            return createEmptyDatabase();
+        }
 
-function updateChapterControls() {
-    const showDelete = currentView === viewEditor;
-    chapterList.querySelectorAll('.delete-chapter')
-        .forEach(btn => btn.style.display = showDelete ? 'flex' : 'none');
-}
+        // New format already present.
+        if (rawData.meta && Array.isArray(rawData.chapters)) {
+            const db = createEmptyDatabase();
+            db.meta = {
+                version: 2,
+                nextChapterId: Number(rawData.meta.nextChapterId) || 1,
+                nextQuestionId: Number(rawData.meta.nextQuestionId) || 1,
+                nextImageId: Number(rawData.meta.nextImageId) || 1
+            };
 
-// ========================== CHAPTER UI ==========================
-function createChapterItem(chapter) {
-    const li = document.createElement('li');
-    li.dataset.id = chapter.id;
-    li.draggable = true;
-    li.style.display = 'flex';
-    li.style.alignItems = 'center';
-    li.style.gap = '0.5rem';
+            db.chapters = rawData.chapters.map(normalizeChapter);
+            recalculateMetaCounters(db);
+            return db;
+        }
 
-    const deleteBtn = document.createElement('span');
-    deleteBtn.className = 'delete-chapter';
-    deleteBtn.textContent = '✖';
-    deleteBtn.addEventListener('pointerdown', (e) => {
-    e.preventDefault();
-    e.stopPropagation();
-    handleDeleteChapter(li, chapter.id);
-});
+        // Legacy format migration.
+        if (Array.isArray(rawData)) {
+            const db = createEmptyDatabase();
 
-    const chapterBtn = document.createElement('button');
-    chapterBtn.className = 'chapter-button';
+            rawData.forEach((legacyChapter, chapterIndex) => {
+                const chapterId = Number.isFinite(legacyChapter.id) ? legacyChapter.id : db.meta.nextChapterId++;
+                db.meta.nextChapterId = Math.max(db.meta.nextChapterId, chapterId + 1);
 
-    const check = document.createElement('span');
-    check.className = 'checkmark';
-    check.textContent = '✔';
-    chapterBtn.appendChild(check);
+                const chapter = {
+                    id: chapterId,
+                    name: legacyChapter.name || `chapter ${chapterIndex + 1}`,
+                    questions: [],
+                    images: [],
+                    order: []
+                };
 
-    const spanText = document.createElement('span');
-    spanText.textContent = chapter.name;
-    chapterBtn.appendChild(spanText);
+                const legacyItems = Array.isArray(legacyChapter.questions) ? legacyChapter.questions : [];
 
-    chapterBtn.classList.add('active');
-    check.style.visibility = 'visible';
-    chapterBtn.style.background = 'rgb(0,118,255)';
+                legacyItems.forEach((item) => {
+                    if (Array.isArray(item.answers)) {
+                        const question = {
+                            id: db.meta.nextQuestionId++,
+                            type: 'question',
+                            question: item.question || '',
+                            answers: normalizeAnswers(item.answers),
+                            explanation: item.explanation || '',
+                            collapsed: Boolean(item.collapsed),
+                            weight: normalizeWeight(item.weight)
+                        };
 
-    if (isMobile()) {
-        chapterBtn.addEventListener('touchstart', e => {
-            e.preventDefault();
-            const active = chapterBtn.classList.toggle('active');
-            check.style.visibility = active ? 'visible' : 'hidden';
-            chapterBtn.style.background = active ? 'rgb(0,118,255)' : 'transparent';
+                        chapter.questions.push(question);
+                        chapter.order.push({ type: 'question', id: question.id });
+                        return;
+                    }
 
-            if (currentView === viewPractice) {
-            startPractice();
+                    if (item.imagePath) {
+                        const image = {
+                            id: db.meta.nextImageId++,
+                            type: 'image',
+                            image: item.image || '',
+                            imagePath: item.imagePath,
+                            explanation: item.explanation || '',
+                            collapsed: Boolean(item.collapsed)
+                        };
+
+                        chapter.images.push(image);
+                        chapter.order.push({ type: 'image', id: image.id });
+                    }
+                });
+
+                db.chapters.push(chapter);
+            });
+
+            recalculateMetaCounters(db);
+            return db;
+        }
+
+        return createEmptyDatabase();
+    }
+
+    function normalizeChapter(chapter) {
+        const normalized = {
+            id: Number(chapter.id),
+            name: chapter.name || 'chapter',
+            questions: Array.isArray(chapter.questions) ? chapter.questions.map(normalizeQuestion) : [],
+            images: Array.isArray(chapter.images) ? chapter.images.map(normalizeImage) : [],
+            order: Array.isArray(chapter.order) ? chapter.order.map(normalizeOrderEntry).filter(Boolean) : []
+        };
+
+        if (!normalized.order.length) {
+            normalized.questions.forEach((question) => {
+                normalized.order.push({ type: 'question', id: question.id });
+            });
+            normalized.images.forEach((image) => {
+                normalized.order.push({ type: 'image', id: image.id });
+            });
+        }
+
+        normalized.order = normalized.order.filter((entry) => {
+            if (entry.type === 'question') {
+                return normalized.questions.some((question) => question.id === entry.id);
             }
+            if (entry.type === 'image') {
+                return normalized.images.some((image) => image.id === entry.id);
+            }
+            return false;
+        });
 
-        }, { passive: false });
+        // Any orphaned entities are appended so nothing disappears silently.
+        normalized.questions.forEach((question) => {
+            if (!normalized.order.some((entry) => entry.type === 'question' && entry.id === question.id)) {
+                normalized.order.push({ type: 'question', id: question.id });
+            }
+        });
+        normalized.images.forEach((image) => {
+            if (!normalized.order.some((entry) => entry.type === 'image' && entry.id === image.id)) {
+                normalized.order.push({ type: 'image', id: image.id });
+            }
+        });
+
+        return normalized;
     }
 
-    chapterBtn.addEventListener('pointerdown', (e) => {
-    if (isMobile()) return;
-    e.preventDefault();
-
-    const active = chapterBtn.classList.toggle('active');
-    check.style.visibility = active ? 'visible' : 'hidden';
-    chapterBtn.style.background = active ? 'rgb(0,118,255)' : 'transparent';
-
-    if (currentView === viewPractice) {
-        startPractice();
+    function normalizeQuestion(question) {
+        return {
+            id: Number(question.id),
+            type: 'question',
+            question: question.question || '',
+            answers: normalizeAnswers(question.answers),
+            explanation: question.explanation || '',
+            collapsed: Boolean(question.collapsed),
+            weight: normalizeWeight(question.weight)
+        };
     }
-});
 
-    spanText.addEventListener('dblclick', e => {
-        if (currentView !== viewEditor) return;
-        e.stopPropagation();
+    function normalizeImage(image) {
+        return {
+            id: Number(image.id),
+            type: 'image',
+            image: image.image || '',
+            imagePath: image.imagePath || '',
+            explanation: image.explanation || '',
+            collapsed: Boolean(image.collapsed)
+        };
+    }
 
+    function normalizeOrderEntry(entry) {
+        if (!entry || (entry.type !== 'question' && entry.type !== 'image')) {
+            return null;
+        }
+
+        return {
+            type: entry.type,
+            id: Number(entry.id)
+        };
+    }
+
+    function normalizeAnswers(answers) {
+        const safeAnswers = Array.isArray(answers) ? answers.slice(0, 5) : [];
+        while (safeAnswers.length < 5) {
+            safeAnswers.push({ text: '', correct: false });
+        }
+
+        return safeAnswers.map((answer) => ({
+            text: answer?.text || '',
+            correct: Boolean(answer?.correct)
+        }));
+    }
+
+    function normalizeWeight(value) {
+        const numeric = Number(value);
+        if (!Number.isFinite(numeric) || numeric < 1) {
+            return 1;
+        }
+        return Math.max(1, Math.min(5, numeric));
+    }
+
+    function recalculateMetaCounters(database) {
+        let maxChapterId = 0;
+        let maxQuestionId = 0;
+        let maxImageId = 0;
+
+        database.chapters.forEach((chapter) => {
+            maxChapterId = Math.max(maxChapterId, Number(chapter.id) || 0);
+            chapter.questions.forEach((question) => {
+                maxQuestionId = Math.max(maxQuestionId, Number(question.id) || 0);
+            });
+            chapter.images.forEach((image) => {
+                maxImageId = Math.max(maxImageId, Number(image.id) || 0);
+            });
+        });
+
+        database.meta.nextChapterId = Math.max(database.meta.nextChapterId || 1, maxChapterId + 1);
+        database.meta.nextQuestionId = Math.max(database.meta.nextQuestionId || 1, maxQuestionId + 1);
+        database.meta.nextImageId = Math.max(database.meta.nextImageId || 1, maxImageId + 1);
+    }
+
+    function getChapters() {
+        return state.database.chapters;
+    }
+
+    function getEditorChapter() {
+        return getChapters().find((chapter) => chapter.id === state.editorChapterId) || null;
+    }
+
+    function getChapterById(chapterId) {
+        return getChapters().find((chapter) => chapter.id === chapterId) || null;
+    }
+
+    function getChapterListButton(chapterId) {
+        return dom.chapterList.querySelector(`[data-id="${chapterId}"] .chapter-button`);
+    }
+
+    function isChapterActive(chapterId) {
+        const button = getChapterListButton(chapterId);
+        return button ? button.classList.contains('active') : false;
+    }
+
+    function getQuestionById(chapter, questionId) {
+        return chapter.questions.find((question) => question.id === questionId) || null;
+    }
+
+    function getImageById(chapter, imageId) {
+        return chapter.images.find((image) => image.id === imageId) || null;
+    }
+
+    function getOrderedItems(chapter) {
+        return chapter.order
+            .map((entry) => {
+                if (entry.type === 'question') {
+                    return getQuestionById(chapter, entry.id);
+                }
+                if (entry.type === 'image') {
+                    return getImageById(chapter, entry.id);
+                }
+                return null;
+            })
+            .filter(Boolean);
+    }
+
+    /* =========================
+       SERVER COMMUNICATION
+       ========================= */
+    async function loadDatabase() {
+        const response = await fetch('/api/chapters');
+        if (!response.ok) {
+            throw new Error('Failed to load chapters');
+        }
+
+        const data = await response.json();
+        state.database = ensureDatabaseShape(data);
+
+        if (!getEditorChapter() && getChapters().length) {
+            state.editorChapterId = getChapters()[0].id;
+        }
+    }
+
+    async function saveDatabase() {
+        const response = await fetch('/api/chapters', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(state.database)
+        });
+
+        if (!response.ok) {
+            throw new Error('Failed to save chapters');
+        }
+    }
+
+    function debouncedSave() {
+        clearTimeout(state.saveTimer);
+        state.saveTimer = setTimeout(async () => {
+            try {
+                await saveDatabase();
+            } catch (error) {
+                console.error(error);
+            }
+        }, 400);
+    }
+
+    /* =========================
+       SIDEBAR / VIEW MANAGEMENT
+       ========================= */
+    function showView(viewName) {
+        state.currentView = viewName;
+
+        const views = {
+            editor: dom.viewEditor,
+            images: dom.viewImages,
+            practice: dom.viewPractice
+        };
+
+        Object.entries(views).forEach(([name, element]) => {
+            const isActive = name === viewName;
+            element.hidden = !isActive;
+            element.classList.toggle('is-active', isActive);
+        });
+
+        dom.buttonEditor.classList.toggle('active', viewName === 'editor');
+        dom.buttonImages.classList.toggle('active', viewName === 'images');
+        dom.buttonPractice.classList.toggle('active', viewName === 'practice');
+
+        updateSidebarDisplay();
+
+        if (viewName === 'images') {
+            state.currentImageId = null;
+            showRandomImage();
+        }
+
+        if (viewName === 'practice') {
+            startPractice();
+        }
+    }
+
+    function updateSidebarDisplay() {
+        const expanded = dom.sidebar.classList.contains('expanded');
+        const middleSection = dom.chapterList.closest('.sidebar-section-middle');
+        const bottomSection = dom.inputQuestions.closest('.sidebar-section-bottom');
+
+        if (!expanded) {
+            middleSection.style.display = '';
+            bottomSection.style.display = '';
+            dom.addChapter.style.display = '';
+            updateChapterControls();
+            return;
+        }
+
+        middleSection.style.display = 'flex';
+
+        if (state.currentView === 'editor') {
+            bottomSection.style.display = 'flex';
+            dom.addChapter.style.display = 'block';
+        } else {
+            bottomSection.style.display = 'none';
+            dom.addChapter.style.display = 'none';
+        }
+
+        updateChapterControls();
+    }
+
+    function updateChapterControls() {
+        const showDelete = state.currentView === 'editor';
+        dom.chapterList.querySelectorAll('.delete-chapter').forEach((button) => {
+            button.style.display = showDelete ? 'flex' : 'none';
+        });
+    }
+
+    /* =========================
+       CHAPTER LIST RENDERING
+       ========================= */
+    function renderChapterList() {
+        dom.chapterList.innerHTML = '';
+
+        getChapters().forEach((chapter) => {
+            dom.chapterList.appendChild(createChapterListItem(chapter));
+        });
+
+        updateChapterControls();
+    }
+
+    function createChapterListItem(chapter) {
+        const item = document.createElement('li');
+        item.className = 'chapter-list-item';
+        item.dataset.id = String(chapter.id);
+        item.draggable = true;
+
+        const deleteButton = document.createElement('span');
+        deleteButton.className = 'delete-chapter';
+        deleteButton.textContent = '✖';
+        deleteButton.addEventListener('pointerdown', async (event) => {
+            event.preventDefault();
+            event.stopPropagation();
+            await deleteChapter(chapter.id);
+        });
+
+        const chapterButton = document.createElement('button');
+        chapterButton.type = 'button';
+        chapterButton.className = 'chapter-button active';
+
+        const checkmark = document.createElement('span');
+        checkmark.className = 'checkmark';
+        checkmark.textContent = '✔';
+
+        const label = document.createElement('span');
+        label.className = 'chapter-button-label';
+        label.textContent = chapter.name;
+
+        chapterButton.append(checkmark, label);
+        chapterButton.addEventListener('pointerdown', (event) => {
+            event.preventDefault();
+            toggleChapterActive(chapter.id);
+        });
+
+        label.addEventListener('dblclick', (event) => {
+            if (state.currentView !== 'editor') {
+                return;
+            }
+            event.stopPropagation();
+            startInlineChapterEdit(chapter, label);
+        });
+
+        enableDesktopDrag(item, DRAG_TYPES.CHAPTER);
+        enableTouchReorder(item, dom.chapterList, DRAG_TYPES.CHAPTER, applyChapterOrderFromDOM);
+
+        item.append(deleteButton, chapterButton);
+        return item;
+    }
+
+    function startInlineChapterEdit(chapter, labelElement) {
         const input = document.createElement('input');
-        input.value = spanText.textContent;
-        input.style.cssText = `
-            background: rgb(30,34,79);
-            color:white;
-            border:2px solid rgb(47,53,124);
-            border-radius:0.5rem;
-            padding:0.1rem 0.35rem;
-        `;
-        spanText.replaceWith(input);
+        input.className = 'chapter-name-edit';
+        input.value = chapter.name;
+
+        labelElement.replaceWith(input);
         input.focus();
         input.select();
 
-        function saveName() {
-            chapter.name = input.value || chapter.name;
-            spanText.textContent = chapter.name;
-            input.replaceWith(spanText);
+        const save = () => {
+            const nextName = input.value.trim();
+            if (nextName) {
+                chapter.name = nextName;
+            }
             populateChapterDropdown();
-            debouncedSave();
-        }
-
-        input.addEventListener('blur', saveName);
-        input.addEventListener('keydown', e => {
-            if (e.key === 'Enter') saveName();
-        });
-    });
-
-    li.append(deleteBtn, chapterBtn);
-
-    li.addEventListener('dragstart', e => {
-        if (currentView !== viewEditor) { e.preventDefault(); return; }
-        li.classList.add('dragging');
-        try {
-            e.dataTransfer.setData('text/plain','');
-            e.dataTransfer.effectAllowed='move';
-        } catch {}
-    });
-
-    li.addEventListener('dragend', () => {
-        li.classList.remove('dragging');
-        reorderChaptersFromDOM();
-        debouncedSave();
-        populateChapterDropdown();
-    });
-
-    makeMobileDraggable(li);
-    return li;
-}
-
-// ========================== DELETE ==========================
-async function handleDeleteChapter(li, id) {
-    // Find the chapter to delete
-    const chapter = chapters.find(ch => ch.id === id);
-    if (!chapter) return;
-
-    // Collect all image paths
-    const imagePaths = chapter.questions
-        .map(q => q.imagePath)
-        .filter(Boolean);
-
-    // Send request to delete all images of this chapter
-    if (imagePaths.length > 0) {
-        try {
-            await fetch('/api/delete-images', {
-                method: 'DELETE',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ paths: imagePaths })
-            });
-
-            imagePaths.forEach(p => delete imageExplanationsMap[p]);
-        } catch (err) {
-            console.error('Failed to delete images:', err);
-        }
-    }
-
-    // Remove chapter locally
-    chapters = chapters.filter(ch => ch.id !== id);
-    li.remove();
-
-    if (editorChapter && editorChapter.id === id)
-        editorChapter = chapters[0] || null;
-
-    populateChapterDropdown();
-    debouncedSave();
-}
-
-// ========================== DRAG ==========================
-function reorderChaptersFromDOM() {
-    const ids = [...chapterList.querySelectorAll('li')].map(li => Number(li.dataset.id));
-    chapters.sort((a,b)=>ids.indexOf(a.id)-ids.indexOf(b.id));
-}
-
-function getDragAfterElement(container, mouseY) {
-    const elements=[...container.querySelectorAll('li:not(.dragging)')];
-    return elements.reduce((closest,child)=>{
-        const box=child.getBoundingClientRect();
-        const offset=mouseY-box.top-box.height/2;
-        if(offset<0&&offset>closest.offset)
-            return{offset,element:child};
-        return closest;
-    },{offset:Number.NEGATIVE_INFINITY}).element;
-}
-
-function getDragAfterElementEditor(container, y){
-    const draggableElements = [...container.querySelectorAll(".editor-item:not(.dragging)")];
-    return draggableElements.reduce((closest, child)=>{
-        const box = child.getBoundingClientRect();
-        const offset = y - box.top - box.height / 2;
-        if(offset < 0 && offset > closest.offset){
-            return {offset: offset, element: child};
-        }else{
-            return closest;
-        }
-    }, {offset: Number.NEGATIVE_INFINITY}).element;
-}
-
-chapterList.addEventListener('dragover',e=>{
-    if(currentView!==viewEditor||isMobile())return;
-    e.preventDefault();
-    const after=getDragAfterElement(chapterList,e.clientY);
-    const dragging=chapterList.querySelector('.dragging');
-    if(!dragging)return;
-    if(!after)chapterList.appendChild(dragging);
-    else chapterList.insertBefore(dragging,after);
-});
-
-// ========================== MOBILE DRAG ==========================
-function makeMobileDraggable(li){
-    if(!isMobile())return;
-    let placeholder=null,startY=0,draggingWrapper=null;
-
-    li.addEventListener('touchstart',e=>{
-        if(currentView!==viewEditor)return;
-        startY=e.touches[0].clientY;
-        placeholder=document.createElement('li');
-        placeholder.className='placeholder';
-        placeholder.style.height=li.offsetHeight+'px';
-        li.after(placeholder);
-        draggingWrapper=li;
-        const rect=li.getBoundingClientRect();
-        draggingWrapper.style.cssText=`
-            position:absolute;
-            z-index:1000;
-            width:${rect.width}px;
-            left:${rect.left}px;
-            top:${rect.top}px;
-        `;
-        document.body.appendChild(draggingWrapper);
-    },{passive:true});
-
-    li.addEventListener('touchmove',e=>{
-        if(!placeholder)return;
-        e.preventDefault();
-        const offset=e.touches[0].clientY-startY;
-        draggingWrapper.style.transform=`translateY(${offset}px)`;
-        const siblings=[...chapterList.querySelectorAll('li')]
-            .filter(n=>n!==placeholder&&n!==draggingWrapper);
-        for(const s of siblings){
-            const r=s.getBoundingClientRect();
-            if(e.touches[0].clientY<r.top+r.height/2){
-                chapterList.insertBefore(placeholder,s);
-                return;
-            }
-        }
-        chapterList.appendChild(placeholder);
-    },{passive:false});
-
-    li.addEventListener('touchend',()=>{
-        if(!placeholder)return;
-        draggingWrapper.style.cssText='';
-        chapterList.insertBefore(draggingWrapper,placeholder);
-        placeholder.remove();
-        placeholder=null;
-        reorderChaptersFromDOM();
-        debouncedSave();
-        populateChapterDropdown();
-    });
-}
-
-// ========================== SERVER ==========================
-async function loadChaptersFromServer(){
-    try{
-        const res=await fetch('/api/chapters');
-        const data=await res.json();
-
-        chapterList.innerHTML='';
-        chapters=[];
-        chapterCount=0;
-
-        data.forEach(ch => {
-            const chapter = {
-                id: ch.id ?? chapterIdCounter++,
-                name: ch.name,
-                questions: ch.questions ?? []
-            };
-            chapterCount++;
-            chapterIdCounter = Math.max(chapterIdCounter, chapter.id + 1);
-            chapters.push(chapter);
-            chapterList.appendChild(createChapterItem(chapter));
-
-            // register explanations for images
-            chapter.questions.forEach(q=>{
-    if(q.imagePath) imageExplanationsMap[q.imagePath]=q.explanation||'';
-    ensureQuestionWeight(q);
-});
-        });
-
-        editorChapter=chapters[0]||null;
-        populateChapterDropdown();
-    }catch(err){console.error(err);}
-}
-
-async function saveChaptersToServer(){
-    try{
-        await fetch('/api/chapters',{
-            method:'POST',
-            headers:{'Content-Type':'application/json'},
-            body:JSON.stringify(chapters)
-        });
-    }catch(err){console.error(err);}
-}
-
-// ========================== ADD CHAPTER ==========================
-addChapterBtn.addEventListener('pointerdown',(e)=>{
-    e.preventDefault();
-    chapterCount++;
-    const chapter={id:chapterIdCounter++,name:'chapter '+chapterCount,questions:[]};
-    chapters.push(chapter);
-    chapterList.appendChild(createChapterItem(chapter));
-    if(!editorChapter) editorChapter=chapter;
-    populateChapterDropdown();
-    debouncedSave();
-});
-
-// ========================== DROPDOWN ==========================
-function populateChapterDropdown(){
-    chapterSelect.innerHTML='';
-    chapters.forEach(ch=>{
-        const option = document.createElement('option');
-        option.value = ch.id;
-        option.textContent = ch.name;
-        if(editorChapter && ch.id === editorChapter.id){
-            option.classList.add('active-chapter-option');
-        }
-        chapterSelect.appendChild(option);
-    });
-    if(editorChapter) chapterSelect.value=String(editorChapter.id);
-    renderQuestions();
-}
-
-chapterSelect.addEventListener('change',()=>{
-    const id=Number(chapterSelect.value);
-    if(editorChapter && id===editorChapter.id){
-        requestAnimationFrame(()=>{chapterSelect.value=String(editorChapter.id);});
-        return;
-    }
-    const found=chapters.find(ch=>ch.id===id);
-    if(!found)return;
-    editorChapter=found;
-    populateChapterDropdown();
-});
-
-// ========================== QUESTIONS ==========================
-function updateCollapseButton(){
-    if(!editorChapter) return;
-    const anyCollapsed=editorChapter.questions.some(q=>q.collapsed);
-    btnToggleCollapse.textContent = anyCollapsed ? "expand all" : "collapse all";
-}
-
-function renderQuestions(){
-    editorItems.innerHTML='';
-    if(!editorChapter) return;
-    editorChapter.questions.forEach((q,index)=>{
-        if(q.imagePath) imageExplanationsMap[q.imagePath]=q.explanation||'';
-        editorItems.appendChild(createQuestionComponent(q,index));
-    });
-    updateCollapseButton();
-}
-
-// -------------------------- createQuestionComponent --------------------------
-function createQuestionComponent(q,index){
-    const box=document.createElement("div");
-    box.draggable=true;
-    box.className="editor-item";
-    box.questionData=q;
-
-    if(q.image!==undefined){
-        const header=document.createElement("div");
-        header.className="question-header";
-        header.style.cursor="pointer";
-
-        const arrow=document.createElement("span");
-        arrow.textContent=q.collapsed?"▶":"▼";
-        arrow.className="collapse-arrow";
-
-        const number=document.createElement("span");
-        number.className="question-number";
-        number.textContent="#"+(index+1);
-
-        const imageInput=document.createElement("input");
-        imageInput.placeholder="Image title";
-        imageInput.value=q.image;
-
-        imageInput.addEventListener("input",()=>{
-            q.image=imageInput.value;
-            debouncedSave();
-        });
-
-        const deleteBtn=document.createElement("button");
-        deleteBtn.className="delete-question";
-        deleteBtn.textContent="🗑";
-        deleteBtn.onclick=async()=>{
-            const path=q.imagePath;
-            if(path){
-                await fetch('/api/delete-image',{method:'DELETE',headers:{'Content-Type':'application/json'},body:JSON.stringify({path})});
-            }
-            editorChapter.questions.splice(index,1);
-            renderQuestions();
+            renderChapterList();
             debouncedSave();
         };
 
-        header.append(arrow,number,imageInput,deleteBtn);
+        input.addEventListener('blur', save, { once: true });
+        input.addEventListener('keydown', (event) => {
+            if (event.key === 'Enter') {
+                save();
+            }
+        });
+    }
 
-        const content=document.createElement("div");
-        content.className="question-content";
+    function toggleChapterActive(chapterId) {
+        const button = getChapterListButton(chapterId);
+        if (!button) {
+            return;
+        }
 
-        const img=document.createElement("img");
-        img.src=q.imagePath;
-        img.style.maxWidth="100%";
-        img.style.borderRadius="0.5rem";
-        img.style.marginBottom="0.5rem";
-        img.className="image-added";
+        button.classList.toggle('active');
 
-        const explanation=document.createElement("textarea");
-        explanation.className="explanation-area";
-        explanation.placeholder="Explanation / caption (optional)";
-        explanation.value=q.explanation;
+        if (state.currentView === 'practice') {
+            startPractice();
+        }
 
-        explanation.addEventListener("input",()=>{
-            q.explanation=explanation.value;
-            if(q.imagePath) imageExplanationsMap[q.imagePath]=q.explanation;
+        if (state.currentView === 'images') {
+            state.currentImageId = null;
+            showRandomImage();
+        }
+    }
+
+    async function deleteChapter(chapterId) {
+        const chapter = getChapterById(chapterId);
+        if (!chapter) {
+            return;
+        }
+
+        const imagePaths = chapter.images.map((image) => image.imagePath).filter(Boolean);
+
+        if (imagePaths.length) {
+            try {
+                await fetch('/api/delete-images', {
+                    method: 'DELETE',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ paths: imagePaths })
+                });
+            } catch (error) {
+                console.error('Failed to delete chapter images', error);
+            }
+        }
+
+        state.database.chapters = getChapters().filter((chapterItem) => chapterItem.id !== chapterId);
+
+        if (state.editorChapterId === chapterId) {
+            state.editorChapterId = getChapters()[0]?.id ?? null;
+        }
+
+        populateChapterDropdown();
+        renderChapterList();
+        renderEditorItems();
+        debouncedSave();
+    }
+
+    function addChapter() {
+        const chapterNumber = getChapters().length + 1;
+        const chapter = createChapter(`chapter ${chapterNumber}`);
+        state.database.chapters.push(chapter);
+
+        if (!state.editorChapterId) {
+            state.editorChapterId = chapter.id;
+        }
+
+        renderChapterList();
+        populateChapterDropdown();
+        debouncedSave();
+    }
+
+    function applyChapterOrderFromDOM() {
+        const ids = Array.from(dom.chapterList.querySelectorAll('.chapter-list-item'))
+            .map((item) => Number(item.dataset.id));
+
+        state.database.chapters.sort((a, b) => ids.indexOf(a.id) - ids.indexOf(b.id));
+        populateChapterDropdown();
+        debouncedSave();
+    }
+
+    function populateChapterDropdown() {
+        dom.chapterSelect.innerHTML = '';
+
+        getChapters().forEach((chapter) => {
+            const option = document.createElement('option');
+            option.value = String(chapter.id);
+            option.textContent = chapter.name;
+
+            if (chapter.id === state.editorChapterId) {
+                option.classList.add('active-chapter-option');
+            }
+
+            dom.chapterSelect.appendChild(option);
+        });
+
+        if (!state.editorChapterId && getChapters().length) {
+            state.editorChapterId = getChapters()[0].id;
+        }
+
+        if (state.editorChapterId) {
+            dom.chapterSelect.value = String(state.editorChapterId);
+        }
+
+        renderEditorItems();
+    }
+
+    /* =========================
+       EDITOR RENDERING
+       ========================= */
+    function renderEditorItems() {
+        const chapter = getEditorChapter();
+        dom.editorItems.innerHTML = '';
+
+        if (!chapter) {
+            updateCollapseButton();
+            return;
+        }
+
+        getOrderedItems(chapter).forEach((item, index) => {
+            dom.editorItems.appendChild(createEditorItem(chapter, item, index));
+        });
+
+        updateCollapseButton();
+    }
+
+    function updateCollapseButton() {
+        const chapter = getEditorChapter();
+        if (!chapter) {
+            dom.toggleCollapse.textContent = 'collapse all';
+            return;
+        }
+
+        const anyCollapsed = getOrderedItems(chapter).some((item) => item.collapsed);
+        dom.toggleCollapse.textContent = anyCollapsed ? 'expand all' : 'collapse all';
+    }
+
+    function createEditorItem(chapter, item, index) {
+        if (item.type === 'image') {
+            return createImageEditorItem(chapter, item, index);
+        }
+        return createQuestionEditorItem(chapter, item, index);
+    }
+
+    function createQuestionEditorItem(chapter, question, index) {
+        const box = document.createElement('div');
+        box.className = 'editor-item';
+        box.draggable = true;
+        box.dataset.type = 'question';
+        box.dataset.id = String(question.id);
+
+        const header = createEditorHeader(index, question.collapsed, question.question, 'Question title', () => {
+            removeQuestion(chapter, question.id);
+        }, (value) => {
+            question.question = value;
             debouncedSave();
         });
 
-        content.append(img,explanation);
-        box.append(header,content);
+        const content = document.createElement('div');
+        content.className = 'question-content';
+        content.hidden = question.collapsed;
 
-        if(q.collapsed) content.style.display="none";
+        const answers = document.createElement('div');
+        answers.className = 'answers';
 
-        header.addEventListener("click",(e)=>{
-            if(e.target===deleteBtn||e.target===imageInput) return;
-            q.collapsed=!q.collapsed;
-            content.style.display=q.collapsed?"none":"block";
-            arrow.textContent=q.collapsed?"▶":"▼";
+        question.answers.forEach((answer, answerIndex) => {
+            const row = document.createElement('div');
+            row.className = 'answer-row';
+
+            const indicator = document.createElement('div');
+            indicator.className = 'answer-indicator';
+            indicator.classList.toggle('correct', answer.correct);
+
+            const input = document.createElement('input');
+            input.type = 'text';
+            input.placeholder = `answer ${answerIndex + 1}`;
+            input.value = answer.text;
+
+            input.addEventListener('input', () => {
+                answer.text = input.value;
+                debouncedSave();
+            });
+
+            row.addEventListener('click', (event) => {
+                if (event.target === input) {
+                    return;
+                }
+                answer.correct = !answer.correct;
+                indicator.classList.toggle('correct', answer.correct);
+                debouncedSave();
+            });
+
+            row.append(indicator, input);
+            answers.appendChild(row);
+        });
+
+        const explanation = document.createElement('textarea');
+        explanation.className = 'explanation-area';
+        explanation.placeholder = 'Explanation (optional)';
+        explanation.value = question.explanation;
+        explanation.addEventListener('input', () => {
+            question.explanation = explanation.value;
             debouncedSave();
         });
 
+        content.append(answers, explanation);
+        box.append(header.wrapper, content);
+
+        header.wrapper.addEventListener('click', (event) => {
+            if (event.target === header.input || event.target === header.deleteButton) {
+                return;
+            }
+
+            question.collapsed = !question.collapsed;
+            content.hidden = question.collapsed;
+            header.arrow.textContent = question.collapsed ? '▶' : '▼';
+            updateCollapseButton();
+            debouncedSave();
+        });
+
+        enableDesktopDrag(box, DRAG_TYPES.EDITOR_ITEM);
+        enableTouchReorder(box, dom.editorItems, DRAG_TYPES.EDITOR_ITEM, applyEditorItemOrderFromDOM);
         return box;
     }
 
-    // ---------- regular question item ----------
-    const header=document.createElement("div");
-    header.className="question-header";
-    const arrow=document.createElement("span");
-    arrow.textContent=q.collapsed?"▶":"▼";
-    arrow.className="collapse-arrow";
-    const number=document.createElement("span");
-    number.className="question-number";
-    number.textContent="#"+(index+1);
+    function createImageEditorItem(chapter, image, index) {
+        const box = document.createElement('div');
+        box.className = 'editor-item';
+        box.draggable = true;
+        box.dataset.type = 'image';
+        box.dataset.id = String(image.id);
 
-    const questionInput=document.createElement("input");
-    questionInput.placeholder="Question title";
-    questionInput.value=q.question;
-    questionInput.addEventListener("input",()=>{q.question=questionInput.value;debouncedSave();});
-
-    const deleteBtn=document.createElement("button");
-    deleteBtn.className="delete-question";
-    deleteBtn.textContent="🗑";
-    deleteBtn.onclick=()=>{editorChapter.questions.splice(index,1);renderQuestions();debouncedSave();};
-
-    header.append(arrow,number,questionInput,deleteBtn);
-    header.style.cursor="pointer";
-
-    const answersWrapper=document.createElement("div");
-    answersWrapper.className="answers";
-
-    q.answers.forEach((a,i)=>{
-        const row=document.createElement("div");
-        row.className="answer-row";
-
-        const indicator=document.createElement("div");
-        indicator.className="answer-indicator";
-        if(a.correct) indicator.classList.add("correct");
-
-        const input=document.createElement("input");
-        input.placeholder="answer "+(i+1);
-        input.value=a.text;
-        input.addEventListener("input",()=>{a.text=input.value;debouncedSave();});
-
-        row.addEventListener("click",(e)=>{
-            if(e.target===input) return;
-            a.correct=!a.correct;
-            indicator.classList.toggle("correct");
+        const header = createEditorHeader(index, image.collapsed, image.image, 'Image title', async () => {
+            await removeImage(chapter, image.id);
+        }, (value) => {
+            image.image = value;
             debouncedSave();
         });
 
-        row.append(indicator,input);
-        answersWrapper.appendChild(row);
-    });
+        const content = document.createElement('div');
+        content.className = 'question-content';
+        content.hidden = image.collapsed;
 
-    const explanation=document.createElement("textarea");
-    explanation.className="explanation-area";
-    explanation.placeholder="Explanation (optional)";
-    explanation.value=q.explanation;
-    explanation.addEventListener("input",()=>{q.explanation=explanation.value;debouncedSave();});
+        const preview = document.createElement('img');
+        preview.className = 'image-added';
+        preview.src = image.imagePath;
+        preview.alt = image.image || 'Image preview';
 
-    const content=document.createElement("div");
-    content.className="question-content";
-    content.append(answersWrapper,explanation);
-
-    box.append(header,content);
-    if(q.collapsed) content.style.display="none";
-
-    header.addEventListener("click",(e)=>{
-        if(e.target===deleteBtn||e.target===questionInput) return;
-        q.collapsed=!q.collapsed;
-        content.style.display=q.collapsed?"none":"block";
-        arrow.textContent=q.collapsed?"▶":"▼";
-        debouncedSave();
-    });
-
-    box.addEventListener("dragstart",()=>{box.classList.add("dragging");});
-    box.addEventListener("dragend",()=>{
-        box.classList.remove("dragging");
-        const items=[...editorItems.children];
-        editorChapter.questions=items.map(item=>item.questionData);
-        renderQuestions();
-        debouncedSave();
-    });
-
-    return box;
-}
-
-editorItems.addEventListener("dragover",e=>{
-    e.preventDefault();
-    const dragging=document.querySelector(".dragging");
-    if(!dragging) return;
-    const afterElement=getDragAfterElementEditor(editorItems,e.clientY);
-    if(afterElement==null) editorItems.appendChild(dragging);
-    else editorItems.insertBefore(dragging,afterElement);
-});
-
-
-
-
-
-
-// ========================== PRACTICE VIEW ==========================
-
-const practiceQuestion = document.getElementById("practice-question");
-const practiceAnswers = document.getElementById("practice-answers");
-const practiceSubmit = document.getElementById("practice-submit");
-
-const practiceExplanationPanel = document.getElementById("practice-explanation-panel");
-const practiceExplanation = document.getElementById("practice-explanation");
-const practiceToggleExplanation = document.getElementById("practice-toggle-explanation");
-
-let practiceQuestions = [];
-let practiceIndex = 0;
-let practiceAnswered = false;
-let lastQuestion = null; 
-let recentQuestions = [];
-const RECENT_BUFFER = 5;
-
-function ensureQuestionWeight(q){
-    if (q.answers && (typeof q.weight !== 'number' || q.weight < 1)) {
-        q.weight = 1;
-    }
-}
-
-
-function shuffleArray(arr){
-    for(let i = arr.length - 1; i > 0; i--){
-        const j = Math.floor(Math.random() * (i + 1));
-        [arr[i], arr[j]] = [arr[j], arr[i]];
-    }
-}
-
-function getWeightedRandomQuestion(questions, excludedQuestion = null){
-
-    const candidates = questions.filter(q =>
-        q !== excludedQuestion &&
-        !recentQuestions.includes(q)
-    );
-
-    const pool = candidates.length ? candidates : questions;
-
-    let totalWeight = 0;
-
-    pool.forEach(q=>{
-        ensureQuestionWeight(q);
-        totalWeight += q.weight;
-    });
-
-    let random = Math.random() * totalWeight;
-
-    for(const q of pool){
-        random -= q.weight;
-        if(random < 0) return q;
-    }
-
-    return pool[pool.length - 1];
-}
-
-function setPracticeQuestion(question){
-
-    practiceIndex = practiceQuestions.indexOf(question);
-    lastQuestion = question;
-
-    recentQuestions.push(question);
-
-    if(recentQuestions.length > RECENT_BUFFER){
-        recentQuestions.shift();
-    }
-}
-
-// collect questions from selected chapters
-function getPracticeQuestions(){
-
-    const activeChapters = chapters.filter(ch=>{
-        const li = chapterList.querySelector(`li[data-id="${ch.id}"]`);
-        if(!li) return false;
-        return li.querySelector('.chapter-button').classList.contains('active');
-    });
-
-    let list=[];
-
-    activeChapters.forEach(ch=>{
-        ch.questions.forEach(q=>{
-            if(q.answers) list.push(q); // ignore image entries
+        const explanation = document.createElement('textarea');
+        explanation.className = 'explanation-area';
+        explanation.placeholder = 'Explanation / caption (optional)';
+        explanation.value = image.explanation;
+        explanation.addEventListener('input', () => {
+            image.explanation = explanation.value;
+            debouncedSave();
         });
-    });
 
-    return list;
-}
+        content.append(preview, explanation);
+        box.append(header.wrapper, content);
 
+        header.wrapper.addEventListener('click', (event) => {
+            if (event.target === header.input || event.target === header.deleteButton) {
+                return;
+            }
 
-function startPractice(){
+            image.collapsed = !image.collapsed;
+            content.hidden = image.collapsed;
+            header.arrow.textContent = image.collapsed ? '▶' : '▼';
+            updateCollapseButton();
+            debouncedSave();
+        });
 
-    practiceSubmit.style.display = "block";
-    practiceSubmit.textContent = "SUBMIT";
-
-
-    practiceQuestions = getPracticeQuestions();
-    lastQuestion = null;
-    recentQuestions = [];
-
-    if(!practiceQuestions.length){
-        practiceQuestion.textContent = "No questions available";
-        practiceAnswers.innerHTML = "";
-        practiceSubmit.style.display = "none";
-        practiceExplanationPanel.style.display = "none";
-        return;
+        enableDesktopDrag(box, DRAG_TYPES.EDITOR_ITEM);
+        enableTouchReorder(box, dom.editorItems, DRAG_TYPES.EDITOR_ITEM, applyEditorItemOrderFromDOM);
+        return box;
     }
 
-    practiceQuestions.forEach(ensureQuestionWeight);
+    function createEditorHeader(index, collapsed, value, placeholder, onDelete, onInput) {
+        const wrapper = document.createElement('div');
+        wrapper.className = 'question-header';
 
-    const firstQuestion = getWeightedRandomQuestion(practiceQuestions);
-    if(!firstQuestion) return;
+        const arrow = document.createElement('span');
+        arrow.className = 'collapse-arrow';
+        arrow.textContent = collapsed ? '▶' : '▼';
 
-    setPracticeQuestion(firstQuestion);
-    renderPracticeQuestion();
-}
+        const number = document.createElement('span');
+        number.className = 'question-number';
+        number.textContent = `#${index + 1}`;
 
-function renderPracticeQuestion(){
+        const input = document.createElement('input');
+        input.className = 'inline-edit';
+        input.type = 'text';
+        input.placeholder = placeholder;
+        input.value = value;
+        input.addEventListener('input', () => onInput(input.value));
 
-    practiceAnswered = false;
-practiceSubmit.textContent = "SUBMIT";
-practiceSubmit.classList.remove("practice-next");
-practiceSubmit.classList.add("practice-submit");
+        const deleteButton = document.createElement('button');
+        deleteButton.type = 'button';
+        deleteButton.className = 'delete-question';
+        deleteButton.textContent = '🗑';
+        deleteButton.addEventListener('click', (event) => {
+            event.stopPropagation();
+            onDelete();
+        });
 
+        wrapper.append(arrow, number, input, deleteButton);
+        return { wrapper, arrow, input, deleteButton };
+    }
 
-    practiceExplanationPanel.style.display="none";
-    practiceExplanation.style.display = "none";
+    function removeQuestion(chapter, questionId) {
+        chapter.questions = chapter.questions.filter((question) => question.id !== questionId);
+        chapter.order = chapter.order.filter((entry) => !(entry.type === 'question' && entry.id === questionId));
+        renderEditorItems();
+        debouncedSave();
+    }
 
-const toggleText = practiceToggleExplanation.querySelector(".toggle-text");
-if (toggleText) {
-    toggleText.textContent = "Show More";
-}
+    async function removeImage(chapter, imageId) {
+        const image = getImageById(chapter, imageId);
+        if (!image) {
+            return;
+        }
 
-    const q = practiceQuestions[practiceIndex];
+        if (image.imagePath) {
+            try {
+                await fetch('/api/delete-image', {
+                    method: 'DELETE',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ path: image.imagePath })
+                });
+            } catch (error) {
+                console.error('Failed to delete image', error);
+            }
+        }
 
-    practiceQuestion.textContent = q.question;
+        chapter.images = chapter.images.filter((imageItem) => imageItem.id !== imageId);
+        chapter.order = chapter.order.filter((entry) => !(entry.type === 'image' && entry.id === imageId));
+        renderEditorItems();
+        debouncedSave();
+    }
 
-    practiceAnswers.innerHTML="";
+    function applyEditorItemOrderFromDOM() {
+        const chapter = getEditorChapter();
+        if (!chapter) {
+            return;
+        }
 
-    q.answers.forEach((a,i)=>{
+        chapter.order = Array.from(dom.editorItems.children).map((element) => ({
+            type: element.dataset.type,
+            id: Number(element.dataset.id)
+        }));
 
-        const row = document.createElement("label");
-        row.className="practice-answer";
+        renderEditorItems();
+        debouncedSave();
+    }
 
-        const radio = document.createElement("input");
-        radio.type="checkbox";
-        radio.dataset.correct = a.correct;
+    /* =========================
+       IMAGE VIEW
+       ========================= */
+    function getActiveChapterImages() {
+        return getChapters()
+            .filter((chapter) => isChapterActive(chapter.id))
+            .flatMap((chapter) => chapter.images);
+    }
 
-        const span = document.createElement("span");
-        span.textContent = a.text;
+    function showRandomImage() {
+        const images = getActiveChapterImages();
 
-        row.append(radio,span);
-        practiceAnswers.appendChild(row);
+        if (!images.length) {
+            dom.imagesCurrent.removeAttribute('src');
+            dom.imagesCurrent.style.display = 'none';
+            dom.imagesExplanation.textContent = '';
+            dom.imagesExplanation.style.display = 'none';
+            dom.imagesExplanationPanel.hidden = false;
+            return;
+        }
 
-    });
+        let nextImage = null;
+        do {
+            nextImage = images[Math.floor(Math.random() * images.length)];
+        } while (images.length > 1 && nextImage.id === state.currentImageId);
 
-}
+        state.currentImageId = nextImage.id;
+        dom.imagesCurrent.src = nextImage.imagePath;
+        dom.imagesCurrent.alt = nextImage.image || 'Random chapter image';
+        dom.imagesCurrent.style.display = 'block';
 
+        dom.imagesExplanation.textContent = nextImage.explanation || '';
+        dom.imagesExplanation.style.display = state.imagesExplanationVisible ? 'block' : 'none';
+        dom.imagesToggleExplanation.querySelector('.toggle-text').textContent = state.imagesExplanationVisible ? 'Show Less' : 'Show More';
+    }
 
-practiceSubmit.addEventListener("click",()=>{
+    /* =========================
+       PRACTICE VIEW
+       ========================= */
+    function getActivePracticeQuestions() {
+        return getChapters()
+            .filter((chapter) => isChapterActive(chapter.id))
+            .flatMap((chapter) => chapter.questions);
+    }
 
-    if(!practiceAnswered){
+    function shuffleArray(array) {
+        for (let index = array.length - 1; index > 0; index -= 1) {
+            const randomIndex = Math.floor(Math.random() * (index + 1));
+            [array[index], array[randomIndex]] = [array[randomIndex], array[index]];
+        }
+        return array;
+    }
 
-        const q = practiceQuestions[practiceIndex];
+    function getWeightedRandomQuestion(questions, excludedQuestionId = null) {
+        const recentIds = state.practice.recentQuestionIds;
 
-        const inputs = [...practiceAnswers.querySelectorAll("input")];
+        const candidates = questions.filter((question) => {
+            return question.id !== excludedQuestionId && !recentIds.includes(question.id);
+        });
 
-        let correct=true;
+        const pool = candidates.length ? candidates : questions.filter((question) => question.id !== excludedQuestionId);
+        if (!pool.length) {
+            return null;
+        }
 
-        inputs.forEach(input=>{
+        const totalWeight = pool.reduce((sum, question) => sum + normalizeWeight(question.weight), 0);
+        let random = Math.random() * totalWeight;
 
-            const isCorrect = input.dataset.correct==="true";
+        for (const question of pool) {
+            random -= normalizeWeight(question.weight);
+            if (random < 0) {
+                return question;
+            }
+        }
+
+        return pool[pool.length - 1];
+    }
+
+    function setPracticeQuestion(question) {
+        state.practice.currentQuestionId = question.id;
+        state.practice.recentQuestionIds.push(question.id);
+
+        if (state.practice.recentQuestionIds.length > state.practice.recentBufferSize) {
+            state.practice.recentQuestionIds.shift();
+        }
+    }
+
+    function startPractice() {
+        state.practice.questions = getActivePracticeQuestions();
+        state.practice.currentQuestionId = null;
+        state.practice.answered = false;
+        state.practice.recentQuestionIds = [];
+
+        dom.practiceSubmit.hidden = false;
+        dom.practiceSubmit.textContent = 'SUBMIT';
+        dom.practiceSubmit.classList.remove('practice-next');
+        dom.practiceSubmit.classList.add('practice-submit');
+
+        if (!state.practice.questions.length) {
+            dom.practiceQuestion.textContent = 'No questions available';
+            dom.practiceAnswers.innerHTML = '';
+            dom.practiceSubmit.hidden = true;
+            dom.practiceExplanationPanel.hidden = true;
+            return;
+        }
+
+        shuffleArray(state.practice.questions);
+        const firstQuestion = getWeightedRandomQuestion(state.practice.questions);
+        if (!firstQuestion) {
+            return;
+        }
+
+        setPracticeQuestion(firstQuestion);
+        renderPracticeQuestion();
+    }
+
+    function renderPracticeQuestion() {
+        const question = state.practice.questions.find((item) => item.id === state.practice.currentQuestionId);
+        if (!question) {
+            return;
+        }
+
+        state.practice.answered = false;
+
+        dom.practiceQuestion.textContent = question.question;
+        dom.practiceAnswers.innerHTML = '';
+        dom.practiceExplanationPanel.hidden = true;
+        dom.practiceExplanation.style.display = 'none';
+        dom.practiceExplanation.textContent = question.explanation || '';
+        dom.practiceToggleExplanation.querySelector('.toggle-text').textContent = 'Show More';
+        dom.practiceSubmit.textContent = 'SUBMIT';
+        dom.practiceSubmit.classList.remove('practice-next');
+        dom.practiceSubmit.classList.add('practice-submit');
+
+        question.answers.forEach((answer) => {
+            const row = document.createElement('label');
+            row.className = 'practice-answer';
+
+            const checkbox = document.createElement('input');
+            checkbox.type = 'checkbox';
+            checkbox.dataset.correct = String(answer.correct);
+
+            const text = document.createElement('span');
+            text.textContent = answer.text;
+
+            row.append(checkbox, text);
+            dom.practiceAnswers.appendChild(row);
+        });
+    }
+
+    function scorePracticeQuestion() {
+        const question = state.practice.questions.find((item) => item.id === state.practice.currentQuestionId);
+        if (!question) {
+            return;
+        }
+
+        const inputs = Array.from(dom.practiceAnswers.querySelectorAll('input'));
+        let correct = true;
+
+        inputs.forEach((input) => {
+            const isCorrect = input.dataset.correct === 'true';
             const selected = input.checked;
-
             const row = input.parentElement;
 
-            if(isCorrect){
-                row.classList.add("correct");
+            if (isCorrect) {
+                row.classList.add('correct');
             }
-
-            if(selected && !isCorrect){
-                row.classList.add("wrong");
-                correct=false;
+            if (selected && !isCorrect) {
+                row.classList.add('wrong');
+                correct = false;
             }
-
-            if(!selected && isCorrect){
-                correct=false;
+            if (!selected && isCorrect) {
+                correct = false;
             }
-
         });
 
-        ensureQuestionWeight(q);
+        question.weight = correct
+            ? Math.max(1, normalizeWeight(question.weight) - 1)
+            : Math.min(5, normalizeWeight(question.weight) + 1);
 
-if (correct) {
-    q.weight = Math.max(1, q.weight - 1);
-} else {
-    q.weight = Math.min(5, q.weight + 1);
-}
-
-debouncedSave();
-
-practiceAnswered = true;
-practiceSubmit.textContent = "NEXT";
-practiceExplanation.textContent = q.explanation || "";
-practiceSubmit.classList.remove("practice-submit");
-practiceSubmit.classList.add("practice-next");
-
-
-        const toggleText = practiceToggleExplanation.querySelector(".toggle-text");
-
-if(!correct){
-    practiceExplanationPanel.style.display="block";
-    practiceExplanation.style.display="block";
-
-    if(toggleText) toggleText.textContent = "Show Less";
-}else{
-    practiceExplanationPanel.style.display="block";
-    practiceExplanation.style.display="none";
-
-    if(toggleText) toggleText.textContent = "Show More";
-}
-
-    }else{
-
-       const nextQuestion = getWeightedRandomQuestion(practiceQuestions, lastQuestion);
-if(!nextQuestion) return;
-
-requestAnimationFrame(() => {
-    setPracticeQuestion(nextQuestion);
-    renderPracticeQuestion();
-});
-}
-
-});
-
-
-practiceToggleExplanation.addEventListener("pointerdown",(e)=>{
-    e.preventDefault();
-
-    const visible = practiceExplanation.style.display==="block";
-
-    practiceExplanation.style.display = visible ? "none" : "block";
-
-    const text = practiceToggleExplanation.querySelector(".toggle-text");
-
-    if(text){
-        text.textContent = visible ? "Show More" : "Show Less";
-    }
-
-});
-
-
-
-
-
-
-
-// ========================== INIT ==========================
-async function init(){
-    await loadChaptersFromServer();
-    showView(viewPractice);
-}
-
-init();
-
-btnAddQuestion.addEventListener('pointerdown',(e)=>{
-    e.preventDefault();
-    if(!editorChapter) return;
-    const question={question:"",answers:[{text:"",correct:false},{text:"",correct:false},{text:"",correct:false},{text:"",correct:false},{text:"",correct:false}],explanation:"",collapsed:false,weight:1};
-    editorChapter.questions.push(question);
-    renderQuestions();
-    debouncedSave();
-});
-
-btnToggleCollapse.addEventListener("pointerdown",(e)=>{
-    e.preventDefault();
-    if(!editorChapter) return;
-    const anyCollapsed=editorChapter.questions.some(q=>q.collapsed);
-    editorChapter.questions.forEach(q=>{q.collapsed=!anyCollapsed;});
-    renderQuestions();
-    debouncedSave();
-});
-
-btnAddImage.addEventListener('pointerdown',async(e)=>{
-    e.preventDefault();
-    if(!editorChapter) return;
-
-    const fileInput=document.createElement('input');
-    fileInput.type='file';
-    fileInput.accept='image/*';
-
-    fileInput.onchange=async()=>{
-        const file=fileInput.files[0];
-        if(!file) return;
-
-        const formData=new FormData();
-        formData.append("image",file);
-
-        const res=await fetch('/api/upload-image?chapterId='+editorChapter.id,{method:'POST',body:formData});
-        const data=await res.json();
-
-        const imageItem={image:"",imagePath:data.path,explanation:"",collapsed:false};
-        editorChapter.questions.push(imageItem);
-        if(imageItem.imagePath) imageExplanationsMap[imageItem.imagePath]="";
-
-        renderQuestions();
         debouncedSave();
-    };
+        state.practice.answered = true;
 
-    fileInput.click();
-});
+        dom.practiceSubmit.textContent = 'NEXT';
+        dom.practiceSubmit.classList.remove('practice-submit');
+        dom.practiceSubmit.classList.add('practice-next');
 
+        dom.practiceExplanationPanel.hidden = false;
 
-let imagesExplanationVisible = false; // tracks whether the explanation is visible
-
-btnShowMoreImageExplanation.addEventListener("pointerdown", (e) => {
-    e.preventDefault();
-    imagesExplanationVisible = !imagesExplanationVisible;
-
-    imagesCaption.style.display = imagesExplanationVisible ? "block" : "none";
-
-    // Optionally, update button text dynamically
-    const toggleText = btnShowMoreImageExplanation.querySelector('.toggle-text');
-    if (toggleText) {
-        toggleText.textContent = imagesExplanationVisible ? "Show Less" : "Show More";
+        if (!correct) {
+            dom.practiceExplanation.style.display = 'block';
+            dom.practiceToggleExplanation.querySelector('.toggle-text').textContent = 'Show Less';
+        } else {
+            dom.practiceExplanation.style.display = 'none';
+            dom.practiceToggleExplanation.querySelector('.toggle-text').textContent = 'Show More';
+        }
     }
-});
 
+    function goToNextPracticeQuestion() {
+        const nextQuestion = getWeightedRandomQuestion(state.practice.questions, state.practice.currentQuestionId);
+        if (!nextQuestion) {
+            return;
+        }
 
-document.addEventListener('keydown', (e) => {
-    // If the user is typing in an input/textarea, ignore
-    const activeTag = document.activeElement.tagName.toLowerCase();
-    if (activeTag === 'input' || activeTag === 'textarea') return;
+        setPracticeQuestion(nextQuestion);
+        renderPracticeQuestion();
+    }
 
-    switch (e.key) {
-        case 'ArrowRight': // next image
-            if (currentView === viewImages) {
+    /* =========================
+       DRAG / REORDER HELPERS
+       ========================= */
+    function enableDesktopDrag(element, dragType) {
+        element.addEventListener('dragstart', (event) => {
+            if (dragType === DRAG_TYPES.CHAPTER && state.currentView !== 'editor') {
+                event.preventDefault();
+                return;
+            }
+
+            element.classList.add('dragging');
+            event.dataTransfer.effectAllowed = 'move';
+            event.dataTransfer.setData('text/plain', `${dragType}:${element.dataset.id}`);
+        });
+
+        element.addEventListener('dragend', () => {
+            element.classList.remove('dragging');
+        });
+    }
+
+    function enableTouchReorder(element, container, dragType, onDrop) {
+        let placeholder = null;
+        let startY = 0;
+        let startX = 0;
+        let draggingElement = null;
+        let initialRect = null;
+
+        element.addEventListener('touchstart', (event) => {
+            if (dragType === DRAG_TYPES.CHAPTER && state.currentView !== 'editor') {
+                return;
+            }
+
+            startY = event.touches[0].clientY;
+            startX = event.touches[0].clientX;
+            initialRect = element.getBoundingClientRect();
+            draggingElement = element;
+
+            placeholder = document.createElement(element.tagName.toLowerCase());
+            placeholder.className = 'placeholder';
+            placeholder.style.height = `${element.offsetHeight}px`;
+            placeholder.style.width = `${element.offsetWidth}px`;
+
+            element.after(placeholder);
+            document.body.appendChild(element);
+
+            element.style.position = 'fixed';
+            element.style.left = `${initialRect.left}px`;
+            element.style.top = `${initialRect.top}px`;
+            element.style.width = `${initialRect.width}px`;
+            element.style.zIndex = '1000';
+        }, { passive: true });
+
+        element.addEventListener('touchmove', (event) => {
+            if (!draggingElement || !placeholder) {
+                return;
+            }
+
+            event.preventDefault();
+            const touch = event.touches[0];
+            const deltaY = touch.clientY - startY;
+            const deltaX = touch.clientX - startX;
+
+            draggingElement.style.transform = `translate(${deltaX}px, ${deltaY}px)`;
+
+            const siblings = Array.from(container.children).filter((child) => child !== placeholder && child !== draggingElement);
+            let inserted = false;
+
+            for (const sibling of siblings) {
+                const rect = sibling.getBoundingClientRect();
+                if (touch.clientY < rect.top + rect.height / 2) {
+                    container.insertBefore(placeholder, sibling);
+                    inserted = true;
+                    break;
+                }
+            }
+
+            if (!inserted) {
+                container.appendChild(placeholder);
+            }
+        }, { passive: false });
+
+        element.addEventListener('touchend', () => {
+            if (!draggingElement || !placeholder) {
+                return;
+            }
+
+            draggingElement.style.position = '';
+            draggingElement.style.left = '';
+            draggingElement.style.top = '';
+            draggingElement.style.width = '';
+            draggingElement.style.zIndex = '';
+            draggingElement.style.transform = '';
+
+            container.insertBefore(draggingElement, placeholder);
+            placeholder.remove();
+
+            placeholder = null;
+            draggingElement = null;
+            initialRect = null;
+
+            onDrop();
+        });
+    }
+
+    function getDragAfterElement(container, mouseY, selector) {
+        const elements = Array.from(container.querySelectorAll(`${selector}:not(.dragging)`));
+
+        return elements.reduce((closest, child) => {
+            const box = child.getBoundingClientRect();
+            const offset = mouseY - box.top - box.height / 2;
+
+            if (offset < 0 && offset > closest.offset) {
+                return { offset, element: child };
+            }
+            return closest;
+        }, { offset: Number.NEGATIVE_INFINITY, element: null }).element;
+    }
+
+    dom.chapterList.addEventListener('dragover', (event) => {
+        if (state.currentView !== 'editor') {
+            return;
+        }
+
+        event.preventDefault();
+        const dragging = dom.chapterList.querySelector('.dragging');
+        if (!dragging) {
+            return;
+        }
+
+        const afterElement = getDragAfterElement(dom.chapterList, event.clientY, '.chapter-list-item');
+        if (!afterElement) {
+            dom.chapterList.appendChild(dragging);
+        } else {
+            dom.chapterList.insertBefore(dragging, afterElement);
+        }
+    });
+
+    dom.chapterList.addEventListener('drop', () => {
+        applyChapterOrderFromDOM();
+    });
+
+    dom.editorItems.addEventListener('dragover', (event) => {
+        event.preventDefault();
+
+        const dragging = dom.editorItems.querySelector('.dragging');
+        if (!dragging) {
+            return;
+        }
+
+        const afterElement = getDragAfterElement(dom.editorItems, event.clientY, '.editor-item');
+        if (!afterElement) {
+            dom.editorItems.appendChild(dragging);
+        } else {
+            dom.editorItems.insertBefore(dragging, afterElement);
+        }
+    });
+
+    dom.editorItems.addEventListener('drop', () => {
+        applyEditorItemOrderFromDOM();
+    });
+
+    /* =========================
+       EVENT BINDINGS
+       ========================= */
+    function bindEvents() {
+        dom.toggleSidebar.addEventListener('pointerdown', (event) => {
+            event.preventDefault();
+            dom.sidebar.classList.toggle('expanded');
+            updateSidebarDisplay();
+        });
+
+        dom.buttonEditor.addEventListener('pointerdown', (event) => {
+            event.preventDefault();
+            showView('editor');
+        });
+
+        dom.buttonImages.addEventListener('pointerdown', (event) => {
+            event.preventDefault();
+            showView('images');
+        });
+
+        dom.buttonPractice.addEventListener('pointerdown', (event) => {
+            event.preventDefault();
+            showView('practice');
+        });
+
+        dom.addChapter.addEventListener('pointerdown', (event) => {
+            event.preventDefault();
+            addChapter();
+        });
+
+        dom.chapterSelect.addEventListener('change', () => {
+            const selectedId = Number(dom.chapterSelect.value);
+            if (!getChapterById(selectedId)) {
+                return;
+            }
+            state.editorChapterId = selectedId;
+            populateChapterDropdown();
+        });
+
+        dom.addQuestion.addEventListener('pointerdown', (event) => {
+            event.preventDefault();
+            const chapter = getEditorChapter();
+            if (!chapter) {
+                return;
+            }
+
+            const question = createQuestion();
+            chapter.questions.push(question);
+            chapter.order.push({ type: 'question', id: question.id });
+            renderEditorItems();
+            debouncedSave();
+        });
+
+        dom.addImage.addEventListener('pointerdown', async (event) => {
+            event.preventDefault();
+
+            const chapter = getEditorChapter();
+            if (!chapter) {
+                return;
+            }
+
+            const fileInput = document.createElement('input');
+            fileInput.type = 'file';
+            fileInput.accept = 'image/*';
+
+            fileInput.addEventListener('change', async () => {
+                const file = fileInput.files?.[0];
+                if (!file) {
+                    return;
+                }
+
+                const formData = new FormData();
+                formData.append('image', file);
+
+                try {
+                    const response = await fetch(`/api/upload-image?chapterId=${chapter.id}`, {
+                        method: 'POST',
+                        body: formData
+                    });
+
+                    if (!response.ok) {
+                        throw new Error('Failed to upload image');
+                    }
+
+                    const data = await response.json();
+                    const image = createImageItem(data.path);
+
+                    chapter.images.push(image);
+                    chapter.order.push({ type: 'image', id: image.id });
+                    renderEditorItems();
+                    debouncedSave();
+                } catch (error) {
+                    console.error(error);
+                }
+            }, { once: true });
+
+            fileInput.click();
+        });
+
+        dom.toggleCollapse.addEventListener('pointerdown', (event) => {
+            event.preventDefault();
+            const chapter = getEditorChapter();
+            if (!chapter) {
+                return;
+            }
+
+            const items = getOrderedItems(chapter);
+            const anyCollapsed = items.some((item) => item.collapsed);
+            items.forEach((item) => {
+                item.collapsed = !anyCollapsed;
+            });
+
+            renderEditorItems();
+            debouncedSave();
+        });
+
+        dom.imagesNext.addEventListener('click', showRandomImage);
+
+        dom.imagesToggleExplanation.addEventListener('pointerdown', (event) => {
+            event.preventDefault();
+            state.imagesExplanationVisible = !state.imagesExplanationVisible;
+            dom.imagesExplanation.style.display = state.imagesExplanationVisible ? 'block' : 'none';
+            dom.imagesToggleExplanation.querySelector('.toggle-text').textContent = state.imagesExplanationVisible ? 'Show Less' : 'Show More';
+        });
+
+        dom.practiceSubmit.addEventListener('click', () => {
+            if (!state.practice.answered) {
+                scorePracticeQuestion();
+            } else {
+                goToNextPracticeQuestion();
+            }
+        });
+
+        dom.practiceToggleExplanation.addEventListener('pointerdown', (event) => {
+            event.preventDefault();
+            const currentlyVisible = dom.practiceExplanation.style.display === 'block';
+            dom.practiceExplanation.style.display = currentlyVisible ? 'none' : 'block';
+            dom.practiceToggleExplanation.querySelector('.toggle-text').textContent = currentlyVisible ? 'Show More' : 'Show Less';
+        });
+
+        [dom.inputQuestions, dom.inputTime].forEach((input) => {
+            input.addEventListener('input', () => {
+                input.value = input.value.replace(/[^0-9]/g, '');
+            });
+        });
+
+        document.addEventListener('keydown', (event) => {
+            const tagName = document.activeElement?.tagName?.toLowerCase();
+            if (tagName === 'input' || tagName === 'textarea' || tagName === 'select') {
+                return;
+            }
+
+            if (state.currentView === 'images' && (event.key === 'ArrowRight' || event.key === ' ')) {
+                event.preventDefault();
                 showRandomImage();
             }
-            break;
-        case ' ': // spacebar
-            e.preventDefault(); // prevent default scrolling / button click
-            if (currentView === viewImages) {
-                showRandomImage();
-            }
-            break;
+        });
     }
-});
 
+    /* =========================
+       INITIALIZATION
+       ========================= */
+    async function init() {
+        bindEvents();
+
+        try {
+            await loadDatabase();
+        } catch (error) {
+            console.error(error);
+            state.database = createEmptyDatabase();
+        }
+
+        renderChapterList();
+        populateChapterDropdown();
+        showView('practice');
+    }
+
+    init();
+})();
