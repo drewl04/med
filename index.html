@@ -31,31 +31,28 @@
                 <button id="button-add-chapter" type="button">+ add chapter</button>
             </div>
 
-            <!--
-                Intentionally unused controls.
-                They remain in the UI exactly because they are part of the desired layout.
-            -->
+        
             <div class="sidebar-section sidebar-section-bottom">
                 <ul>
                     <li>
                         <span>QUESTIONS</span>
-                        <input id="input-questions" type="text" placeholder="100" inputmode="numeric">
+                        <input id="input-questions" type="text" inputmode="numeric">
                     </li>
                     <li>
                         <span>TIME</span>
-                        <input id="input-time" type="text" placeholder="30 min" inputmode="numeric">
+                        <input id="input-time" type="text" inputmode="numeric">
                     </li>
                     <li>
                         <span>IMAGES</span>
                         <label class="toggle-switch">
-                            <input type="checkbox" aria-label="Images toggle">
+                            <input id="input-test-images" type="checkbox" aria-label="Images toggle">
                             <span class="toggle-slider"></span>
                         </label>
                     </li>
                     <li>
-                        <span>SHUFFLE</span>
+                        <span>ANSWERS</span>
                         <label class="toggle-switch">
-                            <input type="checkbox" aria-label="Shuffle toggle">
+                            <input id="input-test-answers" type="checkbox" aria-label="Answers toggle">
                             <span class="toggle-slider"></span>
                         </label>
                     </li>
@@ -131,8 +128,36 @@
         <section id="view-test" class="view" aria-labelledby="heading-test" hidden>
             <h1 id="heading-test">TEST</h1>
 
-            
-            <div class="test-panel"></div>
+            <div id="test-container">
+                <!--
+                    Top meta row:
+                    - timer is always shown during a running test
+                    - score is shown only when the test was started with answers enabled
+                -->
+                <div id="test-meta">
+                    <div id="test-timer">30:00</div>
+                    <div id="test-score" hidden>0/0</div>
+                </div>
+
+                <div id="test-panel">
+                    <div id="test-question-box">
+                        <div id="test-question"></div>
+                        <div id="test-answers"></div>
+                    </div>
+
+                    <button id="test-submit" class="practice-submit" type="button">SUBMIT</button>
+                </div>
+
+                <div id="test-explanation-panel" hidden>
+                    <button id="test-toggle-explanation" type="button">
+                        <span class="line"></span>
+                        <span class="toggle-text">Show More</span>
+                        <span class="line"></span>
+                    </button>
+
+                    <div id="test-explanation"></div>
+                </div>
+            </div>
         </section>
     </main>
 

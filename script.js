@@ -41,7 +41,21 @@
         practiceSubmit: document.getElementById('practice-submit'),
         practiceExplanationPanel: document.getElementById('practice-explanation-panel'),
         practiceExplanation: document.getElementById('practice-explanation'),
-        practiceToggleExplanation: document.getElementById('practice-toggle-explanation')
+        practiceToggleExplanation: document.getElementById('practice-toggle-explanation'),
+
+        inputTestImages: document.getElementById('input-test-images'),
+        inputTestAnswers: document.getElementById('input-test-answers'),
+        buttonStartTest: document.getElementById('button-start-test'),
+
+        testContainer: document.getElementById('test-container'),
+        testTimer: document.getElementById('test-timer'),
+        testScore: document.getElementById('test-score'),
+        testQuestion: document.getElementById('test-question'),
+        testAnswers: document.getElementById('test-answers'),
+        testSubmit: document.getElementById('test-submit'),
+        testExplanationPanel: document.getElementById('test-explanation-panel'),
+        testExplanation: document.getElementById('test-explanation'),
+        testToggleExplanation: document.getElementById('test-toggle-explanation')
     };
 
     /* =========================
@@ -60,7 +74,25 @@
             answered: false,
             recentQuestionIds: [],
             recentBufferSize: 5
+        },
+        test: {
+            isRunning: false,
+            questions: [],
+            currentIndex: 0,
+            answered: false,
+            totalQuestions: 100,
+            durationMinutes: 30,
+            startedWithImages: false,
+            startedWithAnswers: false,
+            correctCount: 0,
+            timeRemainingSeconds: 30 * 60,
+            timerIntervalId: null
         }
+    };
+
+    const DEFAULTS = {
+    TEST_QUESTION_COUNT: 30,
+    TEST_DURATION_MINUTES: 30
     };
 
     const DRAG_TYPES = {
@@ -569,6 +601,10 @@
             return;
         }
 
+        if (state.currentView === 'test' && state.test.isRunning) {
+            return;
+        }
+
         button.classList.toggle('active');
 
         if (state.currentView === 'practice') {
@@ -955,6 +991,40 @@
             .flatMap((chapter) => chapter.questions);
     }
 
+    /* =========================
+   TEST QUESTION HELPERS
+   =========================
+   These helpers sit near practice because they derive question pools
+   from the same chapter/question data.
+    */
+    function getActiveTestQuestions() {
+        return getChapters()
+            .filter((chapter) => isChapterActive(chapter.id))
+            .flatMap((chapter) => chapter.questions);
+    }
+
+    function buildTestQuestionSet(allQuestions, amount) {
+        const shuffled = [...allQuestions];
+        shuffleArray(shuffled);
+
+        const targetAmount = Math.max(1, amount);
+        const result = [];
+
+        for (let index = 0; index < targetAmount; index += 1) {
+            result.push(shuffled[index % shuffled.length]);
+        }
+
+        return result;
+    }
+
+    function formatTime(totalSeconds) {
+        const safeSeconds = Math.max(0, totalSeconds);
+        const minutes = Math.floor(safeSeconds / 60);
+        const seconds = safeSeconds % 60;
+
+        return `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+    }
+
     function shuffleArray(array) {
         for (let index = array.length - 1; index > 0; index -= 1) {
             const randomIndex = Math.floor(Math.random() * (index + 1));
@@ -1118,6 +1188,227 @@
 
         setPracticeQuestion(nextQuestion);
         renderPracticeQuestion();
+    }
+
+    /* =========================
+   TEST VIEW
+   ========================= */
+
+    function getConfiguredTestQuestionAmount() {
+        const value = Number(dom.inputQuestions.value);
+        if (!Number.isFinite(value) || value < 1) {
+            return DEFAULTS.TEST_QUESTION_COUNT;
+        }
+        return value;
+    }
+
+    function getConfiguredTestDurationMinutes() {
+        const value = Number(dom.inputTime.value);
+        if (!Number.isFinite(value) || value < 1) {
+            return DEFAULTS.TEST_DURATION_MINUTES;
+        }
+        return value;
+    }
+
+    function startTest() {
+        const availableQuestions = getActiveTestQuestions();
+
+        state.test.totalQuestions = getConfiguredTestQuestionAmount();
+        state.test.durationMinutes = getConfiguredTestDurationMinutes();
+        state.test.startedWithImages = Boolean(dom.inputTestImages.checked);
+        state.test.startedWithAnswers = Boolean(dom.inputTestAnswers.checked);
+        state.test.correctCount = 0;
+        state.test.currentIndex = 0;
+        state.test.answered = false;
+        state.test.timeRemainingSeconds = state.test.durationMinutes * 60;
+
+        stopTestTimer();
+
+        if (!availableQuestions.length) {
+            state.test.isRunning = false;
+            state.test.questions = [];
+            dom.testQuestion.textContent = 'No questions available';
+            dom.testQuestion.classList.add('is-empty');
+            dom.testAnswers.innerHTML = '';
+            dom.testSubmit.hidden = true;
+            dom.testExplanationPanel.hidden = true;
+            updateTestSidebarMode();
+            updateTestMeta();
+            return;
+        }
+
+        state.test.isRunning = true;
+        state.test.questions = buildTestQuestionSet(
+            availableQuestions,
+            state.test.totalQuestions
+        );
+
+        dom.testSubmit.hidden = false;
+        dom.testQuestion.classList.remove('is-empty', 'is-finished');
+        updateTestSidebarMode();
+        updateTestMeta();
+        renderTestQuestion();
+        startTestTimer();
+    }
+
+    function startTestTimer() {
+        stopTestTimer();
+
+        dom.testTimer.textContent = formatTime(state.test.timeRemainingSeconds);
+
+        state.test.timerIntervalId = window.setInterval(() => {
+            state.test.timeRemainingSeconds -= 1;
+            dom.testTimer.textContent = formatTime(state.test.timeRemainingSeconds);
+
+            if (state.test.timeRemainingSeconds <= 0) {
+                finishTest();
+            }
+        }, 1000);
+    }
+
+    function stopTestTimer() {
+        if (state.test.timerIntervalId) {
+            clearInterval(state.test.timerIntervalId);
+            state.test.timerIntervalId = null;
+        }
+    }
+
+    function updateTestMeta() {
+        dom.testTimer.textContent = formatTime(state.test.timeRemainingSeconds);
+
+        if (state.test.startedWithAnswers && state.test.isRunning) {
+            dom.testScore.hidden = false;
+            dom.testScore.textContent = `${state.test.correctCount}/${state.test.questions.length || state.test.totalQuestions}`;
+        } else {
+            dom.testScore.hidden = true;
+        }
+    }
+
+    function updateTestSidebarMode() {
+        dom.buttonStartTest.textContent = state.test.isRunning ? 'FINISH' : 'START';
+    }
+
+    function renderTestQuestion() {
+        const question = state.test.questions[state.test.currentIndex];
+        if (!question) {
+            finishTest();
+            return;
+        }
+
+        state.test.answered = false;
+
+        dom.testQuestion.classList.remove('is-empty', 'is-finished');
+        dom.testQuestion.textContent = question.question;
+        dom.testAnswers.innerHTML = '';
+        dom.testExplanationPanel.hidden = true;
+        dom.testExplanation.style.display = 'none';
+        dom.testExplanation.textContent = question.explanation || '';
+        dom.testToggleExplanation.querySelector('.toggle-text').textContent = 'Show More';
+
+        const isLastQuestion = state.test.currentIndex === state.test.questions.length - 1;
+        dom.testSubmit.textContent = isLastQuestion ? 'FINISH' : 'SUBMIT';
+        dom.testSubmit.classList.remove('practice-next');
+        dom.testSubmit.classList.add('practice-submit');
+
+        question.answers.forEach((answer) => {
+            const row = document.createElement('label');
+            row.className = 'test-answer';
+
+            const checkbox = document.createElement('input');
+            checkbox.type = 'checkbox';
+            checkbox.dataset.correct = String(answer.correct);
+
+            const text = document.createElement('span');
+            text.textContent = answer.text;
+
+            row.append(checkbox, text);
+            dom.testAnswers.appendChild(row);
+        });
+
+        updateTestMeta();
+    }
+
+    function scoreCurrentTestQuestion() {
+        const question = state.test.questions[state.test.currentIndex];
+        if (!question) {
+            return;
+        }
+
+        const inputs = Array.from(dom.testAnswers.querySelectorAll('input'));
+        let correct = true;
+
+        inputs.forEach((input) => {
+            const isCorrect = input.dataset.correct === 'true';
+            const selected = input.checked;
+            const row = input.parentElement;
+
+            if (selected && !isCorrect) {
+                correct = false;
+            }
+
+            if (!selected && isCorrect) {
+                correct = false;
+            }
+
+            if (state.test.startedWithAnswers) {
+                if (isCorrect) {
+                    row.classList.add('correct');
+                }
+                if (selected && !isCorrect) {
+                    row.classList.add('wrong');
+                }
+            }
+        });
+
+        if (correct) {
+            state.test.correctCount += 1;
+        }
+
+        state.test.answered = true;
+        updateTestMeta();
+
+        const isLastQuestion = state.test.currentIndex === state.test.questions.length - 1;
+
+        if (state.test.startedWithAnswers) {
+            dom.testExplanationPanel.hidden = false;
+            dom.testExplanation.style.display = 'block';
+            dom.testToggleExplanation.querySelector('.toggle-text').textContent = 'Show Less';
+            dom.testSubmit.textContent = isLastQuestion ? 'FINISH' : 'NEXT';
+            dom.testSubmit.classList.remove('practice-submit');
+            dom.testSubmit.classList.add('practice-next');
+        } else if (isLastQuestion) {
+            finishTest();
+        } else {
+            state.test.currentIndex += 1;
+            renderTestQuestion();
+        }
+    }
+
+    function advanceTestQuestion() {
+        const isLastQuestion = state.test.currentIndex === state.test.questions.length - 1;
+
+        if (isLastQuestion) {
+            finishTest();
+            return;
+        }
+
+        state.test.currentIndex += 1;
+        renderTestQuestion();
+    }
+
+    function finishTest() {
+        stopTestTimer();
+        state.test.isRunning = false;
+        state.test.answered = false;
+        updateTestSidebarMode();
+        updateTestMeta();
+
+        dom.testAnswers.innerHTML = '';
+        dom.testExplanationPanel.hidden = true;
+        dom.testQuestion.classList.remove('is-empty');
+        dom.testQuestion.classList.add('is-finished');
+        dom.testQuestion.textContent = `Test finished. Result: ${state.test.correctCount}/${state.test.questions.length || 0}`;
+        dom.testSubmit.hidden = true;
     }
 
     /* =========================
@@ -1454,6 +1745,38 @@
         fileInput.click();
         });
 
+        dom.buttonStartTest.addEventListener('click', () => {
+        if (state.currentView !== 'test') {
+            return;
+        }
+
+        if (state.test.isRunning) {
+            finishTest();
+        } else {
+            startTest();
+        }
+        });
+
+        dom.testSubmit.addEventListener('click', () => {
+        if (!state.test.isRunning) {
+            return;
+        }
+
+        if (!state.test.answered) {
+            scoreCurrentTestQuestion();
+        } else {
+            advanceTestQuestion();
+        }
+        });
+
+        dom.testToggleExplanation.addEventListener('pointerdown', (event) => {
+        event.preventDefault();
+
+        const currentlyVisible = dom.testExplanation.style.display === 'block';
+        dom.testExplanation.style.display = currentlyVisible ? 'none' : 'block';
+        dom.testToggleExplanation.querySelector('.toggle-text').textContent = currentlyVisible ? 'Show More' : 'Show Less';
+        });
+
         dom.toggleCollapse.addEventListener('pointerdown', (event) => {
             event.preventDefault();
             const chapter = getEditorChapter();
@@ -1527,8 +1850,13 @@
             state.database = createEmptyDatabase();
         }
 
+        dom.inputQuestions.placeholder = DEFAULTS.TEST_QUESTION_COUNT;
+        dom.inputTime.placeholder = `${DEFAULTS.TEST_DURATION_MINUTES} min`;
+
         renderChapterList();
         populateChapterDropdown();
+        updateTestSidebarMode();
+        updateTestMeta();
         showView('practice');
     }
 
