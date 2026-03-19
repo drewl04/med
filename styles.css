@@ -777,8 +777,7 @@ can't you center it with a property instead? */
     display: none;
     width: 100%;
     max-width: 56.25rem;
-    margin: 1rem auto 0;
-    padding: 1rem;
+    margin: var(--space-xs) auto 0;
     border-radius: var(--radius-md);
     background-color: var(--color-panel);
     text-align: left;
