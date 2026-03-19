@@ -50,6 +50,7 @@
         testSidebarProgress: document.getElementById('test-sidebar-progress'),
 
         testContainer: document.getElementById('test-container'),
+        testMeta: document.getElementById('test-meta'),
         testTimer: document.getElementById('test-timer'),
         testScore: document.getElementById('test-score'),
         testScoreCorrect: document.getElementById('test-score-correct'),
@@ -1265,6 +1266,9 @@
             state.test.totalQuestions
         );
 
+        dom.sidebar.classList.remove('expanded');
+        updateSidebarDisplay();
+
         dom.testSubmit.hidden = false;
         dom.testQuestion.classList.remove('is-empty', 'is-finished');
         updateTestSidebarMode();
@@ -1297,10 +1301,19 @@
 
     function updateTestMeta() {
         const answeredCount = getAnsweredTestQuestionCount();
+        const showMeta = state.currentView === 'test' && state.test.isRunning;
+
+        dom.testMeta.hidden = !showMeta;
+
+        if (!showMeta) {
+            dom.testScore.hidden = true;
+            updateTestSidebarContent();
+            return;
+        }
 
         dom.testTimer.textContent = formatTime(state.test.timeRemainingSeconds);
 
-        if (state.test.startedWithAnswers && state.test.isRunning) {
+        if (state.test.startedWithAnswers) {
             dom.testScore.hidden = false;
             dom.testScoreCorrect.textContent = state.test.correctCount;
             dom.testScoreTotal.textContent = answeredCount;

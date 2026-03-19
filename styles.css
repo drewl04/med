@@ -1111,6 +1111,9 @@ can't you center it with a property instead? */
 }
 
 @media (max-width: 62.5rem) {
+    #test-container {
+        margin-top: var(--space-3xl);
+    }
     #test-explanation-panel {
         width: 90%;
     }
