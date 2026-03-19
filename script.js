@@ -1149,21 +1149,52 @@
     }
 
     function enableTouchReorder(element, container, dragType, onDrop) {
-        let placeholder = null;
-        let startY = 0;
-        let startX = 0;
-        let draggingElement = null;
-        let initialRect = null;
+    let placeholder = null;
+    let startY = 0;
+    let startX = 0;
+    let draggingElement = null;
+    let initialRect = null;
+    let dragActivated = false;
 
-        element.addEventListener('touchstart', (event) => {
-            if (dragType === DRAG_TYPES.CHAPTER && state.currentView !== 'editor') {
+    const DRAG_THRESHOLD = 12;
+
+    element.addEventListener('touchstart', (event) => {
+        if (dragType === DRAG_TYPES.CHAPTER && state.currentView !== 'editor') {
+            return;
+        }
+
+        const startedFromInteractive = event.target.closest('input, textarea, select, button');
+        if (startedFromInteractive) {
+            return;
+        }
+
+        startY = event.touches[0].clientY;
+        startX = event.touches[0].clientX;
+        initialRect = element.getBoundingClientRect();
+        draggingElement = element;
+        dragActivated = false;
+    }, { passive: true });
+
+    element.addEventListener('touchmove', (event) => {
+        if (!draggingElement) {
+            return;
+        }
+
+        const touch = event.touches[0];
+        const deltaY = touch.clientY - startY;
+        const deltaX = touch.clientX - startX;
+
+        if (!dragActivated) {
+            const movedEnough =
+                Math.abs(deltaY) > DRAG_THRESHOLD ||
+                Math.abs(deltaX) > DRAG_THRESHOLD;
+
+            if (!movedEnough) {
                 return;
             }
 
-            startY = event.touches[0].clientY;
-            startX = event.touches[0].clientX;
-            initialRect = element.getBoundingClientRect();
-            draggingElement = element;
+            dragActivated = true;
+            draggingElement.classList.add('dragging');
 
             placeholder = document.createElement(element.tagName.toLowerCase());
             placeholder.className = 'placeholder';
@@ -1178,59 +1209,88 @@
             element.style.top = `${initialRect.top}px`;
             element.style.width = `${initialRect.width}px`;
             element.style.zIndex = '1000';
-        }, { passive: true });
+        }
 
-        element.addEventListener('touchmove', (event) => {
-            if (!draggingElement || !placeholder) {
-                return;
+        event.preventDefault();
+
+        draggingElement.style.transform = `translate(${deltaX}px, ${deltaY}px)`;
+
+        const siblings = Array.from(container.children).filter((child) => {
+            return child !== placeholder && child !== draggingElement;
+        });
+
+        let inserted = false;
+
+        for (const sibling of siblings) {
+            const rect = sibling.getBoundingClientRect();
+            if (touch.clientY < rect.top + rect.height / 2) {
+                container.insertBefore(placeholder, sibling);
+                inserted = true;
+                break;
             }
+        }
 
-            event.preventDefault();
-            const touch = event.touches[0];
-            const deltaY = touch.clientY - startY;
-            const deltaX = touch.clientX - startX;
+        if (!inserted) {
+            container.appendChild(placeholder);
+        }
+    }, { passive: false });
 
-            draggingElement.style.transform = `translate(${deltaX}px, ${deltaY}px)`;
+    element.addEventListener('touchend', () => {
+        if (!draggingElement) {
+            return;
+        }
 
-            const siblings = Array.from(container.children).filter((child) => child !== placeholder && child !== draggingElement);
-            let inserted = false;
+        if (!dragActivated) {
+            draggingElement = null;
+            initialRect = null;
+            return;
+        }
 
-            for (const sibling of siblings) {
-                const rect = sibling.getBoundingClientRect();
-                if (touch.clientY < rect.top + rect.height / 2) {
-                    container.insertBefore(placeholder, sibling);
-                    inserted = true;
-                    break;
-                }
-            }
+        draggingElement.style.position = '';
+        draggingElement.style.left = '';
+        draggingElement.style.top = '';
+        draggingElement.style.width = '';
+        draggingElement.style.zIndex = '';
+        draggingElement.style.transform = '';
+        draggingElement.classList.remove('dragging');
 
-            if (!inserted) {
-                container.appendChild(placeholder);
-            }
-        }, { passive: false });
+        container.insertBefore(draggingElement, placeholder);
+        placeholder.remove();
 
-        element.addEventListener('touchend', () => {
-            if (!draggingElement || !placeholder) {
-                return;
-            }
+        placeholder = null;
+        draggingElement = null;
+        initialRect = null;
+        dragActivated = false;
 
+        onDrop();
+        });
+
+    element.addEventListener('touchcancel', () => {
+        if (!draggingElement) {
+            return;
+        }
+
+        if (dragActivated) {
             draggingElement.style.position = '';
             draggingElement.style.left = '';
             draggingElement.style.top = '';
             draggingElement.style.width = '';
             draggingElement.style.zIndex = '';
             draggingElement.style.transform = '';
+            draggingElement.classList.remove('dragging');
 
-            container.insertBefore(draggingElement, placeholder);
-            placeholder.remove();
+            if (placeholder) {
+                container.insertBefore(draggingElement, placeholder);
+                placeholder.remove();
+            }
+        }
 
-            placeholder = null;
-            draggingElement = null;
-            initialRect = null;
-
-            onDrop();
-        });
-    }
+        placeholder = null;
+        draggingElement = null;
+        initialRect = null;
+        dragActivated = false;
+    });
+}
 
     function getDragAfterElement(container, mouseY, selector) {
         const elements = Array.from(container.querySelectorAll(`${selector}:not(.dragging)`));
