@@ -276,6 +276,7 @@ main {
     display: flex;
     align-items: center;
     gap: var(--space-md);
+    width: 100%;
 }
 
 .chapter-list-item.dragging {
@@ -822,6 +823,11 @@ can't you center it with a property instead? */
     text-align: left;
     font-size: 1.1em;
     font-weight: bold;
+}
+
+#practice-question:only-child,
+#practice-question.is-empty {
+    text-align: center;
 }
 
 #practice-answers {

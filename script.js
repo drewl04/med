@@ -475,51 +475,61 @@
     }
 
     function createChapterListItem(chapter) {
-        const item = document.createElement('li');
-        item.className = 'chapter-list-item';
-        item.dataset.id = String(chapter.id);
-        item.draggable = true;
+    const item = document.createElement('li');
+    item.className = 'chapter-list-item';
+    item.dataset.id = String(chapter.id);
+    item.draggable = true;
 
-        const deleteButton = document.createElement('span');
-        deleteButton.className = 'delete-chapter';
-        deleteButton.textContent = '✖';
-        deleteButton.addEventListener('pointerdown', async (event) => {
-            event.preventDefault();
-            event.stopPropagation();
-            await deleteChapter(chapter.id);
-        });
+    const deleteButton = document.createElement('span');
+    deleteButton.className = 'delete-chapter';
+    deleteButton.textContent = '✖';
+    deleteButton.addEventListener('pointerdown', (event) => {
+        event.stopPropagation();
+    });
+    deleteButton.addEventListener('click', async (event) => {
+        event.preventDefault();
+        event.stopPropagation();
+        await deleteChapter(chapter.id);
+    });
 
-        const chapterButton = document.createElement('button');
-        chapterButton.type = 'button';
-        chapterButton.className = 'chapter-button active';
+    const chapterButton = document.createElement('button');
+    chapterButton.type = 'button';
+    chapterButton.className = 'chapter-button active';
 
-        const checkmark = document.createElement('span');
-        checkmark.className = 'checkmark';
-        checkmark.textContent = '✔';
+    const checkmark = document.createElement('span');
+    checkmark.className = 'checkmark';
+    checkmark.textContent = '✔';
 
-        const label = document.createElement('span');
-        label.className = 'chapter-button-label';
-        label.textContent = chapter.name;
+    const label = document.createElement('span');
+    label.className = 'chapter-button-label';
+    label.textContent = chapter.name;
 
-        chapterButton.append(checkmark, label);
-        chapterButton.addEventListener('pointerdown', (event) => {
-            event.preventDefault();
-            toggleChapterActive(chapter.id);
-        });
+    chapterButton.append(checkmark, label);
 
-        label.addEventListener('dblclick', (event) => {
-            if (state.currentView !== 'editor') {
-                return;
-            }
-            event.stopPropagation();
-            startInlineChapterEdit(chapter, label);
-        });
+    chapterButton.addEventListener('click', (event) => {
+        if (item.classList.contains('dragging')) {
+            return;
+        }
 
-        enableDesktopDrag(item, DRAG_TYPES.CHAPTER);
-        enableTouchReorder(item, dom.chapterList, DRAG_TYPES.CHAPTER, applyChapterOrderFromDOM);
+        event.preventDefault();
+        event.stopPropagation();
+        toggleChapterActive(chapter.id);
+    });
 
-        item.append(deleteButton, chapterButton);
-        return item;
+    label.addEventListener('dblclick', (event) => {
+        if (state.currentView !== 'editor') {
+            return;
+        }
+
+        event.stopPropagation();
+        startInlineChapterEdit(chapter, label);
+    });
+
+    enableDesktopDrag(item, DRAG_TYPES.CHAPTER);
+    enableTouchReorder(item, dom.chapterList, DRAG_TYPES.CHAPTER, applyChapterOrderFromDOM);
+
+    item.append(deleteButton, chapterButton);
+    return item;
     }
 
     function startInlineChapterEdit(chapter, labelElement) {
@@ -996,6 +1006,7 @@
 
         if (!state.practice.questions.length) {
             dom.practiceQuestion.textContent = 'No questions available';
+            dom.practiceQuestion.classList.add('is-empty');
             dom.practiceAnswers.innerHTML = '';
             dom.practiceSubmit.hidden = true;
             dom.practiceExplanationPanel.hidden = true;
@@ -1019,6 +1030,7 @@
         }
 
         state.practice.answered = false;
+        dom.practiceQuestion.classList.remove('is-empty');
 
         dom.practiceQuestion.textContent = question.question;
         dom.practiceAnswers.innerHTML = '';
@@ -1108,20 +1120,31 @@
        DRAG / REORDER HELPERS
        ========================= */
     function enableDesktopDrag(element, dragType) {
-        element.addEventListener('dragstart', (event) => {
-            if (dragType === DRAG_TYPES.CHAPTER && state.currentView !== 'editor') {
-                event.preventDefault();
-                return;
-            }
+    element.addEventListener('dragstart', (event) => {
+        if (dragType === DRAG_TYPES.CHAPTER && state.currentView !== 'editor') {
+            event.preventDefault();
+            return;
+        }
 
-            element.classList.add('dragging');
+        const startedFromDeleteButton = event.target.closest('.delete-chapter');
+        const startedFromEditableField = event.target.closest('input, textarea, select');
+
+        if (startedFromDeleteButton || startedFromEditableField) {
+            event.preventDefault();
+            return;
+        }
+
+        element.classList.add('dragging');
+
+        if (event.dataTransfer) {
             event.dataTransfer.effectAllowed = 'move';
             event.dataTransfer.setData('text/plain', `${dragType}:${element.dataset.id}`);
-        });
+        }
+    });
 
-        element.addEventListener('dragend', () => {
-            element.classList.remove('dragging');
-        });
+    element.addEventListener('dragend', () => {
+        element.classList.remove('dragging');
+    });
     }
 
     function enableTouchReorder(element, container, dragType, onDrop) {
@@ -1318,50 +1341,48 @@
             debouncedSave();
         });
 
-        dom.addImage.addEventListener('pointerdown', async (event) => {
-            event.preventDefault();
+        dom.addImage.addEventListener('click', async () => {
+        const chapter = getEditorChapter();
+        if (!chapter) {
+            return;
+        }
 
-            const chapter = getEditorChapter();
-            if (!chapter) {
+        const fileInput = document.createElement('input');
+        fileInput.type = 'file';
+        fileInput.accept = 'image/*';
+
+        fileInput.addEventListener('change', async () => {
+            const file = fileInput.files?.[0];
+            if (!file) {
                 return;
             }
 
-            const fileInput = document.createElement('input');
-            fileInput.type = 'file';
-            fileInput.accept = 'image/*';
+            const formData = new FormData();
+            formData.append('image', file);
 
-            fileInput.addEventListener('change', async () => {
-                const file = fileInput.files?.[0];
-                if (!file) {
-                    return;
+            try {
+                const response = await fetch(`/api/upload-image?chapterId=${chapter.id}`, {
+                    method: 'POST',
+                    body: formData
+                });
+
+                if (!response.ok) {
+                    throw new Error('Failed to upload image');
                 }
 
-                const formData = new FormData();
-                formData.append('image', file);
+                const data = await response.json();
+                const image = createImageItem(data.path);
 
-                try {
-                    const response = await fetch(`/api/upload-image?chapterId=${chapter.id}`, {
-                        method: 'POST',
-                        body: formData
-                    });
+                chapter.images.push(image);
+                chapter.order.push({ type: 'image', id: image.id });
+                renderEditorItems();
+                debouncedSave();
+            } catch (error) {
+                console.error(error);
+            }
+        }, { once: true });
 
-                    if (!response.ok) {
-                        throw new Error('Failed to upload image');
-                    }
-
-                    const data = await response.json();
-                    const image = createImageItem(data.path);
-
-                    chapter.images.push(image);
-                    chapter.order.push({ type: 'image', id: image.id });
-                    renderEditorItems();
-                    debouncedSave();
-                } catch (error) {
-                    console.error(error);
-                }
-            }, { once: true });
-
-            fileInput.click();
+        fileInput.click();
         });
 
         dom.toggleCollapse.addEventListener('pointerdown', (event) => {
