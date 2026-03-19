@@ -825,7 +825,7 @@ main {
 
 @media (max-width: 62.5rem) {
     #practice-question-box {
-        width: 95%;
+        width: 95vw;
         max-height: 58vh;
     }
 }
@@ -949,6 +949,12 @@ main {
     margin-bottom: var(--space-xl);
 }
 
+@media (max-width: 62.5rem) {
+    #test-meta {
+        width: 95vw;
+    }
+}
+
 #test-timer,
 #test-score {
     background: var(--color-panel);
@@ -978,6 +984,12 @@ main {
     border: var(--border-medium);
     border-radius: var(--radius-xl);
     background: var(--color-panel);
+}
+
+@media (max-width: 62.5rem) {
+    #test-question-box {
+        width: 95vw;
+    }
 }
 
 #test-question {
