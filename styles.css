@@ -1280,7 +1280,7 @@ main {
 
 @media (max-width: 62.5rem) {
     .test-result-question {
-        max-height: 45vh;
+        width: 80vw;
     }
 }
 
