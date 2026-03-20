@@ -810,21 +810,22 @@ main {
 
 #practice-panel {
     width: 100%;
-    min-height: 60vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    align-items: center;
+    height: 60vh;
+    display: grid;
+    grid-template-rows: minmax(0, 1fr) auto;
+    justify-items: center;
+    row-gap: 1rem;
 }
 
 #practice-question-box {
     width: var(--practice-width);
-    max-height: 58vh;
+    max-height: 100%;
     overflow-y: auto;
     overflow-x: hidden;
     border: var(--border-medium);
     border-radius: var(--radius-xl);
     background: var(--color-panel);
+    align-self: end;
 }
 
 @media (max-width: 62.5rem) {
@@ -914,7 +915,6 @@ main {
 }
 
 #practice-submit {
-    margin-top: 1rem;
     padding: 0.6rem 1.4rem;
     border-radius: var(--radius-xl);
     font-weight: bold;
@@ -973,21 +973,22 @@ main {
 
 #test-panel {
     width: 100%;
-    min-height: 60vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    align-items: center;
+    height: 60vh;
+    display: grid;
+    grid-template-rows: minmax(0, 1fr) auto;
+    justify-items: center;
+    row-gap: 1rem;
 }
 
 #test-question-box {
     width: min(var(--practice-width), 95vw);
-    max-height: 58vh;
+    max-height: 100%;
     overflow-y: auto;
     overflow-x: hidden;
     border: var(--border-medium);
     border-radius: var(--radius-xl);
     background: var(--color-panel);
+    align-self: end;
 }
 
 @media (max-width: 62.5rem) {
@@ -1012,7 +1013,6 @@ main {
 }
 
 #test-submit {
-    margin-top: 1rem;
     padding: 0.6rem 1.4rem;
     border-radius: var(--radius-xl);
     font-weight: bold;
