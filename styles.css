@@ -38,7 +38,7 @@
     --color-result-accuracy-good: rgb(120 220 120);
     --color-result-accuracy-medium: rgb(255 210 70);
     --color-result-accuracy-low: var(--color-answer-wrong);
-    --color-result-accuracy-very-low: rgb(25 25 25);
+    --color-result-accuracy-very-low: rgb(35 35 35);
 
     --radius-none: 0;
     --radius-xs: 0.3rem;
@@ -1127,7 +1127,7 @@ main {
 
 @media (max-width: 62.5rem) {
     #test-container {
-        margin-top: var(--space-2xl);
+        margin-top: var(--space-3xl);
     }
     #test-explanation-panel {
         width: 90%;
