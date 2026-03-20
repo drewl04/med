@@ -951,6 +951,10 @@ main {
     align-items: center;
 }
 
+#test-container.is-showing-result {
+    margin-top: var(--space-4xl);
+}
+
 #test-meta {
     width: min(var(--practice-width), 95vw);
     display: flex;

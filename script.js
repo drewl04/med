@@ -43,11 +43,11 @@
         practiceExplanation: document.getElementById('practice-explanation'),
         practiceToggleExplanation: document.getElementById('practice-toggle-explanation'),
 
-        inputTestImages: document.getElementById('input-test-images'),
         inputTestAnswers: document.getElementById('input-test-answers'),
         buttonStartTest: document.getElementById('button-start-test'),
         testSidebarOptions: document.querySelector('.sidebar-section-bottom > ul'),
         testSidebarProgress: document.getElementById('test-sidebar-progress'),
+        headingTest: document.getElementById('heading-test'),
 
         testContainer: document.getElementById('test-container'),
         testMeta: document.getElementById('test-meta'),
@@ -90,7 +90,6 @@
             answered: false,
             totalQuestions: 100,
             durationMinutes: 30,
-            startedWithImages: false,
             startedWithAnswers: false,
             correctCount: 0,
             timeRemainingSeconds: 30 * 60,
@@ -478,6 +477,8 @@
         if (viewName === 'test' && !state.test.isRunning) {
             dom.testPanel.hidden = true;
             dom.testExplanationPanel.hidden = true;
+            dom.headingTest.textContent = dom.testResult.hidden ? 'TEST' : 'RESULT';
+            dom.testContainer.classList.toggle('is-showing-result', !dom.testResult.hidden);
         }
     }
 
@@ -1397,7 +1398,6 @@
 
         state.test.totalQuestions = getConfiguredTestQuestionAmount();
         state.test.durationMinutes = getConfiguredTestDurationMinutes();
-        state.test.startedWithImages = Boolean(dom.inputTestImages.checked);
         state.test.startedWithAnswers = Boolean(dom.inputTestAnswers.checked);
         state.test.correctCount = 0;
         state.test.currentIndex = 0;
@@ -1427,6 +1427,8 @@
         dom.sidebar.classList.remove('expanded');
         updateSidebarDisplay();
 
+        dom.headingTest.textContent = 'TEST';
+        dom.testContainer.classList.remove('is-showing-result');
         dom.testPanel.hidden = false;
         dom.testResult.hidden = true;
         dom.testResult.textContent = '';
@@ -1622,6 +1624,8 @@
         updateTestSidebarMode();
         updateTestMeta();
 
+        dom.headingTest.textContent = 'RESULT';
+        dom.testContainer.classList.add('is-showing-result');
         dom.testAnswers.innerHTML = '';
         dom.testExplanationPanel.hidden = true;
         dom.testPanel.hidden = true;
@@ -2071,6 +2075,9 @@
         dom.inputQuestions.placeholder = DEFAULTS.TEST_QUESTION_COUNT;
         dom.inputTime.placeholder = `${DEFAULTS.TEST_DURATION_MINUTES} min`;
         dom.inputTestAnswers.checked = DEFAULTS.TEST_SHOW_ANSWERS;
+
+        dom.headingTest.textContent = 'TEST';
+        dom.testContainer.classList.remove('is-showing-result');
 
         dom.testPanel.hidden = true;
         dom.testResult.hidden = true;
