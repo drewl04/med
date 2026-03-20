@@ -1269,6 +1269,8 @@ main {
 }
 
 .test-result-question {
+    width: 100%;
+    max-width: var(--editor-items-width);
     max-height: min(30rem, 50vh);
     overflow-y: auto;
     overflow-x: hidden;
@@ -1280,6 +1282,7 @@ main {
 
 @media (max-width: 62.5rem) {
     .test-result-question {
+        width: 80vw;
         max-width: 80vw;
     }
 }
@@ -1359,6 +1362,7 @@ main {
 .test-result-review {
     display: flex;
     flex-direction: column;
+    align-items: center;
     gap: var(--space-xl);
 }
 
