@@ -75,6 +75,7 @@
         saveTimer: null,
         imagesExplanationVisible: false,
         currentImageId: null,
+        activeChapterIds: new Set(),
         practice: {
             questions: [],
             currentQuestionId: null,
@@ -370,8 +371,7 @@
     }
 
     function isChapterActive(chapterId) {
-        const button = getChapterListButton(chapterId);
-        return button ? button.classList.contains('active') : false;
+        return state.activeChapterIds.has(chapterId);
     }
 
     function getQuestionById(chapter, questionId) {
@@ -407,6 +407,7 @@
 
         const data = await response.json();
         state.database = ensureDatabaseShape(data);
+        state.activeChapterIds = new Set(getChapters().map((chapter) => chapter.id));
 
         if (!getEditorChapter() && getChapters().length) {
             state.editorChapterId = getChapters()[0].id;
@@ -543,7 +544,11 @@
 
     const chapterButton = document.createElement('button');
     chapterButton.type = 'button';
-    chapterButton.className = 'chapter-button active';
+    chapterButton.className = 'chapter-button';
+
+    if (isChapterActive(chapter.id)) {
+        chapterButton.classList.add('active');
+    }
 
     const checkmark = document.createElement('span');
     checkmark.className = 'checkmark';
@@ -618,7 +623,13 @@
             return;
         }
 
-        button.classList.toggle('active');
+        if (state.activeChapterIds.has(chapterId)) {
+            state.activeChapterIds.delete(chapterId);
+            button.classList.remove('active');
+        } else {
+            state.activeChapterIds.add(chapterId);
+            button.classList.add('active');
+        }
 
         if (state.currentView === 'practice') {
             startPractice();
@@ -651,6 +662,7 @@
         }
 
         state.database.chapters = getChapters().filter((chapterItem) => chapterItem.id !== chapterId);
+        state.activeChapterIds.delete(chapterId);
 
         if (state.editorChapterId === chapterId) {
             state.editorChapterId = getChapters()[0]?.id ?? null;
@@ -666,6 +678,7 @@
         const chapterNumber = getChapters().length + 1;
         const chapter = createChapter(`chapter ${chapterNumber}`);
         state.database.chapters.push(chapter);
+        state.activeChapterIds.add(chapter.id);
 
         if (!state.editorChapterId) {
             state.editorChapterId = chapter.id;
