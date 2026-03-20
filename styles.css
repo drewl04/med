@@ -64,7 +64,6 @@
     --sidebar-expanded-width-mobile: 10rem;
     --sidebar-toggle-height: 4rem;
 
-    --editor-max-width: 56.25rem;
     --editor-items-width: 30rem;
     --practice-width: 40rem;
     --explanation-width: 31.25rem;
@@ -399,22 +398,27 @@ main {
 
 .editor-panel {
     margin-top: var(--space-4xl);
+    width: var(--editor-items-width);
+    max-width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    max-width: var(--editor-max-width);
 }
 
 #editor-items {
-    width: min(100%, var(--editor-items-width));
+    width: 100%;
     display: flex;
     flex-direction: column;
     gap: var(--space-xl);
 }
 
 @media (max-width: 62.5rem) {
-    #editor-items {
+    .editor-panel {
         width: min(80vw, var(--editor-items-width));
+    }
+
+    #editor-items {
+        width: 100%;
     }
 }
 
