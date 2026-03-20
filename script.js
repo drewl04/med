@@ -991,9 +991,14 @@
         if (!images.length) {
             dom.imagesCurrent.removeAttribute('src');
             dom.imagesCurrent.style.display = 'none';
+
             dom.imagesExplanation.textContent = '';
             dom.imagesExplanation.style.display = 'none';
-            dom.imagesExplanationPanel.hidden = false;
+
+            dom.imagesExplanationPanel.hidden = true;
+            dom.imagesNext.hidden = true;
+            dom.imagesCurrent.closest('.images-panel').hidden = true;
+
             return;
         }
 
@@ -1003,6 +1008,11 @@
         } while (images.length > 1 && nextImage.id === state.currentImageId);
 
         state.currentImageId = nextImage.id;
+
+        dom.imagesCurrent.closest('.images-panel').hidden = false;
+        dom.imagesNext.hidden = false;
+        dom.imagesExplanationPanel.hidden = false;
+        
         dom.imagesCurrent.src = nextImage.imagePath;
         dom.imagesCurrent.alt = nextImage.image || 'Random chapter image';
         dom.imagesCurrent.style.display = 'block';

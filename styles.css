@@ -815,6 +815,12 @@ main {
     align-items: center;
 }
 
+@media (max-width: 62.5rem) {
+    #practice-container {
+        margin-top: var(--space-5xl);
+    }
+}
+
 #practice-panel {
     width: 100%;
     height: 60vh;
