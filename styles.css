@@ -33,6 +33,12 @@
     --color-correct: rgb(0 180 0);
     --color-answer-correct: rgb(26 255 106);
     --color-answer-wrong: rgb(200 40 40);
+    --color-result-score-correct: var(--color-answer-correct);
+    --color-result-accuracy-high: var(--color-answer-correct);
+    --color-result-accuracy-good: rgb(120 220 120);
+    --color-result-accuracy-medium: rgb(255 210 70);
+    --color-result-accuracy-low: var(--color-answer-wrong);
+    --color-result-accuracy-very-low: rgb(25 25 25);
 
     --radius-none: 0;
     --radius-xs: 0.3rem;
@@ -67,6 +73,7 @@
     --editor-items-width: 30rem;
     --practice-width: 40rem;
     --explanation-width: 31.25rem;
+
 }
 
 /* ================= RESET ================= */
@@ -1149,4 +1156,104 @@ main {
 
 *::-webkit-scrollbar-thumb:hover {
     background-color: var(--color-scrollbar-hover);
+}
+
+
+/* ================= TEST RESULT ================= */
+#test-result {
+    width: min(var(--practice-width), 95vw);
+    padding: 1.25rem;
+    border: var(--border-medium);
+    border-radius: var(--radius-xl);
+    background: var(--color-panel);
+}
+
+.test-result-summary {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.test-result-top {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.test-result-line {
+    font-size: 1.05rem;
+}
+
+.test-result-chapters {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+}
+
+.test-result-chapter-row {
+    display: grid;
+    grid-template-columns: 4rem minmax(0, 1fr) 4.5rem 4rem;
+    gap: 0.75rem;
+    align-items: center;
+    padding: 0.6rem 0.75rem;
+    border-radius: var(--radius-lg);
+    background: var(--color-panel-alt);
+}
+
+.test-result-share,
+.test-result-score,
+.test-result-accuracy {
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+.test-result-name {
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+@media (max-width: 62.5rem) {
+    .test-result-chapter-row {
+        grid-template-columns: 3.5rem minmax(0, 1fr) 4rem 3.5rem;
+        gap: 0.5rem;
+        font-size: 0.95rem;
+    }
+}
+
+.test-result-score {
+    color: var(--color-result-score-correct);
+}
+
+.test-result-score-total {
+    color: var(--color-text);
+}
+
+.test-result-overall-correct {
+    color: var(--color-result-score-correct);
+}
+
+.test-result-overall-total {
+    color: var(--color-text);
+}
+
+.test-result-accuracy.is-high {
+    color: var(--color-result-accuracy-high);
+}
+
+.test-result-accuracy.is-good {
+    color: var(--color-result-accuracy-good);
+}
+
+.test-result-accuracy.is-medium {
+    color: var(--color-result-accuracy-medium);
+}
+
+.test-result-accuracy.is-low {
+    color: var(--color-result-accuracy-low);
+}
+
+.test-result-accuracy.is-very-low {
+    color: var(--color-result-accuracy-very-low);
 }

@@ -94,7 +94,10 @@
             startedWithAnswers: false,
             correctCount: 0,
             timeRemainingSeconds: 30 * 60,
-            timerIntervalId: null
+            timerIntervalId: null,
+            startedAtMs: null,
+            finishedAtMs: null,
+            results: []
         }
     };
 
@@ -1026,7 +1029,13 @@
     function getActiveTestQuestions() {
         return getChapters()
             .filter((chapter) => isChapterActive(chapter.id))
-            .flatMap((chapter) => chapter.questions);
+            .flatMap((chapter) =>
+                chapter.questions.map((question) => ({
+                    chapterId: chapter.id,
+                    chapterName: chapter.name,
+                    question
+                }))
+            );
     }
 
     function buildTestQuestionSet(allQuestions, amount) {
@@ -1049,6 +1058,82 @@
         const seconds = safeSeconds % 60;
 
         return `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+    }
+
+    function getAccuracyClass(percentage) {
+    if (percentage >= 80) {
+        return 'is-high';
+    }
+    if (percentage >= 60) {
+        return 'is-good';
+    }
+    if (percentage >= 40) {
+        return 'is-medium';
+    }
+    if (percentage >= 20) {
+        return 'is-low';
+    }
+    return 'is-very-low';
+    }
+
+    function formatDuration(totalSeconds) {
+        const safeSeconds = Math.max(0, Math.floor(totalSeconds));
+        const hours = Math.floor(safeSeconds / 3600);
+        const minutes = Math.floor((safeSeconds % 3600) / 60);
+        const seconds = safeSeconds % 60;
+
+        if (hours > 0) {
+            return `${hours}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+        }
+
+        return `${minutes}:${String(seconds).padStart(2, '0')}`;
+    }
+
+    function formatPercent(value) {
+        return `${Math.round(value)}%`;
+    }
+
+    function getTestElapsedSeconds() {
+        if (!state.test.startedAtMs) {
+            return 0;
+        }
+
+        const endTime = state.test.finishedAtMs ?? Date.now();
+        return Math.max(0, Math.floor((endTime - state.test.startedAtMs) / 1000));
+    }
+
+    function buildTestChapterStats() {
+        const totalQuestions = state.test.questions.length;
+
+        const statsMap = new Map();
+
+        state.test.results.forEach((result) => {
+            const key = result.chapterId;
+
+            if (!statsMap.has(key)) {
+                statsMap.set(key, {
+                    chapterId: result.chapterId,
+                    chapterName: result.chapterName,
+                    total: 0,
+                    correct: 0
+                });
+            }
+
+            const entry = statsMap.get(key);
+            entry.total += 1;
+
+            if (result.correct) {
+                entry.correct += 1;
+            }
+        });
+
+        return Array.from(statsMap.values())
+            .map((entry) => ({
+                ...entry,
+                sharePercent: totalQuestions > 0 ? (entry.total / totalQuestions) * 100 : 0,
+                accuracyPercent: entry.total > 0 ? (entry.correct / entry.total) * 100 : 0
+            }))
+            .sort((a, b) => b.total - a.total);
     }
 
     function shuffleArray(array) {
@@ -1220,6 +1305,60 @@
        TEST VIEW
        ========================= */
 
+    function renderTestResult() {
+        const elapsedSeconds = getTestElapsedSeconds();
+        const chapterStats = buildTestChapterStats();
+
+        const resultWrapper = document.createElement('div');
+        resultWrapper.className = 'test-result-summary';
+
+        const topBlock = document.createElement('div');
+        topBlock.className = 'test-result-top';
+
+        const timeRow = document.createElement('div');
+        timeRow.className = 'test-result-line';
+        timeRow.innerHTML = `<strong>Time:</strong> ${formatDuration(elapsedSeconds)}`;
+
+        const scoreRow = document.createElement('div');
+        scoreRow.className = 'test-result-line';
+        scoreRow.innerHTML = `<strong>Score:</strong> <span class="test-result-overall-correct">${state.test.correctCount}</span>/<span class="test-result-overall-total">${state.test.questions.length}</span>`;
+
+        topBlock.append(timeRow, scoreRow);
+
+        const chapterBlock = document.createElement('div');
+        chapterBlock.className = 'test-result-chapters';
+
+        chapterStats.forEach((entry) => {
+            const row = document.createElement('div');
+            row.className = 'test-result-chapter-row';
+
+            const share = document.createElement('div');
+            share.className = 'test-result-share';
+            share.textContent = formatPercent(entry.sharePercent);
+
+            const name = document.createElement('div');
+            name.className = 'test-result-name';
+            name.textContent = entry.chapterName;
+
+            const score = document.createElement('div');
+            score.className = 'test-result-score';
+            score.innerHTML = `${entry.correct}<span class="test-result-score-total">/${entry.total}</span>`;
+
+            const accuracy = document.createElement('div');
+            accuracy.className = `test-result-accuracy ${getAccuracyClass(entry.accuracyPercent)}`;
+            accuracy.textContent = formatPercent(entry.accuracyPercent);
+
+            row.append(share, name, score, accuracy);
+            chapterBlock.appendChild(row);
+        });
+
+        resultWrapper.append(topBlock, chapterBlock);
+
+        dom.testResult.innerHTML = '';
+        dom.testResult.appendChild(resultWrapper);
+        dom.testResult.hidden = false;
+    }
+
     function getAnsweredTestQuestionCount() {
         return state.test.currentIndex + (state.test.answered ? 1 : 0);
     }
@@ -1264,6 +1403,9 @@
         state.test.currentIndex = 0;
         state.test.answered = false;
         state.test.timeRemainingSeconds = state.test.durationMinutes * 60;
+        state.test.results = [];
+        state.test.startedAtMs = Date.now();
+        state.test.finishedAtMs = null;
 
         stopTestTimer();
 
@@ -1347,11 +1489,13 @@
     }
 
     function renderTestQuestion() {
-        const question = state.test.questions[state.test.currentIndex];
-        if (!question) {
+        const questionEntry = state.test.questions[state.test.currentIndex];
+        if (!questionEntry) {
             finishTest();
             return;
         }
+
+        const { question } = questionEntry;
 
         state.test.answered = false;
 
@@ -1387,10 +1531,12 @@
     }
 
     function scoreCurrentTestQuestion() {
-        const question = state.test.questions[state.test.currentIndex];
-        if (!question) {
+        const questionEntry = state.test.questions[state.test.currentIndex];
+        if (!questionEntry) {
             return;
         }
+
+        const { question, chapterId, chapterName } = questionEntry; 
 
         const inputs = Array.from(dom.testAnswers.querySelectorAll('input'));
         let correct = true;
@@ -1421,6 +1567,15 @@
         if (correct) {
             state.test.correctCount += 1;
         }
+
+        state.test.results.push({
+        questionId: question.id,
+        questionText: question.question,
+        chapterId,
+        chapterName,
+        correct,
+        totalAnswers: question.answers.length
+    });
 
         state.test.answered = true;
         updateTestMeta();
@@ -1456,8 +1611,14 @@
 
     function finishTest() {
         stopTestTimer();
+
+        if (state.test.isRunning && !state.test.finishedAtMs) {
+            state.test.finishedAtMs = Date.now();
+        }
+
         state.test.isRunning = false;
         state.test.answered = false;
+
         updateTestSidebarMode();
         updateTestMeta();
 
@@ -1465,9 +1626,7 @@
         dom.testExplanationPanel.hidden = true;
         dom.testPanel.hidden = true;
 
-
-        dom.testResult.textContent = `Test finished. Result: ${state.test.correctCount}/${state.test.questions.length || 0}`;
-        dom.testResult.hidden = false;
+        renderTestResult();
     }
 
     /* =========================
