@@ -414,7 +414,7 @@ main {
 
 @media (max-width: 62.5rem) {
     #editor-items {
-        width: min(90vw, var(--editor-items-width));
+        width: min(80vw, var(--editor-items-width));
     }
 }
 
