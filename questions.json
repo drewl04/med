@@ -1,29 +1,120 @@
 {
   "meta": {
     "version": 2,
-    "nextChapterId": 120,
-    "nextQuestionId": 40,
-    "nextImageId": 23
+    "nextChapterId": 126,
+    "nextQuestionId": 44,
+    "nextImageId": 25
   },
   "chapters": [
     {
-      "id": 119,
+      "id": 124,
       "name": "chapter 1",
-      "questions": [],
+      "questions": [
+        {
+          "id": 42,
+          "type": "question",
+          "question": "Referitor Ia histologie, sunt false următoarele afirmații:",
+          "answers": [
+            {
+              "text": "realizează studiul structurilor corpului cu ajutorul unui microscop",
+              "correct": false
+            },
+            {
+              "text": "descrie planurile care traversează corpul uman, oferind puncte de reper pentru organele acestuia",
+              "correct": true
+            },
+            {
+              "text": "se ocupă cu studiul perioadei embrionare (primele patru luni de dezvoltare intrauterină)",
+              "correct": true
+            },
+            {
+              "text": "reprezintă studiul structurilor corpului, cu ajutorul unei lupe sau cu ochiul liber",
+              "correct": true
+            },
+            {
+              "text": "este o subdiviziune a anatomiei, denumită și anatomie microscopică",
+              "correct": false
+            }
+          ],
+          "explanation": "O explicatie",
+          "collapsed": false,
+          "weight": 1
+        }
+      ],
       "images": [
         {
-          "id": 22,
+          "id": 23,
           "type": "image",
           "image": "",
-          "imagePath": "/images/chapter-119-img-1774026284304-xezstp.PNG",
+          "imagePath": "/images/chapter-124-img-1774048073700-8tswbt.PNG",
           "explanation": "",
           "collapsed": false
         }
       ],
       "order": [
         {
+          "type": "question",
+          "id": 42
+        },
+        {
           "type": "image",
-          "id": 22
+          "id": 23
+        }
+      ]
+    },
+    {
+      "id": 125,
+      "name": "chapter 2",
+      "questions": [
+        {
+          "id": 43,
+          "type": "question",
+          "question": "Alegeți dintre cele de mai jos răspunsurile Ia care ambele afirmații sunt adevărate:",
+          "answers": [
+            {
+              "text": "fiziologia reproducerii studiază sistemul excretor și funcțiile acestuia. Histologia mai este denumită și anatomie microscopică",
+              "correct": false
+            },
+            {
+              "text": "funcțiile celulei sunt studiate în cadrul histologiei. Sistemul excretor și funcțiile sale sunt studiate în cadrul fiziologiei renale",
+              "correct": false
+            },
+            {
+              "text": "fiziologia reproducerii studiază organele reproducătoare și modalitățile de reproducere. Funcția sistemului nervos este obiectul de studiu al unei ramuri a fiziologiei numită neurofiziologie",
+              "correct": true
+            },
+            {
+              "text": "funcțiile corpului uman depind de structura sa. Anatomia are ca subdiviziuni anatomia macroscopică, anatomia microscopică, dar nu și citologia (considerată subdiviziune a fiziologiei)",
+              "correct": true
+            },
+            {
+              "text": "funcția sistemului excretor este obiectul de studiu al fiziologiei renale. Neurofiziologia studiază funcția nervoasă",
+              "correct": true
+            }
+          ],
+          "explanation": "O alta explicatie",
+          "collapsed": false,
+          "weight": 1
+        }
+      ],
+      "images": [
+        {
+          "id": 24,
+          "type": "image",
+          "image": "",
+          "imagePath": "/images/chapter-125-img-1774048080639-qs884i.PNG",
+          "explanation": "",
+          "collapsed": false
+        }
+      ],
+      "order": [
+        {
+          "type": "question",
+          "id": 43
+        },
+        {
+          "type": "image",
+          "id": 24
         }
       ]
     }

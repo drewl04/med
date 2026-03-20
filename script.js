@@ -62,7 +62,8 @@
         testExplanationPanel: document.getElementById('test-explanation-panel'),
         testExplanation: document.getElementById('test-explanation'),
         testToggleExplanation: document.getElementById('test-toggle-explanation'),
-        testResult: document.getElementById('test-result')
+        testResult: document.getElementById('test-result'),
+        testReview: document.getElementById('test-review')
     };
 
     /* =========================
@@ -1012,7 +1013,7 @@
         dom.imagesCurrent.closest('.images-panel').hidden = false;
         dom.imagesNext.hidden = false;
         dom.imagesExplanationPanel.hidden = false;
-        
+
         dom.imagesCurrent.src = nextImage.imagePath;
         dom.imagesCurrent.alt = nextImage.image || 'Random chapter image';
         dom.imagesCurrent.style.display = 'block';
@@ -1368,6 +1369,80 @@
         dom.testResult.innerHTML = '';
         dom.testResult.appendChild(resultWrapper);
         dom.testResult.hidden = false;
+
+        const reviewBlock = renderTestQuestionReview();
+        dom.testReview.innerHTML = '';
+        dom.testReview.appendChild(reviewBlock);
+        dom.testReview.hidden = false;
+    }
+
+    function renderTestQuestionReview() {
+        const reviewWrapper = document.createElement('div');
+        reviewWrapper.className = 'test-result-review';
+
+        state.test.results.forEach((result, index) => {
+            const card = document.createElement('div');
+            card.className = 'test-result-question';
+
+            const title = document.createElement('div');
+            title.className = 'test-result-question-title';
+
+            const number = document.createElement('span');
+            number.className = 'test-result-question-number';
+            number.textContent = `#${index + 1}`;
+
+            const text = document.createElement('span');
+            text.textContent = ` ${result.questionText}`;
+
+            title.append(number, text);
+
+            const chapter = document.createElement('div');
+            chapter.className = 'test-result-question-chapter';
+            chapter.textContent = result.chapterName;
+
+            const answers = document.createElement('div');
+            answers.className = 'test-result-question-answers';
+
+            result.answers.forEach((answer) => {
+                const row = document.createElement('div');
+                row.className = 'test-result-answer';
+
+                if (answer.correct) {
+                    row.classList.add('correct');
+                }
+                if (answer.selected && !answer.correct) {
+                    row.classList.add('wrong');
+                }
+
+                const indicator = document.createElement('div');
+                indicator.className = 'test-result-answer-indicator';
+
+                if (answer.selected) {
+                    indicator.classList.add('selected');
+                }
+
+                const text = document.createElement('div');
+                text.className = 'test-result-answer-text';
+                text.textContent = answer.text;
+
+                row.append(indicator, text);
+                answers.appendChild(row);
+            });
+
+            const explanation = document.createElement('div');
+            explanation.className = 'test-result-question-explanation';
+            explanation.textContent = result.explanation || '';
+
+            card.append(title, chapter, answers);
+
+            if (result.explanation) {
+                card.appendChild(explanation);
+            }
+
+            reviewWrapper.appendChild(card);
+        });
+
+        return reviewWrapper;
     }
 
     function getAnsweredTestQuestionCount() {
@@ -1442,6 +1517,8 @@
         dom.testPanel.hidden = false;
         dom.testResult.hidden = true;
         dom.testResult.textContent = '';
+        dom.testReview.hidden = true;
+        dom.testReview.innerHTML = '';
         updateTestSidebarMode();
         updateTestMeta();
         renderTestQuestion();
@@ -1586,7 +1663,12 @@
         chapterId,
         chapterName,
         correct,
-        totalAnswers: question.answers.length
+        explanation: question.explanation || '',
+        answers: question.answers.map((answer, index) => ({
+            text: answer.text,
+            correct: answer.correct,
+            selected: inputs[index]?.checked || false
+        }))
     });
 
         state.test.answered = true;
