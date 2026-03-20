@@ -817,7 +817,7 @@ main {
 
 @media (max-width: 62.5rem) {
     #practice-container {
-        margin-top: var(--space-5xl);
+        margin-top: var(--space-6xl);
     }
 }
 
@@ -1353,7 +1353,7 @@ main {
 
 #test-review {
     width: min(var(--editor-items-width), 95vw);
-    margin-top: var(--space-xl);
+    margin: var(--space-xl) auto 0;
 }
 
 .test-result-review {
