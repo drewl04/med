@@ -387,6 +387,18 @@
         dom.toggleAllChapters.textContent = areAllChaptersActive() ? 'deselect all' : 'select all';
     }
 
+    function updateToggleAllChaptersVisibility() {
+        const hasChapters = getChapters().length > 0;
+        const sidebarExpanded = dom.sidebar.classList.contains('expanded');
+
+        if (!sidebarExpanded) {
+            dom.toggleAllChapters.style.display = '';
+            return;
+        }
+
+        dom.toggleAllChapters.style.display = hasChapters ? 'block' : 'none';
+    }
+
     function getQuestionById(chapter, questionId) {
         return chapter.questions.find((question) => question.id === questionId) || null;
     }
@@ -569,7 +581,7 @@
         }
 
         dom.addChapter.style.display = state.currentView === 'editor' ? 'block' : 'none';
-        dom.toggleAllChapters.style.display = getChapters().length ? 'block' : 'none';
+        updateToggleAllChaptersVisibility();
 
         updateChapterControls();
     }
@@ -593,6 +605,7 @@
 
         updateChapterControls();
         updateToggleAllChaptersButton();
+        updateToggleAllChaptersVisibility();
     }
 
     function createChapterListItem(chapter) {
