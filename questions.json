@@ -1,147 +1,168 @@
 {
   "meta": {
     "version": 2,
-    "nextChapterId": 18,
-    "nextQuestionId": 3,
-    "nextImageId": 3
+    "nextChapterId": 24,
+    "nextQuestionId": 1,
+    "nextImageId": 1
   },
   "chapters": [
     {
+      "id": 1,
+      "name": "Introducere în anatomie și fiziologie",
+      "questions": [],
+      "images": [],
+      "order": []
+    },
+    {
       "id": 2,
-      "name": "chapter 2",
-      "questions": [
-        {
-          "id": 2,
-          "type": "question",
-          "question": "This is another question title",
-          "answers": [
-            {
-              "text": "with a first answer",
-              "correct": false
-            },
-            {
-              "text": "some second answer",
-              "correct": true
-            },
-            {
-              "text": "and here we have another answer",
-              "correct": true
-            },
-            {
-              "text": "this is the fourth answer",
-              "correct": false
-            },
-            {
-              "text": "this is answer number five",
-              "correct": false
-            }
-          ],
-          "explanation": "explanation why the answers are what they are",
-          "collapsed": false,
-          "weight": 1
-        }
-      ],
-      "images": [
-        {
-          "id": 2,
-          "type": "image",
-          "image": "the title of the image",
-          "imagePath": "/images/chapter-2-img-1774312500857-9wht0g.PNG",
-          "explanation": "explanation of the image added",
-          "collapsed": false
-        }
-      ],
-      "order": [
-        {
-          "type": "question",
-          "id": 2
-        },
-        {
-          "type": "image",
-          "id": 2
-        }
-      ]
+      "name": "Bazele chimice ale anatomiei și fiziologiei",
+      "questions": [],
+      "images": [],
+      "order": []
+    },
+    {
+      "id": 3,
+      "name": "Celulele și fiziologia celulară",
+      "questions": [],
+      "images": [],
+      "order": []
+    },
+    {
+      "id": 4,
+      "name": "Țesuturile",
+      "questions": [],
+      "images": [],
+      "order": []
+    },
+    {
+      "id": 5,
+      "name": "Sistemul tegumentar",
+      "questions": [],
+      "images": [],
+      "order": []
     },
     {
       "id": 6,
-      "name": "chapter 5",
+      "name": "Oasele și articulațiile",
       "questions": [],
       "images": [],
       "order": []
     },
     {
       "id": 7,
-      "name": "chapter 6",
+      "name": "Sistemul osos",
       "questions": [],
       "images": [],
       "order": []
     },
     {
       "id": 8,
-      "name": "chapter 7",
+      "name": "Țesutul muscular",
       "questions": [],
       "images": [],
       "order": []
     },
     {
       "id": 9,
-      "name": "chapter 5",
+      "name": "Sistemul muscular",
       "questions": [],
       "images": [],
       "order": []
     },
     {
       "id": 10,
-      "name": "chapter 6",
+      "name": "Țesutul nervos",
       "questions": [],
       "images": [],
       "order": []
     },
     {
       "id": 11,
-      "name": "chapter 7",
+      "name": "Organizarea sistemului nervos",
       "questions": [],
       "images": [],
       "order": []
     },
     {
       "id": 12,
-      "name": "chapter 8",
+      "name": "Organele de simț",
       "questions": [],
       "images": [],
       "order": []
     },
     {
       "id": 13,
-      "name": "chapter 9",
+      "name": "Sistemul endocrin",
       "questions": [],
       "images": [],
       "order": []
     },
     {
       "id": 14,
-      "name": "chapter 10",
+      "name": "Sângele",
       "questions": [],
       "images": [],
       "order": []
     },
     {
       "id": 15,
-      "name": "chapter 11",
+      "name": "Sistemul cardiovascular",
       "questions": [],
       "images": [],
       "order": []
     },
     {
       "id": 16,
-      "name": "chapter 12",
+      "name": "Sistemul limfatic și imun",
       "questions": [],
       "images": [],
       "order": []
     },
     {
       "id": 17,
-      "name": "chapter 13",
+      "name": "Sistemul respirator",
+      "questions": [],
+      "images": [],
+      "order": []
+    },
+    {
+      "id": 18,
+      "name": "Sistemul digestiv",
+      "questions": [],
+      "images": [],
+      "order": []
+    },
+    {
+      "id": 19,
+      "name": "Metabolism și nutriție",
+      "questions": [],
+      "images": [],
+      "order": []
+    },
+    {
+      "id": 20,
+      "name": "Sistemul urinar",
+      "questions": [],
+      "images": [],
+      "order": []
+    },
+    {
+      "id": 21,
+      "name": "Echilibrul hidro-electrolitic și  acido-bazic",
+      "questions": [],
+      "images": [],
+      "order": []
+    },
+    {
+      "id": 22,
+      "name": "Sistemul reproducător masculin",
+      "questions": [],
+      "images": [],
+      "order": []
+    },
+    {
+      "id": 23,
+      "name": "Sistemul reproducător feminin",
       "questions": [],
       "images": [],
       "order": []
