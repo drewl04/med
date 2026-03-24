@@ -3,7 +3,7 @@
     "version": 2,
     "nextChapterId": 24,
     "nextQuestionId": 1,
-    "nextImageId": 61
+    "nextImageId": 80
   },
   "chapters": [
     {
@@ -809,15 +809,247 @@
       "id": 10,
       "name": "Țesutul nervos",
       "questions": [],
-      "images": [],
-      "order": []
+      "images": [
+        {
+          "id": 61,
+          "type": "image",
+          "image": "",
+          "imagePath": "/images/chapter-10-img-1774390518159-vga2g9.PNG",
+          "explanation": "pag 225",
+          "collapsed": true
+        },
+        {
+          "id": 62,
+          "type": "image",
+          "image": "",
+          "imagePath": "/images/chapter-10-img-1774390533499-8k1gb3.PNG",
+          "explanation": "pag 226",
+          "collapsed": true
+        },
+        {
+          "id": 63,
+          "type": "image",
+          "image": "",
+          "imagePath": "/images/chapter-10-img-1774390551562-urmjw6.PNG",
+          "explanation": "pag 227",
+          "collapsed": true
+        },
+        {
+          "id": 64,
+          "type": "image",
+          "image": "",
+          "imagePath": "/images/chapter-10-img-1774390563688-24wrej.PNG",
+          "explanation": "pag 228",
+          "collapsed": true
+        },
+        {
+          "id": 65,
+          "type": "image",
+          "image": "",
+          "imagePath": "/images/chapter-10-img-1774390687233-bb9z9a.PNG",
+          "explanation": "pag 229",
+          "collapsed": true
+        },
+        {
+          "id": 66,
+          "type": "image",
+          "image": "",
+          "imagePath": "/images/chapter-10-img-1774390700120-v39f1r.PNG",
+          "explanation": "pag 231",
+          "collapsed": true
+        },
+        {
+          "id": 67,
+          "type": "image",
+          "image": "",
+          "imagePath": "/images/chapter-10-img-1774390709910-ac2yfp.PNG",
+          "explanation": "pag 232",
+          "collapsed": true
+        },
+        {
+          "id": 68,
+          "type": "image",
+          "image": "",
+          "imagePath": "/images/chapter-10-img-1774390726300-pfzk5f.PNG",
+          "explanation": "pag 233",
+          "collapsed": true
+        },
+        {
+          "id": 69,
+          "type": "image",
+          "image": "",
+          "imagePath": "/images/chapter-10-img-1774390748548-g89oyd.PNG",
+          "explanation": "pag 234",
+          "collapsed": true
+        }
+      ],
+      "order": [
+        {
+          "type": "image",
+          "id": 61
+        },
+        {
+          "type": "image",
+          "id": 62
+        },
+        {
+          "type": "image",
+          "id": 63
+        },
+        {
+          "type": "image",
+          "id": 64
+        },
+        {
+          "type": "image",
+          "id": 65
+        },
+        {
+          "type": "image",
+          "id": 66
+        },
+        {
+          "type": "image",
+          "id": 67
+        },
+        {
+          "type": "image",
+          "id": 68
+        },
+        {
+          "type": "image",
+          "id": 69
+        }
+      ]
     },
     {
       "id": 11,
       "name": "Organizarea sistemului nervos",
       "questions": [],
-      "images": [],
-      "order": []
+      "images": [
+        {
+          "id": 70,
+          "type": "image",
+          "image": "",
+          "imagePath": "/images/chapter-11-img-1774390830992-morak4.PNG",
+          "explanation": "pag 247",
+          "collapsed": true
+        },
+        {
+          "id": 71,
+          "type": "image",
+          "image": "",
+          "imagePath": "/images/chapter-11-img-1774391739425-qc2nb3.PNG",
+          "explanation": "pag 248",
+          "collapsed": true
+        },
+        {
+          "id": 72,
+          "type": "image",
+          "image": "",
+          "imagePath": "/images/chapter-11-img-1774391761582-uyioh8.PNG",
+          "explanation": "pag 248",
+          "collapsed": true
+        },
+        {
+          "id": 73,
+          "type": "image",
+          "image": "",
+          "imagePath": "/images/chapter-11-img-1774391788405-ferzjj.PNG",
+          "explanation": "pag 249",
+          "collapsed": true
+        },
+        {
+          "id": 74,
+          "type": "image",
+          "image": "",
+          "imagePath": "/images/chapter-11-img-1774391811690-npji9k.PNG",
+          "explanation": "pag 250",
+          "collapsed": true
+        },
+        {
+          "id": 75,
+          "type": "image",
+          "image": "",
+          "imagePath": "/images/chapter-11-img-1774391831653-136lfd.PNG",
+          "explanation": "pag 251",
+          "collapsed": true
+        },
+        {
+          "id": 76,
+          "type": "image",
+          "image": "",
+          "imagePath": "/images/chapter-11-img-1774391851561-ifcfgq.PNG",
+          "explanation": "pag 253",
+          "collapsed": true
+        },
+        {
+          "id": 77,
+          "type": "image",
+          "image": "",
+          "imagePath": "/images/chapter-11-img-1774391870411-cml8gk.PNG",
+          "explanation": "pag 255",
+          "collapsed": true
+        },
+        {
+          "id": 78,
+          "type": "image",
+          "image": "",
+          "imagePath": "/images/chapter-11-img-1774391894424-icva2v.PNG",
+          "explanation": "pag 256",
+          "collapsed": true
+        },
+        {
+          "id": 79,
+          "type": "image",
+          "image": "",
+          "imagePath": "/images/chapter-11-img-1774391927046-r1zp4r.PNG",
+          "explanation": "pag 258",
+          "collapsed": true
+        }
+      ],
+      "order": [
+        {
+          "type": "image",
+          "id": 70
+        },
+        {
+          "type": "image",
+          "id": 71
+        },
+        {
+          "type": "image",
+          "id": 72
+        },
+        {
+          "type": "image",
+          "id": 73
+        },
+        {
+          "type": "image",
+          "id": 74
+        },
+        {
+          "type": "image",
+          "id": 75
+        },
+        {
+          "type": "image",
+          "id": 76
+        },
+        {
+          "type": "image",
+          "id": 77
+        },
+        {
+          "type": "image",
+          "id": 78
+        },
+        {
+          "type": "image",
+          "id": 79
+        }
+      ]
     },
     {
       "id": 12,
