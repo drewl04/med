@@ -1,0 +1,773 @@
+{
+  "meta": {
+    "version": 2,
+    "nextChapterId": 24,
+    "nextQuestionId": 1,
+    "nextImageId": 50
+  },
+  "chapters": [
+    {
+      "id": 1,
+      "name": "Introducere în anatomie și fiziologie",
+      "questions": [],
+      "images": [
+        {
+          "id": 1,
+          "type": "image",
+          "image": "",
+          "imagePath": "/images/chapter-1-img-1774374012822-hly50q.PNG",
+          "explanation": "pag 2",
+          "collapsed": true
+        },
+        {
+          "id": 2,
+          "type": "image",
+          "image": "",
+          "imagePath": "/images/chapter-1-img-1774374045065-p201s0.PNG",
+          "explanation": "pag 6",
+          "collapsed": true
+        },
+        {
+          "id": 3,
+          "type": "image",
+          "image": "",
+          "imagePath": "/images/chapter-1-img-1774374051803-x092xj.PNG",
+          "explanation": "pag 8",
+          "collapsed": true
+        },
+        {
+          "id": 4,
+          "type": "image",
+          "image": "",
+          "imagePath": "/images/chapter-1-img-1774374060939-zdol3t.PNG",
+          "explanation": "pag 9",
+          "collapsed": true
+        },
+        {
+          "id": 5,
+          "type": "image",
+          "image": "",
+          "imagePath": "/images/chapter-1-img-1774374081776-n8nuwx.PNG",
+          "explanation": "pag 10",
+          "collapsed": true
+        }
+      ],
+      "order": [
+        {
+          "type": "image",
+          "id": 1
+        },
+        {
+          "type": "image",
+          "id": 2
+        },
+        {
+          "type": "image",
+          "id": 3
+        },
+        {
+          "type": "image",
+          "id": 4
+        },
+        {
+          "type": "image",
+          "id": 5
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Bazele chimice ale anatomiei și fiziologiei",
+      "questions": [],
+      "images": [],
+      "order": []
+    },
+    {
+      "id": 3,
+      "name": "Celulele și fiziologia celulară",
+      "questions": [],
+      "images": [
+        {
+          "id": 6,
+          "type": "image",
+          "image": "",
+          "imagePath": "/images/chapter-3-img-1774374168241-z833bq.PNG",
+          "explanation": "pag 46",
+          "collapsed": true
+        },
+        {
+          "id": 7,
+          "type": "image",
+          "image": "",
+          "imagePath": "/images/chapter-3-img-1774374226009-m0k4nq.PNG",
+          "explanation": "pag 49",
+          "collapsed": true
+        },
+        {
+          "id": 8,
+          "type": "image",
+          "image": "",
+          "imagePath": "/images/chapter-3-img-1774374239336-dr9sk4.PNG",
+          "explanation": "pag 49",
+          "collapsed": true
+        },
+        {
+          "id": 9,
+          "type": "image",
+          "image": "",
+          "imagePath": "/images/chapter-3-img-1774374249532-t3cql5.PNG",
+          "explanation": "pag 50",
+          "collapsed": true
+        },
+        {
+          "id": 10,
+          "type": "image",
+          "image": "",
+          "imagePath": "/images/chapter-3-img-1774374428032-txs248.PNG",
+          "explanation": "pag 51",
+          "collapsed": true
+        },
+        {
+          "id": 11,
+          "type": "image",
+          "image": "",
+          "imagePath": "/images/chapter-3-img-1774374446029-lqnbpw.PNG",
+          "explanation": "pag 54",
+          "collapsed": true
+        },
+        {
+          "id": 12,
+          "type": "image",
+          "image": "",
+          "imagePath": "/images/chapter-3-img-1774374659718-z20f9f.PNG",
+          "explanation": "pag 56",
+          "collapsed": true
+        },
+        {
+          "id": 13,
+          "type": "image",
+          "image": "",
+          "imagePath": "/images/chapter-3-img-1774374848939-i4nndu.PNG",
+          "explanation": "pag 57",
+          "collapsed": true
+        },
+        {
+          "id": 14,
+          "type": "image",
+          "image": "",
+          "imagePath": "/images/chapter-3-img-1774375524616-bm1wpo.PNG",
+          "explanation": "pag 60",
+          "collapsed": true
+        },
+        {
+          "id": 15,
+          "type": "image",
+          "image": "",
+          "imagePath": "/images/chapter-3-img-1774375539884-tz5z1w.PNG",
+          "explanation": "pag 61",
+          "collapsed": true
+        },
+        {
+          "id": 16,
+          "type": "image",
+          "image": "",
+          "imagePath": "/images/chapter-3-img-1774375557423-rqvoqs.PNG",
+          "explanation": "pag 62",
+          "collapsed": true
+        }
+      ],
+      "order": [
+        {
+          "type": "image",
+          "id": 6
+        },
+        {
+          "type": "image",
+          "id": 7
+        },
+        {
+          "type": "image",
+          "id": 8
+        },
+        {
+          "type": "image",
+          "id": 9
+        },
+        {
+          "type": "image",
+          "id": 10
+        },
+        {
+          "type": "image",
+          "id": 11
+        },
+        {
+          "type": "image",
+          "id": 12
+        },
+        {
+          "type": "image",
+          "id": 13
+        },
+        {
+          "type": "image",
+          "id": 14
+        },
+        {
+          "type": "image",
+          "id": 15
+        },
+        {
+          "type": "image",
+          "id": 16
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "name": "Țesuturile",
+      "questions": [],
+      "images": [
+        {
+          "id": 17,
+          "type": "image",
+          "image": "",
+          "imagePath": "/images/chapter-4-img-1774376089681-yw0ojg.PNG",
+          "explanation": "pag 75",
+          "collapsed": true
+        },
+        {
+          "id": 18,
+          "type": "image",
+          "image": "",
+          "imagePath": "/images/chapter-4-img-1774376108991-0amfz7.PNG",
+          "explanation": "pag 77",
+          "collapsed": true
+        },
+        {
+          "id": 19,
+          "type": "image",
+          "image": "",
+          "imagePath": "/images/chapter-4-img-1774376129896-g4phy0.PNG",
+          "explanation": "pag 80",
+          "collapsed": true
+        },
+        {
+          "id": 20,
+          "type": "image",
+          "image": "",
+          "imagePath": "/images/chapter-4-img-1774376144447-hc28th.PNG",
+          "explanation": "pag 81",
+          "collapsed": true
+        },
+        {
+          "id": 21,
+          "type": "image",
+          "image": "",
+          "imagePath": "/images/chapter-4-img-1774376220453-udq7hw.PNG",
+          "explanation": "pag 84",
+          "collapsed": true
+        },
+        {
+          "id": 22,
+          "type": "image",
+          "image": "",
+          "imagePath": "/images/chapter-4-img-1774376239435-tmbkym.PNG",
+          "explanation": "pag 86",
+          "collapsed": true
+        }
+      ],
+      "order": [
+        {
+          "type": "image",
+          "id": 17
+        },
+        {
+          "type": "image",
+          "id": 18
+        },
+        {
+          "type": "image",
+          "id": 19
+        },
+        {
+          "type": "image",
+          "id": 20
+        },
+        {
+          "type": "image",
+          "id": 21
+        },
+        {
+          "type": "image",
+          "id": 22
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "name": "Sistemul tegumentar",
+      "questions": [],
+      "images": [
+        {
+          "id": 23,
+          "type": "image",
+          "image": "",
+          "imagePath": "/images/chapter-5-img-1774376420832-0nldp5.PNG",
+          "explanation": "pag 98",
+          "collapsed": true
+        },
+        {
+          "id": 24,
+          "type": "image",
+          "image": "",
+          "imagePath": "/images/chapter-5-img-1774376439421-ikb55f.PNG",
+          "explanation": "pag 100",
+          "collapsed": true
+        },
+        {
+          "id": 25,
+          "type": "image",
+          "image": "",
+          "imagePath": "/images/chapter-5-img-1774376933087-zai30w.PNG",
+          "explanation": "pag 103",
+          "collapsed": true
+        },
+        {
+          "id": 26,
+          "type": "image",
+          "image": "",
+          "imagePath": "/images/chapter-5-img-1774376962585-y7ywwz.PNG",
+          "explanation": "pag 104",
+          "collapsed": true
+        }
+      ],
+      "order": [
+        {
+          "type": "image",
+          "id": 23
+        },
+        {
+          "type": "image",
+          "id": 24
+        },
+        {
+          "type": "image",
+          "id": 25
+        },
+        {
+          "type": "image",
+          "id": 26
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "name": "Oasele și articulațiile",
+      "questions": [],
+      "images": [
+        {
+          "id": 27,
+          "type": "image",
+          "image": "",
+          "imagePath": "/images/chapter-6-img-1774377123321-6nkumo.PNG",
+          "explanation": "pag 117",
+          "collapsed": true
+        },
+        {
+          "id": 28,
+          "type": "image",
+          "image": "",
+          "imagePath": "/images/chapter-6-img-1774377131275-oevlkh.PNG",
+          "explanation": "pag 118",
+          "collapsed": true
+        },
+        {
+          "id": 29,
+          "type": "image",
+          "image": "",
+          "imagePath": "/images/chapter-6-img-1774377142473-7qdunw.PNG",
+          "explanation": "pag 119",
+          "collapsed": true
+        },
+        {
+          "id": 30,
+          "type": "image",
+          "image": "",
+          "imagePath": "/images/chapter-6-img-1774377151851-xwq0uj.PNG",
+          "explanation": "pag 121",
+          "collapsed": true
+        },
+        {
+          "id": 31,
+          "type": "image",
+          "image": "",
+          "imagePath": "/images/chapter-6-img-1774377165679-cj9q5p.PNG",
+          "explanation": "pag 124",
+          "collapsed": true
+        },
+        {
+          "id": 32,
+          "type": "image",
+          "image": "",
+          "imagePath": "/images/chapter-6-img-1774378659187-tzn71l.PNG",
+          "explanation": "pag 125",
+          "collapsed": true
+        }
+      ],
+      "order": [
+        {
+          "type": "image",
+          "id": 27
+        },
+        {
+          "type": "image",
+          "id": 28
+        },
+        {
+          "type": "image",
+          "id": 29
+        },
+        {
+          "type": "image",
+          "id": 30
+        },
+        {
+          "type": "image",
+          "id": 31
+        },
+        {
+          "type": "image",
+          "id": 32
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "name": "Sistemul osos",
+      "questions": [],
+      "images": [
+        {
+          "id": 33,
+          "type": "image",
+          "image": "",
+          "imagePath": "/images/chapter-7-img-1774378680297-i9fqel.PNG",
+          "explanation": "pag 141",
+          "collapsed": true
+        },
+        {
+          "id": 34,
+          "type": "image",
+          "image": "",
+          "imagePath": "/images/chapter-7-img-1774378691496-sakqlr.PNG",
+          "explanation": "pag 142",
+          "collapsed": true
+        },
+        {
+          "id": 35,
+          "type": "image",
+          "image": "",
+          "imagePath": "/images/chapter-7-img-1774378703203-gqmcpu.PNG",
+          "explanation": "pag 144",
+          "collapsed": true
+        },
+        {
+          "id": 36,
+          "type": "image",
+          "image": "",
+          "imagePath": "/images/chapter-7-img-1774378719812-4xhqro.PNG",
+          "explanation": "pag 145",
+          "collapsed": true
+        },
+        {
+          "id": 37,
+          "type": "image",
+          "image": "",
+          "imagePath": "/images/chapter-7-img-1774378927122-4hv3gk.PNG",
+          "explanation": "pag 146",
+          "collapsed": true
+        },
+        {
+          "id": 38,
+          "type": "image",
+          "image": "",
+          "imagePath": "/images/chapter-7-img-1774380369500-e5c3do.PNG",
+          "explanation": "pag 147",
+          "collapsed": true
+        },
+        {
+          "id": 39,
+          "type": "image",
+          "image": "",
+          "imagePath": "/images/chapter-7-img-1774380382843-q21lpu.PNG",
+          "explanation": "pag 148",
+          "collapsed": true
+        },
+        {
+          "id": 40,
+          "type": "image",
+          "image": "",
+          "imagePath": "/images/chapter-7-img-1774380396040-qfnbbv.PNG",
+          "explanation": "pag 149",
+          "collapsed": true
+        },
+        {
+          "id": 41,
+          "type": "image",
+          "image": "",
+          "imagePath": "/images/chapter-7-img-1774380411569-goc882.PNG",
+          "explanation": "pag 150",
+          "collapsed": true
+        },
+        {
+          "id": 42,
+          "type": "image",
+          "image": "",
+          "imagePath": "/images/chapter-7-img-1774380422395-2lhf80.PNG",
+          "explanation": "pag 151",
+          "collapsed": true
+        },
+        {
+          "id": 43,
+          "type": "image",
+          "image": "",
+          "imagePath": "/images/chapter-7-img-1774380436203-wo0ex3.PNG",
+          "explanation": "pag 153",
+          "collapsed": true
+        }
+      ],
+      "order": [
+        {
+          "type": "image",
+          "id": 33
+        },
+        {
+          "type": "image",
+          "id": 34
+        },
+        {
+          "type": "image",
+          "id": 35
+        },
+        {
+          "type": "image",
+          "id": 36
+        },
+        {
+          "type": "image",
+          "id": 37
+        },
+        {
+          "type": "image",
+          "id": 38
+        },
+        {
+          "type": "image",
+          "id": 39
+        },
+        {
+          "type": "image",
+          "id": 40
+        },
+        {
+          "type": "image",
+          "id": 41
+        },
+        {
+          "type": "image",
+          "id": 42
+        },
+        {
+          "type": "image",
+          "id": 43
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "name": "Țesutul muscular",
+      "questions": [],
+      "images": [
+        {
+          "id": 44,
+          "type": "image",
+          "image": "",
+          "imagePath": "/images/chapter-8-img-1774380494144-bx9lt3.PNG",
+          "explanation": "pag 170",
+          "collapsed": true
+        },
+        {
+          "id": 45,
+          "type": "image",
+          "image": "",
+          "imagePath": "/images/chapter-8-img-1774380506760-fu7nge.PNG",
+          "explanation": "pag 172",
+          "collapsed": true
+        },
+        {
+          "id": 46,
+          "type": "image",
+          "image": "",
+          "imagePath": "/images/chapter-8-img-1774380521764-ejtrjm.PNG",
+          "explanation": "pag 174",
+          "collapsed": true
+        },
+        {
+          "id": 47,
+          "type": "image",
+          "image": "",
+          "imagePath": "/images/chapter-8-img-1774381031088-wdk7bm.PNG",
+          "explanation": "pag 175",
+          "collapsed": true
+        },
+        {
+          "id": 48,
+          "type": "image",
+          "image": "",
+          "imagePath": "/images/chapter-8-img-1774381042367-sohg2j.PNG",
+          "explanation": "pag 177",
+          "collapsed": true
+        },
+        {
+          "id": 49,
+          "type": "image",
+          "image": "",
+          "imagePath": "/images/chapter-8-img-1774381055708-ldmkxe.PNG",
+          "explanation": "pag 179",
+          "collapsed": true
+        }
+      ],
+      "order": [
+        {
+          "type": "image",
+          "id": 44
+        },
+        {
+          "type": "image",
+          "id": 45
+        },
+        {
+          "type": "image",
+          "id": 46
+        },
+        {
+          "type": "image",
+          "id": 47
+        },
+        {
+          "type": "image",
+          "id": 48
+        },
+        {
+          "type": "image",
+          "id": 49
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "name": "Sistemul muscular",
+      "questions": [],
+      "images": [],
+      "order": []
+    },
+    {
+      "id": 10,
+      "name": "Țesutul nervos",
+      "questions": [],
+      "images": [],
+      "order": []
+    },
+    {
+      "id": 11,
+      "name": "Organizarea sistemului nervos",
+      "questions": [],
+      "images": [],
+      "order": []
+    },
+    {
+      "id": 12,
+      "name": "Organele de simț",
+      "questions": [],
+      "images": [],
+      "order": []
+    },
+    {
+      "id": 13,
+      "name": "Sistemul endocrin",
+      "questions": [],
+      "images": [],
+      "order": []
+    },
+    {
+      "id": 14,
+      "name": "Sângele",
+      "questions": [],
+      "images": [],
+      "order": []
+    },
+    {
+      "id": 15,
+      "name": "Sistemul cardiovascular",
+      "questions": [],
+      "images": [],
+      "order": []
+    },
+    {
+      "id": 16,
+      "name": "Sistemul limfatic și imun",
+      "questions": [],
+      "images": [],
+      "order": []
+    },
+    {
+      "id": 17,
+      "name": "Sistemul respirator",
+      "questions": [],
+      "images": [],
+      "order": []
+    },
+    {
+      "id": 18,
+      "name": "Sistemul digestiv",
+      "questions": [],
+      "images": [],
+      "order": []
+    },
+    {
+      "id": 19,
+      "name": "Metabolism și nutriție",
+      "questions": [],
+      "images": [],
+      "order": []
+    },
+    {
+      "id": 20,
+      "name": "Sistemul urinar",
+      "questions": [],
+      "images": [],
+      "order": []
+    },
+    {
+      "id": 21,
+      "name": "Echilibrul hidro-electrolitic și  acido-bazic",
+      "questions": [],
+      "images": [],
+      "order": []
+    },
+    {
+      "id": 22,
+      "name": "Sistemul reproducător masculin",
+      "questions": [],
+      "images": [],
+      "order": []
+    },
+    {
+      "id": 23,
+      "name": "Sistemul reproducător feminin",
+      "questions": [],
+      "images": [],
+      "order": []
+    }
+  ]
+}
