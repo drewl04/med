@@ -348,13 +348,35 @@ main {
     background-color: var(--color-danger-hover);
 }
 
+.chapter-actions {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-lg);
+    padding: 0 var(--space-xl);
+    margin: var(--space-xl) 0 var(--space-xl);
+    flex: 0 0 auto;
+}
+
+#button-toggle-all-chapters,
+#button-add-chapter {
+    height: 2.2rem;
+    border-radius: var(--radius-pill);
+}
+
+#button-toggle-all-chapters {
+    width: 7.5rem;
+    padding: 0 0.9rem;
+    background-color: var(--color-panel-alt);
+}
+
+#button-toggle-all-chapters:hover {
+    background-color: var(--color-border);
+}
+
 #button-add-chapter {
     width: 7.5rem;
-    height: 2.2rem;
-    margin: 0.75rem 0 1rem;
-    align-self: center;
-    flex: 0 0 auto;
-    border-radius: var(--radius-pill);
     background-color: var(--color-primary);
 }
 

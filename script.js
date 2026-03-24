@@ -10,6 +10,7 @@
 
         chapterList: document.getElementById('chapter-list'),
         addChapter: document.getElementById('button-add-chapter'),
+        toggleAllChapters: document.getElementById('button-toggle-all-chapters'),
 
         buttonEditor: document.getElementById('button-enter-editor'),
         buttonImages: document.getElementById('button-enter-images'),
@@ -377,6 +378,15 @@
         return state.activeChapterIds.has(chapterId);
     }
 
+    function areAllChaptersActive() {
+        const chapters = getChapters();
+        return chapters.length > 0 && chapters.every((chapter) => state.activeChapterIds.has(chapter.id));
+    }
+
+    function updateToggleAllChaptersButton() {
+        dom.toggleAllChapters.textContent = areAllChaptersActive() ? 'deselect all' : 'select all';
+    }
+
     function getQuestionById(chapter, questionId) {
         return chapter.questions.find((question) => question.id === questionId) || null;
     }
@@ -559,6 +569,7 @@
         }
 
         dom.addChapter.style.display = state.currentView === 'editor' ? 'block' : 'none';
+        dom.toggleAllChapters.style.display = getChapters().length ? 'block' : 'none';
 
         updateChapterControls();
     }
@@ -581,6 +592,7 @@
         });
 
         updateChapterControls();
+        updateToggleAllChaptersButton();
     }
 
     function createChapterListItem(chapter) {
@@ -689,6 +701,35 @@
             state.activeChapterIds.add(chapterId);
             button.classList.add('active');
         }
+
+        updateToggleAllChaptersButton();
+
+        if (state.currentView === 'practice') {
+            startPractice();
+        }
+
+        if (state.currentView === 'images') {
+            state.currentImageId = null;
+            showRandomImage();
+        }
+    }
+    function toggleAllChaptersActive() {
+        if (state.currentView === 'test' && state.test.isRunning) {
+            return;
+        }
+
+        const chapters = getChapters();
+        if (!chapters.length) {
+            return;
+        }
+
+        if (areAllChaptersActive()) {
+            state.activeChapterIds.clear();
+        } else {
+            state.activeChapterIds = new Set(chapters.map((chapter) => chapter.id));
+        }
+
+        renderChapterList();
 
         if (state.currentView === 'practice') {
             startPractice();
@@ -2070,6 +2111,11 @@
         dom.addChapter.addEventListener('pointerdown', (event) => {
             event.preventDefault();
             addChapter();
+        });
+
+        dom.toggleAllChapters.addEventListener('pointerdown', (event) => {
+            event.preventDefault();
+            toggleAllChaptersActive();
         });
 
         dom.chapterSelect.addEventListener('change', () => {
