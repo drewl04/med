@@ -3,7 +3,7 @@
     "version": 2,
     "nextChapterId": 24,
     "nextQuestionId": 1,
-    "nextImageId": 50
+    "nextImageId": 61
   },
   "chapters": [
     {
@@ -668,8 +668,142 @@
       "id": 9,
       "name": "Sistemul muscular",
       "questions": [],
-      "images": [],
-      "order": []
+      "images": [
+        {
+          "id": 50,
+          "type": "image",
+          "image": "",
+          "imagePath": "/images/chapter-9-img-1774385552427-7s0il0.PNG",
+          "explanation": "pag 193",
+          "collapsed": true
+        },
+        {
+          "id": 51,
+          "type": "image",
+          "image": "",
+          "imagePath": "/images/chapter-9-img-1774385571786-1b4p0r.PNG",
+          "explanation": "pag 194",
+          "collapsed": true
+        },
+        {
+          "id": 52,
+          "type": "image",
+          "image": "",
+          "imagePath": "/images/chapter-9-img-1774385583779-txo48s.PNG",
+          "explanation": "pag 196",
+          "collapsed": true
+        },
+        {
+          "id": 53,
+          "type": "image",
+          "image": "",
+          "imagePath": "/images/chapter-9-img-1774385598684-dweqt8.PNG",
+          "explanation": "pag 197",
+          "collapsed": true
+        },
+        {
+          "id": 54,
+          "type": "image",
+          "image": "",
+          "imagePath": "/images/chapter-9-img-1774385610579-ulbvby.PNG",
+          "explanation": "pag 199",
+          "collapsed": true
+        },
+        {
+          "id": 55,
+          "type": "image",
+          "image": "",
+          "imagePath": "/images/chapter-9-img-1774385643682-qzt1ir.PNG",
+          "explanation": "pag 200",
+          "collapsed": true
+        },
+        {
+          "id": 56,
+          "type": "image",
+          "image": "",
+          "imagePath": "/images/chapter-9-img-1774385656074-dwuy4h.PNG",
+          "explanation": "pag 201",
+          "collapsed": true
+        },
+        {
+          "id": 57,
+          "type": "image",
+          "image": "",
+          "imagePath": "/images/chapter-9-img-1774385666576-4spkus.PNG",
+          "explanation": "pag 203",
+          "collapsed": true
+        },
+        {
+          "id": 58,
+          "type": "image",
+          "image": "",
+          "imagePath": "/images/chapter-9-img-1774385689117-pnljfx.PNG",
+          "explanation": "pag 206",
+          "collapsed": true
+        },
+        {
+          "id": 59,
+          "type": "image",
+          "image": "",
+          "imagePath": "/images/chapter-9-img-1774385718551-s2jtez.PNG",
+          "explanation": "pag 207",
+          "collapsed": true
+        },
+        {
+          "id": 60,
+          "type": "image",
+          "image": "",
+          "imagePath": "/images/chapter-9-img-1774385733813-st6wn2.PNG",
+          "explanation": "pag 208",
+          "collapsed": true
+        }
+      ],
+      "order": [
+        {
+          "type": "image",
+          "id": 50
+        },
+        {
+          "type": "image",
+          "id": 51
+        },
+        {
+          "type": "image",
+          "id": 52
+        },
+        {
+          "type": "image",
+          "id": 53
+        },
+        {
+          "type": "image",
+          "id": 54
+        },
+        {
+          "type": "image",
+          "id": 55
+        },
+        {
+          "type": "image",
+          "id": 56
+        },
+        {
+          "type": "image",
+          "id": 57
+        },
+        {
+          "type": "image",
+          "id": 58
+        },
+        {
+          "type": "image",
+          "id": 59
+        },
+        {
+          "type": "image",
+          "id": 60
+        }
+      ]
     },
     {
       "id": 10,
