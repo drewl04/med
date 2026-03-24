@@ -399,6 +399,60 @@
             .filter(Boolean);
     }
 
+        function isQuestionEmpty(question) {
+        if (!question) {
+            return true;
+        }
+
+        if ((question.question || '').trim()) {
+            return false;
+        }
+
+        if ((question.explanation || '').trim()) {
+            return false;
+        }
+
+        return !question.answers.some((answer) => (answer?.text || '').trim());
+    }
+
+    function isImageEmpty(image) {
+        if (!image) {
+            return true;
+        }
+
+        if ((image.image || '').trim()) {
+            return false;
+        }
+
+        if ((image.explanation || '').trim()) {
+            return false;
+        }
+
+        if ((image.imagePath || '').trim()) {
+            return false;
+        }
+
+        return true;
+    }
+
+    function isChapterEmpty(chapter) {
+        if (!chapter) {
+            return true;
+        }
+
+        const hasNonEmptyQuestion = chapter.questions.some((question) => !isQuestionEmpty(question));
+        if (hasNonEmptyQuestion) {
+            return false;
+        }
+
+        const hasNonEmptyImage = chapter.images.some((image) => !isImageEmpty(image));
+        if (hasNonEmptyImage) {
+            return false;
+        }
+
+        return true;
+    }
+
     /* =========================
        SERVER COMMUNICATION
        ========================= */
@@ -650,6 +704,13 @@
         const chapter = getChapterById(chapterId);
         if (!chapter) {
             return;
+        }
+
+        if (!isChapterEmpty(chapter)) {
+            const confirmed = window.confirm(`Are you sure you want to delete "${chapter.name}"? This will delete all of its content`);
+            if (!confirmed) {
+                return;
+            }
         }
 
         const imagePaths = chapter.images.map((image) => image.imagePath).filter(Boolean);
@@ -932,7 +993,19 @@
     }
 
     function removeQuestion(chapter, questionId) {
-        chapter.questions = chapter.questions.filter((question) => question.id !== questionId);
+        const question = getQuestionById(chapter, questionId);
+        if (!question) {
+            return;
+        }
+
+        if (!isQuestionEmpty(question)) {
+            const confirmed = window.confirm('Are you sure you want to delete this question?');
+            if (!confirmed) {
+                return;
+            }
+        }
+
+        chapter.questions = chapter.questions.filter((questionItem) => questionItem.id !== questionId);
         chapter.order = chapter.order.filter((entry) => !(entry.type === 'question' && entry.id === questionId));
         renderEditorItems();
         debouncedSave();
@@ -942,6 +1015,13 @@
         const image = getImageById(chapter, imageId);
         if (!image) {
             return;
+        }
+
+        if (!isImageEmpty(image)) {
+            const confirmed = window.confirm('Are you sure you want to delete this image?');
+            if (!confirmed) {
+                return;
+            }
         }
 
         if (image.imagePath) {
