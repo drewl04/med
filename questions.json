@@ -3,7 +3,7 @@
     "version": 2,
     "nextChapterId": 24,
     "nextQuestionId": 1,
-    "nextImageId": 124
+    "nextImageId": 133
   },
   "chapters": [
     {
@@ -1628,8 +1628,118 @@
       "id": 17,
       "name": "Sistemul respirator",
       "questions": [],
-      "images": [],
-      "order": []
+      "images": [
+        {
+          "id": 124,
+          "type": "image",
+          "image": "",
+          "imagePath": "/images/chapter-17-img-1774408891197-n579jz.PNG",
+          "explanation": "pag 403",
+          "collapsed": true
+        },
+        {
+          "id": 125,
+          "type": "image",
+          "image": "",
+          "imagePath": "/images/chapter-17-img-1774408911556-e90744.PNG",
+          "explanation": "pag 404",
+          "collapsed": true
+        },
+        {
+          "id": 126,
+          "type": "image",
+          "image": "",
+          "imagePath": "/images/chapter-17-img-1774408927614-ai4h82.PNG",
+          "explanation": "pag 405",
+          "collapsed": true
+        },
+        {
+          "id": 127,
+          "type": "image",
+          "image": "",
+          "imagePath": "/images/chapter-17-img-1774408944631-0ak2o2.PNG",
+          "explanation": "pag 407",
+          "collapsed": true
+        },
+        {
+          "id": 128,
+          "type": "image",
+          "image": "",
+          "imagePath": "/images/chapter-17-img-1774408968294-p8wj5z.PNG",
+          "explanation": "pag 408",
+          "collapsed": true
+        },
+        {
+          "id": 129,
+          "type": "image",
+          "image": "",
+          "imagePath": "/images/chapter-17-img-1774409064032-jgqp98.PNG",
+          "explanation": "pag 410",
+          "collapsed": true
+        },
+        {
+          "id": 130,
+          "type": "image",
+          "image": "",
+          "imagePath": "/images/chapter-17-img-1774409083272-4928f2.PNG",
+          "explanation": "pag 411",
+          "collapsed": true
+        },
+        {
+          "id": 131,
+          "type": "image",
+          "image": "",
+          "imagePath": "/images/chapter-17-img-1774409104251-rmdfkd.PNG",
+          "explanation": "pag 412",
+          "collapsed": true
+        },
+        {
+          "id": 132,
+          "type": "image",
+          "image": "",
+          "imagePath": "/images/chapter-17-img-1774409120669-1o74k1.PNG",
+          "explanation": "pag 414",
+          "collapsed": true
+        }
+      ],
+      "order": [
+        {
+          "type": "image",
+          "id": 124
+        },
+        {
+          "type": "image",
+          "id": 125
+        },
+        {
+          "type": "image",
+          "id": 126
+        },
+        {
+          "type": "image",
+          "id": 127
+        },
+        {
+          "type": "image",
+          "id": 128
+        },
+        {
+          "type": "image",
+          "id": 129
+        },
+        {
+          "type": "image",
+          "id": 130
+        },
+        {
+          "type": "image",
+          "id": 131
+        },
+        {
+          "type": "image",
+          "id": 132
+        }
+      ]
     },
     {
       "id": 18,
