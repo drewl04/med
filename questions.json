@@ -3,7 +3,7 @@
     "version": 2,
     "nextChapterId": 24,
     "nextQuestionId": 1,
-    "nextImageId": 143
+    "nextImageId": 154
   },
   "chapters": [
     {
@@ -1874,8 +1874,142 @@
       "id": 19,
       "name": "Metabolism și nutriție",
       "questions": [],
-      "images": [],
-      "order": []
+      "images": [
+        {
+          "id": 143,
+          "type": "image",
+          "image": "",
+          "imagePath": "/images/chapter-19-img-1774441787221-fctwx0.PNG",
+          "explanation": "pag 454",
+          "collapsed": true
+        },
+        {
+          "id": 144,
+          "type": "image",
+          "image": "",
+          "imagePath": "/images/chapter-19-img-1774441841032-c06xs6.PNG",
+          "explanation": "pag 457",
+          "collapsed": true
+        },
+        {
+          "id": 145,
+          "type": "image",
+          "image": "",
+          "imagePath": "/images/chapter-19-img-1774441855029-65ocug.PNG",
+          "explanation": "pag 458",
+          "collapsed": true
+        },
+        {
+          "id": 146,
+          "type": "image",
+          "image": "",
+          "imagePath": "/images/chapter-19-img-1774441866531-3lifsi.PNG",
+          "explanation": "pag 459",
+          "collapsed": true
+        },
+        {
+          "id": 147,
+          "type": "image",
+          "image": "",
+          "imagePath": "/images/chapter-19-img-1774441896431-i7v1u0.PNG",
+          "explanation": "pag 460",
+          "collapsed": true
+        },
+        {
+          "id": 148,
+          "type": "image",
+          "image": "",
+          "imagePath": "/images/chapter-19-img-1774441909159-6rxaol.PNG",
+          "explanation": "pag 462",
+          "collapsed": true
+        },
+        {
+          "id": 149,
+          "type": "image",
+          "image": "",
+          "imagePath": "/images/chapter-19-img-1774441921778-vii5lm.PNG",
+          "explanation": "pag 463",
+          "collapsed": true
+        },
+        {
+          "id": 150,
+          "type": "image",
+          "image": "",
+          "imagePath": "/images/chapter-19-img-1774441935985-fc02mh.PNG",
+          "explanation": "pag 464",
+          "collapsed": true
+        },
+        {
+          "id": 151,
+          "type": "image",
+          "image": "",
+          "imagePath": "/images/chapter-19-img-1774441957875-9ahhw0.PNG",
+          "explanation": "pag 466",
+          "collapsed": true
+        },
+        {
+          "id": 152,
+          "type": "image",
+          "image": "",
+          "imagePath": "/images/chapter-19-img-1774441971312-l6x3xc.PNG",
+          "explanation": "pag 468",
+          "collapsed": true
+        },
+        {
+          "id": 153,
+          "type": "image",
+          "image": "",
+          "imagePath": "/images/chapter-19-img-1774441985499-232230.PNG",
+          "explanation": "pag 469",
+          "collapsed": true
+        }
+      ],
+      "order": [
+        {
+          "type": "image",
+          "id": 143
+        },
+        {
+          "type": "image",
+          "id": 144
+        },
+        {
+          "type": "image",
+          "id": 145
+        },
+        {
+          "type": "image",
+          "id": 146
+        },
+        {
+          "type": "image",
+          "id": 147
+        },
+        {
+          "type": "image",
+          "id": 148
+        },
+        {
+          "type": "image",
+          "id": 149
+        },
+        {
+          "type": "image",
+          "id": 150
+        },
+        {
+          "type": "image",
+          "id": 151
+        },
+        {
+          "type": "image",
+          "id": 152
+        },
+        {
+          "type": "image",
+          "id": 153
+        }
+      ]
     },
     {
       "id": 20,
