@@ -3,7 +3,7 @@
     "version": 2,
     "nextChapterId": 24,
     "nextQuestionId": 1,
-    "nextImageId": 154
+    "nextImageId": 188
   },
   "chapters": [
     {
@@ -2015,29 +2015,445 @@
       "id": 20,
       "name": "Sistemul urinar",
       "questions": [],
-      "images": [],
-      "order": []
+      "images": [
+        {
+          "id": 154,
+          "type": "image",
+          "image": "",
+          "imagePath": "/images/chapter-20-img-1774442574373-ajemr4.PNG",
+          "explanation": "pag 486",
+          "collapsed": true
+        },
+        {
+          "id": 155,
+          "type": "image",
+          "image": "",
+          "imagePath": "/images/chapter-20-img-1774442592599-oq5eca.PNG",
+          "explanation": "pag 487",
+          "collapsed": true
+        },
+        {
+          "id": 156,
+          "type": "image",
+          "image": "",
+          "imagePath": "/images/chapter-20-img-1774442608610-ltflse.PNG",
+          "explanation": "pag 488",
+          "collapsed": true
+        },
+        {
+          "id": 157,
+          "type": "image",
+          "image": "",
+          "imagePath": "/images/chapter-20-img-1774442624379-c4tpsp.PNG",
+          "explanation": "pag 490",
+          "collapsed": true
+        },
+        {
+          "id": 158,
+          "type": "image",
+          "image": "",
+          "imagePath": "/images/chapter-20-img-1774442635612-lwm7et.PNG",
+          "explanation": "pag 491",
+          "collapsed": true
+        },
+        {
+          "id": 159,
+          "type": "image",
+          "image": "",
+          "imagePath": "/images/chapter-20-img-1774442652072-9av5zt.PNG",
+          "explanation": "pag 492",
+          "collapsed": true
+        },
+        {
+          "id": 160,
+          "type": "image",
+          "image": "",
+          "imagePath": "/images/chapter-20-img-1774442669356-lrois4.PNG",
+          "explanation": "pag 494",
+          "collapsed": true
+        },
+        {
+          "id": 161,
+          "type": "image",
+          "image": "",
+          "imagePath": "/images/chapter-20-img-1774442680758-n1dxfn.PNG",
+          "explanation": "pag 496",
+          "collapsed": true
+        },
+        {
+          "id": 162,
+          "type": "image",
+          "image": "",
+          "imagePath": "/images/chapter-20-img-1774442693726-12e1d4.PNG",
+          "explanation": "pag 497",
+          "collapsed": true
+        }
+      ],
+      "order": [
+        {
+          "type": "image",
+          "id": 154
+        },
+        {
+          "type": "image",
+          "id": 155
+        },
+        {
+          "type": "image",
+          "id": 156
+        },
+        {
+          "type": "image",
+          "id": 157
+        },
+        {
+          "type": "image",
+          "id": 158
+        },
+        {
+          "type": "image",
+          "id": 159
+        },
+        {
+          "type": "image",
+          "id": 160
+        },
+        {
+          "type": "image",
+          "id": 161
+        },
+        {
+          "type": "image",
+          "id": 162
+        }
+      ]
     },
     {
       "id": 21,
       "name": "Echilibrul hidro-electrolitic și  acido-bazic",
       "questions": [],
-      "images": [],
-      "order": []
+      "images": [
+        {
+          "id": 163,
+          "type": "image",
+          "image": "",
+          "imagePath": "/images/chapter-21-img-1774442948476-pw7b8z.PNG",
+          "explanation": "pag 511",
+          "collapsed": true
+        },
+        {
+          "id": 164,
+          "type": "image",
+          "image": "",
+          "imagePath": "/images/chapter-21-img-1774442964297-jiigxa.PNG",
+          "explanation": "pag 511",
+          "collapsed": true
+        },
+        {
+          "id": 165,
+          "type": "image",
+          "image": "",
+          "imagePath": "/images/chapter-21-img-1774442977726-p71ey2.PNG",
+          "explanation": "pag 513",
+          "collapsed": true
+        },
+        {
+          "id": 166,
+          "type": "image",
+          "image": "",
+          "imagePath": "/images/chapter-21-img-1774442993387-g3ft1h.PNG",
+          "explanation": "pag 515",
+          "collapsed": true
+        },
+        {
+          "id": 167,
+          "type": "image",
+          "image": "",
+          "imagePath": "/images/chapter-21-img-1774443005397-eni6eg.PNG",
+          "explanation": "pag 516",
+          "collapsed": true
+        },
+        {
+          "id": 168,
+          "type": "image",
+          "image": "",
+          "imagePath": "/images/chapter-21-img-1774443022745-ch32hq.PNG",
+          "explanation": "pag 518",
+          "collapsed": true
+        }
+      ],
+      "order": [
+        {
+          "type": "image",
+          "id": 163
+        },
+        {
+          "type": "image",
+          "id": 164
+        },
+        {
+          "type": "image",
+          "id": 165
+        },
+        {
+          "type": "image",
+          "id": 166
+        },
+        {
+          "type": "image",
+          "id": 167
+        },
+        {
+          "type": "image",
+          "id": 168
+        }
+      ]
     },
     {
       "id": 22,
       "name": "Sistemul reproducător masculin",
       "questions": [],
-      "images": [],
-      "order": []
+      "images": [
+        {
+          "id": 169,
+          "type": "image",
+          "image": "",
+          "imagePath": "/images/chapter-22-img-1774443392746-ebhtdo.PNG",
+          "explanation": "pag 530",
+          "collapsed": true
+        },
+        {
+          "id": 170,
+          "type": "image",
+          "image": "",
+          "imagePath": "/images/chapter-22-img-1774443405439-lfa3xk.PNG",
+          "explanation": "pag 533",
+          "collapsed": true
+        },
+        {
+          "id": 171,
+          "type": "image",
+          "image": "",
+          "imagePath": "/images/chapter-22-img-1774443419463-krn1j6.PNG",
+          "explanation": "pag 533",
+          "collapsed": true
+        },
+        {
+          "id": 172,
+          "type": "image",
+          "image": "",
+          "imagePath": "/images/chapter-22-img-1774443437759-cgw0ma.PNG",
+          "explanation": "pag 534",
+          "collapsed": true
+        },
+        {
+          "id": 173,
+          "type": "image",
+          "image": "",
+          "imagePath": "/images/chapter-22-img-1774443449428-687ybw.PNG",
+          "explanation": "pag 535",
+          "collapsed": true
+        }
+      ],
+      "order": [
+        {
+          "type": "image",
+          "id": 169
+        },
+        {
+          "type": "image",
+          "id": 170
+        },
+        {
+          "type": "image",
+          "id": 171
+        },
+        {
+          "type": "image",
+          "id": 172
+        },
+        {
+          "type": "image",
+          "id": 173
+        }
+      ]
     },
     {
       "id": 23,
       "name": "Sistemul reproducător feminin",
       "questions": [],
-      "images": [],
-      "order": []
+      "images": [
+        {
+          "id": 174,
+          "type": "image",
+          "image": "",
+          "imagePath": "/images/chapter-23-img-1774443856022-y73u8z.PNG",
+          "explanation": "pag 550",
+          "collapsed": true
+        },
+        {
+          "id": 175,
+          "type": "image",
+          "image": "",
+          "imagePath": "/images/chapter-23-img-1774443874294-5ngs7e.PNG",
+          "explanation": "pag 551",
+          "collapsed": true
+        },
+        {
+          "id": 176,
+          "type": "image",
+          "image": "",
+          "imagePath": "/images/chapter-23-img-1774443887132-0e17he.PNG",
+          "explanation": "pag 553",
+          "collapsed": true
+        },
+        {
+          "id": 177,
+          "type": "image",
+          "image": "",
+          "imagePath": "/images/chapter-23-img-1774443897910-87x4kf.PNG",
+          "explanation": "pag 554",
+          "collapsed": true
+        },
+        {
+          "id": 178,
+          "type": "image",
+          "image": "",
+          "imagePath": "/images/chapter-23-img-1774443907841-op2foy.PNG",
+          "explanation": "pag 555",
+          "collapsed": true
+        },
+        {
+          "id": 179,
+          "type": "image",
+          "image": "",
+          "imagePath": "/images/chapter-23-img-1774443921689-6qeshf.PNG",
+          "explanation": "pag 557",
+          "collapsed": true
+        },
+        {
+          "id": 180,
+          "type": "image",
+          "image": "",
+          "imagePath": "/images/chapter-23-img-1774443938614-72pduk.PNG",
+          "explanation": "pag 559",
+          "collapsed": true
+        },
+        {
+          "id": 181,
+          "type": "image",
+          "image": "",
+          "imagePath": "/images/chapter-23-img-1774443952341-lgfulo.PNG",
+          "explanation": "pag 559",
+          "collapsed": true
+        },
+        {
+          "id": 182,
+          "type": "image",
+          "image": "",
+          "imagePath": "/images/chapter-23-img-1774443975316-3qw9bh.PNG",
+          "explanation": "pag 560",
+          "collapsed": true
+        },
+        {
+          "id": 183,
+          "type": "image",
+          "image": "",
+          "imagePath": "/images/chapter-23-img-1774443992196-xsili8.PNG",
+          "explanation": "pag 561",
+          "collapsed": true
+        },
+        {
+          "id": 184,
+          "type": "image",
+          "image": "",
+          "imagePath": "/images/chapter-23-img-1774444010480-xrbf31.PNG",
+          "explanation": "pag 563",
+          "collapsed": true
+        },
+        {
+          "id": 185,
+          "type": "image",
+          "image": "",
+          "imagePath": "/images/chapter-23-img-1774444026130-3ysg54.PNG",
+          "explanation": "pag 563",
+          "collapsed": true
+        },
+        {
+          "id": 186,
+          "type": "image",
+          "image": "",
+          "imagePath": "/images/chapter-23-img-1774444041986-ac0hwu.PNG",
+          "explanation": "pag 565",
+          "collapsed": true
+        },
+        {
+          "id": 187,
+          "type": "image",
+          "image": "",
+          "imagePath": "/images/chapter-23-img-1774444055293-rofdf3.PNG",
+          "explanation": "pag 566",
+          "collapsed": true
+        }
+      ],
+      "order": [
+        {
+          "type": "image",
+          "id": 174
+        },
+        {
+          "type": "image",
+          "id": 175
+        },
+        {
+          "type": "image",
+          "id": 176
+        },
+        {
+          "type": "image",
+          "id": 177
+        },
+        {
+          "type": "image",
+          "id": 178
+        },
+        {
+          "type": "image",
+          "id": 179
+        },
+        {
+          "type": "image",
+          "id": 180
+        },
+        {
+          "type": "image",
+          "id": 181
+        },
+        {
+          "type": "image",
+          "id": 182
+        },
+        {
+          "type": "image",
+          "id": 183
+        },
+        {
+          "type": "image",
+          "id": 184
+        },
+        {
+          "type": "image",
+          "id": 185
+        },
+        {
+          "type": "image",
+          "id": 186
+        },
+        {
+          "type": "image",
+          "id": 187
+        }
+      ]
     }
   ]
 }
