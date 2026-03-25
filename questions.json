@@ -3,7 +3,7 @@
     "version": 2,
     "nextChapterId": 24,
     "nextQuestionId": 1,
-    "nextImageId": 80
+    "nextImageId": 97
   },
   "chapters": [
     {
@@ -1055,15 +1055,223 @@
       "id": 12,
       "name": "Organele de simț",
       "questions": [],
-      "images": [],
-      "order": []
+      "images": [
+        {
+          "id": 80,
+          "type": "image",
+          "image": "",
+          "imagePath": "/images/chapter-12-img-1774393130234-ovbjpd.PNG",
+          "explanation": "pag 273",
+          "collapsed": true
+        },
+        {
+          "id": 81,
+          "type": "image",
+          "image": "",
+          "imagePath": "/images/chapter-12-img-1774393853787-4d7jon.PNG",
+          "explanation": "pag 276",
+          "collapsed": true
+        },
+        {
+          "id": 82,
+          "type": "image",
+          "image": "",
+          "imagePath": "/images/chapter-12-img-1774393870114-myud8a.PNG",
+          "explanation": "pag 278",
+          "collapsed": true
+        },
+        {
+          "id": 83,
+          "type": "image",
+          "image": "",
+          "imagePath": "/images/chapter-12-img-1774393885400-tb6uop.PNG",
+          "explanation": "pag 279",
+          "collapsed": true
+        },
+        {
+          "id": 84,
+          "type": "image",
+          "image": "",
+          "imagePath": "/images/chapter-12-img-1774393983292-z8v7n9.PNG",
+          "explanation": "pag 280",
+          "collapsed": true
+        },
+        {
+          "id": 85,
+          "type": "image",
+          "image": "",
+          "imagePath": "/images/chapter-12-img-1774394030147-6i31dd.PNG",
+          "explanation": "pag 281",
+          "collapsed": true
+        },
+        {
+          "id": 86,
+          "type": "image",
+          "image": "",
+          "imagePath": "/images/chapter-12-img-1774394051261-al02uh.PNG",
+          "explanation": "pag 282",
+          "collapsed": true
+        },
+        {
+          "id": 87,
+          "type": "image",
+          "image": "",
+          "imagePath": "/images/chapter-12-img-1774394071580-08q68g.PNG",
+          "explanation": "pag 283",
+          "collapsed": true
+        }
+      ],
+      "order": [
+        {
+          "type": "image",
+          "id": 80
+        },
+        {
+          "type": "image",
+          "id": 81
+        },
+        {
+          "type": "image",
+          "id": 82
+        },
+        {
+          "type": "image",
+          "id": 83
+        },
+        {
+          "type": "image",
+          "id": 84
+        },
+        {
+          "type": "image",
+          "id": 85
+        },
+        {
+          "type": "image",
+          "id": 86
+        },
+        {
+          "type": "image",
+          "id": 87
+        }
+      ]
     },
     {
       "id": 13,
       "name": "Sistemul endocrin",
       "questions": [],
-      "images": [],
-      "order": []
+      "images": [
+        {
+          "id": 88,
+          "type": "image",
+          "image": "",
+          "imagePath": "/images/chapter-13-img-1774395279138-029uzc.PNG",
+          "explanation": "pag 297",
+          "collapsed": true
+        },
+        {
+          "id": 89,
+          "type": "image",
+          "image": "",
+          "imagePath": "/images/chapter-13-img-1774395364246-3jv24b.PNG",
+          "explanation": "pag 298",
+          "collapsed": true
+        },
+        {
+          "id": 90,
+          "type": "image",
+          "image": "",
+          "imagePath": "/images/chapter-13-img-1774395804287-7idpno.PNG",
+          "explanation": "pag 299",
+          "collapsed": true
+        },
+        {
+          "id": 91,
+          "type": "image",
+          "image": "",
+          "imagePath": "/images/chapter-13-img-1774403288860-xpstss.PNG",
+          "explanation": "pag 301",
+          "collapsed": true
+        },
+        {
+          "id": 92,
+          "type": "image",
+          "image": "",
+          "imagePath": "/images/chapter-13-img-1774403305758-ugevuz.PNG",
+          "explanation": "pag 303",
+          "collapsed": true
+        },
+        {
+          "id": 93,
+          "type": "image",
+          "image": "",
+          "imagePath": "/images/chapter-13-img-1774403321732-ew9kjr.PNG",
+          "explanation": "pag 304",
+          "collapsed": true
+        },
+        {
+          "id": 94,
+          "type": "image",
+          "image": "",
+          "imagePath": "/images/chapter-13-img-1774404699808-d6peob.PNG",
+          "explanation": "pag 305",
+          "collapsed": true
+        },
+        {
+          "id": 95,
+          "type": "image",
+          "image": "",
+          "imagePath": "/images/chapter-13-img-1774404719100-7ng4ty.PNG",
+          "explanation": "pag 306",
+          "collapsed": true
+        },
+        {
+          "id": 96,
+          "type": "image",
+          "image": "",
+          "imagePath": "/images/chapter-13-img-1774404740060-l1l06g.PNG",
+          "explanation": "pag 307",
+          "collapsed": true
+        }
+      ],
+      "order": [
+        {
+          "type": "image",
+          "id": 88
+        },
+        {
+          "type": "image",
+          "id": 89
+        },
+        {
+          "type": "image",
+          "id": 90
+        },
+        {
+          "type": "image",
+          "id": 91
+        },
+        {
+          "type": "image",
+          "id": 92
+        },
+        {
+          "type": "image",
+          "id": 93
+        },
+        {
+          "type": "image",
+          "id": 94
+        },
+        {
+          "type": "image",
+          "id": 95
+        },
+        {
+          "type": "image",
+          "id": 96
+        }
+      ]
     },
     {
       "id": 14,
