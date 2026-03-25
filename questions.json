@@ -3,7 +3,7 @@
     "version": 2,
     "nextChapterId": 24,
     "nextQuestionId": 1,
-    "nextImageId": 97
+    "nextImageId": 115
   },
   "chapters": [
     {
@@ -1277,15 +1277,235 @@
       "id": 14,
       "name": "Sângele",
       "questions": [],
-      "images": [],
-      "order": []
+      "images": [
+        {
+          "id": 97,
+          "type": "image",
+          "image": "",
+          "imagePath": "/images/chapter-14-img-1774404870247-x70c1h.PNG",
+          "explanation": "pag 320",
+          "collapsed": true
+        },
+        {
+          "id": 98,
+          "type": "image",
+          "image": "",
+          "imagePath": "/images/chapter-14-img-1774404886253-b40orf.PNG",
+          "explanation": "pag 322",
+          "collapsed": true
+        },
+        {
+          "id": 99,
+          "type": "image",
+          "image": "",
+          "imagePath": "/images/chapter-14-img-1774404913458-024h16.PNG",
+          "explanation": "pag 323",
+          "collapsed": true
+        },
+        {
+          "id": 100,
+          "type": "image",
+          "image": "",
+          "imagePath": "/images/chapter-14-img-1774404933347-tkq6nx.PNG",
+          "explanation": "pag 325",
+          "collapsed": true
+        },
+        {
+          "id": 101,
+          "type": "image",
+          "image": "",
+          "imagePath": "/images/chapter-14-img-1774404953380-f8n8x4.PNG",
+          "explanation": "pag 328",
+          "collapsed": true
+        },
+        {
+          "id": 102,
+          "type": "image",
+          "image": "",
+          "imagePath": "/images/chapter-14-img-1774404969091-ddklwj.PNG",
+          "explanation": "pag 330",
+          "collapsed": true
+        },
+        {
+          "id": 103,
+          "type": "image",
+          "image": "",
+          "imagePath": "/images/chapter-14-img-1774404999517-jhgxay.PNG",
+          "explanation": "pag 331",
+          "collapsed": true
+        }
+      ],
+      "order": [
+        {
+          "type": "image",
+          "id": 97
+        },
+        {
+          "type": "image",
+          "id": 98
+        },
+        {
+          "type": "image",
+          "id": 99
+        },
+        {
+          "type": "image",
+          "id": 100
+        },
+        {
+          "type": "image",
+          "id": 101
+        },
+        {
+          "type": "image",
+          "id": 102
+        },
+        {
+          "type": "image",
+          "id": 103
+        }
+      ]
     },
     {
       "id": 15,
       "name": "Sistemul cardiovascular",
       "questions": [],
-      "images": [],
-      "order": []
+      "images": [
+        {
+          "id": 104,
+          "type": "image",
+          "image": "",
+          "imagePath": "/images/chapter-15-img-1774405733916-wiouo5.PNG",
+          "explanation": "pag 344",
+          "collapsed": true
+        },
+        {
+          "id": 105,
+          "type": "image",
+          "image": "",
+          "imagePath": "/images/chapter-15-img-1774405755452-z06y6c.PNG",
+          "explanation": "pag 345",
+          "collapsed": true
+        },
+        {
+          "id": 106,
+          "type": "image",
+          "image": "",
+          "imagePath": "/images/chapter-15-img-1774405769464-637anm.PNG",
+          "explanation": "pag 346",
+          "collapsed": true
+        },
+        {
+          "id": 107,
+          "type": "image",
+          "image": "",
+          "imagePath": "/images/chapter-15-img-1774405787250-ddh9pa.PNG",
+          "explanation": "pag 347",
+          "collapsed": true
+        },
+        {
+          "id": 108,
+          "type": "image",
+          "image": "",
+          "imagePath": "/images/chapter-15-img-1774405830798-c5re44.PNG",
+          "explanation": "pag 348",
+          "collapsed": true
+        },
+        {
+          "id": 109,
+          "type": "image",
+          "image": "",
+          "imagePath": "/images/chapter-15-img-1774405848792-zzcpg3.PNG",
+          "explanation": "pag 350",
+          "collapsed": true
+        },
+        {
+          "id": 110,
+          "type": "image",
+          "image": "",
+          "imagePath": "/images/chapter-15-img-1774405863087-cr1s71.PNG",
+          "explanation": "pag 350",
+          "collapsed": true
+        },
+        {
+          "id": 111,
+          "type": "image",
+          "image": "",
+          "imagePath": "/images/chapter-15-img-1774405884356-je2hf7.PNG",
+          "explanation": "pag 354",
+          "collapsed": true
+        },
+        {
+          "id": 112,
+          "type": "image",
+          "image": "",
+          "imagePath": "/images/chapter-15-img-1774405904347-j1lr16.PNG",
+          "explanation": "pag 357",
+          "collapsed": true
+        },
+        {
+          "id": 113,
+          "type": "image",
+          "image": "",
+          "imagePath": "/images/chapter-15-img-1774406626184-17hjdd.PNG",
+          "explanation": "pag 358",
+          "collapsed": true
+        },
+        {
+          "id": 114,
+          "type": "image",
+          "image": "",
+          "imagePath": "/images/chapter-15-img-1774406711889-4rsogf.PNG",
+          "explanation": "pag 359",
+          "collapsed": true
+        }
+      ],
+      "order": [
+        {
+          "type": "image",
+          "id": 104
+        },
+        {
+          "type": "image",
+          "id": 105
+        },
+        {
+          "type": "image",
+          "id": 106
+        },
+        {
+          "type": "image",
+          "id": 107
+        },
+        {
+          "type": "image",
+          "id": 108
+        },
+        {
+          "type": "image",
+          "id": 109
+        },
+        {
+          "type": "image",
+          "id": 110
+        },
+        {
+          "type": "image",
+          "id": 111
+        },
+        {
+          "type": "image",
+          "id": 112
+        },
+        {
+          "type": "image",
+          "id": 113
+        },
+        {
+          "type": "image",
+          "id": 114
+        }
+      ]
     },
     {
       "id": 16,
