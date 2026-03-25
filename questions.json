@@ -2,14 +2,45 @@
   "meta": {
     "version": 2,
     "nextChapterId": 24,
-    "nextQuestionId": 1,
+    "nextQuestionId": 31,
     "nextImageId": 188
   },
   "chapters": [
     {
       "id": 1,
       "name": "Introducere în anatomie și fiziologie",
-      "questions": [],
+      "questions": [
+        {
+          "id": 16,
+          "type": "question",
+          "question": "Alegeți răspunsul/răspunsurile corect/corecte referitor la planurile și cavitățile corpului uman:",
+          "answers": [
+            {
+              "text": "canalul rahidian adăpostește măduva osoasă",
+              "correct": false
+            },
+            {
+              "text": "cavitatea pleurală adăpostește inima",
+              "correct": false
+            },
+            {
+              "text": "planul transversal este perpendicular pe planul coronal",
+              "correct": true
+            },
+            {
+              "text": "un plan sagital împarte corpul într-o parte anterioară și una posterioară",
+              "correct": false
+            },
+            {
+              "text": "niciun răspuns corect",
+              "correct": false
+            }
+          ],
+          "explanation": "",
+          "collapsed": true,
+          "weight": 4
+        }
+      ],
       "images": [
         {
           "id": 1,
@@ -72,6 +103,10 @@
         {
           "type": "image",
           "id": 5
+        },
+        {
+          "type": "question",
+          "id": 16
         }
       ]
     },
@@ -85,7 +120,38 @@
     {
       "id": 3,
       "name": "Celulele și fiziologia celulară",
-      "questions": [],
+      "questions": [
+        {
+          "id": 5,
+          "type": "question",
+          "question": "Hematiile obținut de la o pacientă se împart în mod egal în două eprubete care conțin un volum egal de soluție de sare (NaCl) cu concentrație de 0,2% și respectiv 1%. Referitor la aceste probe este adevărat că:",
+          "answers": [
+            {
+              "text": "eritrocitele puse în soluția hipertonă se vor zbârci",
+              "correct": false
+            },
+            {
+              "text": "având în vedere hemoliza eritrocitelor puse în soluția de sare de 1%, în eprubeta respectivă va crește concentrația hemoglobinei",
+              "correct": false
+            },
+            {
+              "text": "prin membrana eritrocitelor puse în soluția de sare de 0,2% nu se produce mișcarea moleculelor de apă",
+              "correct": false
+            },
+            {
+              "text": "în cele două eprubete avem aceeași cantitate de potasiu",
+              "correct": true
+            },
+            {
+              "text": "niciun răspuns corect",
+              "correct": false
+            }
+          ],
+          "explanation": "",
+          "collapsed": true,
+          "weight": 3
+        }
+      ],
       "images": [
         {
           "id": 6,
@@ -220,13 +286,78 @@
         {
           "type": "image",
           "id": 16
+        },
+        {
+          "type": "question",
+          "id": 5
         }
       ]
     },
     {
       "id": 4,
       "name": "Țesuturile",
-      "questions": [],
+      "questions": [
+        {
+          "id": 14,
+          "type": "question",
+          "question": "Orificiul extern al uretrei masculine este acoperit de:",
+          "answers": [
+            {
+              "text": "epiteliu pseudostratificat cilindric",
+              "correct": false
+            },
+            {
+              "text": "epiteliu stratificat cilindric",
+              "correct": false
+            },
+            {
+              "text": "uroteliu",
+              "correct": false
+            },
+            {
+              "text": "epiteliu stratificat pavimentos",
+              "correct": true
+            },
+            {
+              "text": "niciun răspuns corect",
+              "correct": false
+            }
+          ],
+          "explanation": "",
+          "collapsed": true,
+          "weight": 2
+        },
+        {
+          "id": 29,
+          "type": "question",
+          "question": "Referitor la țesutul conjunctiv elastic este adevărat că:",
+          "answers": [
+            {
+              "text": "fibrele sale sunt dispuse într-o substanță fundamentală lichidă",
+              "correct": false
+            },
+            {
+              "text": "se găsește în pereții arterelor mari",
+              "correct": true
+            },
+            {
+              "text": "prezintă o rețea numită reticul, formată din fibre subțiri, delicate",
+              "correct": false
+            },
+            {
+              "text": "se găsește la nivelul ligamentelor aflate între vertebre",
+              "correct": true
+            },
+            {
+              "text": "niciun răspuns corect",
+              "correct": false
+            }
+          ],
+          "explanation": "",
+          "collapsed": true,
+          "weight": 1
+        }
+      ],
       "images": [
         {
           "id": 17,
@@ -301,6 +432,14 @@
         {
           "type": "image",
           "id": 22
+        },
+        {
+          "type": "question",
+          "id": 14
+        },
+        {
+          "type": "question",
+          "id": 29
         }
       ]
     },
@@ -445,7 +584,38 @@
     {
       "id": 7,
       "name": "Sistemul osos",
-      "questions": [],
+      "questions": [
+        {
+          "id": 10,
+          "type": "question",
+          "question": "Participă la alcătuirea septului nazal:",
+          "answers": [
+            {
+              "text": "osul nazal",
+              "correct": false
+            },
+            {
+              "text": "apofiza stiloidă",
+              "correct": false
+            },
+            {
+              "text": "vomerul",
+              "correct": true
+            },
+            {
+              "text": "cornetul nazal inferior",
+              "correct": false
+            },
+            {
+              "text": "niciun răspuns corect",
+              "correct": false
+            }
+          ],
+          "explanation": "",
+          "collapsed": true,
+          "weight": 1
+        }
+      ],
       "images": [
         {
           "id": 33,
@@ -580,13 +750,48 @@
         {
           "type": "image",
           "id": 43
+        },
+        {
+          "type": "question",
+          "id": 10
         }
       ]
     },
     {
       "id": 8,
       "name": "Țesutul muscular",
-      "questions": [],
+      "questions": [
+        {
+          "id": 13,
+          "type": "question",
+          "question": "Alegeți asocierea/asocierile corectă/corecte privind forma fibrelor musculare, anumite caracteristici ale contracției acestora și localizarea lor:",
+          "answers": [
+            {
+              "text": "fibre alungite, fusiforme - cea mai mare capacitate de a rămâne contractate - musculara mucoasei",
+              "correct": true
+            },
+            {
+              "text": "fibre alungite cu capete ramificate - perioada refractară absolută 1-2 msec - treimea inferioară a esofagului",
+              "correct": false
+            },
+            {
+              "text": "fibre alungite cu capete rotunjite - contracția cea mai rapidă - limbă",
+              "correct": true
+            },
+            {
+              "text": "fibre cilindrice învelite de endomisium - timp de contracție de 150-300 msec - miometru",
+              "correct": false
+            },
+            {
+              "text": "niciun răspuns corect",
+              "correct": false
+            }
+          ],
+          "explanation": "",
+          "collapsed": true,
+          "weight": 1
+        }
+      ],
       "images": [
         {
           "id": 44,
@@ -661,13 +866,78 @@
         {
           "type": "image",
           "id": 49
+        },
+        {
+          "type": "question",
+          "id": 13
         }
       ]
     },
     {
       "id": 9,
       "name": "Sistemul muscular",
-      "questions": [],
+      "questions": [
+        {
+          "id": 19,
+          "type": "question",
+          "question": "Alegeți afirmația/afirmațiile corectă/corecte:",
+          "answers": [
+            {
+              "text": "oblicul extern constituie stratul mijlociu al celor trei straturi musculare situate lateral de dreptul abdominal",
+              "correct": false
+            },
+            {
+              "text": "sternocleidomastoidul înclină capul lateral și înspre torace",
+              "correct": true
+            },
+            {
+              "text": "mușchii extrinseci ai ochiului modifică forma cristalinului",
+              "correct": false
+            },
+            {
+              "text": "transversul abdominal are originea pe linia albă și inserția pe apofizele vertebrelor lombare",
+              "correct": false
+            },
+            {
+              "text": "niciun răspuns corect",
+              "correct": false
+            }
+          ],
+          "explanation": "",
+          "collapsed": true,
+          "weight": 1
+        },
+        {
+          "id": 28,
+          "type": "question",
+          "question": "Alegeți combinația/combinațiile corectă/corecte referitor la inervația mușchilor membrului inferior:",
+          "answers": [
+            {
+              "text": "mușchiul solear - nervul obturator",
+              "correct": false
+            },
+            {
+              "text": "mușchiul tibial anterior - nervul fibular profund",
+              "correct": true
+            },
+            {
+              "text": "mușchiul semitendinos - nervul fibular",
+              "correct": false
+            },
+            {
+              "text": "mușchiul croitor - nervul femural",
+              "correct": true
+            },
+            {
+              "text": "niciun răspuns corect",
+              "correct": false
+            }
+          ],
+          "explanation": "",
+          "collapsed": true,
+          "weight": 1
+        }
+      ],
       "images": [
         {
           "id": 50,
@@ -802,6 +1072,14 @@
         {
           "type": "image",
           "id": 60
+        },
+        {
+          "type": "question",
+          "id": 19
+        },
+        {
+          "type": "question",
+          "id": 28
         }
       ]
     },
@@ -1054,7 +1332,128 @@
     {
       "id": 12,
       "name": "Organele de simț",
-      "questions": [],
+      "questions": [
+        {
+          "id": 3,
+          "type": "question",
+          "question": "La traversarea ochiului, o rază luminoasă parcurge, în ordine:",
+          "answers": [
+            {
+              "text": "corneea - compartimentul posterior - camera posterioară",
+              "correct": false
+            },
+            {
+              "text": "cristalinul - umoarea vitroasă - camera posterioară",
+              "correct": false
+            },
+            {
+              "text": "stratul neuronilor multipolari - stratul neuronilor bipolari - stratul neuronilor receptori",
+              "correct": true
+            },
+            {
+              "text": "umoarea apoasă - cristalinul - umoarea vitroasă",
+              "correct": true
+            },
+            {
+              "text": "niciun răspuns corect",
+              "correct": false
+            }
+          ],
+          "explanation": "",
+          "collapsed": true,
+          "weight": 5
+        },
+        {
+          "id": 6,
+          "type": "question",
+          "question": "Este caracteristic pentru funcționarea ochiului:",
+          "answers": [
+            {
+              "text": "diametrul pupilar se modifică la fel sub acțiunea noradrenalinei și a luminii intense",
+              "correct": false
+            },
+            {
+              "text": "la privirea unui obiect îndepărtat, cristalinul se aplatizează prin contracția mușchiului ciliar",
+              "correct": false
+            },
+            {
+              "text": "sub acțiunea mediatorului eliberat din terminațiile postganglionare parasimpatice mușchiul constrictor al irisului se contractă",
+              "correct": true
+            },
+            {
+              "text": "prin procesul de acomodare, ochiul se adaptează la variația intensității luminoase",
+              "correct": false
+            },
+            {
+              "text": "niciun răspuns corect",
+              "correct": false
+            }
+          ],
+          "explanation": "",
+          "collapsed": true,
+          "weight": 2
+        },
+        {
+          "id": 8,
+          "type": "question",
+          "question": "Patrik urcă cu mașina pe munte pe un drum abrupt. În acest caz:",
+          "answers": [
+            {
+              "text": "scărița intră mai adânc în fereastra ovală",
+              "correct": false
+            },
+            {
+              "text": "celulele ciliate din ampula canalelor semicirculare detectează modificarea presiunii atmosferice",
+              "correct": false
+            },
+            {
+              "text": "prin trompa lui Eustachio ajunge aer din urechea medie în faringe",
+              "correct": true
+            },
+            {
+              "text": "dacă trompa lui Eustachio este blocată, timpanul bombează în direcția urechii externe",
+              "correct": true
+            },
+            {
+              "text": "niciun răspuns corect",
+              "correct": false
+            }
+          ],
+          "explanation": "",
+          "collapsed": true,
+          "weight": 2
+        },
+        {
+          "id": 9,
+          "type": "question",
+          "question": "",
+          "answers": [
+            {
+              "text": "",
+              "correct": false
+            },
+            {
+              "text": "",
+              "correct": false
+            },
+            {
+              "text": "",
+              "correct": false
+            },
+            {
+              "text": "",
+              "correct": false
+            },
+            {
+              "text": "",
+              "correct": false
+            }
+          ],
+          "explanation": "",
+          "collapsed": true,
+          "weight": 1
+        }
+      ],
       "images": [
         {
           "id": 80,
@@ -1153,13 +1552,90 @@
         {
           "type": "image",
           "id": 87
+        },
+        {
+          "type": "question",
+          "id": 3
+        },
+        {
+          "type": "question",
+          "id": 6
+        },
+        {
+          "type": "question",
+          "id": 8
+        },
+        {
+          "type": "question",
+          "id": 9
         }
       ]
     },
     {
       "id": 13,
       "name": "Sistemul endocrin",
-      "questions": [],
+      "questions": [
+        {
+          "id": 22,
+          "type": "question",
+          "question": "În legătură cu bolile sistemului endocrin este adevărat că:",
+          "answers": [
+            {
+              "text": "excesul de STH la adult determină apariția gigantismului",
+              "correct": false
+            },
+            {
+              "text": "excesul de ACTH determină apariția bolii Addison",
+              "correct": false
+            },
+            {
+              "text": "secreția scăzută de tiroxină la copii determină apariția cretinismului",
+              "correct": true
+            },
+            {
+              "text": "secreția crescută de vasopresină determină apariția diabetului insipid",
+              "correct": false
+            },
+            {
+              "text": "niciun răspuns corect",
+              "correct": false
+            }
+          ],
+          "explanation": "",
+          "collapsed": true,
+          "weight": 2
+        },
+        {
+          "id": 23,
+          "type": "question",
+          "question": "În privința hormonilor non-steroidieni este adevărat că:",
+          "answers": [
+            {
+              "text": "norepinefrina și epinefrina sunt hormoni aminici",
+              "correct": true
+            },
+            {
+              "text": "aldosteronul și cortizolul sunt hormoni glicoproteici",
+              "correct": false
+            },
+            {
+              "text": "insulina, calcitonina și hormonul somatotrop sunt hormoni proteici",
+              "correct": true
+            },
+            {
+              "text": "estrogenii și testosteronul sunt hormoni peptidici",
+              "correct": false
+            },
+            {
+              "text": "niciun răspuns corect",
+              "correct": false
+            }
+          ],
+          "explanation": "",
+          "collapsed": true,
+          "weight": 1
+        }
+      ],
       "images": [
         {
           "id": 88,
@@ -1270,13 +1746,52 @@
         {
           "type": "image",
           "id": 96
+        },
+        {
+          "type": "question",
+          "id": 22
+        },
+        {
+          "type": "question",
+          "id": 23
         }
       ]
     },
     {
       "id": 14,
       "name": "Sângele",
-      "questions": [],
+      "questions": [
+        {
+          "id": 4,
+          "type": "question",
+          "question": "Maria este o femeie de 30 de ani cu grupa sanguină A-. Ea este însărcinată a doua oară. Din prima sarcină s-a născut Adam, care are grupa sanguină A+. Tatăl copiilor Mariei are grupa sanguină AB+. Referitor la această familie este adevărat că:",
+          "answers": [
+            {
+              "text": "anticorpii anti-Rh care se formează în sângele Mariei în contextul primei sarcini pot cauza liza hematiilor lui Adam",
+              "correct": false
+            },
+            {
+              "text": "sângele Mariei conține anticorpi anti-B datorită faptului că în sângele ei au ajuns, cu ocazia primei nașteri, antigenele de pe suprafața hematiilor copilului",
+              "correct": false
+            },
+            {
+              "text": "dacă Maria nu a primit după prima naștere anticorpi anti-Rh, atunci există riscul de eritroblastoză fetală",
+              "correct": true
+            },
+            {
+              "text": "în timpul celei de-a doua sarcini în sângele Mariei pot fi prezenți anticorpi anti-Rh de tip IgM",
+              "correct": false
+            },
+            {
+              "text": "niciun răspuns corect",
+              "correct": false
+            }
+          ],
+          "explanation": "",
+          "collapsed": true,
+          "weight": 1
+        }
+      ],
       "images": [
         {
           "id": 97,
@@ -1363,13 +1878,48 @@
         {
           "type": "image",
           "id": 103
+        },
+        {
+          "type": "question",
+          "id": 4
         }
       ]
     },
     {
       "id": 15,
       "name": "Sistemul cardiovascular",
-      "questions": [],
+      "questions": [
+        {
+          "id": 7,
+          "type": "question",
+          "question": "În sistemul cardiovascular:",
+          "answers": [
+            {
+              "text": "valvele semilunare sunt situate ventral față de cele atrioventriculare",
+              "correct": true
+            },
+            {
+              "text": "componentele cu rol de pompă ale inimii primesc sânge din șapte vene",
+              "correct": false
+            },
+            {
+              "text": "lezarea cordajelor tendinoase împiedică mișcarea normală a cuspisurilor valvelor semilunare",
+              "correct": false
+            },
+            {
+              "text": "toate structurile cavitare și tubulare sunt tapetate la interior cu un epiteliu simplu pavimentos",
+              "correct": true
+            },
+            {
+              "text": "niciun răspuns corect",
+              "correct": false
+            }
+          ],
+          "explanation": "",
+          "collapsed": true,
+          "weight": 4
+        }
+      ],
       "images": [
         {
           "id": 104,
@@ -1504,13 +2054,48 @@
         {
           "type": "image",
           "id": 114
+        },
+        {
+          "type": "question",
+          "id": 7
         }
       ]
     },
     {
       "id": 16,
       "name": "Sistemul limfatic și imun",
-      "questions": [],
+      "questions": [
+        {
+          "id": 2,
+          "type": "question",
+          "question": "Splina:",
+          "answers": [
+            {
+              "text": "are o amprentă produsă de rinichiul stâng, situată pe fața convexă",
+              "correct": false
+            },
+            {
+              "text": "este vascularizată de artera splenică, ramură din artera mezenterică superioară",
+              "correct": false
+            },
+            {
+              "text": "are o amprentă produsă de corpul gastric",
+              "correct": true
+            },
+            {
+              "text": "prezintă o capsulă de țesut conjunctiv",
+              "correct": true
+            },
+            {
+              "text": "niciun răspuns corect",
+              "correct": false
+            }
+          ],
+          "explanation": "",
+          "collapsed": true,
+          "weight": 5
+        }
+      ],
       "images": [
         {
           "id": 115,
@@ -1621,13 +2206,108 @@
         {
           "type": "image",
           "id": 123
+        },
+        {
+          "type": "question",
+          "id": 2
         }
       ]
     },
     {
       "id": 17,
       "name": "Sistemul respirator",
-      "questions": [],
+      "questions": [
+        {
+          "id": 1,
+          "type": "question",
+          "question": "În structura laringelui se evidențiază:",
+          "answers": [
+            {
+              "text": "cartilajul cricoid, care leagă faringele de laringe",
+              "correct": false
+            },
+            {
+              "text": "cartilajul tiroid, aflat în partea ventrală a gâtului",
+              "correct": true
+            },
+            {
+              "text": "epiglota, care nu permite trecerea alimentelor în tractul respirator",
+              "correct": true
+            },
+            {
+              "text": "glota, cel mai mare cartilaj, cunoscut și sub numele de „mărul lui Adam”",
+              "correct": false
+            },
+            {
+              "text": "niciun răspuns corect",
+              "correct": false
+            }
+          ],
+          "explanation": "",
+          "collapsed": true,
+          "weight": 5
+        },
+        {
+          "id": 11,
+          "type": "question",
+          "question": "Privind fiziologia respirației este adevărat că:",
+          "answers": [
+            {
+              "text": "capacitatea vitală pulmonară reprezintă cantitatea maximă de aer ce poate fi expirată după un inspir forțat",
+              "correct": true
+            },
+            {
+              "text": "în timpul unei respirații de repaus, în plămâni pătrund aproximativ 500 de ml de aer",
+              "correct": true
+            },
+            {
+              "text": "centrii respiratori din trunchiul cerebral monitorizează direct nivelul de dioxid de carbon din fluxul sanguin",
+              "correct": false
+            },
+            {
+              "text": "în timpul procesului de expirație are loc contracția mușchilor intercostali externi",
+              "correct": false
+            },
+            {
+              "text": "niciun răspuns corect",
+              "correct": false
+            }
+          ],
+          "explanation": "",
+          "collapsed": true,
+          "weight": 1
+        },
+        {
+          "id": 26,
+          "type": "question",
+          "question": "În ceea ce privește transportul gazelor respiratorii în sânge, este adevărat că:",
+          "answers": [
+            {
+              "text": "dioxidul de carbon se leagă de hemoglobină în același loc în care se leagă și oxigenul",
+              "correct": false
+            },
+            {
+              "text": "7% din dioxidul de carbon este transportat de hemoglobină și 25-30% este dizolvat în plasmă sau în citoplasma hematiilor",
+              "correct": false
+            },
+            {
+              "text": "2% din oxigen este transportat de hemoglobină și 98% este dizolvat în plasmă sau în citoplasma hematiilor",
+              "correct": false
+            },
+            {
+              "text": "70-75% din dioxidul de carbon este transportat sub formă de ioni de bicarbonat",
+              "correct": true
+            },
+            {
+              "text": "niciun răspuns corect",
+              "correct": false
+            }
+          ],
+          "explanation": "",
+          "collapsed": true,
+          "weight": 1
+        }
+      ],
       "images": [
         {
           "id": 124,
@@ -1738,13 +2418,56 @@
         {
           "type": "image",
           "id": 132
+        },
+        {
+          "type": "question",
+          "id": 1
+        },
+        {
+          "type": "question",
+          "id": 11
+        },
+        {
+          "type": "question",
+          "id": 26
         }
       ]
     },
     {
       "id": 18,
       "name": "Sistemul digestiv",
-      "questions": [],
+      "questions": [
+        {
+          "id": 25,
+          "type": "question",
+          "question": "Referitor la stomac este adevărat că:",
+          "answers": [
+            {
+              "text": "prezintă un strat muscular extern oblic",
+              "correct": false
+            },
+            {
+              "text": "mucoasa gastrică poate absorbi și alcoolul",
+              "correct": true
+            },
+            {
+              "text": "factorul intrinsec este secretat de celulele parietale",
+              "correct": true
+            },
+            {
+              "text": "pepsina este secretată direct în formă activă",
+              "correct": false
+            },
+            {
+              "text": "niciun răspuns corect",
+              "correct": false
+            }
+          ],
+          "explanation": "",
+          "collapsed": true,
+          "weight": 1
+        }
+      ],
       "images": [
         {
           "id": 133,
@@ -1867,13 +2590,108 @@
         {
           "type": "image",
           "id": 142
+        },
+        {
+          "type": "question",
+          "id": 25
         }
       ]
     },
     {
       "id": 19,
       "name": "Metabolism și nutriție",
-      "questions": [],
+      "questions": [
+        {
+          "id": 17,
+          "type": "question",
+          "question": "În starea metabolică de absorbție:",
+          "answers": [
+            {
+              "text": "nivelul de insulină este scăzut",
+              "correct": false
+            },
+            {
+              "text": "organismul eliberează glucoză din depozitele de glicogen",
+              "correct": false
+            },
+            {
+              "text": "fracția insulină/glucagon este scăzută",
+              "correct": false
+            },
+            {
+              "text": "organismul folosește aminoacizi pentru sinteza de proteine",
+              "correct": true
+            },
+            {
+              "text": "niciun răspuns corect",
+              "correct": false
+            }
+          ],
+          "explanation": "",
+          "collapsed": true,
+          "weight": 1
+        },
+        {
+          "id": 21,
+          "type": "question",
+          "question": "Pornind de la trei molecule de maltoză, organismul poate obține:",
+          "answers": [
+            {
+              "text": "la finalul întregului proces de respirație celulară, un câștig de 114 molecule de ATP",
+              "correct": false
+            },
+            {
+              "text": "la finalul etapei de glicoliză, un câștig net de 12 molecule de ATP",
+              "correct": true
+            },
+            {
+              "text": "18 molecule de CO2 în urma ciclului Krebs",
+              "correct": false
+            },
+            {
+              "text": "la finalul etapei de glicoliză, 24 de molecule de NADH",
+              "correct": false
+            },
+            {
+              "text": "niciun răspuns corect",
+              "correct": false
+            }
+          ],
+          "explanation": "",
+          "collapsed": true,
+          "weight": 1
+        },
+        {
+          "id": 27,
+          "type": "question",
+          "question": "Alegeți asocierile corecte dintre afecțiunea menționată, cauza potențială a acesteia, consecințele sale clinice și mijloacele terapeutice posibile:",
+          "answers": [
+            {
+              "text": "sindrom Cushing - excesul unor hormoni a căror secreție este reglată de ACTH prin feedback pozitiv - hipertensiune arterială, slăbiciune musculară generalizată, creșterea glicemiei - hormonoterapie",
+              "correct": false
+            },
+            {
+              "text": "mixedem - deficit al unui hormon proteic ce stimulează și maturarea sistemului nervos - bradicardie, lipsă de energie, rată metabolică redusă, exoftalmie - suplimentarea aportului alimntar de iod",
+              "correct": false
+            },
+            {
+              "text": "cetoacidoză diabetică - catabolism lipidic accelerat - respirație cu miros de diluant de lac de unghii - tratamentul diabetului zaharat",
+              "correct": true
+            },
+            {
+              "text": "boala beri-beri - producție scăzută de factor intrinsec de către celulele parietale gastrice - tulburări digestive, atrofie musculară, paralizii - creșterea aportului de alimente cu valoare energetică crescută",
+              "correct": false
+            },
+            {
+              "text": "niciun răspuns corect",
+              "correct": false
+            }
+          ],
+          "explanation": "",
+          "collapsed": true,
+          "weight": 1
+        }
+      ],
       "images": [
         {
           "id": 143,
@@ -2008,13 +2826,56 @@
         {
           "type": "image",
           "id": 153
+        },
+        {
+          "type": "question",
+          "id": 17
+        },
+        {
+          "type": "question",
+          "id": 21
+        },
+        {
+          "type": "question",
+          "id": 27
         }
       ]
     },
     {
       "id": 20,
       "name": "Sistemul urinar",
-      "questions": [],
+      "questions": [
+        {
+          "id": 20,
+          "type": "question",
+          "question": "Referitor la sistemul urinar este adevărat că:",
+          "answers": [
+            {
+              "text": "tubul colector este sediu de acțiune al vasopresinei",
+              "correct": true
+            },
+            {
+              "text": "vezica urinară este tapetată de un epiteliu stratificat cu rol protector",
+              "correct": true
+            },
+            {
+              "text": "tubul contort distal prezintă celule musculare ce asigură transportul urinei prin unde peristaltice",
+              "correct": false
+            },
+            {
+              "text": "glanda bulbouretrală este sediul secreției unui lichid ce va fi eliberat în uretra prostatică",
+              "correct": false
+            },
+            {
+              "text": "niciun răspuns corect",
+              "correct": false
+            }
+          ],
+          "explanation": "",
+          "collapsed": true,
+          "weight": 2
+        }
+      ],
       "images": [
         {
           "id": 154,
@@ -2125,13 +2986,78 @@
         {
           "type": "image",
           "id": 162
+        },
+        {
+          "type": "question",
+          "id": 20
         }
       ]
     },
     {
       "id": 21,
       "name": "Echilibrul hidro-electrolitic și  acido-bazic",
-      "questions": [],
+      "questions": [
+        {
+          "id": 18,
+          "type": "question",
+          "question": "În organismul uman, cantitatea de apă este mai mare:",
+          "answers": [
+            {
+              "text": "în compartimentul lichidian intracelular decât în cel extracelular",
+              "correct": true
+            },
+            {
+              "text": "în plasmă decât în limfă",
+              "correct": true
+            },
+            {
+              "text": "în limfă decât în lichidul interstițial",
+              "correct": false
+            },
+            {
+              "text": "în lichidul transcelular decât în cel intracelular",
+              "correct": false
+            },
+            {
+              "text": "niciun răspuns corect",
+              "correct": false
+            }
+          ],
+          "explanation": "",
+          "collapsed": true,
+          "weight": 1
+        },
+        {
+          "id": 30,
+          "type": "question",
+          "question": "Referitor la echilibrul hidric al organismului este adevărat că:",
+          "answers": [
+            {
+              "text": "în general, cantitatea de apă produsă zilnic din reacții chimice este egală cu pierderile zilnice de apă din organism",
+              "correct": false
+            },
+            {
+              "text": "angiotensina II crește conținutul de apă al organismului prin cel puțin două mecanisme distincte",
+              "correct": true
+            },
+            {
+              "text": "acumularea de apă în exces în spațiul interstițial duce la apariția edemelor",
+              "correct": true
+            },
+            {
+              "text": "prin scăderea presiunii osmotice pe care o induce, tromboza venoasă poate duce la apariția edemelor",
+              "correct": false
+            },
+            {
+              "text": "niciun răspuns corect",
+              "correct": false
+            }
+          ],
+          "explanation": "",
+          "collapsed": true,
+          "weight": 1
+        }
+      ],
       "images": [
         {
           "id": 163,
@@ -2206,13 +3132,82 @@
         {
           "type": "image",
           "id": 168
+        },
+        {
+          "type": "question",
+          "id": 18
+        },
+        {
+          "type": "question",
+          "id": 30
         }
       ]
     },
     {
       "id": 22,
       "name": "Sistemul reproducător masculin",
-      "questions": [],
+      "questions": [
+        {
+          "id": 12,
+          "type": "question",
+          "question": "Referitor la sistemul reproducător masculin este adevărat că:",
+          "answers": [
+            {
+              "text": "sperma conține și o protează",
+              "correct": true
+            },
+            {
+              "text": "FSH-ul stimulează producția de testosteron din celulele sustentaculare ale testiculului",
+              "correct": false
+            },
+            {
+              "text": "după pubertate, testosteronul influențează dezvoltarea caracterelor sexuale secundare masculine",
+              "correct": true
+            },
+            {
+              "text": "compoziția spermei nu este influențată de contracțiile glandelor anexe",
+              "correct": false
+            },
+            {
+              "text": "niciun răspuns corect",
+              "correct": false
+            }
+          ],
+          "explanation": "",
+          "collapsed": true,
+          "weight": 1
+        },
+        {
+          "id": 24,
+          "type": "question",
+          "question": "Care dintre următoarele afirmații referitoare la sistemul reproducător masculin este/sunt corectă/corecte?",
+          "answers": [
+            {
+              "text": "lichidul din epididim are caracter acid",
+              "correct": true
+            },
+            {
+              "text": "ampula ductului deferent se găsește lângă epididim",
+              "correct": false
+            },
+            {
+              "text": "celulele sustentaculare produc hormoni sexuali masculini",
+              "correct": false
+            },
+            {
+              "text": "capul spermatozoidului are un nucleu ce conține 23 de perechi de cromozomi",
+              "correct": false
+            },
+            {
+              "text": "niciun răspuns corect",
+              "correct": false
+            }
+          ],
+          "explanation": "",
+          "collapsed": true,
+          "weight": 1
+        }
+      ],
       "images": [
         {
           "id": 169,
@@ -2275,13 +3270,52 @@
         {
           "type": "image",
           "id": 173
+        },
+        {
+          "type": "question",
+          "id": 12
+        },
+        {
+          "type": "question",
+          "id": 24
         }
       ]
     },
     {
       "id": 23,
       "name": "Sistemul reproducător feminin",
-      "questions": [],
+      "questions": [
+        {
+          "id": 15,
+          "type": "question",
+          "question": "Spre deosebire de bărbați, la femei:",
+          "answers": [
+            {
+              "text": "cavitatea pelviană este mai largă și mai lungă",
+              "correct": false
+            },
+            {
+              "text": "conținutul de apă al organismului este mai crescut",
+              "correct": false
+            },
+            {
+              "text": "cartilajul cricoid este mai vizibil",
+              "correct": false
+            },
+            {
+              "text": "rata de filtrare glomerulară este cu circa 16% mai redusă",
+              "correct": true
+            },
+            {
+              "text": "niciun răspuns corect",
+              "correct": false
+            }
+          ],
+          "explanation": "",
+          "collapsed": true,
+          "weight": 1
+        }
+      ],
       "images": [
         {
           "id": 174,
@@ -2452,6 +3486,10 @@
         {
           "type": "image",
           "id": 187
+        },
+        {
+          "type": "question",
+          "id": 15
         }
       ]
     }
