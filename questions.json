@@ -3,7 +3,7 @@
     "version": 2,
     "nextChapterId": 24,
     "nextQuestionId": 1,
-    "nextImageId": 115
+    "nextImageId": 124
   },
   "chapters": [
     {
@@ -1511,8 +1511,118 @@
       "id": 16,
       "name": "Sistemul limfatic și imun",
       "questions": [],
-      "images": [],
-      "order": []
+      "images": [
+        {
+          "id": 115,
+          "type": "image",
+          "image": "",
+          "imagePath": "/images/chapter-16-img-1774408311370-slwyu0.PNG",
+          "explanation": "pag 377",
+          "collapsed": true
+        },
+        {
+          "id": 116,
+          "type": "image",
+          "image": "",
+          "imagePath": "/images/chapter-16-img-1774408332163-fvqi1k.PNG",
+          "explanation": "pag 378",
+          "collapsed": true
+        },
+        {
+          "id": 117,
+          "type": "image",
+          "image": "",
+          "imagePath": "/images/chapter-16-img-1774408358064-r0bwkv.PNG",
+          "explanation": "pag 379",
+          "collapsed": true
+        },
+        {
+          "id": 118,
+          "type": "image",
+          "image": "",
+          "imagePath": "/images/chapter-16-img-1774408455279-zplfun.PNG",
+          "explanation": "pag 380",
+          "collapsed": true
+        },
+        {
+          "id": 119,
+          "type": "image",
+          "image": "",
+          "imagePath": "/images/chapter-16-img-1774408471655-qhrin8.PNG",
+          "explanation": "pag 381",
+          "collapsed": true
+        },
+        {
+          "id": 120,
+          "type": "image",
+          "image": "",
+          "imagePath": "/images/chapter-16-img-1774408502164-yvew7s.PNG",
+          "explanation": "pag 383",
+          "collapsed": true
+        },
+        {
+          "id": 121,
+          "type": "image",
+          "image": "",
+          "imagePath": "/images/chapter-16-img-1774408547691-sollvq.PNG",
+          "explanation": "pag 386",
+          "collapsed": true
+        },
+        {
+          "id": 122,
+          "type": "image",
+          "image": "",
+          "imagePath": "/images/chapter-16-img-1774408558767-eajgl6.PNG",
+          "explanation": "pag 387",
+          "collapsed": true
+        },
+        {
+          "id": 123,
+          "type": "image",
+          "image": "",
+          "imagePath": "/images/chapter-16-img-1774408625910-y5ifvv.PNG",
+          "explanation": "pag 388",
+          "collapsed": true
+        }
+      ],
+      "order": [
+        {
+          "type": "image",
+          "id": 115
+        },
+        {
+          "type": "image",
+          "id": 116
+        },
+        {
+          "type": "image",
+          "id": 117
+        },
+        {
+          "type": "image",
+          "id": 118
+        },
+        {
+          "type": "image",
+          "id": 119
+        },
+        {
+          "type": "image",
+          "id": 120
+        },
+        {
+          "type": "image",
+          "id": 121
+        },
+        {
+          "type": "image",
+          "id": 122
+        },
+        {
+          "type": "image",
+          "id": 123
+        }
+      ]
     },
     {
       "id": 17,
