@@ -2,7 +2,7 @@
   "meta": {
     "version": 2,
     "nextChapterId": 24,
-    "nextQuestionId": 31,
+    "nextQuestionId": 32,
     "nextImageId": 188
   },
   "chapters": [
@@ -1918,6 +1918,36 @@
           "explanation": "",
           "collapsed": true,
           "weight": 4
+        },
+        {
+          "id": 31,
+          "type": "question",
+          "question": "La nivelul sistemului cardiovascular:",
+          "answers": [
+            {
+              "text": "sângele sărac în oxigen și bogat în dioxid de carbon trece succesiv prin două valve prevăzute fiecare cu câte trei elemente mobile",
+              "correct": true
+            },
+            {
+              "text": "celulele musculare sunt identice din punct de vedere structural și funcțional în toate structurile care alcătuiesc acest sistem",
+              "correct": false
+            },
+            {
+              "text": "activitatea miocardică poate fi oprită temporar prin control voluntar",
+              "correct": false
+            },
+            {
+              "text": "stratul extern al structurilor care leagă capilarele de vene conține o rețea laxă de fibre de colagen",
+              "correct": true
+            },
+            {
+              "text": "niciun răspuns corect",
+              "correct": false
+            }
+          ],
+          "explanation": "",
+          "collapsed": true,
+          "weight": 1
         }
       ],
       "images": [
@@ -2058,6 +2088,10 @@
         {
           "type": "question",
           "id": 7
+        },
+        {
+          "type": "question",
+          "id": 31
         }
       ]
     },
