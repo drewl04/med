@@ -3,7 +3,7 @@
     "version": 2,
     "nextChapterId": 24,
     "nextQuestionId": 1,
-    "nextImageId": 133
+    "nextImageId": 143
   },
   "chapters": [
     {
@@ -1745,8 +1745,130 @@
       "id": 18,
       "name": "Sistemul digestiv",
       "questions": [],
-      "images": [],
-      "order": []
+      "images": [
+        {
+          "id": 133,
+          "type": "image",
+          "image": "",
+          "imagePath": "/images/chapter-18-img-1774441554026-mt2lo4.PNG",
+          "explanation": "pag 426",
+          "collapsed": true
+        },
+        {
+          "id": 134,
+          "type": "image",
+          "image": "",
+          "imagePath": "/images/chapter-18-img-1774441569631-umhtmw.PNG",
+          "explanation": "pag 428",
+          "collapsed": true
+        },
+        {
+          "id": 135,
+          "type": "image",
+          "image": "",
+          "imagePath": "/images/chapter-18-img-1774441594442-ueiw0x.PNG",
+          "explanation": "pag 429",
+          "collapsed": true
+        },
+        {
+          "id": 136,
+          "type": "image",
+          "image": "",
+          "imagePath": "/images/chapter-18-img-1774441614213-6w4kby.PNG",
+          "explanation": "pag 430",
+          "collapsed": true
+        },
+        {
+          "id": 137,
+          "type": "image",
+          "image": "",
+          "imagePath": "/images/chapter-18-img-1774441632465-mnilx5.PNG",
+          "explanation": "pag 432",
+          "collapsed": true
+        },
+        {
+          "id": 138,
+          "type": "image",
+          "image": "",
+          "imagePath": "/images/chapter-18-img-1774441647976-5jgeaj.PNG",
+          "explanation": "pag 434",
+          "collapsed": true
+        },
+        {
+          "id": 139,
+          "type": "image",
+          "image": "",
+          "imagePath": "/images/chapter-18-img-1774441664336-znchef.PNG",
+          "explanation": "pag 436",
+          "collapsed": true
+        },
+        {
+          "id": 140,
+          "type": "image",
+          "image": "",
+          "imagePath": "/images/chapter-18-img-1774441675487-pimg2c.PNG",
+          "explanation": "pag 437",
+          "collapsed": true
+        },
+        {
+          "id": 141,
+          "type": "image",
+          "image": "",
+          "imagePath": "/images/chapter-18-img-1774441697203-d4wxw1.PNG",
+          "explanation": "pag 438",
+          "collapsed": true
+        },
+        {
+          "id": 142,
+          "type": "image",
+          "image": "",
+          "imagePath": "/images/chapter-18-img-1774441714287-2tuyw0.PNG",
+          "explanation": "pag 439",
+          "collapsed": true
+        }
+      ],
+      "order": [
+        {
+          "type": "image",
+          "id": 133
+        },
+        {
+          "type": "image",
+          "id": 134
+        },
+        {
+          "type": "image",
+          "id": 135
+        },
+        {
+          "type": "image",
+          "id": 136
+        },
+        {
+          "type": "image",
+          "id": 137
+        },
+        {
+          "type": "image",
+          "id": 138
+        },
+        {
+          "type": "image",
+          "id": 139
+        },
+        {
+          "type": "image",
+          "id": 140
+        },
+        {
+          "type": "image",
+          "id": 141
+        },
+        {
+          "type": "image",
+          "id": 142
+        }
+      ]
     },
     {
       "id": 19,
