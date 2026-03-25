@@ -2,7 +2,7 @@
   "meta": {
     "version": 2,
     "nextChapterId": 24,
-    "nextQuestionId": 32,
+    "nextQuestionId": 36,
     "nextImageId": 188
   },
   "chapters": [
@@ -614,6 +614,36 @@
           "explanation": "",
           "collapsed": true,
           "weight": 1
+        },
+        {
+          "id": 35,
+          "type": "question",
+          "question": "Care dintre următoarele oase prezintă condili?",
+          "answers": [
+            {
+              "text": "tibia",
+              "correct": true
+            },
+            {
+              "text": "axisul",
+              "correct": false
+            },
+            {
+              "text": " radiusul",
+              "correct": false
+            },
+            {
+              "text": "osul occipital",
+              "correct": true
+            },
+            {
+              "text": "niciun răspuns corect",
+              "correct": false
+            }
+          ],
+          "explanation": "",
+          "collapsed": true,
+          "weight": 1
         }
       ],
       "images": [
@@ -754,6 +784,10 @@
         {
           "type": "question",
           "id": 10
+        },
+        {
+          "type": "question",
+          "id": 35
         }
       ]
     },
@@ -789,6 +823,36 @@
           ],
           "explanation": "",
           "collapsed": true,
+          "weight": 1
+        },
+        {
+          "id": 33,
+          "type": "question",
+          "question": "Atât fibrele mușchiului cardiac, cât și fibrele mușchiului neted:",
+          "answers": [
+            {
+              "text": "se contractă ca răspuns la impulsuri venite de la sistemul nervos autonom",
+              "correct": false
+            },
+            {
+              "text": "prezintă corpi denși distribuiți în întreaga celulă",
+              "correct": false
+            },
+            {
+              "text": "au un singur nucleu",
+              "correct": true
+            },
+            {
+              "text": "pot prezenta canale sau pori ce permit trecerea ionilor și moleculelor dintr-o celulă în alta",
+              "correct": true
+            },
+            {
+              "text": "niciun răspuns corect",
+              "correct": false
+            }
+          ],
+          "explanation": "",
+          "collapsed": false,
           "weight": 1
         }
       ],
@@ -870,6 +934,10 @@
         {
           "type": "question",
           "id": 13
+        },
+        {
+          "type": "question",
+          "id": 33
         }
       ]
     },
@@ -2500,6 +2568,36 @@
           "explanation": "",
           "collapsed": true,
           "weight": 1
+        },
+        {
+          "id": 32,
+          "type": "question",
+          "question": "Despre glanda parotidă este adevărat că:",
+          "answers": [
+            {
+              "text": "are un canal care se deschide la nivelul cavității orale, în dreptul celui de-al treilea molar",
+              "correct": false
+            },
+            {
+              "text": "produce o enzimă care are ca rezultat formarea maltozei",
+              "correct": true
+            },
+            {
+              "text": "este a doua ca mărime dintre glandele salivare",
+              "correct": false
+            },
+            {
+              "text": "este situată în țesuturile profunde ale feței, în vecinătatea urechii",
+              "correct": true
+            },
+            {
+              "text": "niciun răspuns corect",
+              "correct": false
+            }
+          ],
+          "explanation": "",
+          "collapsed": true,
+          "weight": 1
         }
       ],
       "images": [
@@ -2628,6 +2726,10 @@
         {
           "type": "question",
           "id": 25
+        },
+        {
+          "type": "question",
+          "id": 32
         }
       ]
     },
@@ -2908,6 +3010,36 @@
           "explanation": "",
           "collapsed": true,
           "weight": 2
+        },
+        {
+          "id": 34,
+          "type": "question",
+          "question": "Referitor la unele afecțiuni endocrine care influențează funcția renală este adevărat că:",
+          "answers": [
+            {
+              "text": "diabetul insipid este caracterizat prin eliminarea unor cantități mari de urină concentrată",
+              "correct": false
+            },
+            {
+              "text": "diabetul zaharat este caracterizat prin eliminarea de cantități crescute de glucoză prin urină",
+              "correct": true
+            },
+            {
+              "text": "boala Addison este caracterizată printr-o eliminare redusă de potasiu prin urină",
+              "correct": true
+            },
+            {
+              "text": "boala Graves este caracterizată prin ritm cardiac lent, slăbiciune generalizată și filtrare glomerulară redusă",
+              "correct": false
+            },
+            {
+              "text": " niciun răspuns corect",
+              "correct": false
+            }
+          ],
+          "explanation": "",
+          "collapsed": true,
+          "weight": 1
         }
       ],
       "images": [
@@ -3024,6 +3156,10 @@
         {
           "type": "question",
           "id": 20
+        },
+        {
+          "type": "question",
+          "id": 34
         }
       ]
     },
