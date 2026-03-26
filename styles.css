@@ -819,6 +819,13 @@ main {
 }
 
 #images-explanation,
+#practice-explanation,
+#test-explanation {
+    white-space: pre-wrap;
+    tab-size: 4;
+}
+
+#images-explanation,
 #practice-explanation {
     display: none;
     width: 100%;
