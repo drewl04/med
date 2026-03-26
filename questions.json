@@ -2,7 +2,7 @@
   "meta": {
     "version": 2,
     "nextChapterId": 24,
-    "nextQuestionId": 97,
+    "nextQuestionId": 106,
     "nextImageId": 188
   },
   "chapters": [
@@ -301,6 +301,36 @@
           "explanation": "Târgu Mureș - admitere iulie 2025",
           "collapsed": true,
           "weight": 2
+        },
+        {
+          "id": 105,
+          "type": "question",
+          "question": "Referitor la acizii grași nesaturați este adevărat că:",
+          "answers": [
+            {
+              "text": "sunt compuși din atomi de carbon, oxigen și nitrogen",
+              "correct": false
+            },
+            {
+              "text": "sunt preferați în dieta anumitor afecțiuni în locul acizilor grași saturați",
+              "correct": false
+            },
+            {
+              "text": "toți pot fi sintetizați de ficat",
+              "correct": false
+            },
+            {
+              "text": "",
+              "correct": false
+            },
+            {
+              "text": "",
+              "correct": false
+            }
+          ],
+          "explanation": "",
+          "collapsed": false,
+          "weight": 1
         }
       ],
       "images": [],
@@ -320,6 +350,10 @@
         {
           "type": "question",
           "id": 92
+        },
+        {
+          "type": "question",
+          "id": 105
         }
       ]
     },
@@ -852,6 +886,36 @@
           "explanation": "Târgu Mureș - admitere iulie 2025",
           "collapsed": true,
           "weight": 1
+        },
+        {
+          "id": 99,
+          "type": "question",
+          "question": "Referitor la temperatura corporală este adevărat că:",
+          "answers": [
+            {
+              "text": "reglarea acesteia reprezintă una din funcțiile tegumentului",
+              "correct": true
+            },
+            {
+              "text": "poate varia în funcție de activitatea persoanei",
+              "correct": true
+            },
+            {
+              "text": "nu este influențată de metabolism",
+              "correct": false
+            },
+            {
+              "text": "depinde în mare parte de activitatea hipofizei",
+              "correct": false
+            },
+            {
+              "text": "niciun răspuns corect",
+              "correct": false
+            }
+          ],
+          "explanation": "",
+          "collapsed": true,
+          "weight": 1
         }
       ],
       "images": [
@@ -908,6 +972,10 @@
         {
           "type": "question",
           "id": 60
+        },
+        {
+          "type": "question",
+          "id": 99
         }
       ]
     },
@@ -1492,6 +1560,66 @@
           "explanation": "Târgu Mureș - admitere iulie 2025",
           "collapsed": true,
           "weight": 2
+        },
+        {
+          "id": 97,
+          "type": "question",
+          "question": "Diferitele evenimente din timpul contracției fibrei musculare scheletice se produc în următoarea succesiune:",
+          "answers": [
+            {
+              "text": "legarea acetilcolinei de receptori - pomparea calciului în cisternele terminale - legarea troponinei de tropomiozină - cuplarea actinei de miozină",
+              "correct": false
+            },
+            {
+              "text": "sosirea unui impuls nervos la nivelul terminației axonale - eliberare de acetilcolină - pătrunderea ionilor de sodiu în celulă - eliberarea ionilor de calciu din reticulul sarcoplasmic",
+              "correct": true
+            },
+            {
+              "text": "desfacerea ATP-ului de către o enzimă - eliberarea de energie - blocarea actinei și miozinei în poziție de contracție - scurtarea sarcomerului",
+              "correct": false
+            },
+            {
+              "text": "difuzarea ionilor de calciu în sarcoplasmă - legarea ionilor de calciu de troponină - schimbarea poziției tropomiozinei - eliberarea locurilor de cuplare ale actinei cu miozina",
+              "correct": true
+            },
+            {
+              "text": "niciun răspuns corect",
+              "correct": false
+            }
+          ],
+          "explanation": "",
+          "collapsed": true,
+          "weight": 1
+        },
+        {
+          "id": 104,
+          "type": "question",
+          "question": "Față de celulele musculare scheletice, celulele musculare cardiace:",
+          "answers": [
+            {
+              "text": "se găsesc și în tunica medie a peretelui vascular",
+              "correct": false
+            },
+            {
+              "text": "sunt mai puțin lungi și mai ramificate",
+              "correct": true
+            },
+            {
+              "text": "pentru contracție nu necesită impulsuri provenite de la sistemul excitoconductor",
+              "correct": false
+            },
+            {
+              "text": "au un necesar energetic mai crescut",
+              "correct": true
+            },
+            {
+              "text": "niciun răspuns corect",
+              "correct": false
+            }
+          ],
+          "explanation": "",
+          "collapsed": true,
+          "weight": 1
         }
       ],
       "images": [
@@ -1588,6 +1716,14 @@
         {
           "type": "question",
           "id": 81
+        },
+        {
+          "type": "question",
+          "id": 97
+        },
+        {
+          "type": "question",
+          "id": 104
         }
       ]
     },
@@ -2822,6 +2958,36 @@
           "explanation": "Târgu Mureș - admitere iulie 2025",
           "collapsed": true,
           "weight": 1
+        },
+        {
+          "id": 102,
+          "type": "question",
+          "question": "Hormonii cu efect de control asupra altor glande endocrine includ:",
+          "answers": [
+            {
+              "text": "oxitocina",
+              "correct": false
+            },
+            {
+              "text": "prolactina",
+              "correct": false
+            },
+            {
+              "text": "FSH-ul",
+              "correct": true
+            },
+            {
+              "text": "hormonul de creștere",
+              "correct": false
+            },
+            {
+              "text": "niciun răspuns corect",
+              "correct": false
+            }
+          ],
+          "explanation": "",
+          "collapsed": true,
+          "weight": 1
         }
       ],
       "images": [
@@ -2950,6 +3116,10 @@
         {
           "type": "question",
           "id": 94
+        },
+        {
+          "type": "question",
+          "id": 102
         }
       ]
     },
@@ -3344,6 +3514,36 @@
           "explanation": "Târgu Mureș - admitere iulie 2025",
           "collapsed": true,
           "weight": 2
+        },
+        {
+          "id": 101,
+          "type": "question",
+          "question": "În timpul ciclului cardiac:",
+          "answers": [
+            {
+              "text": "sângele circulă simultan prin toate orificiile cardiace",
+              "correct": false
+            },
+            {
+              "text": "când presiunea atrială o depășește pe cea ventriculară, sângele este împins prin valvele atrioventriculare înspre ventricule",
+              "correct": true
+            },
+            {
+              "text": "cu ocazia fiecărei sistole, ventriculul pompează o cantitate de sânge egală cu debitul cardiac",
+              "correct": false
+            },
+            {
+              "text": "diastola atrială are loc simultan cu sistola ventriculară",
+              "correct": true
+            },
+            {
+              "text": "niciun răspuns corect",
+              "correct": false
+            }
+          ],
+          "explanation": "",
+          "collapsed": true,
+          "weight": 1
         }
       ],
       "images": [
@@ -3492,6 +3692,10 @@
         {
           "type": "question",
           "id": 37
+        },
+        {
+          "type": "question",
+          "id": 101
         }
       ]
     },
@@ -3864,6 +4068,66 @@
           "explanation": "Târgu Mureș - admitere iulie 2025",
           "collapsed": true,
           "weight": 1
+        },
+        {
+          "id": 98,
+          "type": "question",
+          "question": "În privința controlului respirației este adevărat că:",
+          "answers": [
+            {
+              "text": "zona pneumotaxică reglează frecvența și amplitudinea respirației",
+              "correct": true
+            },
+            {
+              "text": "sunt implicați chemoreceptorii din arterele carotide și arcul aortic",
+              "correct": true
+            },
+            {
+              "text": "chemoreceptorii din arterele carotide sunt stimulați când nivelul de oxigen din sânge este crescut",
+              "correct": false
+            },
+            {
+              "text": "centrul respirator din trunchiul cerebral este inhibat de nivelul ridicat al ionilor de hidrogen din lichidul cefalorahidian",
+              "correct": false
+            },
+            {
+              "text": "niciun răspuns corect",
+              "correct": false
+            }
+          ],
+          "explanation": "",
+          "collapsed": true,
+          "weight": 1
+        },
+        {
+          "id": 103,
+          "type": "question",
+          "question": "Referitor la volumele pulmonare este adevărat că:",
+          "answers": [
+            {
+              "text": "volumul rezidual este de aproximativ 500 ml de aer",
+              "correct": false
+            },
+            {
+              "text": "volumul curent este de aproximativ 1000 ml de aer",
+              "correct": false
+            },
+            {
+              "text": "prin inspirație forțată, în plămân, mai pot fi introduși aproximativ 2500-3500 ml de aer peste volumul curent",
+              "correct": true
+            },
+            {
+              "text": "după o expirație forțată, în plămâni mai rămân aproximativ 2500 ml de aer",
+              "correct": false
+            },
+            {
+              "text": "niciun răspuns corect",
+              "correct": false
+            }
+          ],
+          "explanation": "",
+          "collapsed": true,
+          "weight": 1
         }
       ],
       "images": [
@@ -4000,6 +4264,14 @@
         {
           "type": "question",
           "id": 76
+        },
+        {
+          "type": "question",
+          "id": 98
+        },
+        {
+          "type": "question",
+          "id": 103
         }
       ]
     },
@@ -5052,6 +5324,36 @@
           "explanation": "Târgu Mureș - admitere iulie 2025",
           "collapsed": true,
           "weight": 1
+        },
+        {
+          "id": 100,
+          "type": "question",
+          "question": "Referitor la substanțele bazice implicate în principalele sisteme tampon ale organismului uman, este adevărat că:",
+          "answers": [
+            {
+              "text": "NaHCO3 este o bază mai slabă decât hidroxidul de sodiu",
+              "correct": true
+            },
+            {
+              "text": "adenina este o bază slabă din structura acizilor nucleici",
+              "correct": false
+            },
+            {
+              "text": "hidroxidul de sodiu, introdus în apă, duce la formarea unei soluții alcaline",
+              "correct": false
+            },
+            {
+              "text": "în cazul unei alcaloze, la nivel renal se reduce reabsorbția ionilor de bicarbonat",
+              "correct": true
+            },
+            {
+              "text": "niciun răspuns corect",
+              "correct": false
+            }
+          ],
+          "explanation": "",
+          "collapsed": true,
+          "weight": 1
         }
       ],
       "images": [
@@ -5152,6 +5454,10 @@
         {
           "type": "question",
           "id": 95
+        },
+        {
+          "type": "question",
+          "id": 100
         }
       ]
     },
