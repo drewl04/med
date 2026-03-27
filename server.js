@@ -25,7 +25,7 @@ const upload = multer({ storage });
 
 app.use(express.static(ROOT));
 app.use('/images', express.static(IMAGE_FOLDER));
-app.use(express.json());
+app.use(express.json({ limit: '25mb' }));
 
 app.get('/api/chapters', async (_req, res) => {
     try {
