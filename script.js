@@ -44,6 +44,7 @@
         practiceExplanation: document.getElementById('practice-explanation'),
         practiceToggleExplanation: document.getElementById('practice-toggle-explanation'),
 
+        inputTestShuffle: document.getElementById('input-test-shuffle'),
         inputTestAnswers: document.getElementById('input-test-answers'),
         buttonStartTest: document.getElementById('button-start-test'),
         testSidebarOptions: document.querySelector('.sidebar-section-bottom > ul'),
@@ -92,6 +93,7 @@
             answered: false,
             totalQuestions: 100,
             durationMinutes: 30,
+            shuffleAnswers: false,
             startedWithAnswers: false,
             correctCount: 0,
             timeRemainingSeconds: 30 * 60,
@@ -105,6 +107,7 @@
     const DEFAULTS = {
         TEST_QUESTION_COUNT: 25,
         TEST_DURATION_MINUTES: 30,
+        TEST_SHUFFLE_ANSWERS: false,
         TEST_SHOW_ANSWERS: true
     };
 
@@ -1184,7 +1187,7 @@
             );
     }
 
-    function buildTestQuestionSet(allQuestions, amount) {
+    function buildTestQuestionSet(allQuestions, amount, shuffleAnswers) {
         const shuffled = [...allQuestions];
         shuffleArray(shuffled);
 
@@ -1192,7 +1195,15 @@
         const result = [];
 
         for (let index = 0; index < targetAmount; index += 1) {
-            result.push(shuffled[index % shuffled.length]);
+            const entry = shuffled[index % shuffled.length];
+            const displayAnswers = shuffleAnswers
+                ? shuffleArray([...entry.question.answers])
+                : [...entry.question.answers];
+
+            result.push({
+                ...entry,
+                displayAnswers
+            });
         }
 
         return result;
@@ -1617,6 +1628,7 @@
 
         state.test.totalQuestions = getConfiguredTestQuestionAmount();
         state.test.durationMinutes = getConfiguredTestDurationMinutes();
+        state.test.shuffleAnswers = Boolean(dom.inputTestShuffle.checked);
         state.test.startedWithAnswers = Boolean(dom.inputTestAnswers.checked);
         state.test.correctCount = 0;
         state.test.currentIndex = 0;
@@ -1640,7 +1652,8 @@
         state.test.isRunning = true;
         state.test.questions = buildTestQuestionSet(
             availableQuestions,
-            state.test.totalQuestions
+            state.test.totalQuestions,
+            state.test.shuffleAnswers
         );
 
         dom.sidebar.classList.remove('expanded');
@@ -1718,7 +1731,7 @@
             return;
         }
 
-        const { question } = questionEntry;
+        const { question, displayAnswers } = questionEntry;
 
         state.test.answered = false;
 
@@ -1735,7 +1748,7 @@
         dom.testSubmit.classList.remove('practice-next');
         dom.testSubmit.classList.add('practice-submit');
 
-        question.answers.forEach((answer) => {
+        displayAnswers.forEach((answer) => {
             const row = document.createElement('label');
             row.className = 'test-answer';
 
@@ -1759,7 +1772,7 @@
             return;
         }
 
-        const { question, chapterId, chapterName } = questionEntry; 
+        const { question, chapterId, chapterName, displayAnswers } = questionEntry;
 
         const inputs = Array.from(dom.testAnswers.querySelectorAll('input'));
         let correct = true;
@@ -1792,18 +1805,18 @@
         }
 
         state.test.results.push({
-        questionId: question.id,
-        questionText: question.question,
-        chapterId,
-        chapterName,
-        correct,
-        explanation: question.explanation || '',
-        answers: question.answers.map((answer, index) => ({
-            text: answer.text,
-            correct: answer.correct,
-            selected: inputs[index]?.checked || false
-        }))
-    });
+            questionId: question.id,
+            questionText: question.question,
+            chapterId,
+            chapterName,
+            correct,
+            explanation: question.explanation || '',
+            answers: displayAnswers.map((answer, index) => ({
+                text: answer.text,
+                correct: answer.correct,
+                selected: inputs[index]?.checked || false
+            }))
+        });
 
         state.test.answered = true;
         updateTestMeta();
@@ -2305,6 +2318,7 @@
 
         dom.inputQuestions.placeholder = DEFAULTS.TEST_QUESTION_COUNT;
         dom.inputTime.placeholder = `${DEFAULTS.TEST_DURATION_MINUTES} min`;
+        dom.inputTestShuffle.checked = DEFAULTS.TEST_SHUFFLE_ANSWERS;
         dom.inputTestAnswers.checked = DEFAULTS.TEST_SHOW_ANSWERS;
 
         dom.headingTest.textContent = 'TEST';
