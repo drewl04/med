@@ -2,7 +2,7 @@
   "meta": {
     "version": 2,
     "nextChapterId": 24,
-    "nextQuestionId": 294,
+    "nextQuestionId": 304,
     "nextImageId": 188
   },
   "chapters": [
@@ -37,7 +37,7 @@
             }
           ],
           "explanation": "Târgu Mureș - admitere iulie 2025",
-          "collapsed": true,
+          "collapsed": false,
           "weight": 5
         },
         {
@@ -67,7 +67,7 @@
             }
           ],
           "explanation": "Târgu Mureș - admitere iulie 2025",
-          "collapsed": true,
+          "collapsed": false,
           "weight": 1
         },
         {
@@ -97,7 +97,7 @@
             }
           ],
           "explanation": "Târgu Mureș - admitere iulie 2025",
-          "collapsed": true,
+          "collapsed": false,
           "weight": 1
         },
         {
@@ -127,7 +127,7 @@
             }
           ],
           "explanation": "Târgu Mureș - admitere iulie 2024",
-          "collapsed": true,
+          "collapsed": false,
           "weight": 1
         },
         {
@@ -157,7 +157,7 @@
             }
           ],
           "explanation": "Târgu Mureș - admitere iulie 2024",
-          "collapsed": true,
+          "collapsed": false,
           "weight": 1
         },
         {
@@ -187,7 +187,7 @@
             }
           ],
           "explanation": "Târgu Mureș - admitere iulie 2024",
-          "collapsed": true,
+          "collapsed": false,
           "weight": 1
         },
         {
@@ -216,8 +216,8 @@
               "correct": false
             }
           ],
-          "explanation": "",
-          "collapsed": true,
+          "explanation": "Târgu Mureș - admitere iulie 2023",
+          "collapsed": false,
           "weight": 1
         },
         {
@@ -246,8 +246,8 @@
               "correct": false
             }
           ],
-          "explanation": "",
-          "collapsed": true,
+          "explanation": "Târgu Mureș - admitere iulie 2023",
+          "collapsed": false,
           "weight": 1
         }
       ],
@@ -258,7 +258,7 @@
           "image": "",
           "imagePath": "/images/chapter-1-img-1774374012822-hly50q.PNG",
           "explanation": "pag 2",
-          "collapsed": true
+          "collapsed": false
         },
         {
           "id": 2,
@@ -266,7 +266,7 @@
           "image": "",
           "imagePath": "/images/chapter-1-img-1774374045065-p201s0.PNG",
           "explanation": "pag 6",
-          "collapsed": true
+          "collapsed": false
         },
         {
           "id": 3,
@@ -274,7 +274,7 @@
           "image": "",
           "imagePath": "/images/chapter-1-img-1774374051803-x092xj.PNG",
           "explanation": "pag 8",
-          "collapsed": true
+          "collapsed": false
         },
         {
           "id": 4,
@@ -282,7 +282,7 @@
           "image": "",
           "imagePath": "/images/chapter-1-img-1774374060939-zdol3t.PNG",
           "explanation": "pag 9",
-          "collapsed": true
+          "collapsed": false
         },
         {
           "id": 5,
@@ -290,7 +290,7 @@
           "image": "",
           "imagePath": "/images/chapter-1-img-1774374081776-n8nuwx.PNG",
           "explanation": "pag 10",
-          "collapsed": true
+          "collapsed": false
         }
       ],
       "order": [
@@ -2626,6 +2626,66 @@
           "explanation": "",
           "collapsed": true,
           "weight": 1
+        },
+        {
+          "id": 299,
+          "type": "question",
+          "question": "Hematopoieza are loc:",
+          "answers": [
+            {
+              "text": "în epifiza humerusului",
+              "correct": true
+            },
+            {
+              "text": "la nivelul plăcii epifizare",
+              "correct": false
+            },
+            {
+              "text": "în lacunele lamelelor osoase",
+              "correct": false
+            },
+            {
+              "text": "în spațiile dintre traveele osoase",
+              "correct": true
+            },
+            {
+              "text": "niciun răspuns corect",
+              "correct": false
+            }
+          ],
+          "explanation": "",
+          "collapsed": true,
+          "weight": 1
+        },
+        {
+          "id": 303,
+          "type": "question",
+          "question": "Referitor la oasele membrului inferior este adevărat că:",
+          "answers": [
+            {
+              "text": "fibula este osul mai subțire al gambei, localizat medial",
+              "correct": false
+            },
+            {
+              "text": "patela se află posterior de femur",
+              "correct": false
+            },
+            {
+              "text": "condilii femurali și condilii tibiali formează o articulație pivotală",
+              "correct": false
+            },
+            {
+              "text": "pe tuberozitatea tibiei se inseră ligamentul patelar",
+              "correct": true
+            },
+            {
+              "text": "niciun răspuns corect",
+              "correct": false
+            }
+          ],
+          "explanation": "",
+          "collapsed": true,
+          "weight": 1
         }
       ],
       "images": [
@@ -2758,6 +2818,14 @@
         {
           "type": "question",
           "id": 263
+        },
+        {
+          "type": "question",
+          "id": 299
+        },
+        {
+          "type": "question",
+          "id": 303
         }
       ]
     },
@@ -3004,6 +3072,36 @@
           "explanation": "",
           "collapsed": true,
           "weight": 1
+        },
+        {
+          "id": 300,
+          "type": "question",
+          "question": "Referitor la oasele temporale este adevărat că:",
+          "answers": [
+            {
+              "text": "au forma unui fluture și formează partea anterioară a bazei cutiei craniene",
+              "correct": false
+            },
+            {
+              "text": "conțin sinusurile temporale, situate profund în interiorul lor",
+              "correct": false
+            },
+            {
+              "text": "prezintă fosa mandibulară prin care se articulează cu mandibula",
+              "correct": true
+            },
+            {
+              "text": "prin intermediul suturii scuamoase se unesc cu oasele parietale",
+              "correct": true
+            },
+            {
+              "text": "niciun răspuns corect",
+              "correct": false
+            }
+          ],
+          "explanation": "",
+          "collapsed": true,
+          "weight": 1
         }
       ],
       "images": [
@@ -3172,6 +3270,10 @@
         {
           "type": "question",
           "id": 243
+        },
+        {
+          "type": "question",
+          "id": 300
         }
       ]
     },
@@ -4028,6 +4130,36 @@
           "explanation": "",
           "collapsed": true,
           "weight": 1
+        },
+        {
+          "id": 296,
+          "type": "question",
+          "question": "Participă la flexia antebrațului mușchiul/mușchii:",
+          "answers": [
+            {
+              "text": "pronator pătrat",
+              "correct": false
+            },
+            {
+              "text": "pronator rotund",
+              "correct": true
+            },
+            {
+              "text": "coracobrahial",
+              "correct": false
+            },
+            {
+              "text": "brahioradial",
+              "correct": true
+            },
+            {
+              "text": "niciun răspuns corect",
+              "correct": false
+            }
+          ],
+          "explanation": "",
+          "collapsed": true,
+          "weight": 1
         }
       ],
       "images": [
@@ -4212,6 +4344,10 @@
         {
           "type": "question",
           "id": 289
+        },
+        {
+          "type": "question",
+          "id": 296
         }
       ]
     },
@@ -4705,28 +4841,28 @@
           "question": "Se consideră 1 (unu) intensitatea unui stimul care depolarizează un neuron până la prag. Comparativ cu stimulul inițial, un alt stimul cu intensitatea de:",
           "answers": [
             {
-              "text": "",
+              "text": "0,5x produce un impuls nervos cu intensitate redusă la jumătate",
               "correct": false
             },
             {
-              "text": "",
+              "text": "3x produce un impuls nervos cu intensitate identică",
+              "correct": true
+            },
+            {
+              "text": "2x produce un impuls nervos cu intensitate dublă",
               "correct": false
             },
             {
-              "text": "",
+              "text": "0,7x produce un impuls nervos care se propagă mai lent",
               "correct": false
             },
             {
-              "text": "",
-              "correct": false
-            },
-            {
-              "text": "",
+              "text": "niciun răspuns corect",
               "correct": false
             }
           ],
           "explanation": "",
-          "collapsed": false,
+          "collapsed": true,
           "weight": 1
         }
       ],
@@ -6556,6 +6692,36 @@
           "explanation": "",
           "collapsed": true,
           "weight": 1
+        },
+        {
+          "id": 302,
+          "type": "question",
+          "question": "Producerea și/sau secreția laptelui este controlată de:",
+          "answers": [
+            {
+              "text": "ACTH",
+              "correct": true
+            },
+            {
+              "text": "un hormon proteic",
+              "correct": true
+            },
+            {
+              "text": "un hormon lipidic non-steroidian",
+              "correct": false
+            },
+            {
+              "text": "vasopresină",
+              "correct": false
+            },
+            {
+              "text": "niciun răspuns corect",
+              "correct": false
+            }
+          ],
+          "explanation": "",
+          "collapsed": true,
+          "weight": 1
         }
       ],
       "images": [
@@ -6724,6 +6890,10 @@
         {
           "type": "question",
           "id": 265
+        },
+        {
+          "type": "question",
+          "id": 302
         }
       ]
     },
@@ -7210,6 +7380,36 @@
           "explanation": "",
           "collapsed": true,
           "weight": 1
+        },
+        {
+          "id": 297,
+          "type": "question",
+          "question": "Andreea are grupa sanguină A-, în timp ce soțul ei Iosif este AB. Primul lor copil Ștefan este A+. Andreea este însărcinată a doua oară. Alegeți afirmația/afirmațiile corectă/corecte:",
+          "answers": [
+            {
+              "text": "hematiile fetale pot traversa placenta și vor activa sistemul imun al Andreei",
+              "correct": false
+            },
+            {
+              "text": "la al doilea copil poate să apară boala hemolitică a nou-născutului",
+              "correct": true
+            },
+            {
+              "text": "al doilea copil va fi în mod cert Rh-pozitiv",
+              "correct": false
+            },
+            {
+              "text": "în sângele Andreei pot fi prezenți anticorpi anti-Rh de tip IgM, care traversând placenta vor distruge eritrocitele fătului",
+              "correct": false
+            },
+            {
+              "text": "niciun răspuns corect",
+              "correct": false
+            }
+          ],
+          "explanation": "",
+          "collapsed": true,
+          "weight": 1
         }
       ],
       "images": [
@@ -7362,6 +7562,10 @@
         {
           "type": "question",
           "id": 291
+        },
+        {
+          "type": "question",
+          "id": 297
         }
       ]
     },
@@ -9296,6 +9500,36 @@
           "explanation": "",
           "collapsed": true,
           "weight": 1
+        },
+        {
+          "id": 298,
+          "type": "question",
+          "question": "Glanda parotidă este o glandă salivară pereche care se caracterizează prin:",
+          "answers": [
+            {
+              "text": "este o glandă merocrină localizată dedesubtul urechii",
+              "correct": true
+            },
+            {
+              "text": "conține celule mucoase care produc o enzimă numită amilază",
+              "correct": false
+            },
+            {
+              "text": "secretă enzime care inițiază procesul de digestie al glucidelor",
+              "correct": true
+            },
+            {
+              "text": "sistemul nervos simpatic determină o salivație puternică",
+              "correct": false
+            },
+            {
+              "text": "niciun răspuns corect",
+              "correct": false
+            }
+          ],
+          "explanation": "",
+          "collapsed": true,
+          "weight": 1
         }
       ],
       "images": [
@@ -9468,6 +9702,10 @@
         {
           "type": "question",
           "id": 290
+        },
+        {
+          "type": "question",
+          "id": 298
         }
       ]
     },
@@ -9924,6 +10162,36 @@
           "explanation": "",
           "collapsed": true,
           "weight": 1
+        },
+        {
+          "id": 294,
+          "type": "question",
+          "question": "Despre febră este adevărat:",
+          "answers": [
+            {
+              "text": "transpirația și vasoconstricția produc pierdere de căldură",
+              "correct": false
+            },
+            {
+              "text": "poate fi consecința unei inflamații",
+              "correct": true
+            },
+            {
+              "text": "la final apar frisoane",
+              "correct": false
+            },
+            {
+              "text": "substanțele pirogene modifică termostatul hipotalamic",
+              "correct": true
+            },
+            {
+              "text": "niciun răspuns corect",
+              "correct": false
+            }
+          ],
+          "explanation": "",
+          "collapsed": true,
+          "weight": 1
         }
       ],
       "images": [
@@ -10120,6 +10388,10 @@
         {
           "type": "question",
           "id": 280
+        },
+        {
+          "type": "question",
+          "id": 294
         }
       ]
     },
@@ -10910,6 +11182,36 @@
           "explanation": "",
           "collapsed": true,
           "weight": 1
+        },
+        {
+          "id": 301,
+          "type": "question",
+          "question": "Referitor la mișcarea apei prin peretele capilar este adevărat că:",
+          "answers": [
+            {
+              "text": "în cazul obstrucției unei vene, presiunea hidrostatică a capilarelor scade și se formează edem",
+              "correct": false
+            },
+            {
+              "text": "scăderea presiunii coloid-osmotice mută centrul dinamic spre capătul venos al capilarului",
+              "correct": true
+            },
+            {
+              "text": "presiunea coloid-osmotică atrage apa în spațiul interstițial",
+              "correct": false
+            },
+            {
+              "text": "scăderea concentrației albuminelor scade presiunea coloid-osmotică",
+              "correct": true
+            },
+            {
+              "text": "niciun răspuns corect",
+              "correct": false
+            }
+          ],
+          "explanation": "",
+          "collapsed": true,
+          "weight": 1
         }
       ],
       "images": [
@@ -11034,6 +11336,10 @@
         {
           "type": "question",
           "id": 285
+        },
+        {
+          "type": "question",
+          "id": 301
         }
       ]
     },
@@ -11904,6 +12210,36 @@
           "explanation": "",
           "collapsed": true,
           "weight": 1
+        },
+        {
+          "id": 295,
+          "type": "question",
+          "question": "Referitor la dezvoltarea fetală și naștere este adevărat că:",
+          "answers": [
+            {
+              "text": "în timpul lunii a treia a sarcinii apar punctele de osificare în scheletul cartilaginos",
+              "correct": false
+            },
+            {
+              "text": "la debutul travaliului, secreția de progesteron din placentă crește",
+              "correct": false
+            },
+            {
+              "text": "în timpul lunii a șasea a sarcinii, capul fătului devine mai proporțional față de restul corpului",
+              "correct": true
+            },
+            {
+              "text": "în procesul nașterii, prostaglandinele stimulează mușchii netezi din peretele uterin",
+              "correct": true
+            },
+            {
+              "text": "niciun răspuns corect",
+              "correct": false
+            }
+          ],
+          "explanation": "",
+          "collapsed": true,
+          "weight": 1
         }
       ],
       "images": [
@@ -12132,6 +12468,10 @@
         {
           "type": "question",
           "id": 286
+        },
+        {
+          "type": "question",
+          "id": 295
         }
       ]
     }
