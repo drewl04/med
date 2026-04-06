@@ -37,7 +37,7 @@
             }
           ],
           "explanation": "Târgu Mureș - admitere iulie 2025",
-          "collapsed": false,
+          "collapsed": true,
           "weight": 5
         },
         {
@@ -67,7 +67,7 @@
             }
           ],
           "explanation": "Târgu Mureș - admitere iulie 2025",
-          "collapsed": false,
+          "collapsed": true,
           "weight": 1
         },
         {
@@ -97,7 +97,7 @@
             }
           ],
           "explanation": "Târgu Mureș - admitere iulie 2025",
-          "collapsed": false,
+          "collapsed": true,
           "weight": 1
         },
         {
@@ -127,7 +127,7 @@
             }
           ],
           "explanation": "Târgu Mureș - admitere iulie 2024",
-          "collapsed": false,
+          "collapsed": true,
           "weight": 1
         },
         {
@@ -157,7 +157,7 @@
             }
           ],
           "explanation": "Târgu Mureș - admitere iulie 2024",
-          "collapsed": false,
+          "collapsed": true,
           "weight": 1
         },
         {
@@ -187,7 +187,7 @@
             }
           ],
           "explanation": "Târgu Mureș - admitere iulie 2024",
-          "collapsed": false,
+          "collapsed": true,
           "weight": 1
         },
         {
@@ -217,7 +217,7 @@
             }
           ],
           "explanation": "Târgu Mureș - admitere iulie 2023",
-          "collapsed": false,
+          "collapsed": true,
           "weight": 1
         },
         {
@@ -247,7 +247,7 @@
             }
           ],
           "explanation": "Târgu Mureș - admitere iulie 2023",
-          "collapsed": false,
+          "collapsed": true,
           "weight": 1
         }
       ],
@@ -258,7 +258,7 @@
           "image": "",
           "imagePath": "/images/chapter-1-img-1774374012822-hly50q.PNG",
           "explanation": "pag 2",
-          "collapsed": false
+          "collapsed": true
         },
         {
           "id": 2,
@@ -266,7 +266,7 @@
           "image": "",
           "imagePath": "/images/chapter-1-img-1774374045065-p201s0.PNG",
           "explanation": "pag 6",
-          "collapsed": false
+          "collapsed": true
         },
         {
           "id": 3,
@@ -274,7 +274,7 @@
           "image": "",
           "imagePath": "/images/chapter-1-img-1774374051803-x092xj.PNG",
           "explanation": "pag 8",
-          "collapsed": false
+          "collapsed": true
         },
         {
           "id": 4,
@@ -282,7 +282,7 @@
           "image": "",
           "imagePath": "/images/chapter-1-img-1774374060939-zdol3t.PNG",
           "explanation": "pag 9",
-          "collapsed": false
+          "collapsed": true
         },
         {
           "id": 5,
@@ -290,7 +290,7 @@
           "image": "",
           "imagePath": "/images/chapter-1-img-1774374081776-n8nuwx.PNG",
           "explanation": "pag 10",
-          "collapsed": false
+          "collapsed": true
         }
       ],
       "order": [
@@ -558,7 +558,7 @@
               "correct": false
             }
           ],
-          "explanation": "",
+          "explanation": "Târgu Mureș - admitere iulie 2023",
           "collapsed": true,
           "weight": 1
         },
@@ -588,7 +588,7 @@
               "correct": false
             }
           ],
-          "explanation": "",
+          "explanation": "Târgu Mureș - admitere iulie 2023",
           "collapsed": true,
           "weight": 1
         },
@@ -618,7 +618,7 @@
               "correct": false
             }
           ],
-          "explanation": "",
+          "explanation": "Târgu Mureș - admitere iulie 2023",
           "collapsed": true,
           "weight": 1
         }
@@ -903,7 +903,7 @@
               "correct": false
             }
           ],
-          "explanation": "",
+          "explanation": "Târgu Mureș - admitere iulie 2023",
           "collapsed": true,
           "weight": 1
         },
@@ -933,7 +933,7 @@
               "correct": false
             }
           ],
-          "explanation": "",
+          "explanation": "Târgu Mureș - admitere iulie 2023",
           "collapsed": true,
           "weight": 1
         },
@@ -963,7 +963,7 @@
               "correct": false
             }
           ],
-          "explanation": "",
+          "explanation": "Târgu Mureș - admitere iulie 2023",
           "collapsed": true,
           "weight": 1
         },
@@ -993,7 +993,7 @@
               "correct": false
             }
           ],
-          "explanation": "",
+          "explanation": "Târgu Mureș - admitere iulie 2023",
           "collapsed": true,
           "weight": 1
         },
@@ -1023,7 +1023,7 @@
               "correct": false
             }
           ],
-          "explanation": "",
+          "explanation": "Târgu Mureș - admitere iulie 2023",
           "collapsed": true,
           "weight": 1
         }
@@ -1603,7 +1603,7 @@
               "correct": false
             }
           ],
-          "explanation": "",
+          "explanation": "Târgu Mureș - admitere iulie 2023",
           "collapsed": true,
           "weight": 1
         },
@@ -1633,7 +1633,7 @@
               "correct": false
             }
           ],
-          "explanation": "",
+          "explanation": "Târgu Mureș - admitere iulie 2023",
           "collapsed": true,
           "weight": 1
         },
@@ -1663,7 +1663,7 @@
               "correct": false
             }
           ],
-          "explanation": "",
+          "explanation": "Târgu Mureș - admitere iulie 2023",
           "collapsed": true,
           "weight": 1
         },
@@ -1693,7 +1693,7 @@
               "correct": false
             }
           ],
-          "explanation": "",
+          "explanation": "Târgu Mureș - admitere iulie 2023",
           "collapsed": true,
           "weight": 1
         },
@@ -1723,7 +1723,7 @@
               "correct": false
             }
           ],
-          "explanation": "",
+          "explanation": "Târgu Mureș - admitere iulie 2023",
           "collapsed": true,
           "weight": 1
         },
@@ -1753,7 +1753,7 @@
               "correct": false
             }
           ],
-          "explanation": "",
+          "explanation": "Târgu Mureș - admitere iulie 2023",
           "collapsed": true,
           "weight": 1
         }
@@ -2027,7 +2027,7 @@
               "correct": false
             }
           ],
-          "explanation": "",
+          "explanation": "Târgu Mureș - admitere iulie 2023",
           "collapsed": true,
           "weight": 1
         },
@@ -2057,7 +2057,7 @@
               "correct": false
             }
           ],
-          "explanation": "",
+          "explanation": "Târgu Mureș - admitere iulie 2023",
           "collapsed": true,
           "weight": 1
         },
@@ -2087,7 +2087,7 @@
               "correct": false
             }
           ],
-          "explanation": "",
+          "explanation": "Târgu Mureș - admitere iulie 2023",
           "collapsed": true,
           "weight": 1
         },
@@ -2117,7 +2117,7 @@
               "correct": false
             }
           ],
-          "explanation": "",
+          "explanation": "Târgu Mureș - admitere iulie 2023",
           "collapsed": true,
           "weight": 1
         }
@@ -2503,7 +2503,7 @@
               "correct": false
             }
           ],
-          "explanation": "",
+          "explanation": "Târgu Mureș - admitere iulie 2023",
           "collapsed": true,
           "weight": 1
         },
@@ -2533,7 +2533,7 @@
               "correct": false
             }
           ],
-          "explanation": "",
+          "explanation": "Târgu Mureș - admitere iulie 2023",
           "collapsed": true,
           "weight": 1
         },
@@ -2563,7 +2563,7 @@
               "correct": false
             }
           ],
-          "explanation": "",
+          "explanation": "Târgu Mureș - admitere iulie 2023",
           "collapsed": true,
           "weight": 1
         },
@@ -2593,7 +2593,7 @@
               "correct": false
             }
           ],
-          "explanation": "",
+          "explanation": "Târgu Mureș - admitere iulie 2023",
           "collapsed": true,
           "weight": 1
         },
@@ -2623,7 +2623,7 @@
               "correct": false
             }
           ],
-          "explanation": "",
+          "explanation": "Târgu Mureș - admitere iulie 2023",
           "collapsed": true,
           "weight": 1
         },
@@ -2653,7 +2653,7 @@
               "correct": false
             }
           ],
-          "explanation": "",
+          "explanation": "Târgu Mureș - admitere iulie 2023",
           "collapsed": true,
           "weight": 1
         },
@@ -2683,7 +2683,7 @@
               "correct": false
             }
           ],
-          "explanation": "",
+          "explanation": "Târgu Mureș - admitere iulie 2023",
           "collapsed": true,
           "weight": 1
         }
@@ -3039,7 +3039,7 @@
               "correct": false
             }
           ],
-          "explanation": "",
+          "explanation": "Târgu Mureș - admitere iulie 2023",
           "collapsed": true,
           "weight": 1
         },
@@ -3069,7 +3069,7 @@
               "correct": false
             }
           ],
-          "explanation": "",
+          "explanation": "Târgu Mureș - admitere iulie 2023",
           "collapsed": true,
           "weight": 1
         },
@@ -3099,7 +3099,7 @@
               "correct": false
             }
           ],
-          "explanation": "",
+          "explanation": "Târgu Mureș - admitere iulie 2023",
           "collapsed": true,
           "weight": 1
         }
@@ -3607,7 +3607,7 @@
               "correct": false
             }
           ],
-          "explanation": "",
+          "explanation": "Târgu Mureș - admitere iulie 2023",
           "collapsed": true,
           "weight": 1
         },
@@ -3637,7 +3637,7 @@
               "correct": false
             }
           ],
-          "explanation": "",
+          "explanation": "Târgu Mureș - admitere iulie 2023",
           "collapsed": true,
           "weight": 1
         }
@@ -4037,7 +4037,7 @@
               "correct": false
             }
           ],
-          "explanation": "",
+          "explanation": "Târgu Mureș - admitere iulie 2023",
           "collapsed": true,
           "weight": 1
         },
@@ -4067,7 +4067,7 @@
               "correct": false
             }
           ],
-          "explanation": "",
+          "explanation": "Târgu Mureș - admitere iulie 2023",
           "collapsed": true,
           "weight": 1
         },
@@ -4097,7 +4097,7 @@
               "correct": false
             }
           ],
-          "explanation": "",
+          "explanation": "Târgu Mureș - admitere iulie 2023",
           "collapsed": true,
           "weight": 1
         },
@@ -4127,7 +4127,7 @@
               "correct": false
             }
           ],
-          "explanation": "",
+          "explanation": "Târgu Mureș - admitere iulie 2023",
           "collapsed": true,
           "weight": 1
         },
@@ -4157,7 +4157,7 @@
               "correct": false
             }
           ],
-          "explanation": "",
+          "explanation": "Târgu Mureș - admitere iulie 2023",
           "collapsed": true,
           "weight": 1
         }
@@ -4711,7 +4711,7 @@
               "correct": false
             }
           ],
-          "explanation": "",
+          "explanation": "Târgu Mureș - admitere iulie 2023",
           "collapsed": true,
           "weight": 1
         },
@@ -4741,7 +4741,7 @@
               "correct": false
             }
           ],
-          "explanation": "",
+          "explanation": "Târgu Mureș - admitere iulie 2023",
           "collapsed": true,
           "weight": 1
         },
@@ -4771,7 +4771,7 @@
               "correct": false
             }
           ],
-          "explanation": "",
+          "explanation": "Târgu Mureș - admitere iulie 2023",
           "collapsed": true,
           "weight": 1
         },
@@ -4801,7 +4801,7 @@
               "correct": false
             }
           ],
-          "explanation": "",
+          "explanation": "Târgu Mureș - admitere iulie 2023",
           "collapsed": true,
           "weight": 1
         },
@@ -4831,7 +4831,7 @@
               "correct": false
             }
           ],
-          "explanation": "",
+          "explanation": "Târgu Mureș - admitere iulie 2023",
           "collapsed": true,
           "weight": 1
         },
@@ -4861,7 +4861,7 @@
               "correct": false
             }
           ],
-          "explanation": "",
+          "explanation": "Târgu Mureș - admitere iulie 2023",
           "collapsed": true,
           "weight": 1
         }
@@ -5407,7 +5407,7 @@
               "correct": false
             }
           ],
-          "explanation": "",
+          "explanation": "Târgu Mureș - admitere iulie 2023",
           "collapsed": true,
           "weight": 1
         },
@@ -5437,7 +5437,7 @@
               "correct": false
             }
           ],
-          "explanation": "",
+          "explanation": "Târgu Mureș - admitere iulie 2023",
           "collapsed": true,
           "weight": 1
         },
@@ -5467,7 +5467,7 @@
               "correct": false
             }
           ],
-          "explanation": "",
+          "explanation": "Târgu Mureș - admitere iulie 2023",
           "collapsed": true,
           "weight": 1
         },
@@ -5497,7 +5497,7 @@
               "correct": false
             }
           ],
-          "explanation": "",
+          "explanation": "Târgu Mureș - admitere iulie 2023",
           "collapsed": true,
           "weight": 1
         }
@@ -6017,7 +6017,7 @@
               "correct": false
             }
           ],
-          "explanation": "",
+          "explanation": "Târgu Mureș - admitere iulie 2023",
           "collapsed": true,
           "weight": 1
         },
@@ -6047,7 +6047,7 @@
               "correct": false
             }
           ],
-          "explanation": "",
+          "explanation": "Târgu Mureș - admitere iulie 2023",
           "collapsed": true,
           "weight": 1
         },
@@ -6077,7 +6077,7 @@
               "correct": false
             }
           ],
-          "explanation": "",
+          "explanation": "Târgu Mureș - admitere iulie 2023",
           "collapsed": true,
           "weight": 1
         },
@@ -6107,7 +6107,7 @@
               "correct": false
             }
           ],
-          "explanation": "",
+          "explanation": "Târgu Mureș - admitere iulie 2023",
           "collapsed": true,
           "weight": 1
         }
@@ -6569,7 +6569,7 @@
               "correct": false
             }
           ],
-          "explanation": "",
+          "explanation": "Târgu Mureș - admitere iulie 2023",
           "collapsed": true,
           "weight": 1
         },
@@ -6599,7 +6599,7 @@
               "correct": false
             }
           ],
-          "explanation": "",
+          "explanation": "Târgu Mureș - admitere iulie 2023",
           "collapsed": true,
           "weight": 1
         },
@@ -6629,7 +6629,7 @@
               "correct": false
             }
           ],
-          "explanation": "??",
+          "explanation": "Târgu Mureș - admitere iulie 2023\n\n?? de ce",
           "collapsed": true,
           "weight": 1
         },
@@ -6659,7 +6659,7 @@
               "correct": false
             }
           ],
-          "explanation": "",
+          "explanation": "Târgu Mureș - admitere iulie 2023",
           "collapsed": true,
           "weight": 1
         },
@@ -6689,7 +6689,7 @@
               "correct": false
             }
           ],
-          "explanation": "",
+          "explanation": "Târgu Mureș - admitere iulie 2023",
           "collapsed": true,
           "weight": 1
         },
@@ -6719,7 +6719,7 @@
               "correct": false
             }
           ],
-          "explanation": "",
+          "explanation": "Târgu Mureș - admitere iulie 2023",
           "collapsed": true,
           "weight": 1
         }
@@ -7287,7 +7287,7 @@
               "correct": false
             }
           ],
-          "explanation": "",
+          "explanation": "Târgu Mureș - admitere iulie 2023",
           "collapsed": true,
           "weight": 1
         },
@@ -7317,7 +7317,7 @@
               "correct": false
             }
           ],
-          "explanation": "",
+          "explanation": "Târgu Mureș - admitere iulie 2023",
           "collapsed": true,
           "weight": 1
         },
@@ -7347,7 +7347,7 @@
               "correct": false
             }
           ],
-          "explanation": "",
+          "explanation": "Târgu Mureș - admitere iulie 2023",
           "collapsed": true,
           "weight": 1
         },
@@ -7377,7 +7377,7 @@
               "correct": false
             }
           ],
-          "explanation": "",
+          "explanation": "Târgu Mureș - admitere iulie 2023",
           "collapsed": true,
           "weight": 1
         },
@@ -7407,7 +7407,7 @@
               "correct": false
             }
           ],
-          "explanation": "",
+          "explanation": "Târgu Mureș - admitere iulie 2023",
           "collapsed": true,
           "weight": 1
         }
@@ -7779,7 +7779,7 @@
               "correct": false
             }
           ],
-          "explanation": "",
+          "explanation": "Târgu Mureș - admitere iulie 2023",
           "collapsed": true,
           "weight": 1
         },
@@ -7809,7 +7809,7 @@
               "correct": false
             }
           ],
-          "explanation": "",
+          "explanation": "Târgu Mureș - admitere iulie 2023",
           "collapsed": true,
           "weight": 1
         },
@@ -7839,7 +7839,7 @@
               "correct": false
             }
           ],
-          "explanation": "",
+          "explanation": "Târgu Mureș - admitere iulie 2023",
           "collapsed": true,
           "weight": 1
         },
@@ -7869,7 +7869,7 @@
               "correct": false
             }
           ],
-          "explanation": "",
+          "explanation": "Târgu Mureș - admitere iulie 2023",
           "collapsed": true,
           "weight": 1
         },
@@ -7899,7 +7899,7 @@
               "correct": false
             }
           ],
-          "explanation": "",
+          "explanation": "Târgu Mureș - admitere iulie 2023",
           "collapsed": true,
           "weight": 1
         },
@@ -7929,7 +7929,7 @@
               "correct": false
             }
           ],
-          "explanation": "",
+          "explanation": "Târgu Mureș - admitere iulie 2023",
           "collapsed": true,
           "weight": 1
         }
@@ -8359,7 +8359,7 @@
               "correct": false
             }
           ],
-          "explanation": "",
+          "explanation": "Târgu Mureș - admitere iulie 2023",
           "collapsed": true,
           "weight": 1
         },
@@ -8389,7 +8389,7 @@
               "correct": false
             }
           ],
-          "explanation": "",
+          "explanation": "Târgu Mureș - admitere iulie 2023",
           "collapsed": true,
           "weight": 1
         },
@@ -8419,7 +8419,7 @@
               "correct": false
             }
           ],
-          "explanation": "",
+          "explanation": "Târgu Mureș - admitere iulie 2023",
           "collapsed": true,
           "weight": 1
         },
@@ -8449,7 +8449,7 @@
               "correct": false
             }
           ],
-          "explanation": "??",
+          "explanation": "Târgu Mureș - admitere iulie 2023\n\n?? de ce",
           "collapsed": true,
           "weight": 1
         }
@@ -8911,7 +8911,7 @@
               "correct": false
             }
           ],
-          "explanation": "",
+          "explanation": "Târgu Mureș - admitere iulie 2023",
           "collapsed": true,
           "weight": 1
         },
@@ -8941,7 +8941,7 @@
               "correct": false
             }
           ],
-          "explanation": "",
+          "explanation": "Târgu Mureș - admitere iulie 2023",
           "collapsed": true,
           "weight": 1
         },
@@ -8971,7 +8971,7 @@
               "correct": false
             }
           ],
-          "explanation": "",
+          "explanation": "Târgu Mureș - admitere iulie 2023",
           "collapsed": true,
           "weight": 1
         }
@@ -9437,7 +9437,7 @@
               "correct": false
             }
           ],
-          "explanation": "",
+          "explanation": "Târgu Mureș - admitere iulie 2023",
           "collapsed": true,
           "weight": 1
         },
@@ -9467,7 +9467,7 @@
               "correct": false
             }
           ],
-          "explanation": "",
+          "explanation": "Târgu Mureș - admitere iulie 2023",
           "collapsed": true,
           "weight": 1
         },
@@ -9497,7 +9497,7 @@
               "correct": false
             }
           ],
-          "explanation": "",
+          "explanation": "Târgu Mureș - admitere iulie 2023",
           "collapsed": true,
           "weight": 1
         },
@@ -9527,7 +9527,7 @@
               "correct": false
             }
           ],
-          "explanation": "",
+          "explanation": "Târgu Mureș - admitere iulie 2023",
           "collapsed": true,
           "weight": 1
         }
@@ -10069,7 +10069,7 @@
               "correct": false
             }
           ],
-          "explanation": "",
+          "explanation": "Târgu Mureș - admitere iulie 2023",
           "collapsed": true,
           "weight": 1
         },
@@ -10099,7 +10099,7 @@
               "correct": false
             }
           ],
-          "explanation": "",
+          "explanation": "Târgu Mureș - admitere iulie 2023",
           "collapsed": true,
           "weight": 1
         },
@@ -10129,7 +10129,7 @@
               "correct": false
             }
           ],
-          "explanation": "",
+          "explanation": "Târgu Mureș - admitere iulie 2023",
           "collapsed": true,
           "weight": 1
         },
@@ -10159,7 +10159,7 @@
               "correct": false
             }
           ],
-          "explanation": "",
+          "explanation": "Târgu Mureș - admitere iulie 2023",
           "collapsed": true,
           "weight": 1
         },
@@ -10189,7 +10189,7 @@
               "correct": false
             }
           ],
-          "explanation": "",
+          "explanation": "Târgu Mureș - admitere iulie 2023",
           "collapsed": true,
           "weight": 1
         }
@@ -10575,7 +10575,7 @@
               "correct": false
             }
           ],
-          "explanation": "",
+          "explanation": "Târgu Mureș - admitere iulie 2023",
           "collapsed": true,
           "weight": 1
         },
@@ -10605,7 +10605,7 @@
               "correct": false
             }
           ],
-          "explanation": "",
+          "explanation": "Târgu Mureș - admitere iulie 2023",
           "collapsed": true,
           "weight": 1
         },
@@ -10635,7 +10635,7 @@
               "correct": false
             }
           ],
-          "explanation": "",
+          "explanation": "Târgu Mureș - admitere iulie 2023",
           "collapsed": true,
           "weight": 1
         },
@@ -10665,7 +10665,7 @@
               "correct": false
             }
           ],
-          "explanation": "",
+          "explanation": "Târgu Mureș - admitere iulie 2023",
           "collapsed": true,
           "weight": 1
         }
@@ -11119,7 +11119,7 @@
               "correct": false
             }
           ],
-          "explanation": "",
+          "explanation": "Târgu Mureș - admitere iulie 2023",
           "collapsed": true,
           "weight": 1
         },
@@ -11149,7 +11149,7 @@
               "correct": false
             }
           ],
-          "explanation": "",
+          "explanation": "Târgu Mureș - admitere iulie 2023",
           "collapsed": true,
           "weight": 1
         },
@@ -11179,7 +11179,7 @@
               "correct": false
             }
           ],
-          "explanation": "",
+          "explanation": "Târgu Mureș - admitere iulie 2023",
           "collapsed": true,
           "weight": 1
         },
@@ -11209,7 +11209,7 @@
               "correct": false
             }
           ],
-          "explanation": "",
+          "explanation": "Târgu Mureș - admitere iulie 2023",
           "collapsed": true,
           "weight": 1
         }
@@ -11583,7 +11583,7 @@
               "correct": false
             }
           ],
-          "explanation": "",
+          "explanation": "Târgu Mureș - admitere iulie 2023",
           "collapsed": true,
           "weight": 1
         },
@@ -11613,7 +11613,7 @@
               "correct": false
             }
           ],
-          "explanation": "",
+          "explanation": "Târgu Mureș - admitere iulie 2023",
           "collapsed": true,
           "weight": 1
         },
@@ -11643,7 +11643,7 @@
               "correct": false
             }
           ],
-          "explanation": "",
+          "explanation": "Târgu Mureș - admitere iulie 2023",
           "collapsed": true,
           "weight": 1
         },
@@ -11673,7 +11673,7 @@
               "correct": false
             }
           ],
-          "explanation": "",
+          "explanation": "Târgu Mureș - admitere iulie 2023",
           "collapsed": true,
           "weight": 1
         }
@@ -12147,7 +12147,7 @@
               "correct": false
             }
           ],
-          "explanation": "",
+          "explanation": "Târgu Mureș - admitere iulie 2023",
           "collapsed": true,
           "weight": 1
         },
@@ -12177,7 +12177,7 @@
               "correct": false
             }
           ],
-          "explanation": "",
+          "explanation": "Târgu Mureș - admitere iulie 2023",
           "collapsed": true,
           "weight": 1
         },
@@ -12207,7 +12207,7 @@
               "correct": false
             }
           ],
-          "explanation": "",
+          "explanation": "Târgu Mureș - admitere iulie 2023",
           "collapsed": true,
           "weight": 1
         },
@@ -12237,7 +12237,7 @@
               "correct": false
             }
           ],
-          "explanation": "",
+          "explanation": "Târgu Mureș - admitere iulie 2023",
           "collapsed": true,
           "weight": 1
         }
