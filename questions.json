@@ -2,7 +2,7 @@
   "meta": {
     "version": 2,
     "nextChapterId": 24,
-    "nextQuestionId": 393,
+    "nextQuestionId": 408,
     "nextImageId": 188
   },
   "chapters": [
@@ -907,6 +907,36 @@
           "explanation": "",
           "collapsed": true,
           "weight": 1
+        },
+        {
+          "id": 398,
+          "type": "question",
+          "question": "Un fragment de lanț de ADN cu 24 de molecule de adenină, 26 molecule de timină, 28 molecule de guanină, 30 molecule de citozină, împreună cu un fragment de lanț de ADN complementar formează un dublu helix, care conține:",
+          "answers": [
+            {
+              "text": "116 molecule de adenină și timină",
+              "correct": false
+            },
+            {
+              "text": "100 molecule de citozină și guanină",
+              "correct": false
+            },
+            {
+              "text": "108 molecule de fosfat",
+              "correct": false
+            },
+            {
+              "text": "216 molecule de dezoxiriboză",
+              "correct": true
+            },
+            {
+              "text": "niciun răspuns corect",
+              "correct": false
+            }
+          ],
+          "explanation": "",
+          "collapsed": true,
+          "weight": 1
         }
       ],
       "images": [],
@@ -966,6 +996,10 @@
         {
           "type": "question",
           "id": 387
+        },
+        {
+          "type": "question",
+          "id": 398
         }
       ]
     },
@@ -2294,21 +2328,51 @@
             }
           ],
           "explanation": "",
-          "collapsed": false,
+          "collapsed": true,
           "weight": 1
         },
         {
           "id": 363,
           "type": "question",
+          "question": "Stabiliți asocierea corectă dintre tipul celulelor din epiderm și localizarea acestora:",
+          "answers": [
+            {
+              "text": "melanocite - stratul bazal",
+              "correct": true
+            },
+            {
+              "text": "celule Merkel - stratul cornos",
+              "correct": false
+            },
+            {
+              "text": "cheratinocite - stratul spinos",
+              "correct": true
+            },
+            {
+              "text": "celule dendritice - stratul granulos",
+              "correct": false
+            },
+            {
+              "text": "niciun răspuns corect",
+              "correct": false
+            }
+          ],
+          "explanation": "",
+          "collapsed": true,
+          "weight": 1
+        },
+        {
+          "id": 376,
+          "type": "question",
           "question": "Referitor la țesutul osos spongios, este adevărat că:",
           "answers": [
             {
               "text": "se localizează în interiorul oaselor plate",
-              "correct": false
+              "correct": true
             },
             {
               "text": "este mai puțin dens decât cel compact",
-              "correct": false
+              "correct": true
             },
             {
               "text": "diafiza oaselor lungi este acoperită la exterior de os spongios",
@@ -2328,7 +2392,7 @@
           "weight": 1
         },
         {
-          "id": 376,
+          "id": 397,
           "type": "question",
           "question": "Discurile intercalare:",
           "answers": [
@@ -2346,6 +2410,36 @@
             },
             {
               "text": "sunt caracteristice țesutului muscular cardiac",
+              "correct": true
+            },
+            {
+              "text": "niciun răspuns corect",
+              "correct": false
+            }
+          ],
+          "explanation": "",
+          "collapsed": true,
+          "weight": 1
+        },
+        {
+          "id": 407,
+          "type": "question",
+          "question": "Referitor la tipurile de glande este adevărat că:",
+          "answers": [
+            {
+              "text": "glandele sebacee sunt glande apocrine",
+              "correct": false
+            },
+            {
+              "text": "celula caliciformă secretă lipide",
+              "correct": false
+            },
+            {
+              "text": "glandele endocrine își elimină produsul de secreție direct în sânge",
+              "correct": true
+            },
+            {
+              "text": "glandele salivare sunt glande seromucoase",
               "correct": true
             },
             {
@@ -2516,6 +2610,14 @@
         {
           "type": "question",
           "id": 376
+        },
+        {
+          "type": "question",
+          "id": 397
+        },
+        {
+          "type": "question",
+          "id": 407
         }
       ]
     },
@@ -2792,6 +2894,36 @@
           "explanation": "",
           "collapsed": true,
           "weight": 1
+        },
+        {
+          "id": 394,
+          "type": "question",
+          "question": "Celulele din stratul germinativ al epidermului:",
+          "answers": [
+            {
+              "text": "sunt aplatizate la nivelul pielii subțiri",
+              "correct": false
+            },
+            {
+              "text": "se dispun pe membrana bazală într-un singur rând",
+              "correct": true
+            },
+            {
+              "text": "primesc nutrimente de la vasele sanguine din dermul papilar",
+              "correct": true
+            },
+            {
+              "text": "conțin o substanță numită eleidină",
+              "correct": false
+            },
+            {
+              "text": "niciun răspuns corect",
+              "correct": false
+            }
+          ],
+          "explanation": "",
+          "collapsed": true,
+          "weight": 1
         }
       ],
       "images": [
@@ -2880,6 +3012,10 @@
         {
           "type": "question",
           "id": 377
+        },
+        {
+          "type": "question",
+          "id": 394
         }
       ]
     },
@@ -3978,6 +4114,36 @@
           "explanation": "",
           "collapsed": true,
           "weight": 1
+        },
+        {
+          "id": 393,
+          "type": "question",
+          "question": "Femurul:",
+          "answers": [
+            {
+              "text": "participă la formarea unei articulații trohleare și a unei articulații sferoidale",
+              "correct": true
+            },
+            {
+              "text": "este localizat distal față de tibie",
+              "correct": false
+            },
+            {
+              "text": "la nivelul diafizei are loc hematopoieza",
+              "correct": false
+            },
+            {
+              "text": "se formează prin osificare intramembranoasă",
+              "correct": false
+            },
+            {
+              "text": "niciun răspuns corect",
+              "correct": false
+            }
+          ],
+          "explanation": "",
+          "collapsed": true,
+          "weight": 1
         }
       ],
       "images": [
@@ -4158,6 +4324,10 @@
         {
           "type": "question",
           "id": 356
+        },
+        {
+          "type": "question",
+          "id": 393
         }
       ]
     },
@@ -6098,6 +6268,36 @@
           "explanation": "",
           "collapsed": true,
           "weight": 1
+        },
+        {
+          "id": 403,
+          "type": "question",
+          "question": "Formațiunile spinoase de pe suprafața dendritelor:",
+          "answers": [
+            {
+              "text": "realizează joncțiuni cu alți neuroni",
+              "correct": true
+            },
+            {
+              "text": "stochează și eliberează neurotransmițători",
+              "correct": false
+            },
+            {
+              "text": "conțin vezicule sinaptice",
+              "correct": false
+            },
+            {
+              "text": "sunt capabile de recepționarea impulsurilor nervoase",
+              "correct": true
+            },
+            {
+              "text": "niciun răspuns corect",
+              "correct": false
+            }
+          ],
+          "explanation": "",
+          "collapsed": true,
+          "weight": 1
         }
       ],
       "images": [
@@ -6302,6 +6502,10 @@
         {
           "type": "question",
           "id": 384
+        },
+        {
+          "type": "question",
+          "id": 403
         }
       ]
     },
@@ -6938,6 +7142,36 @@
           "explanation": "",
           "collapsed": true,
           "weight": 1
+        },
+        {
+          "id": 405,
+          "type": "question",
+          "question": "Este caracteristic pentru hipocamp:",
+          "answers": [
+            {
+              "text": "coordonează mișcările voluntare",
+              "correct": false
+            },
+            {
+              "text": "coordonează direct activitatea sistemului nervos și a celui endocrin",
+              "correct": false
+            },
+            {
+              "text": "are rol în memorie",
+              "correct": true
+            },
+            {
+              "text": "face parte din sistemul limbic",
+              "correct": true
+            },
+            {
+              "text": "niciun răspuns corect",
+              "correct": false
+            }
+          ],
+          "explanation": "",
+          "collapsed": true,
+          "weight": 1
         }
       ],
       "images": [
@@ -7146,6 +7380,10 @@
         {
           "type": "question",
           "id": 386
+        },
+        {
+          "type": "question",
+          "id": 405
         }
       ]
     },
@@ -7632,6 +7870,36 @@
           "explanation": "",
           "collapsed": true,
           "weight": 1
+        },
+        {
+          "id": 399,
+          "type": "question",
+          "question": "Legat de umoarea apoasă este adevărat că:",
+          "answers": [
+            {
+              "text": "hrănește retina",
+              "correct": false
+            },
+            {
+              "text": "este secretată de corpul ciliar",
+              "correct": true
+            },
+            {
+              "text": "este un lichid transcelular",
+              "correct": true
+            },
+            {
+              "text": "se află doar anterior de iris",
+              "correct": false
+            },
+            {
+              "text": "niciun răspuns corect",
+              "correct": false
+            }
+          ],
+          "explanation": "",
+          "collapsed": true,
+          "weight": 1
         }
       ],
       "images": [
@@ -7796,6 +8064,10 @@
         {
           "type": "question",
           "id": 378
+        },
+        {
+          "type": "question",
+          "id": 399
         }
       ]
     },
@@ -8432,6 +8704,36 @@
           "explanation": "",
           "collapsed": true,
           "weight": 1
+        },
+        {
+          "id": 400,
+          "type": "question",
+          "question": "Testosteronul:",
+          "answers": [
+            {
+              "text": "stimulează sinteza proteinelor",
+              "correct": true
+            },
+            {
+              "text": "induce spermatogeneza",
+              "correct": false
+            },
+            {
+              "text": "contribuie la coborârea testiculelor în scrot",
+              "correct": true
+            },
+            {
+              "text": "stimulează maturarea celulelor interstițiale",
+              "correct": false
+            },
+            {
+              "text": "niciun răspuns corect",
+              "correct": false
+            }
+          ],
+          "explanation": "",
+          "collapsed": true,
+          "weight": 1
         }
       ],
       "images": [
@@ -8628,6 +8930,10 @@
         {
           "type": "question",
           "id": 372
+        },
+        {
+          "type": "question",
+          "id": 400
         }
       ]
     },
@@ -9862,6 +10168,36 @@
           "explanation": "",
           "collapsed": true,
           "weight": 1
+        },
+        {
+          "id": 401,
+          "type": "question",
+          "question": "Aorta:",
+          "answers": [
+            {
+              "text": "transportă sângele la o presiune scăzută din ventriculul stâng la arteriole",
+              "correct": false
+            },
+            {
+              "text": "are o porțiune inițială așezată între vena cavă superioară și trunchiul pulmonar",
+              "correct": true
+            },
+            {
+              "text": "este căptușită de un epiteliu simplu pavimentos care se continuă cu endocardul",
+              "correct": true
+            },
+            {
+              "text": "are o tunică medie care conține o țesătură laxă de fibre de colagen",
+              "correct": false
+            },
+            {
+              "text": "niciun răspuns corect",
+              "correct": false
+            }
+          ],
+          "explanation": "",
+          "collapsed": true,
+          "weight": 1
         }
       ],
       "images": [
@@ -10054,6 +10390,10 @@
         {
           "type": "question",
           "id": 330
+        },
+        {
+          "type": "question",
+          "id": 401
         }
       ]
     },
@@ -10510,6 +10850,36 @@
           "explanation": "",
           "collapsed": true,
           "weight": 1
+        },
+        {
+          "id": 402,
+          "type": "question",
+          "question": "Următoarele celule sunt implicate direct în distrugerea celulelor tumorale:",
+          "answers": [
+            {
+              "text": "limfocitele T helper",
+              "correct": false
+            },
+            {
+              "text": "limfocitele T citotoxice",
+              "correct": true
+            },
+            {
+              "text": "limfocitele natural killer",
+              "correct": true
+            },
+            {
+              "text": "limfocitele B",
+              "correct": false
+            },
+            {
+              "text": "niciun răspuns corect",
+              "correct": false
+            }
+          ],
+          "explanation": "",
+          "collapsed": true,
+          "weight": 1
         }
       ],
       "images": [
@@ -10682,6 +11052,10 @@
         {
           "type": "question",
           "id": 391
+        },
+        {
+          "type": "question",
+          "id": 402
         }
       ]
     },
@@ -11108,6 +11482,36 @@
           "explanation": "",
           "collapsed": true,
           "weight": 1
+        },
+        {
+          "id": 396,
+          "type": "question",
+          "question": "O fetiță este diagnosticată cu febra fânului. Alegeți informațiile corecte despre afecțiunea sa:",
+          "answers": [
+            {
+              "text": "este cauzată de acarieni",
+              "correct": false
+            },
+            {
+              "text": "este cauzată de o infecție virală",
+              "correct": false
+            },
+            {
+              "text": "este o inflamație a mucoasei foselor nazale",
+              "correct": true
+            },
+            {
+              "text": "IgE se fixează pe suprafața monocitelor și induce eliberarea histaminei și a altor substanțe fiziologic active",
+              "correct": false
+            },
+            {
+              "text": "niciun răspuns corect",
+              "correct": false
+            }
+          ],
+          "explanation": "",
+          "collapsed": true,
+          "weight": 1
         }
       ],
       "images": [
@@ -11276,6 +11680,10 @@
         {
           "type": "question",
           "id": 373
+        },
+        {
+          "type": "question",
+          "id": 396
         }
       ]
     },
@@ -11942,6 +12350,66 @@
           "explanation": "",
           "collapsed": true,
           "weight": 1
+        },
+        {
+          "id": 395,
+          "type": "question",
+          "question": "Enzimele secretate la nivelul intestinului subțire sunt:",
+          "answers": [
+            {
+              "text": "pepsinogenul",
+              "correct": false
+            },
+            {
+              "text": "zaharoza",
+              "correct": false
+            },
+            {
+              "text": "labfermentul",
+              "correct": false
+            },
+            {
+              "text": "peptidazele",
+              "correct": true
+            },
+            {
+              "text": "niciun răspuns corect",
+              "correct": false
+            }
+          ],
+          "explanation": "",
+          "collapsed": true,
+          "weight": 1
+        },
+        {
+          "id": 404,
+          "type": "question",
+          "question": "Sistemul port hepatic:",
+          "answers": [
+            {
+              "text": "este constituit din ductele hepatice care transportă bilă",
+              "correct": false
+            },
+            {
+              "text": "drenează sângele din vena cavă inferioară",
+              "correct": false
+            },
+            {
+              "text": "reprezintă sursa principală de oxigen a ficatului",
+              "correct": false
+            },
+            {
+              "text": "furnizează ficatului elemente nutritive absorbite de la nivelul tractului digestiv",
+              "correct": true
+            },
+            {
+              "text": "niciun răspuns corect",
+              "correct": false
+            }
+          ],
+          "explanation": "",
+          "collapsed": true,
+          "weight": 1
         }
       ],
       "images": [
@@ -12154,6 +12622,14 @@
         {
           "type": "question",
           "id": 388
+        },
+        {
+          "type": "question",
+          "id": 395
+        },
+        {
+          "type": "question",
+          "id": 404
         }
       ]
     },
@@ -12677,28 +13153,28 @@
           "question": "În ciclul Krebs, CO2 se formează prin transformarea:",
           "answers": [
             {
-              "text": "",
+              "text": "succinil CoA în acid succinic",
               "correct": false
             },
             {
-              "text": "",
+              "text": "acidului oxalacetic în acid citric",
               "correct": false
             },
             {
-              "text": "",
-              "correct": false
+              "text": "acidului α cetoglutaric în succinil CoA",
+              "correct": true
             },
             {
-              "text": "",
-              "correct": false
+              "text": "acidului izocitric în acid α cetoglutaric",
+              "correct": true
             },
             {
-              "text": "",
+              "text": "niciun răspuns corect",
               "correct": false
             }
           ],
           "explanation": "",
-          "collapsed": false,
+          "collapsed": true,
           "weight": 1
         }
       ],
