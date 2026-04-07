@@ -2,7 +2,7 @@
   "meta": {
     "version": 2,
     "nextChapterId": 24,
-    "nextQuestionId": 409,
+    "nextQuestionId": 440,
     "nextImageId": 188
   },
   "chapters": [
@@ -369,6 +369,36 @@
           "explanation": "Târgu Mureș - admitere iulie 2022",
           "collapsed": true,
           "weight": 1
+        },
+        {
+          "id": 419,
+          "type": "question",
+          "question": "Referitor la caracteristicile organismului uman este adevărat că:",
+          "answers": [
+            {
+              "text": "feedback-ul pozitiv apare în procesul de coagulare a sângelui",
+              "correct": true
+            },
+            {
+              "text": "reproducerea umană implică strict reproducerea asexuată",
+              "correct": false
+            },
+            {
+              "text": "mișcarea poate fi doar voluntară",
+              "correct": false
+            },
+            {
+              "text": "conductibilitatea aparține doar celulelor nervoase",
+              "correct": false
+            },
+            {
+              "text": "niciun răspuns corect",
+              "correct": false
+            }
+          ],
+          "explanation": "",
+          "collapsed": true,
+          "weight": 1
         }
       ],
       "images": [
@@ -481,6 +511,10 @@
         {
           "type": "question",
           "id": 380
+        },
+        {
+          "type": "question",
+          "id": 419
         }
       ]
     },
@@ -937,6 +971,36 @@
           "explanation": "Târgu Mureș - admitere iulie 2022",
           "collapsed": true,
           "weight": 1
+        },
+        {
+          "id": 415,
+          "type": "question",
+          "question": "O secvență de ADN conține 45 molecule de adenină, 55 molecule de citozină, 50 molecule de guanină. Prin replicarea acestei secvențe de ADN se sintetizează:",
+          "answers": [
+            {
+              "text": "ADN, ce conține 150 molecule de dezoxiriboză",
+              "correct": true
+            },
+            {
+              "text": "ARN, ce conține 105 molecule de guanină și citozină",
+              "correct": false
+            },
+            {
+              "text": "ARNm, ce conține 45 molecule de uracil",
+              "correct": false
+            },
+            {
+              "text": "ADN, ce conține 45 molecule de timină",
+              "correct": true
+            },
+            {
+              "text": "niciun răspuns corect",
+              "correct": false
+            }
+          ],
+          "explanation": "",
+          "collapsed": true,
+          "weight": 1
         }
       ],
       "images": [],
@@ -1000,6 +1064,10 @@
         {
           "type": "question",
           "id": 398
+        },
+        {
+          "type": "question",
+          "id": 415
         }
       ]
     },
@@ -1546,6 +1614,36 @@
           "explanation": "Târgu Mureș - admitere iulie 2022",
           "collapsed": true,
           "weight": 1
+        },
+        {
+          "id": 423,
+          "type": "question",
+          "question": "Referitor la mecanismele mișcării moleculare este adevărat că:",
+          "answers": [
+            {
+              "text": "în timpul exocitozei, veziculele cu membrană migrează spre învelișul nuclear cu care fuzionează",
+              "correct": false
+            },
+            {
+              "text": "transportul activ necesită energie furnizată de ADP",
+              "correct": false
+            },
+            {
+              "text": "endocitoza de material solid se numește fagocitoză",
+              "correct": true
+            },
+            {
+              "text": "difuziunea facilitată este asistată doar de proteinele din citoplasmă",
+              "correct": false
+            },
+            {
+              "text": "niciun răspuns corect",
+              "correct": false
+            }
+          ],
+          "explanation": "",
+          "collapsed": true,
+          "weight": 1
         }
       ],
       "images": [
@@ -1754,6 +1852,10 @@
         {
           "type": "question",
           "id": 390
+        },
+        {
+          "type": "question",
+          "id": 423
         }
       ]
     },
@@ -2924,6 +3026,66 @@
           "explanation": "Târgu Mureș - admitere iulie 2022",
           "collapsed": true,
           "weight": 1
+        },
+        {
+          "id": 416,
+          "type": "question",
+          "question": "Dermul:",
+          "answers": [
+            {
+              "text": "reprezintă un rezervor de apă și electroliți",
+              "correct": true
+            },
+            {
+              "text": "se dezvoltă din endoderm",
+              "correct": false
+            },
+            {
+              "text": "dermul reticular conține celule Merkel",
+              "correct": false
+            },
+            {
+              "text": "dermul papilar conține țesut conjunctiv lax",
+              "correct": true
+            },
+            {
+              "text": "niciun răspuns corect",
+              "correct": false
+            }
+          ],
+          "explanation": "",
+          "collapsed": true,
+          "weight": 1
+        },
+        {
+          "id": 439,
+          "type": "question",
+          "question": "",
+          "answers": [
+            {
+              "text": "",
+              "correct": false
+            },
+            {
+              "text": "",
+              "correct": false
+            },
+            {
+              "text": "",
+              "correct": false
+            },
+            {
+              "text": "",
+              "correct": false
+            },
+            {
+              "text": "",
+              "correct": false
+            }
+          ],
+          "explanation": "",
+          "collapsed": false,
+          "weight": 1
         }
       ],
       "images": [
@@ -3016,6 +3178,14 @@
         {
           "type": "question",
           "id": 394
+        },
+        {
+          "type": "question",
+          "id": 416
+        },
+        {
+          "type": "question",
+          "id": 439
         }
       ]
     },
@@ -3622,6 +3792,36 @@
           "explanation": "Târgu Mureș - admitere iulie 2022",
           "collapsed": true,
           "weight": 1
+        },
+        {
+          "id": 409,
+          "type": "question",
+          "question": "Pe parcursul dezvoltării fetale, referitor la oase, este adevărat că:",
+          "answers": [
+            {
+              "text": "cartilajul articular al oaselor plate se dezvoltă la nivelul epifizelor",
+              "correct": false
+            },
+            {
+              "text": "osul brațului se formează prin osificare endocondrală",
+              "correct": true
+            },
+            {
+              "text": "prin osificare intramembranoasă se dezvoltă țesutul osos spongios al oaselor craniene",
+              "correct": true
+            },
+            {
+              "text": "se dezvoltă placa epifizară ce asigură creșterea în lungime a oaselor plate",
+              "correct": false
+            },
+            {
+              "text": "niciun răspuns corect",
+              "correct": false
+            }
+          ],
+          "explanation": "",
+          "collapsed": true,
+          "weight": 1
         }
       ],
       "images": [
@@ -3778,6 +3978,10 @@
         {
           "type": "question",
           "id": 374
+        },
+        {
+          "type": "question",
+          "id": 409
         }
       ]
     },
@@ -4844,6 +5048,66 @@
           "explanation": "Târgu Mureș - admitere iulie 2022",
           "collapsed": true,
           "weight": 1
+        },
+        {
+          "id": 428,
+          "type": "question",
+          "question": "Referitor la țesutul muscular este adevărat că:",
+          "answers": [
+            {
+              "text": "mușchiul striat este atașat scheletului, are fibre alungite, cilindrice și viteza contracției cea mai mare",
+              "correct": true
+            },
+            {
+              "text": "mușchiul striat scheletic are mulți nuclei pe fibră, cu poziție centrală",
+              "correct": false
+            },
+            {
+              "text": "mușchiul neted poate fi găsit în peretele intestinelor, nu are striații și are o viteză de contracție intermediară",
+              "correct": false
+            },
+            {
+              "text": "mușchiul cardiac are cea mai mică capacitate de a rămâne contractat, are striații și este controlat involuntar",
+              "correct": false
+            },
+            {
+              "text": "niciun răspuns corect",
+              "correct": false
+            }
+          ],
+          "explanation": "",
+          "collapsed": true,
+          "weight": 1
+        },
+        {
+          "id": 437,
+          "type": "question",
+          "question": "Referitor la țesutul muscular este adevărat că:",
+          "answers": [
+            {
+              "text": "fibrele musculare cardiace sunt neramificate și sunt legate între ele prin discuri intercalare",
+              "correct": false
+            },
+            {
+              "text": "discurile intercalare se găsesc în toate tipurile de țesuturi musculare",
+              "correct": false
+            },
+            {
+              "text": "în mușchiul neted unitar fibrele acestuia se contractă ritmic, fiind unite prin joncțiuni de tip „gap”",
+              "correct": true
+            },
+            {
+              "text": "impulsurile primite prin ramuri ale sistemului nervos vegetativ pot modifica contracțiile mușchiului cardiac",
+              "correct": true
+            },
+            {
+              "text": "niciun răspuns corect",
+              "correct": false
+            }
+          ],
+          "explanation": "",
+          "collapsed": true,
+          "weight": 1
         }
       ],
       "images": [
@@ -4988,6 +5252,14 @@
         {
           "type": "question",
           "id": 382
+        },
+        {
+          "type": "question",
+          "id": 428
+        },
+        {
+          "type": "question",
+          "id": 437
         }
       ]
     },
@@ -6298,6 +6570,36 @@
           "explanation": "Târgu Mureș - admitere iulie 2022",
           "collapsed": true,
           "weight": 1
+        },
+        {
+          "id": 417,
+          "type": "question",
+          "question": "Stimulând un neuron senzitiv se declanșează un potențial de acțiune. Dublând intensitatea stimulului:",
+          "answers": [
+            {
+              "text": "potențialul de acțiune se propagă mai rapid de-a lungul axonului",
+              "correct": false
+            },
+            {
+              "text": "în decursul unui potențial de acțiune intră mai mulți ioni de Na+ în celulă",
+              "correct": false
+            },
+            {
+              "text": "se declanșează un potențial de acțiune de intensitate mai mare",
+              "correct": false
+            },
+            {
+              "text": "se declanșează potențial de acțiune la conul de emergență al axonului",
+              "correct": true
+            },
+            {
+              "text": "niciun răspuns corect",
+              "correct": false
+            }
+          ],
+          "explanation": "",
+          "collapsed": true,
+          "weight": 1
         }
       ],
       "images": [
@@ -6506,6 +6808,10 @@
         {
           "type": "question",
           "id": 403
+        },
+        {
+          "type": "question",
+          "id": 417
         }
       ]
     },
@@ -7172,6 +7478,36 @@
           "explanation": "Târgu Mureș - admitere iulie 2022",
           "collapsed": true,
           "weight": 1
+        },
+        {
+          "id": 420,
+          "type": "question",
+          "question": "În acoperirea insulei participă:",
+          "answers": [
+            {
+              "text": "lobul occipital",
+              "correct": false
+            },
+            {
+              "text": "lobul temporal",
+              "correct": true
+            },
+            {
+              "text": "corpul calos",
+              "correct": false
+            },
+            {
+              "text": "lobul frontal",
+              "correct": true
+            },
+            {
+              "text": "niciun răspuns corect",
+              "correct": false
+            }
+          ],
+          "explanation": "",
+          "collapsed": true,
+          "weight": 1
         }
       ],
       "images": [
@@ -7384,6 +7720,10 @@
         {
           "type": "question",
           "id": 405
+        },
+        {
+          "type": "question",
+          "id": 420
         }
       ]
     },
@@ -7900,6 +8240,96 @@
           "explanation": "Târgu Mureș - admitere iulie 2022",
           "collapsed": true,
           "weight": 1
+        },
+        {
+          "id": 426,
+          "type": "question",
+          "question": "Referitor la simțul gustului este adevărat că:",
+          "answers": [
+            {
+              "text": "impulsurile nervoase gustative trec prin bulb și talamus după care ajung în lobul parietal",
+              "correct": true
+            },
+            {
+              "text": "receptorii pentru umami sunt localizați îndeosebi la vârful limbii",
+              "correct": false
+            },
+            {
+              "text": "gustul amar stimulează partea posterioară a limbii",
+              "correct": true
+            },
+            {
+              "text": "gustul acru stimulează porțiunile postero-laterale ale limbii",
+              "correct": false
+            },
+            {
+              "text": "niciun răspuns corect",
+              "correct": false
+            }
+          ],
+          "explanation": "",
+          "collapsed": true,
+          "weight": 1
+        },
+        {
+          "id": 429,
+          "type": "question",
+          "question": "Despre simțul mirosului se poate afirma:",
+          "answers": [
+            {
+              "text": "celulele olfactive nu obosesc, iar conștientizarea mirosurilor persistă",
+              "correct": false
+            },
+            {
+              "text": "omul detectează peste 4000 de mirosuri diferite provocate de 20 de substanțe chimice odorante",
+              "correct": false
+            },
+            {
+              "text": "nervul olfactiv ajunge în lobul parietal unde stimulii sunt interpretați",
+              "correct": false
+            },
+            {
+              "text": "nervul olfactiv pătrunde în cutia craniană prin lama cribriformă a osului etmoid",
+              "correct": true
+            },
+            {
+              "text": "niciun răspuns corect",
+              "correct": false
+            }
+          ],
+          "explanation": "",
+          "collapsed": true,
+          "weight": 1
+        },
+        {
+          "id": 432,
+          "type": "question",
+          "question": "Retina:",
+          "answers": [
+            {
+              "text": "controlează cantitatea de lumină",
+              "correct": false
+            },
+            {
+              "text": "conține neuroni multipolari atașați coroidei",
+              "correct": false
+            },
+            {
+              "text": "conține neuroni bipolari ai căror axoni formează nucleul optic",
+              "correct": false
+            },
+            {
+              "text": "este stratul cel mai intern al globului ocular",
+              "correct": true
+            },
+            {
+              "text": "niciun răspuns corect",
+              "correct": false
+            }
+          ],
+          "explanation": "",
+          "collapsed": true,
+          "weight": 1
         }
       ],
       "images": [
@@ -8068,6 +8498,18 @@
         {
           "type": "question",
           "id": 399
+        },
+        {
+          "type": "question",
+          "id": 426
+        },
+        {
+          "type": "question",
+          "id": 429
+        },
+        {
+          "type": "question",
+          "id": 432
         }
       ]
     },
@@ -8734,6 +9176,126 @@
           "explanation": "Târgu Mureș - admitere iulie 2022",
           "collapsed": true,
           "weight": 1
+        },
+        {
+          "id": 413,
+          "type": "question",
+          "question": "Care afirmație/afirmații este/sunt falsă/false?",
+          "answers": [
+            {
+              "text": "gastrina este un hormon produs de celulele enteroendocrine la nivelul tractului digestiv",
+              "correct": false
+            },
+            {
+              "text": "eritropoetina, hormon produs la nivelul ficatului, stimulează formarea hematiilor în măduva roșie osoasă",
+              "correct": true
+            },
+            {
+              "text": "prostaglandinele sunt hormoni non-steroizi care influențează contracția mușchilor netezi",
+              "correct": false
+            },
+            {
+              "text": "melatonina, sintetizată la nivelul hipofizei, influențează ritmul nictemeral",
+              "correct": true
+            },
+            {
+              "text": "niciun răspuns corect",
+              "correct": false
+            }
+          ],
+          "explanation": "",
+          "collapsed": true,
+          "weight": 1
+        },
+        {
+          "id": 425,
+          "type": "question",
+          "question": "Care afirmație/afirmații sunt adevărate cu privire la sistemul endocrin?",
+          "answers": [
+            {
+              "text": "ACTH-ul acționează asupra zonei medulare a glandei suprarenale",
+              "correct": false
+            },
+            {
+              "text": "hormonii steroizi acționează ca mesageri primari care stimulează adenilat ciclaza",
+              "correct": false
+            },
+            {
+              "text": "ADH-ul este produs la nivelul neurohipofizei",
+              "correct": false
+            },
+            {
+              "text": "TSH, LH, FSH sunt hormoni tropi hipofizari",
+              "correct": true
+            },
+            {
+              "text": "niciun răspuns corect",
+              "correct": false
+            }
+          ],
+          "explanation": "",
+          "collapsed": true,
+          "weight": 1
+        },
+        {
+          "id": 427,
+          "type": "question",
+          "question": "La un pacient cu boală Addison:",
+          "answers": [
+            {
+              "text": "scade reabsorbția de Na+",
+              "correct": true
+            },
+            {
+              "text": "scade eliminarea de K+",
+              "correct": true
+            },
+            {
+              "text": "crește secreția de mineralocorticoizi",
+              "correct": false
+            },
+            {
+              "text": "scade eliminarea de apă",
+              "correct": false
+            },
+            {
+              "text": "niciun răspuns corect",
+              "correct": false
+            }
+          ],
+          "explanation": "",
+          "collapsed": true,
+          "weight": 1
+        },
+        {
+          "id": 431,
+          "type": "question",
+          "question": "Un pacient care suferă de diabet insipid și-a golit vezica urinară plină de 4 ori, în ultimele 12 ore, dar nu a putut consuma lichide. În acest caz:",
+          "answers": [
+            {
+              "text": "nivelul de aldosteron este probabil scăzut",
+              "correct": false
+            },
+            {
+              "text": "osmoreceptorii hipotalamici sunt activați",
+              "correct": true
+            },
+            {
+              "text": "pacientul probabil are presiunea sanguină scăzută",
+              "correct": true
+            },
+            {
+              "text": "pacientul are o secreție de ACTH scăzută",
+              "correct": false
+            },
+            {
+              "text": "niciun răspuns corect",
+              "correct": false
+            }
+          ],
+          "explanation": "",
+          "collapsed": true,
+          "weight": 1
         }
       ],
       "images": [
@@ -8934,6 +9496,22 @@
         {
           "type": "question",
           "id": 400
+        },
+        {
+          "type": "question",
+          "id": 413
+        },
+        {
+          "type": "question",
+          "id": 425
+        },
+        {
+          "type": "question",
+          "id": 427
+        },
+        {
+          "type": "question",
+          "id": 431
         }
       ]
     },
@@ -9570,6 +10148,126 @@
           "explanation": "Târgu Mureș - admitere iulie 2022",
           "collapsed": true,
           "weight": 1
+        },
+        {
+          "id": 421,
+          "type": "question",
+          "question": "Au rol în oprirea unei sângerări următoarele celule:",
+          "answers": [
+            {
+              "text": "celula endotelială",
+              "correct": true
+            },
+            {
+              "text": "fibrinogenul",
+              "correct": false
+            },
+            {
+              "text": "leucocitul",
+              "correct": false
+            },
+            {
+              "text": "trombina",
+              "correct": false
+            },
+            {
+              "text": "niciun răspuns corect",
+              "correct": false
+            }
+          ],
+          "explanation": "",
+          "collapsed": true,
+          "weight": 1
+        },
+        {
+          "id": 430,
+          "type": "question",
+          "question": "De la un bărbat recoltăm sânge într-un tub îngust ce conține o substanță ce previne coagularea și imediat centrifugăm proba. După centrifugare lichidul de culoare gălbuie reprezintă 58% din volumul total. În acest caz:",
+          "answers": [
+            {
+              "text": "este posibil că bărbatul suferă de hipoxie",
+              "correct": true
+            },
+            {
+              "text": "celulele sedimentate sunt înglobate în filamente de fibrină",
+              "correct": false
+            },
+            {
+              "text": "lichidul gălbui nu conține protrombină",
+              "correct": false
+            },
+            {
+              "text": "este posibil că bărbatul suferă de anemie pernicioasă",
+              "correct": true
+            },
+            {
+              "text": "niciun răspuns corect",
+              "correct": false
+            }
+          ],
+          "explanation": "",
+          "collapsed": true,
+          "weight": 1
+        },
+        {
+          "id": 433,
+          "type": "question",
+          "question": "În sângele unui pacient care se prezintă la medic pentru urticarie probabil vom găsi:",
+          "answers": [
+            {
+              "text": "numărul limfocitelor mai mic de 1500/mm3",
+              "correct": false
+            },
+            {
+              "text": "numărul celulelor ce conțin granule colorate în albastru mai mic de 70/mm3",
+              "correct": false
+            },
+            {
+              "text": "numărul celulelor ce conțin granule roșii mai mare de 70/mm3",
+              "correct": true
+            },
+            {
+              "text": "numărul mastocitelor scăzut",
+              "correct": false
+            },
+            {
+              "text": "niciun răspuns corect",
+              "correct": false
+            }
+          ],
+          "explanation": "",
+          "collapsed": true,
+          "weight": 1
+        },
+        {
+          "id": 435,
+          "type": "question",
+          "question": "Maria are sânge A- și are 2 copii cu Iosif care are sânge B+. După nașterea celui de-al doilea copil se determină grupa sanguină la ambii copii, cu următorul rezultat: primul copil, Ioan este A+, în timp ce nou-născutul Alexandru este A-. În acest caz:",
+          "answers": [
+            {
+              "text": "determinarea grupelor sanguine trebuie repetată, Alexandru nu poate fi A- dacă tatăl este Rh-pozitiv",
+              "correct": false
+            },
+            {
+              "text": "după nașterea lui Alexandru este necesar ca Maria să primească anticorpi anti-Rh",
+              "correct": false
+            },
+            {
+              "text": "dacă Maria avea în sânge anticorpi de tip IgG, aceștia au ajuns în timpul sarcinii în sângele lui Alexandru",
+              "correct": true
+            },
+            {
+              "text": "dacă Maria nu a primit anticorpi anti-Rh după nașterea lui Ioan este foarte probabil că Alexandru suferă de eritroblastoză fetală",
+              "correct": false
+            },
+            {
+              "text": "niciun răspuns corect",
+              "correct": false
+            }
+          ],
+          "explanation": "",
+          "collapsed": true,
+          "weight": 1
         }
       ],
       "images": [
@@ -9742,6 +10440,22 @@
         {
           "type": "question",
           "id": 381
+        },
+        {
+          "type": "question",
+          "id": 421
+        },
+        {
+          "type": "question",
+          "id": 430
+        },
+        {
+          "type": "question",
+          "id": 433
+        },
+        {
+          "type": "question",
+          "id": 435
         }
       ]
     },
@@ -10198,6 +10912,96 @@
           "explanation": "Târgu Mureș - admitere iulie 2022",
           "collapsed": true,
           "weight": 1
+        },
+        {
+          "id": 410,
+          "type": "question",
+          "question": "Are/au originea din aorta abdominală:",
+          "answers": [
+            {
+              "text": "arterele intercostale",
+              "correct": false
+            },
+            {
+              "text": "artera iliacă internă",
+              "correct": false
+            },
+            {
+              "text": "artera mezenterică superioară",
+              "correct": true
+            },
+            {
+              "text": "arterele gonadală",
+              "correct": true
+            },
+            {
+              "text": "niciun răspuns corect",
+              "correct": false
+            }
+          ],
+          "explanation": "",
+          "collapsed": true,
+          "weight": 1
+        },
+        {
+          "id": 424,
+          "type": "question",
+          "question": "O femeie tânără zboară 8 ore cu avionul fără să se ridice de pe scaun. Datorită comprimării venei femurale s-a format un tromb care, la ridicarea în picioare, este dus apoi mai departe de fluxul sanguin. Embolul poate bloca:",
+          "answers": [
+            {
+              "text": "artera coronară stângă",
+              "correct": false
+            },
+            {
+              "text": "artera coronară dreaptă",
+              "correct": false
+            },
+            {
+              "text": "o arteră pulmonară",
+              "correct": true
+            },
+            {
+              "text": "o venă pulmonară",
+              "correct": false
+            },
+            {
+              "text": "niciun răspuns corect",
+              "correct": false
+            }
+          ],
+          "explanation": "",
+          "collapsed": true,
+          "weight": 1
+        },
+        {
+          "id": 436,
+          "type": "question",
+          "question": "Legat de sistemul venos al inimii este adevărat că:",
+          "answers": [
+            {
+              "text": "vena cardiacă mijlocie se unește cu vena cardiacă principală",
+              "correct": false
+            },
+            {
+              "text": "vena cardiacă mică se unește cu vena cardiacă mijlocie",
+              "correct": true
+            },
+            {
+              "text": "vena cardiacă posterioară drenează peretele posterior al ventriculului stâng",
+              "correct": true
+            },
+            {
+              "text": "sinusul coronar se îndreaptă către atriul drept dinspre vârful inimii",
+              "correct": false
+            },
+            {
+              "text": "niciun răspuns corect",
+              "correct": false
+            }
+          ],
+          "explanation": "",
+          "collapsed": true,
+          "weight": 1
         }
       ],
       "images": [
@@ -10394,6 +11198,18 @@
         {
           "type": "question",
           "id": 401
+        },
+        {
+          "type": "question",
+          "id": 410
+        },
+        {
+          "type": "question",
+          "id": 424
+        },
+        {
+          "type": "question",
+          "id": 436
         }
       ]
     },
@@ -12410,6 +13226,66 @@
           "explanation": "Târgu Mureș - admitere iulie 2022",
           "collapsed": true,
           "weight": 1
+        },
+        {
+          "id": 418,
+          "type": "question",
+          "question": "Referitor la intestinul gros este adevărat că:",
+          "answers": [
+            {
+              "text": "bacteriile din colon sintetizează vitamina K",
+              "correct": true
+            },
+            {
+              "text": "principalul ion absorbit este ionul de potasiu",
+              "correct": false
+            },
+            {
+              "text": "aici au loc procese importante de digestie chimică",
+              "correct": false
+            },
+            {
+              "text": "este locul de absorbție al unor vitamine",
+              "correct": true
+            },
+            {
+              "text": "niciun răspuns corect",
+              "correct": false
+            }
+          ],
+          "explanation": "",
+          "collapsed": true,
+          "weight": 1
+        },
+        {
+          "id": 438,
+          "type": "question",
+          "question": "Referitor la secreția gastrică este adevărat că:",
+          "answers": [
+            {
+              "text": "celulele parietale produc pepsinogen și mucus",
+              "correct": false
+            },
+            {
+              "text": "celulele caliciforme secretă mucus",
+              "correct": true
+            },
+            {
+              "text": "celulele principale secretă factor intrinsec și mucus",
+              "correct": false
+            },
+            {
+              "text": "gastrina controlează secreția de acid clorhidric",
+              "correct": true
+            },
+            {
+              "text": "niciun răspuns corect",
+              "correct": false
+            }
+          ],
+          "explanation": "",
+          "collapsed": true,
+          "weight": 1
         }
       ],
       "images": [
@@ -12630,6 +13506,14 @@
         {
           "type": "question",
           "id": 404
+        },
+        {
+          "type": "question",
+          "id": 418
+        },
+        {
+          "type": "question",
+          "id": 438
         }
       ]
     },
@@ -13780,6 +14664,66 @@
           "explanation": "Târgu Mureș - admitere iulie 2022",
           "collapsed": true,
           "weight": 1
+        },
+        {
+          "id": 411,
+          "type": "question",
+          "question": "Pelvisul renal:",
+          "answers": [
+            {
+              "text": "este poziționat inferior de vezica urinară",
+              "correct": false
+            },
+            {
+              "text": "este un sac pliabil și are trei orificii, două spre uretere și unul spre uretră",
+              "correct": false
+            },
+            {
+              "text": "este format prin convergența calicelor mari",
+              "correct": true
+            },
+            {
+              "text": "are aproximativ 25-30 cm și transportă urina prin unde peristaltice",
+              "correct": false
+            },
+            {
+              "text": "niciun răspuns corect",
+              "correct": false
+            }
+          ],
+          "explanation": "",
+          "collapsed": true,
+          "weight": 1
+        },
+        {
+          "id": 434,
+          "type": "question",
+          "question": "Secreția tubulară:",
+          "answers": [
+            {
+              "text": "elimină activ penicilina",
+              "correct": true
+            },
+            {
+              "text": "schimbă concentrația ionilor pentru a menține homeostazia sângelui",
+              "correct": true
+            },
+            {
+              "text": "este un proces pasiv prin care este eliminat acidul uric",
+              "correct": false
+            },
+            {
+              "text": "se realizează la nivelul tubului contort proximal",
+              "correct": false
+            },
+            {
+              "text": "niciun răspuns corect",
+              "correct": false
+            }
+          ],
+          "explanation": "",
+          "collapsed": true,
+          "weight": 1
         }
       ],
       "images": [
@@ -13944,6 +14888,14 @@
         {
           "type": "question",
           "id": 367
+        },
+        {
+          "type": "question",
+          "id": 411
+        },
+        {
+          "type": "question",
+          "id": 434
         }
       ]
     },
@@ -14400,6 +15352,36 @@
           "explanation": "Târgu Mureș - admitere iulie 2022",
           "collapsed": true,
           "weight": 1
+        },
+        {
+          "id": 412,
+          "type": "question",
+          "question": "La nivelul unei zone de piele există un proces inflamator-infecțios datorită căruia se formează edem. Este adevărat că:",
+          "answers": [
+            {
+              "text": "scăderea presiunii coloid-osmotice a sângelui, datorită eliberării de histamină, poate fi cauza edemului",
+              "correct": true
+            },
+            {
+              "text": "blocarea vaselor limfatice poate fi cauza edemului",
+              "correct": true
+            },
+            {
+              "text": "scăderea concentrației proteinelor din spațiul interstițial poate fi cauza edemului",
+              "correct": false
+            },
+            {
+              "text": "dacă în spațiul intercelular avem mai multe proteine crește presiunea coloid-osmotică a sângelui",
+              "correct": false
+            },
+            {
+              "text": "niciun răspuns corect",
+              "correct": false
+            }
+          ],
+          "explanation": "",
+          "collapsed": true,
+          "weight": 1
         }
       ],
       "images": [
@@ -14536,6 +15518,10 @@
         {
           "type": "question",
           "id": 325
+        },
+        {
+          "type": "question",
+          "id": 412
         }
       ]
     },
@@ -14992,6 +15978,36 @@
           "explanation": "Târgu Mureș - admitere iulie 2022",
           "collapsed": true,
           "weight": 1
+        },
+        {
+          "id": 414,
+          "type": "question",
+          "question": "Glandele bulbouretrale:",
+          "answers": [
+            {
+              "text": "secreția lor constituie 30% din volumul spermei",
+              "correct": false
+            },
+            {
+              "text": "creșterea lor în dimensiuni, la vârstnici, îngreunează urinarea",
+              "correct": false
+            },
+            {
+              "text": "secretă mucus lubrefiant",
+              "correct": true
+            },
+            {
+              "text": "se deschid în uretra peniană",
+              "correct": true
+            },
+            {
+              "text": "niciun răspuns corect",
+              "correct": false
+            }
+          ],
+          "explanation": "",
+          "collapsed": true,
+          "weight": 1
         }
       ],
       "images": [
@@ -15116,6 +16132,10 @@
         {
           "type": "question",
           "id": 360
+        },
+        {
+          "type": "question",
+          "id": 414
         }
       ]
     },
@@ -15632,6 +16652,36 @@
           "explanation": "Târgu Mureș - admitere iulie 2022",
           "collapsed": true,
           "weight": 1
+        },
+        {
+          "id": 422,
+          "type": "question",
+          "question": "Finalizarea meiozei II, în cadrul procesului de ovogeneză, are loc:",
+          "answers": [
+            {
+              "text": "înainte de capacitație",
+              "correct": false
+            },
+            {
+              "text": "înainte de ovulație",
+              "correct": false
+            },
+            {
+              "text": "în timpul fecundației",
+              "correct": true
+            },
+            {
+              "text": "înainte de eliberarea enzimelor din acrozom",
+              "correct": false
+            },
+            {
+              "text": "niciun răspuns corect",
+              "correct": false
+            }
+          ],
+          "explanation": "",
+          "collapsed": true,
+          "weight": 1
         }
       ],
       "images": [
@@ -15872,6 +16922,10 @@
         {
           "type": "question",
           "id": 385
+        },
+        {
+          "type": "question",
+          "id": 422
         }
       ]
     }
