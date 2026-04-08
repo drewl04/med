@@ -2,7 +2,7 @@
   "meta": {
     "version": 2,
     "nextChapterId": 24,
-    "nextQuestionId": 440,
+    "nextQuestionId": 461,
     "nextImageId": 188
   },
   "chapters": [
@@ -399,6 +399,66 @@
           "explanation": "",
           "collapsed": true,
           "weight": 1
+        },
+        {
+          "id": 440,
+          "type": "question",
+          "question": "Referitor la cavitățile corpului este adevărat că:",
+          "answers": [
+            {
+              "text": "cavitatea pericardică este situată medial față de cavitățile pleurale",
+              "correct": true
+            },
+            {
+              "text": "flancul drept este inferior față de hipocondrul drept și superior față de regiunea iliacă dreaptă",
+              "correct": false
+            },
+            {
+              "text": "în mediastin se găsesc inima, timusul și bronhiolele",
+              "correct": false
+            },
+            {
+              "text": "cavitatea pericardică este un spațiu situat între foița viscerală și cea parietală a pleurei",
+              "correct": false
+            },
+            {
+              "text": "niciun răspuns corect",
+              "correct": false
+            }
+          ],
+          "explanation": "",
+          "collapsed": true,
+          "weight": 1
+        },
+        {
+          "id": 455,
+          "type": "question",
+          "question": "Alegeți răspunsul/răspunsurile corect/corecte din cele de mai jos:",
+          "answers": [
+            {
+              "text": "planul transversal împarte corpul într-o parte anterioară și una posterioară",
+              "correct": false
+            },
+            {
+              "text": "foița parietală a peritoneului acoperă complet unele organe abdominale",
+              "correct": false
+            },
+            {
+              "text": "canalul rahidian adăpostește măduva spinării",
+              "correct": true
+            },
+            {
+              "text": "organele retroperitoneale sunt acoperite de peritoneu doar pe fața anterioară",
+              "correct": true
+            },
+            {
+              "text": "niciun răspuns corect",
+              "correct": false
+            }
+          ],
+          "explanation": "",
+          "collapsed": true,
+          "weight": 1
         }
       ],
       "images": [
@@ -515,6 +575,14 @@
         {
           "type": "question",
           "id": 419
+        },
+        {
+          "type": "question",
+          "id": 440
+        },
+        {
+          "type": "question",
+          "id": 455
         }
       ]
     },
@@ -1001,6 +1069,96 @@
           "explanation": "",
           "collapsed": true,
           "weight": 1
+        },
+        {
+          "id": 445,
+          "type": "question",
+          "question": "Zaharoza conține:",
+          "answers": [
+            {
+              "text": "2 molecule de glucoză",
+              "correct": false
+            },
+            {
+              "text": "o moleculă de glucoză și o moleculă de galactoză",
+              "correct": false
+            },
+            {
+              "text": "22 atomi de hidrogen",
+              "correct": true
+            },
+            {
+              "text": "12 atomi de carbon",
+              "correct": true
+            },
+            {
+              "text": "niciun răspuns corect",
+              "correct": false
+            }
+          ],
+          "explanation": "",
+          "collapsed": true,
+          "weight": 1
+        },
+        {
+          "id": 450,
+          "type": "question",
+          "question": "Referitor la atomul de carbon este adevărat că:",
+          "answers": [
+            {
+              "text": "nucleul conține 6 electroni",
+              "correct": false
+            },
+            {
+              "text": "poate să primească 4 electroni pentru ca stratul extern să devină complet",
+              "correct": true
+            },
+            {
+              "text": "numărul de masă este 4",
+              "correct": false
+            },
+            {
+              "text": "în jurul nucleului se învârt, în total, 4 electroni",
+              "correct": false
+            },
+            {
+              "text": "niciun răspuns corect",
+              "correct": false
+            }
+          ],
+          "explanation": "??",
+          "collapsed": true,
+          "weight": 1
+        },
+        {
+          "id": 454,
+          "type": "question",
+          "question": "Alegeți răspunsul/răspunsurile corect/corecte din cele de mai jos:",
+          "answers": [
+            {
+              "text": "proteinele transmembranare nu au rol în transportul membranar",
+              "correct": false
+            },
+            {
+              "text": "glicolipidele și glicoproteinele pot servi drept receptori pentru hormoni",
+              "correct": true
+            },
+            {
+              "text": "proteinele transmembranare pot servi ca transportori ai moleculelor organice",
+              "correct": true
+            },
+            {
+              "text": "difuziunea reprezintă mișcarea moleculelor împotriva gradientului de concentrație",
+              "correct": false
+            },
+            {
+              "text": "niciun răspuns corect",
+              "correct": false
+            }
+          ],
+          "explanation": "",
+          "collapsed": true,
+          "weight": 1
         }
       ],
       "images": [],
@@ -1068,6 +1226,18 @@
         {
           "type": "question",
           "id": 415
+        },
+        {
+          "type": "question",
+          "id": 445
+        },
+        {
+          "type": "question",
+          "id": 450
+        },
+        {
+          "type": "question",
+          "id": 454
         }
       ]
     },
@@ -1644,6 +1814,36 @@
           "explanation": "",
           "collapsed": true,
           "weight": 1
+        },
+        {
+          "id": 448,
+          "type": "question",
+          "question": "Referitor la ciclul celular este adevărat că:",
+          "answers": [
+            {
+              "text": "fusul de diviziune persistă și este refolosit la fiecare mitoză",
+              "correct": false
+            },
+            {
+              "text": "interfaza ciclului celular include trei faze distincte: faza G1, faza S și faza G2",
+              "correct": true
+            },
+            {
+              "text": "la sfârșitul fazei S rezultă câte o cromatidă pentru fiecare cromatidă prezentă în faza G1",
+              "correct": false
+            },
+            {
+              "text": "în profază nucleolii dispar, iar învelișul nuclear se dezasamblează",
+              "correct": true
+            },
+            {
+              "text": "niciun răspuns corect",
+              "correct": false
+            }
+          ],
+          "explanation": "",
+          "collapsed": true,
+          "weight": 1
         }
       ],
       "images": [
@@ -1856,6 +2056,10 @@
         {
           "type": "question",
           "id": 423
+        },
+        {
+          "type": "question",
+          "id": 448
         }
       ]
     },
@@ -3060,31 +3264,31 @@
         {
           "id": 439,
           "type": "question",
-          "question": "",
+          "question": "Este adevărat că:",
           "answers": [
             {
-              "text": "",
+              "text": "aspectul spinos al cheratinocitelor din epiderm este dat de prezența desmozomilor",
+              "correct": true
+            },
+            {
+              "text": "discurile intercalare conțin în structura lor desmozomi",
+              "correct": true
+            },
+            {
+              "text": "spațiul intercelular de la nivelul desmozomilor este de 2 nm",
               "correct": false
             },
             {
-              "text": "",
+              "text": "desmozomii facilitează comunicarea electrică între celule",
               "correct": false
             },
             {
-              "text": "",
-              "correct": false
-            },
-            {
-              "text": "",
-              "correct": false
-            },
-            {
-              "text": "",
+              "text": "niciun răspuns corect",
               "correct": false
             }
           ],
           "explanation": "",
-          "collapsed": false,
+          "collapsed": true,
           "weight": 1
         }
       ],
@@ -5108,6 +5312,36 @@
           "explanation": "",
           "collapsed": true,
           "weight": 1
+        },
+        {
+          "id": 446,
+          "type": "question",
+          "question": "Alegeți afirmația/afirmațiile corectă/corecte:",
+          "answers": [
+            {
+              "text": "sistemul nervos simpatic poate stimula contracțiile mușchiului neted",
+              "correct": true
+            },
+            {
+              "text": "corpii denși de la nivelul mușchilor netezi sunt echivalentul benzii A din mușchii scheletici",
+              "correct": false
+            },
+            {
+              "text": "fibra musculară netedă se contractă mai rapid decât fibra scheletică și menține contracția o perioadă mult mai lungă",
+              "correct": false
+            },
+            {
+              "text": "celulele musculare netede sunt așezate, în straturi, în peretele tubului gastrointestinal",
+              "correct": true
+            },
+            {
+              "text": "niciun răspuns corect",
+              "correct": false
+            }
+          ],
+          "explanation": "",
+          "collapsed": true,
+          "weight": 1
         }
       ],
       "images": [
@@ -5260,6 +5494,10 @@
         {
           "type": "question",
           "id": 437
+        },
+        {
+          "type": "question",
+          "id": 446
         }
       ]
     },
@@ -6600,6 +6838,96 @@
           "explanation": "",
           "collapsed": true,
           "weight": 1
+        },
+        {
+          "id": 444,
+          "type": "question",
+          "question": "La un bolnav se distrug în număr foarte mare celulele Schwann. În acest caz:",
+          "answers": [
+            {
+              "text": "impulsul nervos ajunge mai încet de la măduva spinării la mușchii mâinii",
+              "correct": true
+            },
+            {
+              "text": "se poate observa o scădere marcată a substanței albe din creier",
+              "correct": false
+            },
+            {
+              "text": "retragerea membrului în cadrul reflexului de retragere apare într-un timp mai scurt",
+              "correct": false
+            },
+            {
+              "text": "nodurile Ranvier devin acoperite cu o substanță lipidică",
+              "correct": false
+            },
+            {
+              "text": "niciun răspuns corect",
+              "correct": false
+            }
+          ],
+          "explanation": "",
+          "collapsed": true,
+          "weight": 1
+        },
+        {
+          "id": 449,
+          "type": "question",
+          "question": "Într-un experiment se blochează medicamentos producția de ATP într-un neuron. În acest caz:",
+          "answers": [
+            {
+              "text": "scade concentrația extracelulară de K+",
+              "correct": false
+            },
+            {
+              "text": "în mod compensator crește transportul ionilor împotriva gradientului de concentrație",
+              "correct": false
+            },
+            {
+              "text": "crește concentrația intracelulară de Na+",
+              "correct": true
+            },
+            {
+              "text": "concentrația ionilor de sodiu, din exteriorul celulei, va fi de peste 20 de ori mai mare decât cea din interior",
+              "correct": false
+            },
+            {
+              "text": "niciun răspuns corect",
+              "correct": false
+            }
+          ],
+          "explanation": "",
+          "collapsed": true,
+          "weight": 1
+        },
+        {
+          "id": 458,
+          "type": "question",
+          "question": "Ioan a călcat într-o pioneză. Privind neuronii din cornul anterior al măduvei spinării, care se activează în cadrul reflexului de retragere, este adevărat că:",
+          "answers": [
+            {
+              "text": "primesc prin intermediul interneuronilor informație de la neuronii care au corpul celular în ganglionul rădăcinii posterioare a nervului spinal",
+              "correct": true
+            },
+            {
+              "text": "neurotransmițătorul care se eliberează din butonii terminali ai axonului, după legarea de receptori, este recuperat prin endocitoză",
+              "correct": false
+            },
+            {
+              "text": "în butonii terminali se deschid canalele de calciu voltaj-dependente",
+              "correct": true
+            },
+            {
+              "text": "axonii lor formează nervi aferenți",
+              "correct": false
+            },
+            {
+              "text": "niciun răspuns corect",
+              "correct": false
+            }
+          ],
+          "explanation": "",
+          "collapsed": true,
+          "weight": 1
         }
       ],
       "images": [
@@ -6812,6 +7140,18 @@
         {
           "type": "question",
           "id": 417
+        },
+        {
+          "type": "question",
+          "id": 444
+        },
+        {
+          "type": "question",
+          "id": 449
+        },
+        {
+          "type": "question",
+          "id": 458
         }
       ]
     },
@@ -7508,6 +7848,36 @@
           "explanation": "",
           "collapsed": true,
           "weight": 1
+        },
+        {
+          "id": 443,
+          "type": "question",
+          "question": "Nervul cranian VIII:",
+          "answers": [
+            {
+              "text": "transmite informații referitoare la echilibrul dinamic dinspre utriculă la creier",
+              "correct": false
+            },
+            {
+              "text": "are originea aparentă lateral față de nervul facial",
+              "correct": true
+            },
+            {
+              "text": "conține și fibre motorii",
+              "correct": false
+            },
+            {
+              "text": "are originea aparentă lateral față de nervul abducens",
+              "correct": true
+            },
+            {
+              "text": "niciun răspuns corect",
+              "correct": false
+            }
+          ],
+          "explanation": "",
+          "collapsed": true,
+          "weight": 1
         }
       ],
       "images": [
@@ -7724,6 +8094,10 @@
         {
           "type": "question",
           "id": 420
+        },
+        {
+          "type": "question",
+          "id": 443
         }
       ]
     },
@@ -8330,6 +8704,36 @@
           "explanation": "",
           "collapsed": true,
           "weight": 1
+        },
+        {
+          "id": 452,
+          "type": "question",
+          "question": "Este adevărat că:",
+          "answers": [
+            {
+              "text": "discromatopsia se corectează cu lentile torice",
+              "correct": false
+            },
+            {
+              "text": "astigmatismul este incapacitatea de a distinge două puncte apropiate în anumite părți ale câmpului vizual",
+              "correct": true
+            },
+            {
+              "text": "odată cu înaintarea în vârstă se poate instala presbitismul",
+              "correct": true
+            },
+            {
+              "text": "hipermetropia se corectează cu lentile biconcave",
+              "correct": false
+            },
+            {
+              "text": "niciun răspuns corect",
+              "correct": false
+            }
+          ],
+          "explanation": "",
+          "collapsed": true,
+          "weight": 1
         }
       ],
       "images": [
@@ -8510,6 +8914,10 @@
         {
           "type": "question",
           "id": 432
+        },
+        {
+          "type": "question",
+          "id": 452
         }
       ]
     },
@@ -14060,6 +14468,126 @@
           "explanation": "Târgu Mureș - admitere iulie 2022",
           "collapsed": true,
           "weight": 1
+        },
+        {
+          "id": 442,
+          "type": "question",
+          "question": "Asociați tipul de vitamină liposolubilă cu deficiențele lui:",
+          "answers": [
+            {
+              "text": "calciferolul - liza celulelor roșii sanguine",
+              "correct": false
+            },
+            {
+              "text": "tocoferolul - rahitism",
+              "correct": false
+            },
+            {
+              "text": "vitamina K - sângerare excesivă",
+              "correct": true
+            },
+            {
+              "text": "retinolul - nictalopie",
+              "correct": true
+            },
+            {
+              "text": "niciun răspuns corect",
+              "correct": false
+            }
+          ],
+          "explanation": "",
+          "collapsed": true,
+          "weight": 1
+        },
+        {
+          "id": 451,
+          "type": "question",
+          "question": "Este adevărat că:",
+          "answers": [
+            {
+              "text": "lipoproteinele cu densitate mare (HDL) contribuie la eliminarea trigliceridelor și a colesterolului din sânge",
+              "correct": true
+            },
+            {
+              "text": "nivelul crescut al LDL se asociază cu risc crescut de boală coronariană",
+              "correct": true
+            },
+            {
+              "text": "lipoproteinele cu densitate mică (LDL) conțin 15% colesterol și transportă colesterolul de la celulă la ficat",
+              "correct": false
+            },
+            {
+              "text": "lipoproteinele cu densitate mare (HDL) transportă colesterolul de la ficat la țesuturi",
+              "correct": false
+            },
+            {
+              "text": "niciun răspuns corect",
+              "correct": false
+            }
+          ],
+          "explanation": "",
+          "collapsed": true,
+          "weight": 1
+        },
+        {
+          "id": 453,
+          "type": "question",
+          "question": "Procesul de glicoliză:",
+          "answers": [
+            {
+              "text": "duce la un câștig net de 2 molecule de ATP",
+              "correct": true
+            },
+            {
+              "text": "necesită oxigen",
+              "correct": false
+            },
+            {
+              "text": "duce la formarea de NADH utilizată în sistemul de transport al electronilor",
+              "correct": true
+            },
+            {
+              "text": "are loc în nucleul celulei și utilizează cel puțin 6 enzime",
+              "correct": false
+            },
+            {
+              "text": "niciun răspuns corect",
+              "correct": false
+            }
+          ],
+          "explanation": "",
+          "collapsed": true,
+          "weight": 1
+        },
+        {
+          "id": 456,
+          "type": "question",
+          "question": "Ciclul Krebs:",
+          "answers": [
+            {
+              "text": "utilizează 2 molecule de acid piruvic formate prin chemiosmoză",
+              "correct": false
+            },
+            {
+              "text": "două molecule de acetil-CoA duc la formarea a 4 molecule de CO2",
+              "correct": true
+            },
+            {
+              "text": "are loc în mitocondria celulei",
+              "correct": true
+            },
+            {
+              "text": "ultimul compus chimic este NADH-ul",
+              "correct": false
+            },
+            {
+              "text": "niciun răspuns corect",
+              "correct": false
+            }
+          ],
+          "explanation": "",
+          "collapsed": true,
+          "weight": 1
         }
       ],
       "images": [
@@ -14268,6 +14796,22 @@
         {
           "type": "question",
           "id": 392
+        },
+        {
+          "type": "question",
+          "id": 442
+        },
+        {
+          "type": "question",
+          "id": 451
+        },
+        {
+          "type": "question",
+          "id": 453
+        },
+        {
+          "type": "question",
+          "id": 456
         }
       ]
     },
@@ -15382,6 +15926,36 @@
           "explanation": "",
           "collapsed": true,
           "weight": 1
+        },
+        {
+          "id": 441,
+          "type": "question",
+          "question": "La un pacient cu diabet zaharat netratat se acumulează corpi cetonici. La acest pacient:",
+          "answers": [
+            {
+              "text": "poate să apară hiperventilație",
+              "correct": true
+            },
+            {
+              "text": "crește alcalinitatea în spațiul intracelular și sânge",
+              "correct": false
+            },
+            {
+              "text": "apare acidoza respiratorie",
+              "correct": false
+            },
+            {
+              "text": "aciditatea lichidului cefalo-rahidian sigur nu se schimbă",
+              "correct": false
+            },
+            {
+              "text": "niciun răspuns corect",
+              "correct": false
+            }
+          ],
+          "explanation": "",
+          "collapsed": true,
+          "weight": 1
         }
       ],
       "images": [
@@ -15522,6 +16096,10 @@
         {
           "type": "question",
           "id": 412
+        },
+        {
+          "type": "question",
+          "id": 441
         }
       ]
     },
@@ -16008,6 +16586,36 @@
           "explanation": "",
           "collapsed": true,
           "weight": 1
+        },
+        {
+          "id": 459,
+          "type": "question",
+          "question": "Care pot fi (în ordine) formațiunile anatomice parcurse de un spermatozoid de la formare și până în mediul extern?",
+          "answers": [
+            {
+              "text": "tubul drept, canalul eferent, epididimul, ductul deferent, uretra membranoasă, uretra prostatică",
+              "correct": false
+            },
+            {
+              "text": "tubul seminifer, tubul drept, canalul eferent, ductul deferent, ductul ejaculator, uretra peniană",
+              "correct": true
+            },
+            {
+              "text": "lobulul testicular, rețeaua testiculară, ductul deferent, capul epididimului, vezicula seminală, uretra",
+              "correct": false
+            },
+            {
+              "text": "uretra peniană, ampula ductului deferent, ductul ejaculator, epididimul, rețeaua testiculară, tubul seminifer",
+              "correct": false
+            },
+            {
+              "text": "niciun răspuns corect",
+              "correct": false
+            }
+          ],
+          "explanation": "",
+          "collapsed": true,
+          "weight": 1
         }
       ],
       "images": [
@@ -16136,6 +16744,10 @@
         {
           "type": "question",
           "id": 414
+        },
+        {
+          "type": "question",
+          "id": 459
         }
       ]
     },
@@ -16682,6 +17294,36 @@
           "explanation": "",
           "collapsed": true,
           "weight": 1
+        },
+        {
+          "id": 457,
+          "type": "question",
+          "question": "În faza proliferativă a ciclului menstrual:",
+          "answers": [
+            {
+              "text": "crește nivelul estrogenului și al progesteronului",
+              "correct": true
+            },
+            {
+              "text": "stratul funcțional al endometrului se îngroașă",
+              "correct": true
+            },
+            {
+              "text": "glandele endometriale secretă nutrienți",
+              "correct": false
+            },
+            {
+              "text": "stratul funcțional al endometrului se desprinde de pe peretele uterin",
+              "correct": false
+            },
+            {
+              "text": "niciun răspuns corect",
+              "correct": false
+            }
+          ],
+          "explanation": "",
+          "collapsed": true,
+          "weight": 1
         }
       ],
       "images": [
@@ -16926,6 +17568,10 @@
         {
           "type": "question",
           "id": 422
+        },
+        {
+          "type": "question",
+          "id": 457
         }
       ]
     }
