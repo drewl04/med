@@ -1196,9 +1196,19 @@
 
         for (let index = 0; index < targetAmount; index += 1) {
             const entry = shuffled[index % shuffled.length];
-            const displayAnswers = shuffleAnswers
-                ? shuffleArray([...entry.question.answers])
-                : [...entry.question.answers];
+            const originalAnswers = [...entry.question.answers];
+
+            let displayAnswers = originalAnswers;
+
+            if (shuffleAnswers) {
+                if (originalAnswers.length >= 5) {
+                    const firstFour = shuffleArray([...originalAnswers.slice(0, 4)]);
+                    const fifthAnswer = originalAnswers[4];
+                    displayAnswers = [...firstFour, fifthAnswer];
+                } else {
+                    displayAnswers = shuffleArray([...originalAnswers]);
+                }
+            }
 
             result.push({
                 ...entry,
